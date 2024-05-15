@@ -1,73 +1,103 @@
 body {
-    margin: 0 auto;
-    background-image:url(img/image.png);
-    background-repeat: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  font-family: "Cabin", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
 }
 
-body{
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
+.toper {
+  background-image: url(img/ondas.png);
+  background-size: 100%;
+  padding: 0%;
+  gap: 0;
+  margin: 0%;
+  box-sizing: border-box;
+  color: white;
 }
 
-nav{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100px;
-    margin: 0;
-    border-bottom: 1px solid black;
-    box-sizing: border-box;   
-}
-
-a{
-    text-decoration: none;
-    padding-top: 41px;
-    padding-bottom: 40px;
-    padding-left: 40px;
-    padding-right: 40px;
-    background-color: transparent;
-    color: black;
-}
-
-a:hover{
-    text-decoration: none;
-    padding-top: 41px;
-    padding-bottom: 40px;
-    padding-left: 40px;
-    padding-right: 40px;
-    background-color: black;
-    background-blend-mode: darken;
+@keyframes header {
+  from {
     color: white;
+    opacity: 1;
+  }
+  to {
+    color: black;
+    opacity: 0;
+  }
+}
+.toper {
+  view-timeline-name: --head;
+  view-timeline-axis: block;
+
+  animation-timeline: --head;
+  animation-name: header;
+
+  animation-range: exit;
+  animation-fill-mode: both;
 }
 
-img{
-    width: 500px;
-    height: auto;
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e4c0a2;
+  width: 100%;
+  height: 70px;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-@keyframes show {
-    from {
-        opacity: 0;
-        scale: 250px;
-    }
+a {
+  text-decoration: none;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: transparent;
+  color: black;
+}
 
-    to {
-        opacity: 1;
-        scale: 500px;
-    }
+a:hover {
+  text-decoration: none;
+  padding-top: 26px;
+  padding-bottom: 25px;
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: #012858;
+  background-blend-mode: darken;
+  color: white;
 }
 
 img {
-    view-timeline-name: --image;
-    view-timeline-axis: block;
+  width: 500px;
+  height: auto;
+}
 
-    animation-timeline: --image;
-    animation-name: show;
+@keyframes show {
+  from {
+    opacity: 0;
+    scale: 250px;
+  }
 
-    animation-range: entry 25% cover 50%;
-    animation-fill-mode: both;
+  to {
+    opacity: 1;
+    scale: 500px;
+  }
+}
+
+img {
+  view-timeline-name: --image;
+  view-timeline-axis: block;
+
+  animation-timeline: --image;
+  animation-name: show;
+
+  animation-range: entry 25% cover 50%;
+  animation-fill-mode: both;
 }
