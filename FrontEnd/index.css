@@ -1,0 +1,42 @@
+body {
+    margin: 0 auto;
+}
+
+nav{
+    background-color: gray;
+    color: white;
+    text-decoration: none;
+    height: 40px;
+}
+
+a{
+    
+}
+
+img{
+    width: 500px;
+    height: auto;
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+        scale: 250px;
+    }
+
+    to {
+        opacity: 1;
+        scale: 500px;
+    }
+}
+
+img {
+    view-timeline-name: --image;
+    view-timeline-axis: block;
+
+    animation-timeline: --image;
+    animation-name: show;
+
+    animation-range: entry 25% cover 50%;
+    animation-fill-mode: both;
+}
