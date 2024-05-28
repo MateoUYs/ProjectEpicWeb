@@ -1,6 +1,8 @@
 body {
   background-image: url(img/background.jpg);
   background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
   justify-content: center;
   margin: 0;
   display: flex;
@@ -105,7 +107,16 @@ header {
   box-sizing: border-box;
   color: white;
 }
+.topper1 {
+ font-family: 'bebas neue';
+font-weight: 1;
+ font-size: 90px;
+}
 
+.topper2 {
+  text-shadow: 5px 4px 4px rgba(0, 0, 0, 10),
+  -2px -2px 4px rgba(0, 0, 0, 0.5);
+}
 @keyframes header {
   from {
     color: white;
@@ -166,7 +177,7 @@ img {
   animation-timeline: --image;
   animation-name: show;
 
-  animation-range: entry 25% cover 50%;
+  animation-range: entry 25% cover 35%;
   animation-fill-mode: both;
 }
 
