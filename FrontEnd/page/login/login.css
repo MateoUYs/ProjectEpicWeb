@@ -1,0 +1,12 @@
+body{
+    
+}
+
+section{
+    background: gray;
+    height: 600px;
+    width: 70%;     
+    position: fixed;
+    position: absolute;
+    align-content: center;
+}
