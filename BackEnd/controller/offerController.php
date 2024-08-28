@@ -1,3 +1,4 @@
+
 <?php
 // Se incluye el archivo que contiene la definición de la clase 'offers' y su método 'getOffersModel'
 require_once __DIR__ . "../model/offerDAO.php";
