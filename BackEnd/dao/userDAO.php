@@ -22,6 +22,30 @@ class user{
         return $users;
     }
 
+    function agregarUsuario() {
+        // Implementación pendiente
+    }
+    
+    // Función para eliminar un usuario
+    function eliminarUsuario() {
+        // Implementación pendiente
+    }
+    
+    // Función para modificar un usuario
+    function modificarUsuario() {
+        // Implementación pendiente
+    }
+    
+    // Función para iniciar sesión
+    function iniciarSesion() {
+        // Implementación pendiente
+    }
+    
+    // Función para verificar un usuario
+    function verificarUsuario() {
+        // Implementación pendiente
+    }
     
 }
+
 ?>
