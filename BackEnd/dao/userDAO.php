@@ -21,5 +21,7 @@ class user{
         // Devuelve el array de arrays asociativos con los registros de la tabla 'users'
         return $users;
     }
+
+    
 }
 ?>
