@@ -21,5 +21,24 @@ class products {
         // Se retorna el arreglo de productos
         return $products;
     }
+
+    function addProducts() {
+        // Implementación pendiente
+    }
+    
+    // Función para eliminar un producto
+    function deleteProducts() {
+        // Implementación pendiente
+    }
+    
+    // Función para modificar un producto
+    function modifyProducts() {
+        // Implementación pendiente
+    }
+    
+    // Función para obtener detalles de un producto específico
+    function obtenerDetalleProducto() {
+        // Implementación pendiente
+    }
 }
 ?>
