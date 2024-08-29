@@ -1,4 +1,4 @@
-/* Estilos Generales */
+
 body {
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -20,7 +20,7 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* Contenedor del formulario */
+
 .auth-container {
     background-color: white;
     padding: 40px;
@@ -90,14 +90,3 @@ hr {
 }
 
 
-::-webkit-scrollbar {
-    background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    background: lightgray;
-}
-
-::-webkit-scrollbar-corner {
-    border-radius: 10px;
-}

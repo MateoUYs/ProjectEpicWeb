@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-08-2024 a las 19:50:50
+-- Tiempo de generación: 29-08-2024 a las 20:29:25
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Versión de PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -200,13 +200,16 @@ ALTER TABLE `compra`
 -- Indices de la tabla `compraproducto`
 --
 ALTER TABLE `compraproducto`
-  ADD PRIMARY KEY (`idProducto`,`idCompra`);
+  ADD PRIMARY KEY (`idProducto`,`idCompra`),
+  ADD KEY `idCompra` (`idCompra`);
 
 --
 -- Indices de la tabla `compraproductofactura`
 --
 ALTER TABLE `compraproductofactura`
-  ADD PRIMARY KEY (`idProducto`,`idCompra`,`idFactura`) USING BTREE;
+  ADD PRIMARY KEY (`idProducto`,`idCompra`,`idFactura`) USING BTREE,
+  ADD KEY `idFactura` (`idFactura`),
+  ADD KEY `idCompra` (`idCompra`);
 
 --
 -- Indices de la tabla `consulta`
@@ -260,7 +263,8 @@ ALTER TABLE `usuario`
 -- Indices de la tabla `usuarioproductofavorito`
 --
 ALTER TABLE `usuarioproductofavorito`
-  ADD PRIMARY KEY (`idProducto`,`ciUsuario`);
+  ADD PRIMARY KEY (`idProducto`,`ciUsuario`),
+  ADD KEY `ciUsuario` (`ciUsuario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -307,10 +311,63 @@ ALTER TABLE `producto`
 --
 
 --
+-- Filtros para la tabla `compra`
+--
+ALTER TABLE `compra`
+  ADD CONSTRAINT `compra_ibfk_1` FOREIGN KEY (`ciUsuario`) REFERENCES `usuario` (`ci`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `compraproducto`
+--
+ALTER TABLE `compraproducto`
+  ADD CONSTRAINT `compraproducto_ibfk_1` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `compraproducto_ibfk_2` FOREIGN KEY (`idCompra`) REFERENCES `compra` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `compraproductofactura`
+--
+ALTER TABLE `compraproductofactura`
+  ADD CONSTRAINT `compraproductofactura_ibfk_1` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `compraproductofactura_ibfk_2` FOREIGN KEY (`idFactura`) REFERENCES `factura` (`idFactura`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `compraproductofactura_ibfk_3` FOREIGN KEY (`idCompra`) REFERENCES `compra` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `consulta`
+--
+ALTER TABLE `consulta`
+  ADD CONSTRAINT `consulta_ibfk_1` FOREIGN KEY (`ciUsuario`) REFERENCES `usuario` (`ci`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `mensaje`
+--
+ALTER TABLE `mensaje`
+  ADD CONSTRAINT `mensaje_ibfk_1` FOREIGN KEY (`idConsulta`) REFERENCES `consulta` (`idConsulta`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `oferta`
+--
+ALTER TABLE `oferta`
+  ADD CONSTRAINT `oferta_ibfk_1` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Filtros para la tabla `productocategoria`
 --
 ALTER TABLE `productocategoria`
-  ADD CONSTRAINT `productocategoria_ibfk_1` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `productocategoria_ibfk_1` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `productocategoria_ibfk_2` FOREIGN KEY (`nombreCategoria`) REFERENCES `categoria` (`nombre`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`ci`) REFERENCES `mensaje` (`ciUsuario`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `usuarioproductofavorito`
+--
+ALTER TABLE `usuarioproductofavorito`
+  ADD CONSTRAINT `usuarioproductofavorito_ibfk_1` FOREIGN KEY (`ciUsuario`) REFERENCES `usuario` (`ci`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `usuarioproductofavorito_ibfk_2` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
