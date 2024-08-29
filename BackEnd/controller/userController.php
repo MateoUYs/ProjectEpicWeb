@@ -63,10 +63,7 @@ function modificarUsuario() {
     // Implementación pendiente
 }
 
-// Función para iniciar sesión
-function iniciarSesion() {
-    // Implementación pendiente
-}
+
 
 // Función para verificar un usuario
 function verificarUsuario() {
