@@ -9,6 +9,8 @@
         public function iniciarSesion($ci , $password){
             //completar verfificar datos 
             //obtener datos del usuario 
+            $nombre=null;
+            $isAdmin=null;
 
             $sesion = new Sesion($ci,$nombre,$isAdmin);
             $_SESSION['sesion'] = $sesion;
