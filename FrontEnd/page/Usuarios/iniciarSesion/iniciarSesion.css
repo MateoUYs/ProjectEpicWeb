@@ -90,14 +90,3 @@ hr {
 }
 
 
-::-webkit-scrollbar {
-    background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    background: lightgray;
-}
-
-::-webkit-scrollbar-corner {
-    border-radius: 10px;
-}
