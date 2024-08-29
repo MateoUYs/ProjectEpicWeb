@@ -1,5 +1,5 @@
 body {
-  background: ;
+  
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -19,13 +19,13 @@ body {
   
 }
 
-/* .fondo{
+.fondo{
   position: fixed;
   width: 100%;
   top: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.459);
-} */
+} 
 
 ul {
   list-style-type: none;
