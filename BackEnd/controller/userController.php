@@ -46,6 +46,11 @@ function getUsers() {
 // Función para agregar un usuario
 function agregarUsuario() {
     // Implementación pendiente
+    $usuario = $_POST["user"];
+    $password  = $_POST["password"];
+    $correo  = $_POST["correo"];
+    
+    (new userDAO)->agregarUsuario($correo,$usuario,$password);
 }
 
 // Función para eliminar un usuario

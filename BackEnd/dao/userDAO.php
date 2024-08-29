@@ -2,7 +2,7 @@
 // Requiere el archivo connection.php que contiene la función de conexión a la base de datos
 require_once __DIR__ . "../controller/connection.php";
 
-class user{
+class userDAO{
     // Método para obtener los usuarios desde el modelo (base de datos)
     function getUsersModel(){
         // Establece la conexión a la base de datos utilizando la función connection() del archivo connection.php
@@ -22,8 +22,29 @@ class user{
         return $users;
     }
 
-    function agregarUsuario() {
+    function agregarUsuario($correo,$usuario,$password) {
         // Implementación pendiente
+        
+       
+    
+        $codigoUnico=uniqid();
+
+      //  $sql = "INSERT INTO `usuario` (`email`, `nombre`, `estadoVerificacion`, `codigoVerificacion`, `password`) VALUES ('$correo', '$nombre', 0, '$codigoUnico', '$password');";
+      //  $estado = $coneccion->query($sql);
+      //  echo $estado;
+
+        
+        $para      = $correo;
+        $asunto    = 'Codigo de validacion';
+        $descripcion   = ''.$codigoUnico;
+        $de = 'projectEpicWeb@gmail.com';
+        
+        if (mail($para, $asunto, $descripcion, $de))
+           {
+        echo "Correo enviado satisfactoriamente";
+        }else{
+            echo" error al enviar correo";
+        }
     }
     
     // Función para eliminar un usuario
