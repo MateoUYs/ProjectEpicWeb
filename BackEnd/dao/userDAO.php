@@ -1,6 +1,6 @@
 <?php
 // Requiere el archivo connection.php que contiene la función de conexión a la base de datos
-require_once __DIR__ . "../controller/connection.php";
+require_once __DIR__ . "/../controller/connection.php";
 
 class userDAO{
     // Método para obtener los usuarios desde el modelo (base de datos)
@@ -22,29 +22,30 @@ class userDAO{
         return $users;
     }
 
-    function agregarUsuario($correo,$usuario,$password) {
+    function agregarUsuario($ci, $correo,$usuario,$password,$telefono) {
         // Implementación pendiente
         
-       
+  
     
-        $codigoUnico=uniqid();
+      //  $codigoUnico=uniqid();
 
-      //  $sql = "INSERT INTO `usuario` (`email`, `nombre`, `estadoVerificacion`, `codigoVerificacion`, `password`) VALUES ('$correo', '$nombre', 0, '$codigoUnico', '$password');";
-      //  $estado = $coneccion->query($sql);
-      //  echo $estado;
-
+        $sql = "INSERT INTO `usuario` (`email`, `ci`, `username`, `password`, `telefono`) VALUES ('$correo', '$ci' ,'$usuario', '$password', '$telefono');";
+       echo $sql;
+        $connection = connection();
+        $respuesta = $connection->query($sql);
+        return $respuesta;
         
-        $para      = $correo;
-        $asunto    = 'Codigo de validacion';
-        $descripcion   = ''.$codigoUnico;
-        $de = 'projectEpicWeb@gmail.com';
+       // $para      = $correo;
+       // $asunto    = 'Codigo de validacion';
+        //$descripcion   = ''.$codigoUnico;
+        //$de = 'projectEpicWeb@gmail.com';
         
-        if (mail($para, $asunto, $descripcion, $de))
-           {
-        echo "Correo enviado satisfactoriamente";
-        }else{
-            echo" error al enviar correo";
-        }
+        //if (mail($para, $asunto, $descripcion, $de))
+        //   {
+        //echo "Correo enviado satisfactoriamente";
+        //}else{
+        //    echo" error al enviar correo";
+        //}
     }
     
     // Función para eliminar un usuario
