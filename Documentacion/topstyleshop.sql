@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-08-2024 a las 20:29:25
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
+-- Tiempo de generación: 03-09-2024 a las 23:26:54
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -167,6 +167,13 @@ CREATE TABLE `usuario` (
   `telefono` varchar(255) NOT NULL,
   `codigoVerificacion` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`email`, `isAdmin`, `isVerficada`, `ci`, `username`, `password`, `telefono`, `codigoVerificacion`) VALUES
+('eee', 0, 0, '8', 'ale', '$2y$10$z3J8sKYd1tLb0JvxSUuHSe6qLqDGye0OHPDp20DSJaN/QU70JPSuy', '3', '');
 
 -- --------------------------------------------------------
 
@@ -341,7 +348,8 @@ ALTER TABLE `consulta`
 -- Filtros para la tabla `mensaje`
 --
 ALTER TABLE `mensaje`
-  ADD CONSTRAINT `mensaje_ibfk_1` FOREIGN KEY (`idConsulta`) REFERENCES `consulta` (`idConsulta`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `mensaje_ibfk_1` FOREIGN KEY (`idConsulta`) REFERENCES `consulta` (`idConsulta`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `mensaje_ibfk_2` FOREIGN KEY (`ciUsuario`) REFERENCES `usuario` (`ci`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `oferta`
@@ -355,12 +363,6 @@ ALTER TABLE `oferta`
 ALTER TABLE `productocategoria`
   ADD CONSTRAINT `productocategoria_ibfk_1` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `productocategoria_ibfk_2` FOREIGN KEY (`nombreCategoria`) REFERENCES `categoria` (`nombre`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `usuario`
---
-ALTER TABLE `usuario`
-  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`ci`) REFERENCES `mensaje` (`ciUsuario`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `usuarioproductofavorito`
