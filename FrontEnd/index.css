@@ -13,127 +13,85 @@ body {
   font-weight: 400;
   font-style: normal;
   font-variation-settings: "wdth" 100;
-  z-index: 30;
-  overflow: overlay;
+  z-index:30;
+
+  
+  
 }
 
-.section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.auth-container {
-  background-color: white;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+.fondo{
+  position: fixed;
   width: 100%;
-  max-width: 400px;
-}
-
-.auth-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.form-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 36px;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-hr {
-  width: 100%;
-  border: 0;
-  border-top: 2px solid #333;
-  margin-bottom: 20px;
-}
-
-.form-group {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.form-input {
-  width: 100%;
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  box-sizing: border-box;
-}
-
-.form-input:focus {
-  border-color: #333;
-  outline: none;
-}
-
-.form-btn {
-  width: 100%;
-  padding: 15px;
-  border: none;
-  border-radius: 5px;
-  background-color: #444444;
-  color: white;
-  font-size: 18px;
-  font-family: 'Kanit', sans-serif;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.form-btn:hover {
-  background-color: #333;
-}
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.459);
+} 
 
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-
 ul li {
   display: inline-block;
   position: relative;
   margin-right: 20px;
 }
-
 ul li a {
   display: block;
   padding: 10px 20px;
   text-decoration: none;
   color: #333;
 }
-
 ul ul {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
-
 ul li:hover > ul {
   display: block;
 }
-
 ul ul li {
   display: block;
 }
 
-.topbar {
-  position: sticky;
-  top: 0px;
-  z-index: 50;
+
+main {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    flex-direction: column;
+    text-align: center;
+}
+
+body{
+  overflow:overlay;
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb{
+  background: lightgray;
+}
+::-webkit-scrollbar-corner{
+  border-radius: 10px;;
+}
+
+.topbar{
+  Position:sticky;
+  Top:0px;
+  z-index:50;
 }
 
 nav {
   display: flex;
   justify-content: center;
   align-items: center;
+
   width: 100%;
   height: 70px;
   margin: 0;
@@ -142,13 +100,21 @@ nav {
 
 a {
   text-decoration: none;
-  padding: 26px 20px;
+  padding-top: 26px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
   background-color: transparent;
   color: black;
   transition: 100ms;
 }
 
 a:hover {
+  text-decoration: none;
+  padding-top: 26px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
   background-color: #444444;
   background-blend-mode: darken;
   color: white;
@@ -157,38 +123,59 @@ a:hover {
 
 header {
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+  border: 0;
+  padding: 0%;
+  margin: 0%;
 }
 
 .topper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  border: 0;
+  padding: 0%;
+  margin: 0%;
   width: 100%;
   height: 97vh;
   box-sizing: border-box;
   color: white;
 }
-
 .topper1 {
-  font-family: 'Bebas Neue';
-  font-weight: 1;
-  font-size: 90px;
+ font-family: 'bebas neue';
+font-weight: 1;
+ font-size: 90px;
 }
 
 .topper2 {
-  text-shadow: 5px 4px 4px rgba(0, 0, 0, 10), -2px -2px 4px rgba(0, 0, 0, 0.5);
-  text-align: center;
-  max-width: 800px;
+  text-shadow: 5px 4px 4px rgba(0, 0, 0, 10),
+  -2px -2px 4px rgba(0, 0, 0, 0.5);
+}
+@keyframes header {
+  from {
+    color: white;
+    opacity: 1;
+  }
+  to {
+    color: black;
+    opacity: 0;
+  }
+}
+.topper {
+  view-timeline-name: --head;
+  view-timeline-axis: block;
+
+  animation-timeline: --head;
+  animation-name: header;
+
+  animation-range: exit;
+  animation-fill-mode: both;
 }
 
-.prendas {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+img {
+  width: 350px;
+
+  padding: 10px;
+ 
+}
+
+.prendas{
   background-color: white;
   width: 100%;
 }
@@ -198,16 +185,16 @@ header {
   justify-content: center;
   align-items: center;
 }
+  
 
-img {
-  width: 350px;
-  padding: 10px;
-}
+
+
 
 @keyframes show {
   from {
-    opacity: 0;
+  opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -216,20 +203,10 @@ img {
 img {
   view-timeline-name: --image;
   view-timeline-axis: block;
+
   animation-timeline: --image;
   animation-name: show;
+
   animation-range: entry 25% cover 35%;
   animation-fill-mode: both;
-}
-
-::-webkit-scrollbar {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: lightgray;
-}
-
-::-webkit-scrollbar-corner {
-  border-radius: 10px;
 }
