@@ -3,7 +3,7 @@
 require_once __DIR__ . "../controller/connection.php";
 
 // Definición de la clase 'product'
-class products {
+class productsDAO {
     // Método para obtener todos los productos desde la base de datos
     function getProductsModel() {
         // Se obtiene la conexión a la base de datos
@@ -16,10 +16,19 @@ class products {
         $result = $connection->query($sql);
         
         // Se obtienen todas las filas del resultado en un arreglo asociativo
+        $productos =[];
+
+        while($fila = $result->fetch_assoc()){
+            $productos[] = new Producto($fila['precio'],$fila['nombre'],$fila['imagen'],$fila['talle'],$fila['descripcion'],$fila['color'],$fila['stock'],$fila['id']);
+        }
         $products = $result->fetch_all(MYSQLI_ASSOC);
+        return new Respuesta(true,"",$products);
+        
+
+
         
         // Se retorna el arreglo de productos
-        return $products;
+       // return $products;
     }
 
     function addProducts() {
