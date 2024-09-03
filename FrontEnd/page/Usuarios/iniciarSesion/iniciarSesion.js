@@ -1,24 +1,22 @@
-window.onload = async () => {
-    agregarEventoSubmit();
+window.onload = () => {
+    obtenerUsuarios();
 }
 
-function agregarEventoSubmit() {
-    let form = document.querySelector("#frmCrear");
-    form.onsubmit = async (e) => {
-        e.preventDefault();
-        let url = window.location.origin+ "/projectepicweb/BackEnd/controller/UserController.php?function=agregarUsuario";
-        let formdata = new FormData(form);
-        let config = {
-            method: "POST",
-            body: formdata
-        }
-        let respuesta = await fetch(url, config);
-        let datos = await respuesta.json();
-        console.log(datos);
-        if (datos) {
-            alert("Usuario logeado con exito");
-        } else {
-            document.getElementById("alert").textContent = "La contraseña o el mail es erroneo";
-        }
+async function obtenerUsuarios() {
+    //let usuarios = [{ci:56571716, nombre:"Mateo", apellido:"Indart"},{ci:52551716, nombre:"Juanjo", apellido:"Jorginho"},{ci:56576416, nombre:"Micho", apellido:"Ton"}];
+    let url = window.location.origin+"/crudusuarios-MateoUYs/Repositorios/BackEnd/controller/gestionUsuarioController.php?funcion=obtener";
+    let datos = await fetch(url);
+    let usuarios = await datos.json();
+    console.log(datos);
+    mostrarUsuarios(usuarios);
+}
+
+function mostrarUsuarios(usuarios) {
+    let tbodyElementes = document.querySelector("#datosUser")
+    for (let i=0; i < usuarios.length; i++){
+        tbodyElementes.innerHTML += `<tr>
+        <td>${usuarios[i].ci}</td>
+        <td>${usuarios[i].nombre}</td>
+        <td>${usuarios[i].apellido}</td></tr>`;
     }
 }
