@@ -6,7 +6,7 @@ function agregarEventoSubmit() {
     let form = document.querySelector("#frmCrear");
     form.onsubmit = async (e) => {
         e.preventDefault();
-        let url = window.location.origin+ "/crudusuarios-MateoUYs/Repositorios/BackEnd/controller/gestionUsuarioController.php?funcion=agregar";
+        let url = window.location.origin+ "/projectepicweb/BackEnd/controller/UserController.php?function=agregarUsuario";
         let formdata = new FormData(form);
         let config = {
             method: "POST",
@@ -16,9 +16,9 @@ function agregarEventoSubmit() {
         let datos = await respuesta.json();
         console.log(datos);
         if (datos) {
-            alert("Usuario Creado con éxito");
+            alert("Usuario logeado con exito");
         } else {
-            document.getElementById("alert").textContent = "Ya existe un usuario con la cédula ingresada";
+            document.getElementById("alert").textContent = "La contraseña o el mail es erroneo";
         }
     }
 }
