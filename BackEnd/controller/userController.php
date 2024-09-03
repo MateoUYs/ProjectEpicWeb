@@ -24,10 +24,6 @@ switch ($funcion) {
         // Si el valor de '$funcion' es 'modificarUsuario', se llama a la función modificarUsuario()
         modificarUsuario();
         break;
-    case 'iniciarSesion':
-        // Si el valor de '$funcion' es 'iniciarSesion', se llama a la función iniciarSesion()
-        iniciarSesion();
-        break;
     case 'verificarUsuario':
         // Si el valor de '$funcion' es 'verificarUsuario', se llama a la función verificarUsuario()
         verificarUsuario();
