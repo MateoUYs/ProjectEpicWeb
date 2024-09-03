@@ -35,11 +35,11 @@ ul {
 ul li {
   display: inline-block;
   position: relative;
-  margin-right: 20px;
+  margin-right: 0px;
 }
 ul li a {
   display: block;
-  padding: 10px 20px;
+  padding: 15px 20px;
   text-decoration: none;
   color: #333;
 }
@@ -100,7 +100,7 @@ nav {
 
 a {
   text-decoration: none;
-  padding-top: 26px;
+  padding-top: 25px;
   padding-bottom: 25px;
   padding-left: 20px;
   padding-right: 20px;
@@ -111,7 +111,7 @@ a {
 
 a:hover {
   text-decoration: none;
-  padding-top: 26px;
+  padding-top: 25px;
   padding-bottom: 25px;
   padding-left: 20px;
   padding-right: 20px;
