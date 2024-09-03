@@ -1,6 +1,6 @@
 export default class SesionDAO{
 
-
+//iniciarSesion
     async iniciarSesion(email,password) {
         let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/sesionController.php?function=iniciarSesion";
         let formData = new FormData();
@@ -16,14 +16,14 @@ export default class SesionDAO{
 
         
     }
-    
+    //obtenerSesion
     async obtenerSesion() {
         let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/sesionController.php?function=obtenerSesion";
         let respuestaConsulta = await fetch(url);
         let respuesta  = await respuestaConsulta.json();
 
     }
-    
+    //cerrarSesion
     async cerrarSesion() {
         let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/sesionController.php?function=cerrarSesion";
         let respuestaConsulta = await fetch(url);

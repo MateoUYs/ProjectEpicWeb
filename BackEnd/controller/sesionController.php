@@ -9,15 +9,15 @@ $funcion = isset($_GET['function']) ? $_GET['function'] : '';
 
 switch ($funcion) {
     case 'iniciarSesion':
-
+//llama a la funcion iniciarSesion
         iniciarSesion();
         break;
     case 'obtenerSesion':
-
+//llama a la funcion  obtenerSesion
         obtenerSesion();
         break;
     case 'cerrarSesion':
-
+//llama a la funcion cerrarSesion
         cerrarSesion();
         break;
     default:
