@@ -27,10 +27,6 @@
             }
         
             return $respuesta ;
-
-        
-            //$_SESSION['sesion'] = $sesion;
-
         }
 
         public function obtenerSesion(){
@@ -49,15 +45,6 @@
             return $respuesta;
         }
 
-        public function estaLogeado(){
-                   
-            if(isset($_SESSION['sesion'])){
-                $respuesta = new Respuesta(true,"esta logeado",null);
-            }else{
-                $respuesta = new Respuesta(false,"no esta logeado",null);
-            }
-            return $respuesta;
-        }
     }
 
 

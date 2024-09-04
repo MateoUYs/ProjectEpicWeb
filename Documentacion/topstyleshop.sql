@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-09-2024 a las 23:26:54
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.2.0
+-- Tiempo de generación: 04-09-2024 a las 22:55:44
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -136,8 +136,7 @@ CREATE TABLE `producto` (
   `descripcion` varchar(255) NOT NULL,
   `imagen` varchar(255) NOT NULL,
   `nombre` varchar(255) NOT NULL,
-  `color` varchar(255) NOT NULL,
-  `talle` varchar(255) NOT NULL
+  `color` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -149,6 +148,27 @@ CREATE TABLE `producto` (
 CREATE TABLE `productocategoria` (
   `nombreCategoria` varchar(255) NOT NULL,
   `idProducto` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productotalle`
+--
+
+CREATE TABLE `productotalle` (
+  `idProducto` int(11) NOT NULL,
+  `tipoTalle` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `talle`
+--
+
+CREATE TABLE `talle` (
+  `tipo` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -167,13 +187,6 @@ CREATE TABLE `usuario` (
   `telefono` varchar(255) NOT NULL,
   `codigoVerificacion` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `usuario`
---
-
-INSERT INTO `usuario` (`email`, `isAdmin`, `isVerficada`, `ci`, `username`, `password`, `telefono`, `codigoVerificacion`) VALUES
-('eee', 0, 0, '8', 'ale', '$2y$10$z3J8sKYd1tLb0JvxSUuHSe6qLqDGye0OHPDp20DSJaN/QU70JPSuy', '3', '');
 
 -- --------------------------------------------------------
 
@@ -236,8 +249,8 @@ ALTER TABLE `factura`
 --
 ALTER TABLE `mensaje`
   ADD PRIMARY KEY (`idMensaje`),
-  ADD KEY `ciUsuario` (`ciUsuario`),
-  ADD KEY `idConsulta` (`idConsulta`);
+  ADD KEY `idConsulta` (`idConsulta`),
+  ADD KEY `mensaje_ci` (`ciUsuario`);
 
 --
 -- Indices de la tabla `oferta`
@@ -260,11 +273,23 @@ ALTER TABLE `productocategoria`
   ADD KEY `idProducto` (`idProducto`);
 
 --
+-- Indices de la tabla `productotalle`
+--
+ALTER TABLE `productotalle`
+  ADD PRIMARY KEY (`idProducto`,`tipoTalle`) USING BTREE,
+  ADD KEY `tipoTalle` (`tipoTalle`);
+
+--
+-- Indices de la tabla `talle`
+--
+ALTER TABLE `talle`
+  ADD PRIMARY KEY (`tipo`);
+
+--
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`ci`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD PRIMARY KEY (`ci`);
 
 --
 -- Indices de la tabla `usuarioproductofavorito`
@@ -348,8 +373,8 @@ ALTER TABLE `consulta`
 -- Filtros para la tabla `mensaje`
 --
 ALTER TABLE `mensaje`
-  ADD CONSTRAINT `mensaje_ibfk_1` FOREIGN KEY (`idConsulta`) REFERENCES `consulta` (`idConsulta`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `mensaje_ibfk_2` FOREIGN KEY (`ciUsuario`) REFERENCES `usuario` (`ci`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `mensaje_ci` FOREIGN KEY (`ciUsuario`) REFERENCES `usuario` (`ci`),
+  ADD CONSTRAINT `mensaje_ibfk_1` FOREIGN KEY (`idConsulta`) REFERENCES `consulta` (`idConsulta`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `oferta`
@@ -363,6 +388,13 @@ ALTER TABLE `oferta`
 ALTER TABLE `productocategoria`
   ADD CONSTRAINT `productocategoria_ibfk_1` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `productocategoria_ibfk_2` FOREIGN KEY (`nombreCategoria`) REFERENCES `categoria` (`nombre`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `productotalle`
+--
+ALTER TABLE `productotalle`
+  ADD CONSTRAINT `productotalle_ibfk_1` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `productotalle_ibfk_2` FOREIGN KEY (`tipoTalle`) REFERENCES `talle` (`tipo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `usuarioproductofavorito`
