@@ -21,10 +21,10 @@ class productsDAO {
 
     }
 
-    function addProducts($precio, $descripcion, $imagen, $nombre, $color, $talle) {
+    function addProducts($precio, $descripcion, $imagen, $nombre, $color) {
         $extension = pathinfo($imagen['name'], PATHINFO_EXTENSION);
         $rutaTemporal = $imagen['tmp_name'];
-        $sql = "INSERT INTO producto(precio, descripcion, extension, nombre, color, talle) VALUES ('$precio', '$descripcion', '$imagen', '$nombre', '$color', '$talle')";
+        $sql = "INSERT INTO producto(precio, descripcion, extension, nombre, color) VALUES ('$precio', '$descripcion', '$imagen', '$nombre', '$color')";
         $connection = connection();
         $respuesta = $connection->query($sql);
         $idProducto = $connection->insert_id;
@@ -35,7 +35,7 @@ class productsDAO {
     
     // Función para eliminar un producto
     function deleteProducts() {
-        // Implementación pendiente
+        
     }
     
     // Función para modificar un producto

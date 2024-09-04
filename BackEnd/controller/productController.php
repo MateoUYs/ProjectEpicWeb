@@ -44,9 +44,8 @@ function addProducts() {
     $imagen = $_FILES['imagen'];
     $nombre = $_POST["nombre"];
     $color = $_POST["color"];
-    $talle = $_POST["talle"];
-
-    // Implementación pendiente
+    $resultado = (new productsDAO())->addProducts($precio, $descripcion, $imagen, $nombre, $color); 
+    echo json_encode($resultado);
 }
 
 // Función para eliminar un producto
