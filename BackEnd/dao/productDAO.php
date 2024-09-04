@@ -14,25 +14,23 @@ class productsDAO {
         
         // Se ejecuta la consulta y se almacena el resultado
         $result = $connection->query($sql);
-        
-        // Se obtienen todas las filas del resultado en un arreglo asociativo
-        $productos =[];
 
-        while($fila = $result->fetch_assoc()){
-            $productos[] = new Producto($fila['precio'],$fila['nombre'],$fila['imagen'],$fila['talle'],$fila['descripcion'],$fila['color'],$fila['stock'],$fila['id']);
-        }
-        $products = $result->fetch_all(MYSQLI_ASSOC);
-        return new Respuesta(true,"",$products);
-        
+        $productos = $result->fetch_all(MYSQLI_ASSOC);
 
+        return $productos;
 
-        
-        // Se retorna el arreglo de productos
-       // return $products;
     }
 
-    function addProducts() {
-        // Implementación pendiente
+    function addProducts($precio, $descripcion, $imagen, $nombre, $color, $talle) {
+        $extension = pathinfo($imagen['name'], PATHINFO_EXTENSION);
+        $rutaTemporal = $imagen['tmp_name'];
+        $sql = "INSERT INTO producto(precio, descripcion, extension, nombre, color, talle) VALUES ('$precio', '$descripcion', '$imagen', '$nombre', '$color', '$talle')";
+        $connection = connection();
+        $respuesta = $connection->query($sql);
+        $idProducto = $connection->insert_id;
+        move_uploaded_file($rutaTemporal,"../imgs/$idProducto.$extension");
+        return $respuesta;
+
     }
     
     // Función para eliminar un producto

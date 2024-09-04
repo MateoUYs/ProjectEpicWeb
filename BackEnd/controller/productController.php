@@ -39,6 +39,12 @@ function getProducts() {
 
 // Función para agregar un producto
 function addProducts() {
+    $precio = $_POST["precio"];
+    $descripcion = $_POST["descripcion"];
+    $imagen = $_FILES['imagen'];
+    $nombre = $_POST["nombre"];
+    $color = $_POST["color"];
+    $talle = $_POST["talle"];
 
     // Implementación pendiente
 }
