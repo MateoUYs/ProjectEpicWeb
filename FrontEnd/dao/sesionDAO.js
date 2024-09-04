@@ -13,6 +13,8 @@ export default class SesionDAO{
 
         let respuestaConsulta = await fetch(url,config);
         let respuesta  = await respuestaConsulta.json();
+        return respuesta;
+       
 
         
     }
@@ -21,6 +23,7 @@ export default class SesionDAO{
         let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/sesionController.php?function=obtenerSesion";
         let respuestaConsulta = await fetch(url);
         let respuesta  = await respuestaConsulta.json();
+        return respuesta;
 
     }
     //cerrarSesion
@@ -28,5 +31,6 @@ export default class SesionDAO{
         let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/sesionController.php?function=cerrarSesion";
         let respuestaConsulta = await fetch(url);
         let respuesta  = await respuestaConsulta.json();
+        return respuesta;
     }
 }

@@ -1,6 +1,7 @@
-<?php
+<?php header("Access-Control-Allow-Origin: *");
 
-require_once __DIR__ . "/../dao/userDAO.php";
+
+require_once __DIR__ . "/../dao/sesionDAO.php";
 
 
 
@@ -29,13 +30,17 @@ switch ($funcion) {
 function iniciarSesion() {
     $email=$_POST["email"];
     $password=$_POST["password"];
+    $Respuesta = (new SesionDAO)->iniciarSesion($email,$password);
+    echo json_encode($Respuesta);
 }
 
 function obtenerSesion() {
-
+    $Respuesta = (new SesionDAO)->obtenerSesion();
+    echo json_encode($Respuesta);
 }
 
 function cerrarSesion() {
-
+    $Respuesta = (new SesionDAO)->cerrarSession();
+    echo json_encode($Respuesta);
 }
 

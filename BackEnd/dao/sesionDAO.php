@@ -1,32 +1,62 @@
 <?php
 
     session_start();
+    require_once __DIR__ . "/../controller/connection.php";
+    require_once __DIR__ . "/respuesta.php";
+
 
     class SesionDAO{
         public $ci;
         public $nombre;
 
-        public function iniciarSesion($ci , $password){
-            //completar verfificar datos 
-            //obtener datos del usuario 
-            $nombre=null;
-            $isAdmin=null;
+        public function iniciarSesion($email , $password){
+            
 
-            $sesion = new Sesion($ci,$nombre,$isAdmin);
-            $_SESSION['sesion'] = $sesion;
+            $connection = connection();
+            $sql = "SELECT * FROM `usuario` WHERE  email = '$email' AND password  = '$password'";
+            $respuesta = $connection->query($sql);
+            $fila = $respuesta->fetch_assoc();
+            
+            if($fila != null){
+                $respuesta = new Respuesta(true,"sesion iniciada",null);
+                $_SESSION['sesion'] = ["usuario"=>$fila['username'],"email"=>$fila['email'],"isAdmin"=>$fila['isAdmin']];
+            }else{
+                $respuesta = new Respuesta(false,"Credenciales incorrectas",null);
+                $_SESSION['sesion'] = null;
+
+            }
+        
+            return $respuesta ;
+
+        
+            //$_SESSION['sesion'] = $sesion;
 
         }
 
         public function obtenerSesion(){
-            return $_SESSION['sesion'];
+           
+            if(isset($_SESSION['sesion'])){
+                $respuesta = new Respuesta(true,"sesion obtenida ",$_SESSION['sesion']);
+            }else{
+                $respuesta = new Respuesta(false,"no se encuentra una  sesion",null);
+            }
+            return $respuesta;
         }
 
         public function cerrarSession(){
             $_SESSION['sesion'] = null;
+            $respuesta = new Respuesta(true,"sesion cerrada",null);
+            return $respuesta;
         }
 
         public function estaLogeado(){
-            return isset($_SESSION['sesion']);
+                   
+            if(isset($_SESSION['sesion'])){
+                $respuesta = new Respuesta(true,"esta logeado",null);
+            }else{
+                $respuesta = new Respuesta(false,"no esta logeado",null);
+            }
+            return $respuesta;
         }
     }
 

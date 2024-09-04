@@ -50,7 +50,8 @@ function agregarUsuario() {
     $correo  = $_POST["correo"];
     $telefono = $_POST["phone"];    
     
-    (new userDAO)->agregarUsuario($ci,$correo,$usuario,$hashedPassword,$telefono);
+    $respuesta = (new userDAO)->agregarUsuario($ci,$correo,$usuario,$hashedPassword,$telefono);
+    echo json_encode($respuesta);
 }
 
 // Función para eliminar un usuario
