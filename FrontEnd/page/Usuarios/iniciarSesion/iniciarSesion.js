@@ -22,7 +22,6 @@ async function iniciarSesion(email,password){
         let respuesta = await new SesionDAO().obtenerSesion();
         redirigir(respuesta.isAdmin);
         console.log(respuesta);
-      //  window.location.href = "../";
     }else{
         alert(respuesta.mensaje);
     }
@@ -31,8 +30,8 @@ async function iniciarSesion(email,password){
 
 async function redirigir(isAdmin){
    if(isAdmin){
-    window.location.href = "../"
+    window.location.href = "../FrontEnd/page/Usuarios/indexAdmin"
    }else{
-    window.location.href = "../"
+    window.location.href = "../FrontEnd/page/Usuarios/IndexUsuario"
    }
 }
