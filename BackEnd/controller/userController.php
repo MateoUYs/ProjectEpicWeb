@@ -1,7 +1,7 @@
 <?php
 
 // Requiere el archivo userDAO.php que contiene la definición de la clase 'user' y sus métodos
-require_once __DIR__ . "../model/userDAO.php";
+require_once __DIR__ . '/../dao/userDAO.php';
 
 // Obtiene el parámetro 'function' de la URL
 $funcion = isset($_GET['function']) ? $_GET['function'] : '';
@@ -42,11 +42,15 @@ function getUsers() {
 // Función para agregar un usuario
 function agregarUsuario() {
     // Implementación pendiente
-    $usuario = $_POST["user"];
+
+    $ci = $_POST["ci"];
+    $usuario = $_POST["userName"];
     $password  = $_POST["password"];
+    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
     $correo  = $_POST["correo"];
+    $telefono = $_POST["phone"];    
     
-    (new userDAO)->agregarUsuario($correo,$usuario,$password);
+    (new userDAO)->agregarUsuario($ci,$correo,$usuario,$hashedPassword,$telefono);
 }
 
 // Función para eliminar un usuario

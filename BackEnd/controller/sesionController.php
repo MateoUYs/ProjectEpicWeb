@@ -1,25 +1,41 @@
 <?php
 
-// Requiere el archivo userDAO.php que contiene la definición de la clase 'user' y sus métodos
-require_once __DIR__ . "../model/userDAO.php";
+require_once __DIR__ . "/../dao/userDAO.php";
 
-// Obtiene el parámetro 'function' de la URL
+
+
 $funcion = isset($_GET['function']) ? $_GET['function'] : '';
 
-// Realiza una acción diferente dependiendo del valor de '$funcion'
+
 switch ($funcion) {
     case 'iniciarSesion':
-        // Si el valor de '$funcion' es 'iniciarSesion', se llama a la función iniciarSesion()
+//llama a la funcion iniciarSesion
         iniciarSesion();
         break;
+    case 'obtenerSesion':
+//llama a la funcion  obtenerSesion
+        obtenerSesion();
+        break;
+    case 'cerrarSesion':
+//llama a la funcion cerrarSesion
+        cerrarSesion();
+        break;
     default:
-        // Si el valor de '$funcion' no coincide con ningún caso, se puede manejar aquí
+
         echo json_encode(['error' => 'Función no reconocida']);
         break;
 }
 
-function iniciarSesion(){
-    
+function iniciarSesion() {
+    $email=$_POST["email"];
+    $password=$_POST["password"];
 }
 
-?>
+function obtenerSesion() {
+
+}
+
+function cerrarSesion() {
+
+}
+
