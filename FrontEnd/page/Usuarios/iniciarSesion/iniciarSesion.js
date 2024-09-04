@@ -20,10 +20,19 @@ async function iniciarSesion(email,password){
     let respuesta = await new SesionDAO().iniciarSesion(email,password);
     if(respuesta.estado){
         let respuesta = await new SesionDAO().obtenerSesion();
+        redirigir(respuesta.isAdmin);
         console.log(respuesta);
       //  window.location.href = "../";
     }else{
         alert(respuesta.mensaje);
     }
   
+}
+
+async function redirigir(isAdmin){
+   if(isAdmin){
+    window.location.href = "../"
+   }else{
+    window.location.href = "../"
+   }
 }

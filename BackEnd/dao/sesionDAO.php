@@ -9,6 +9,7 @@
         public $ci;
         public $nombre;
 
+
         public function iniciarSesion($email , $password){
             
 
