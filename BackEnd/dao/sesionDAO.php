@@ -9,6 +9,7 @@
         public $ci;
         public $nombre;
 
+
         public function iniciarSesion($email , $password){
             
 
@@ -19,7 +20,7 @@
             
             if($fila != null){
                 $respuesta = new Respuesta(true,"sesion iniciada",null);
-                $_SESSION['sesion'] = ["usuario"=>$fila['username'],"email"=>$fila['email'],"isAdmin"=>$fila['isAdmin']];
+                $_SESSION['sesion'] = ["usuario"=>$fila['username'],"email"=>$fila['email'],"isAdmin"=>$fila['isAdmin']==1 ? true:false];
             }else{
                 $respuesta = new Respuesta(false,"Credenciales incorrectas",null);
                 $_SESSION['sesion'] = null;
