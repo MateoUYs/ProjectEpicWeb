@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-09-2024 a las 15:23:54
+-- Tiempo de generación: 05-09-2024 a las 18:54:24
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -200,7 +200,10 @@ ALTER TABLE `compra`
 -- Indices de la tabla `compraproducto`
 --
 ALTER TABLE `compraproducto`
-  ADD PRIMARY KEY (`id`,`idProducto`,`idCompra`,`idOferta`) USING BTREE;
+  ADD PRIMARY KEY (`id`,`idProducto`,`idCompra`,`idOferta`) USING BTREE,
+  ADD KEY `idCompra` (`idCompra`),
+  ADD KEY `idProducto` (`idProducto`),
+  ADD KEY `idOferta` (`idOferta`);
 
 --
 -- Indices de la tabla `consulta`
@@ -221,7 +224,7 @@ ALTER TABLE `mensaje`
 -- Indices de la tabla `oferta`
 --
 ALTER TABLE `oferta`
-  ADD PRIMARY KEY (`idOferta`),
+  ADD PRIMARY KEY (`idOferta`) USING BTREE,
   ADD KEY `idProducto` (`idProducto`);
 
 --
@@ -312,6 +315,14 @@ ALTER TABLE `producto`
 --
 ALTER TABLE `compra`
   ADD CONSTRAINT `compra_ibfk_1` FOREIGN KEY (`ciUsuario`) REFERENCES `usuario` (`ci`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `compraproducto`
+--
+ALTER TABLE `compraproducto`
+  ADD CONSTRAINT `compraproducto_ibfk_1` FOREIGN KEY (`idCompra`) REFERENCES `compra` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `compraproducto_ibfk_2` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `compraproducto_ibfk_3` FOREIGN KEY (`idOferta`) REFERENCES `oferta` (`idOferta`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `consulta`
