@@ -27,23 +27,25 @@ body {
 }
 
 
-.auth-container {
-    background-color: #F8F8F8;
+.Container {
+    background-color: #f8f8f8;
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
     width: 100%;
     max-width: 400px;
+    backdrop-filter: blur(1px);
     
 }
 
-.auth-content {
+.Contenido {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
-.form-title {
+.Title {
     font-family: 'Bebas Neue', sans-serif;
     text-align: center;
     font-size: 36px;
