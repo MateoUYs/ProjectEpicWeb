@@ -13,7 +13,7 @@ class productsDAO
         $sqlAnswer = $connection->query($sql);
         if ($sqlAnswer) {
             $productos = $sqlAnswer->fetch_all(MYSQLI_ASSOC);
-            $answer = new answer(true, "producto eliminado", $productos);
+            $answer = new answer(true, "productos obtenidos", $productos);
         } else {
             $answer = new answer(false, "no se pudo obtener los productos", null);
         }

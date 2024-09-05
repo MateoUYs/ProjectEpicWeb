@@ -8,19 +8,19 @@ $funcion = isset($_GET['function']) ? $_GET['function'] : '';
 // Se usa un switch para manejar diferentes valores del parámetro 'function'
 switch ($funcion) {
     // Si el valor de 'function' es 'obtener', se llama a la función 'getProducts'
-    case 'obtener':
+    case 'get':
         getProducts();
         break;
-    case 'agregar':
+    case 'add':
         addProducts();
         break;
-    case 'eliminar':
+    case 'delete':
         deleteProducts();
         break;
-    case 'modificar':
+    case 'modify':
         modifyProducts();
         break;
-    case 'obtenerDetalleProducto':
+    case 'getProductDetails':
         getProductDetails();
         break;            
     // Si el valor de 'function' no es reconocido, se devuelve un mensaje de error en formato JSON
