@@ -10,14 +10,10 @@ class sizeDAO
     {
         $connection = connection();
         $sql = "SELECT * FROM talle";
-        $sqlAnswer = $connection->query($sql);
-        if ($sqlAnswer) {
-            $sizes = $sqlAnswer->fetch_all(MYSQLI_ASSOC);
-            $answer = new answer(true, "talles obtenidos", $sizes);
-        } else {
-            $answer = new answer(false, "no se pudo obtener los talles", null);
-        }
-        
+        $result = $connection->query($sql);
+        $sizes = $result->fetch_all(MYSQLI_ASSOC);
+        $answer = new answer(true, "talles obtenidos", $sizes);
+
         return $answer;
     }
 
@@ -26,10 +22,10 @@ class sizeDAO
     {
         $sql = "INSERT INTO talle(tipo) VALUES ('$tipo')";
         $connection = connection();
-        $sqlAnswer = $connection->query($sql);
-        if ($sqlAnswer) {
+        try{
+            $result = $connection->query($sql);
             $answer = new answer(true, "Talle agregado correctamente", null);
-        } else {
+        } catch (Exception $e) {
             $answer = new answer(false, "No se pudo agregar el talle", null);
         }
 
@@ -42,9 +38,9 @@ class sizeDAO
         $sql = "DELETE FROM talle WHERE tipo = '$tipo'";
         $connection = connection();
         $sqlAnswer = $connection->query($sql);
-        if ($sqlAnswer) {
+        try{
             $answer = new answer(true, "talle eliminado", null);
-        } else {
+        } catch (Exception $e) {
             $answer = new answer(false, "no se pudo eliminar el talle (tipo incorrecto)", null);
         }
         return $answer;
