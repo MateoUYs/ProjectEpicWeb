@@ -2,6 +2,7 @@ import SesionDAO from "../../../dao/sesionDAO.js";
 
 window.onload = () => {
     agregarEventos();
+    
 }
 
 
@@ -30,8 +31,8 @@ async function iniciarSesion(email,password){
 
 async function redirigir(isAdmin){
    if(isAdmin){
-    window.location.href = "../FrontEnd/page/Usuarios/indexAdmin"
+    window.location.href = "../indexAdmin/indexAdmin.html";
    }else{
-    window.location.href = "../FrontEnd/page/Usuarios/IndexUsuario"
+    window.location.href = "../IndexUsuario/indexUsuario.html";
    }
 }
