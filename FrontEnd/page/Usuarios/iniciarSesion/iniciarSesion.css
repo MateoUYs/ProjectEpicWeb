@@ -12,6 +12,11 @@ body {
     overflow: overlay;
 }
 
+.barrita{
+    border: #333 1px solid;
+    margin-bottom: 20px;
+}
+
 .section {
     display: flex;
     justify-content: center;
@@ -43,14 +48,6 @@ body {
     margin-bottom: 20px;
     color: #333;
 }
-
-hr {
-    width: 100%;
-    border: 0;
-    border-top: 2px solid #333;
-    margin-bottom: 20px;
-}
-
 
 .form-group {
     width: 100%;
