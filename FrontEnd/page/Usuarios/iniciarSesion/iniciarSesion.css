@@ -90,7 +90,7 @@ body {
 
 .form-btn:hover {
     background-color: white;
-    color: #444444;
+    color: #4CAF50;
     border: #4CAF50 1px solid;
 }
 
@@ -105,8 +105,8 @@ body {
     border-radius: 5px;
     text-decoration: none;
     background-color: white;
-    color: #444444;
-    border: #444444 1px solid;
+    color: #4CAF50;
+    border: #4CAF50 1px solid;
     font-size: 18px;
     font-family: 'Kanit', sans-serif;
     cursor: pointer;
