@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-09-2024 a las 22:55:44
+-- Tiempo de generación: 05-09-2024 a las 15:23:54
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -56,20 +56,10 @@ CREATE TABLE `compra` (
 CREATE TABLE `compraproducto` (
   `idProducto` int(11) NOT NULL,
   `idCompra` int(11) NOT NULL,
-  `cantidad` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `compraproductofactura`
---
-
-CREATE TABLE `compraproductofactura` (
-  `idProducto` int(11) NOT NULL,
-  `idCompra` int(11) NOT NULL,
-  `idFactura` int(11) NOT NULL,
-  `precio` int(11) NOT NULL
+  `cantidad` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
+  `talle` varchar(10) NOT NULL,
+  `idOferta` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -82,16 +72,6 @@ CREATE TABLE `consulta` (
   `idConsulta` int(11) NOT NULL,
   `titulo` varchar(255) NOT NULL,
   `ciUsuario` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `factura`
---
-
-CREATE TABLE `factura` (
-  `idFactura` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -220,16 +200,7 @@ ALTER TABLE `compra`
 -- Indices de la tabla `compraproducto`
 --
 ALTER TABLE `compraproducto`
-  ADD PRIMARY KEY (`idProducto`,`idCompra`),
-  ADD KEY `idCompra` (`idCompra`);
-
---
--- Indices de la tabla `compraproductofactura`
---
-ALTER TABLE `compraproductofactura`
-  ADD PRIMARY KEY (`idProducto`,`idCompra`,`idFactura`) USING BTREE,
-  ADD KEY `idFactura` (`idFactura`),
-  ADD KEY `idCompra` (`idCompra`);
+  ADD PRIMARY KEY (`id`,`idProducto`,`idCompra`,`idOferta`) USING BTREE;
 
 --
 -- Indices de la tabla `consulta`
@@ -237,12 +208,6 @@ ALTER TABLE `compraproductofactura`
 ALTER TABLE `consulta`
   ADD PRIMARY KEY (`idConsulta`),
   ADD KEY `ciUsuario` (`ciUsuario`);
-
---
--- Indices de la tabla `factura`
---
-ALTER TABLE `factura`
-  ADD PRIMARY KEY (`idFactura`);
 
 --
 -- Indices de la tabla `mensaje`
@@ -309,16 +274,16 @@ ALTER TABLE `compra`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `compraproducto`
+--
+ALTER TABLE `compraproducto`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `consulta`
 --
 ALTER TABLE `consulta`
   MODIFY `idConsulta` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `factura`
---
-ALTER TABLE `factura`
-  MODIFY `idFactura` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `mensaje`
@@ -347,21 +312,6 @@ ALTER TABLE `producto`
 --
 ALTER TABLE `compra`
   ADD CONSTRAINT `compra_ibfk_1` FOREIGN KEY (`ciUsuario`) REFERENCES `usuario` (`ci`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `compraproducto`
---
-ALTER TABLE `compraproducto`
-  ADD CONSTRAINT `compraproducto_ibfk_1` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `compraproducto_ibfk_2` FOREIGN KEY (`idCompra`) REFERENCES `compra` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `compraproductofactura`
---
-ALTER TABLE `compraproductofactura`
-  ADD CONSTRAINT `compraproductofactura_ibfk_1` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `compraproductofactura_ibfk_2` FOREIGN KEY (`idFactura`) REFERENCES `factura` (`idFactura`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `compraproductofactura_ibfk_3` FOREIGN KEY (`idCompra`) REFERENCES `compra` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `consulta`
