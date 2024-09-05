@@ -10,15 +10,9 @@ class productsDAO
     {
         $connection = connection();
         $sql = "SELECT * FROM products";
-        $sqlAnswer = $connection->query($sql);
-        if ($sqlAnswer) {
-            $productos = $sqlAnswer->fetch_all(MYSQLI_ASSOC);
-            $answer = new answer(true, "productos obtenidos", $productos);
-        } else {
-            $answer = new answer(false, "no se pudo obtener los productos", null);
-        }
-        
-        return $answer;
+        $answer = $connection->query($sql);
+        $productos = $answer->fetch_all(MYSQLI_ASSOC);
+        return $productos;
     }
 
     // Función para agregar un producto a la base de datos
@@ -28,12 +22,12 @@ class productsDAO
         $rutaTemporal = $imagen['tmp_name'];
         $sql = "INSERT INTO producto(precio, descripcion, extension, nombre, color) VALUES ('$precio', '$descripcion', '$imagen', '$nombre', '$color')";
         $connection = connection();
-        $sqlAnswer = $connection->query($sql);
-        if ($sqlAnswer) {
+        try {
+            $result = $connection->query($sql);
             $answer = new answer(true, "producto agregado correctamente", null);
             $idProducto = $connection->insert_id;
             move_uploaded_file($rutaTemporal, "../imgs/$idProducto.$extension");
-        } else {
+        } catch (Exception $e) {
             $answer = new answer(false, "no se pudo agregar el producto", null);
         }
 
@@ -45,10 +39,10 @@ class productsDAO
     {
         $sql = "DELETE FROM producto WHERE idProducto = '$id'";
         $connection = connection();
-        $sqlAnswer = $connection->query($sql);
-        if ($sqlAnswer) {
+        try {
+            $result = $connection->query($sql);
             $answer = new answer(true, "producto eliminado", null);
-        } else {
+        } catch (Exception $e) {
             $answer = new answer(false, "no se pudo eliminar el producto (id incorrecta)", null);
         }
         return $answer;
@@ -59,10 +53,10 @@ class productsDAO
     {
         $sql = "UPDATE producto SET precio ='$precio', descripcion = '$descripcion', nombre ='$nombre', color ='$color' WHERE idProducto = '$id'";
         $connection = connection();
-        $sqlAnswer = $connection->query($sql);
-        if ($sqlAnswer) {
+        try {
+            $result = $connection->query($sql);
             $answer = new answer(true, "producto modificado", null);
-        } else {
+        } catch (Exception $e) {
             $answer = new answer(false, "no se pudo modificar el producto", null);
         }
         return $answer;
@@ -73,14 +67,10 @@ class productsDAO
     {
         $connection = connection();
         $sql = "SELECT * FROM products WHERE idProducto ='$id'";
-        $sqlAnswer = $connection->query($sql);
-        if ($sqlAnswer) {
-            $productos = $sqlAnswer->fetch_all(MYSQLI_ASSOC);
-            $answer = new answer(true, "producto obtenido correctamente", $productos);
-        } else {
-            $answer = new answer(false, "no se pudo obtener el producto (id incorrecta)", null);
-        }
-        
+        $result = $connection->query($sql);
+        $productos = $result->fetch_all(MYSQLI_ASSOC);
+        $answer = new answer(true, "producto obtenido correctamente", $productos);
+
         return $answer;
     }
 }
