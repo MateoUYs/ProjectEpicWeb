@@ -1,5 +1,6 @@
 
 body {
+    background-image: url(/FrontEnd/assets/background.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -55,6 +56,7 @@ body {
 }
 
 .form-input {
+    margin-bottom: 10px;
     width: 100%;
     padding: 15px;
     border: 1px solid #ccc;
@@ -70,6 +72,7 @@ body {
 
 
 .form-btn {
+    margin-bottom: 10px;
     width: 100%;
     padding: 15px;
     border: none;
@@ -87,3 +90,22 @@ body {
 }
 
 
+.reg-btn {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: #444444;
+    border: #444444 1px solid;
+    font-size: 18px;
+    font-family: 'Kanit', sans-serif;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.reg-btn:hover {
+    background-color: #444444;
+    color: white;
+}
