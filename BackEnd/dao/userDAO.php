@@ -1,6 +1,7 @@
 <?php
 // Requiere el archivo connection.php que contiene la función de conexión a la base de datos
 require_once __DIR__ . "/../controller/connection.php";
+require_once __DIR__ . "/answer.php";
 
 class userDAO
 {
@@ -21,35 +22,38 @@ class userDAO
         $users = $result->fetch_all(MYSQLI_ASSOC);
 
         // Devuelve el array de arrays asociativos con los registros de la tabla 'users'
-        return $users;
+        $answer = new answer(true,"Usuarios obtenidos",$users);
+        return $answer;
     }
 
     function agregarUsuario($ci, $correo, $usuario, $password, $telefono)
     {
-        //  $codigoUnico=uniqid();
+        $codigoUnico=uniqid();
 
-        $sql = "INSERT INTO `usuario` (`email`, `ci`, `username`, `password`, `telefono`) VALUES ('$correo', '$ci' ,'$usuario', '$password', '$telefono');";
+        $sql = "INSERT INTO `usuario` (`email`, `ci`, `username`, `password`, `telefono`,codigoVerificacion,isVerficada,isAdmin) VALUES ('$correo', '$ci' ,'$usuario', '$password', '$telefono','$codigoUnico',0,0);";
+       echo $sql;
         $connection = connection();
         try {
-            $sqlAnswer = $connection->query($sql);
+            $connection->query($sql);
             $answer = new answer(true,"Usuario agregado con éxito",null);
         } catch (Exception $e) {
             $answer = new answer(false,"No se pudo agregar el usuario (ci ya existe)",null);
         }
 
+        
+
+        $para= $correo;
+        $asunto = 'Codigo de validacion';
+        $descripcion   = ''.$codigoUnico;
+        $de = 'projectEpicWeb@gmail.com';
+
+        if (mail($para, $asunto, $descripcion, $de))
+           {
+        echo "Correo enviado satisfactoriamente";
+        }else{
+           echo" error al enviar correo";
+        }
         return $answer;
-
-        // $para      = $correo;
-        // $asunto    = 'Codigo de validacion';
-        //$descripcion   = ''.$codigoUnico;
-        //$de = 'projectEpicWeb@gmail.com';
-
-        //if (mail($para, $asunto, $descripcion, $de))
-        //   {
-        //echo "Correo enviado satisfactoriamente";
-        //}else{
-        //    echo" error al enviar correo";
-        //}
     }
 
     // Función para eliminar un usuario
