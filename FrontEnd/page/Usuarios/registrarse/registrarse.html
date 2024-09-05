@@ -12,21 +12,22 @@
         <div class="auth-container">
             <div class="auth-content">
                 <form action="" class="auth-form" id="frmCrear">  
-                    <h2 class="form-title">REGISTER</h2>
-                    <hr>
+                    <p class="form-title">Registrate</p>
+                    <div class="barrita"></div>
                     <div class="form-group">
-                        <input type="text" placeholder="Nombre Completo" class="form-input" required />
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Email" class="form-input" required />
-                    </div>
-                    <div class="form-group">
-                        <input type="password" placeholder="Contraseña" class="form-input" required />
-                    </div>
-                    <div class="form-group">
+                        <input type="text" name="ci" placeholder="Cedula de identidad" class="form-input" required>
+                        <input type="email" name="correo" placeholder="Email" class="form-input" required />
+                        <input type="text" name="usuario" placeholder="Nombre de usuario" class="form-input" required>
+                        <input type="password" name="password" placeholder="Contraseña" class="form-input" required />
+                        <input type="text" name="usuario" placeholder="Numero de telefono" class="form-input" required>
                         <button type="submit" class="form-btn" id="btn">
                             Continuar
                         </button>
+                    </div>
+                    <div class="barrita"></div>
+                    <div class="conCuenta">
+                        <p>¿Ya has creado una cuenta? Inicia Sesion</p>
+                        <a href="/FrontEnd/page/Usuarios/iniciarSesion/iniciarSesion.html" class="log-btn">Inicia Sesion</a>
                     </div>
                 </form>
             </div>
