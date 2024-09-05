@@ -21,7 +21,7 @@ switch ($funcion) {
         modifyProducts();
         break;
     case 'obtenerDetalleProducto':
-        obtenerDetalleProducto();
+        getProductDetails();
         break;            
     // Si el valor de 'function' no es reconocido, se devuelve un mensaje de error en formato JSON
     default:
@@ -44,25 +44,32 @@ function addProducts() {
     $imagen = $_FILES['imagen'];
     $nombre = $_POST["nombre"];
     $color = $_POST["color"];
-    $resultado = (new productsDAO())->addProducts($precio, $descripcion, $imagen, $nombre, $color); 
-    echo json_encode($resultado);
+    $result = (new productsDAO())->addProducts($precio, $descripcion, $imagen, $nombre, $color); 
+    echo json_encode($result);
 }
 
 // Función para eliminar un producto
 function deleteProducts() {
-
-    // Implementación pendiente
+    $id = $_POST["id"];
+    $result = (new productsDAO())->deleteProducts($id);
+    echo json_encode($result);
 }
 
 // Función para modificar un producto
 function modifyProducts() {
-
-    // Implementación pendiente
+    $idProducto = $_POST["id"];
+    $precio = $_POST["precio"];
+    $descripcion = $_POST["descripcion"];
+    $nombre = $_POST["nombre"];
+    $color = $_POST["color"];
+    $result = (new productsDAO())->modifyProducts($idProducto,$precio, $descripcion, $nombre, $color); 
+    echo json_encode($result);
 }
 
 // Función para obtener detalles de un producto específico
-function obtenerDetalleProducto() {
-    
-    // Implementación pendiente
+function getProductDetails() {
+    $idProducto = $_POST["id"];
+    $result = (new productsDAO())->getProductDetails($idProducto);
+    echo json_encode($result);
 }
 ?>

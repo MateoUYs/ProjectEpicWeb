@@ -1,5 +1,5 @@
 <?php
-    class Respuesta {
+    class answer {
         public $estado;
         public $mensaje;
         public $datos;

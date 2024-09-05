@@ -15,35 +15,35 @@
 
             $connection = connection();
             $sql = "SELECT * FROM `usuario` WHERE  email = '$email' AND password  = '$password'";
-            $respuesta = $connection->query($sql);
-            $fila = $respuesta->fetch_assoc();
+            $answer = $connection->query($sql);
+            $fila = $answer->fetch_assoc();
             
             if($fila != null){
-                $respuesta = new Respuesta(true,"sesion iniciada",null);
+                $answer = new answer(true,"sesion iniciada",null);
                 $_SESSION['sesion'] = ["usuario"=>$fila['username'],"email"=>$fila['email'],"isAdmin"=>$fila['isAdmin']==1 ? true:false];
             }else{
-                $respuesta = new Respuesta(false,"Credenciales incorrectas",null);
+                $answer = new answer(false,"Credenciales incorrectas",null);
                 $_SESSION['sesion'] = null;
 
             }
         
-            return $respuesta ;
+            return $answer ;
         }
 
         public function obtenerSesion(){
            
             if(isset($_SESSION['sesion'])){
-                $respuesta = new Respuesta(true,"sesion obtenida ",$_SESSION['sesion']);
+                $answer = new answer(true,"sesion obtenida ",$_SESSION['sesion']);
             }else{
-                $respuesta = new Respuesta(false,"no se encuentra una  sesion",null);
+                $answer = new answer(false,"no se encuentra una  sesion",null);
             }
-            return $respuesta;
+            return $answer;
         }
 
         public function cerrarSession(){
             $_SESSION['sesion'] = null;
-            $respuesta = new Respuesta(true,"sesion cerrada",null);
-            return $respuesta;
+            $answer = new answer(true,"sesion cerrada",null);
+            return $answer;
         }
 
     }
