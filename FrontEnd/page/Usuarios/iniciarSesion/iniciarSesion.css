@@ -75,27 +75,32 @@ body {
     margin-bottom: 10px;
     width: 100%;
     padding: 15px;
-    border: none;
+    border: white 1px solid;
     border-radius: 5px;
     background-color: #444444;
     color: white;
     font-size: 18px;
     font-family: 'Kanit', sans-serif;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: 0.3s ease;
 }
 
 .form-btn:hover {
-    background-color: #333;
+    background-color: white;
+    color: #444444;
+    border: #444444 1px solid;
 }
 
 
 .reg-btn {
+    display: flex;
     margin-bottom: 10px;
-    width: 100%;
+    width: 92%;
     padding: 15px;
+    justify-content: center;
     border: none;
     border-radius: 5px;
+    text-decoration: none;
     background-color: white;
     color: #444444;
     border: #444444 1px solid;
