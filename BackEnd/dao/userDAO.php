@@ -31,7 +31,6 @@ class userDAO
         $codigoUnico=uniqid();
 
         $sql = "INSERT INTO `usuario` (`email`, `ci`, `username`, `password`, `telefono`,codigoVerificacion,isVerficada,isAdmin) VALUES ('$correo', '$ci' ,'$usuario', '$password', '$telefono','$codigoUnico',0,0);";
-       echo $sql;
         $connection = connection();
         try {
             $connection->query($sql);
@@ -47,11 +46,9 @@ class userDAO
         $descripcion   = ''.$codigoUnico;
         $de = 'projectEpicWeb@gmail.com';
 
-        if (mail($para, $asunto, $descripcion, $de))
-           {
-        echo "Correo enviado satisfactoriamente";
-        }else{
-           echo" error al enviar correo";
+        if (!mail($para, $asunto, $descripcion, $de)){
+            $answer = new answer(false,"No se pudo enviar el correo de verificacion",null);
+            return $answer;
         }
         return $answer;
     }
