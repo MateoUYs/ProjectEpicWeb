@@ -20,7 +20,7 @@ class productsDAO
     {
         $extension = pathinfo($imagen['name'], PATHINFO_EXTENSION);
         $rutaTemporal = $imagen['tmp_name'];
-        $sql = "INSERT INTO producto(precio, descripcion, extension, nombre, color) VALUES ('$precio', '$descripcion', '$imagen', '$nombre', '$color')";
+        $sql = "INSERT INTO producto(precio, descripcion, extension, nombre, color) VALUES ('$precio', '$descripcion', '$extension', '$nombre', '$color')";
         $connection = connection();
         try {
             $result = $connection->query($sql);
