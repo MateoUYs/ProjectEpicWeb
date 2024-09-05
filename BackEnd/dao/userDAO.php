@@ -82,9 +82,23 @@ class userDAO
     }
 
     // Función para verificar un usuario
-    function verificarUsuario()
+    function verificarUsuario($email,$codigoVerificacion)
     {
-        // Implementación pendiente
+        $connection = connection();
+        $sql = "SELECT * FROM `usuario` WHERE  email = '$email' AND codigoVerificacion  = '$codigoVerificacion'";
+        $answer = $connection->query($sql);
+        $fila = $answer->fetch_assoc();
+        
+        if($fila != null){
+            $answer = new answer(true,"cuenta verificada",null);
+            //actualizar 
+        }else{
+            $answer = new answer(false,"eror incorrectas",null);
+           
+
+        }
+    
+        return $answer ;
     }
 
 }
