@@ -28,12 +28,13 @@ body {
 
 
 .auth-container {
-    background-color: white;
+    background-color: #F8F8F8;
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
     width: 100%;
     max-width: 400px;
+    
 }
 
 .auth-content {
@@ -43,8 +44,8 @@ body {
 }
 
 .form-title {
-    
     font-family: 'Bebas Neue', sans-serif;
+    text-align: center;
     font-size: 36px;
     margin-bottom: 20px;
     color: #333;
@@ -77,8 +78,8 @@ body {
     padding: 15px;
     border: white 1px solid;
     border-radius: 5px;
-    background-color: #444444;
-    color: white;
+    background-color: #4CAF50;
+    color: rgb(255, 255, 255);
     font-size: 18px;
     font-family: 'Kanit', sans-serif;
     cursor: pointer;
@@ -88,7 +89,7 @@ body {
 .form-btn:hover {
     background-color: white;
     color: #444444;
-    border: #444444 1px solid;
+    border: #4CAF50 1px solid;
 }
 
 
@@ -111,6 +112,6 @@ body {
 }
 
 .reg-btn:hover {
-    background-color: #444444;
+    background-color: #4CAF50;
     color: white;
 }
