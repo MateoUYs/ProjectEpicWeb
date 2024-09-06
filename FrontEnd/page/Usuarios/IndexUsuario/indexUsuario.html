@@ -16,32 +16,30 @@
   <div class="topbar">
     <nav>
       <ul class="Izq">
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Catálogo</a>
-          <ul>
-            <li><a href="#">Hoodies</a></li>
-            <li><a href="#">Pantalones</a></li>
-            <li><a href="#">Remeras</a></li>
-            <li><a href="#">Varios</a></li>
-            <li><a href="#">Abrigos</a></li>
-          </ul>
+        <li><a href="/FrontEnd/page/Usuarios/IndexUsuario/indexUsuario.html">Inicio</a></li>
+        <li>
+          <a href="#">Catálogo</a>
         </li>
         <li><a href="#">Ofertas</a></li>
         <li><a href="#">Acerca de</a></li>
         <li><a href="#">Contacto</a></li>
       </ul>
-      <ul class="Der">
-        <li><a href="#">Carrito</a></li>
-        <li><a href="#">Usuario</a>
-          <ul>
-            <li><a href="#">IniciarSesion</a></li>
-            <li><a href="#">Registrarse</a></li>
-          </ul>
-        </li>
-      </ul>
+      <div class="logged Desactivado">
+        <ul class="Der">
+          <li><a href="#">Carrito</a></li>
+          <li>
+            <a href="#">Usuario</a>
+            <ul>
+              <li><a href="/FrontEnd/page/Usuarios/iniciarSesion/iniciarSesion.html" id="login">IniciarSesion</a></li>
+              <li><a href="/FrontEnd/page/Usuarios/registrarse/registrarse.html" id="register">Registrarse</a></li>
+              <li><a href="/FrontEnd/page/Usuarios/gestionarUsuario/gestionarUsuario.html" id="config">Configuraciones</a></li>
+              <li><a href="#" id="logout">Cerrar sesion</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </nav>
   </div>
-
   <header>
     <div class="topper">
       <h1 class="topper1">Tu tienda de ropa</h1>
