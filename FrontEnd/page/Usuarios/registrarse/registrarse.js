@@ -1,8 +1,8 @@
 import UserDAO from "../../../dao/userDao.js";
+import SessionDAO from "../../../dao/sesionDAO.js";
 
 window.onload = () => {
-    agregarEventos();
-    
+    agregarEventos(); 
 }
 
 function agregarEventos() {
@@ -17,17 +17,18 @@ function agregarEventos() {
         let password = formElement.password.value;
         let telefono = formElement.telefono.value;
 
-        registrarUsuario(ci, correo, usuario, password, telefono);
-
+        addUser(ci, correo, usuario, password, telefono);
     };
 }
 
-async function registrarUsuario(ci, correo, usuario, password, telefono) {
-    let respuesta = await new UserDAO().registrarUsuario(ci, correo, usuario, password, telefono);
+async function addUser(ci, correo, usuario, password, telefono) {
+    let query = await new UserDAO().addUser(ci, correo, usuario, password, telefono);
 
-    if (respuesta.estado) {
-        alert("Usuario registrado con exito.");
+    if (query.estado) {
+        let query = await new SessionDAO().logIn(correo, password);
+        console.log(query.datos);
+        //
     } else {
-        alert(`Error al registrar: ${respuesta.mensaje}`);
+        alert(`Error al registrar: ${query.mensaje}`);
     }
 }

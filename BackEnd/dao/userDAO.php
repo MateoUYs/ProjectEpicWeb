@@ -1,7 +1,7 @@
 <?php
-// Requiere el archivo connection.php que contiene la función de conexión a la base de datos
+// Requiere el archivo connection.php que contiene la función de conexión a la base de datos y el modelo de query
 require_once __DIR__ . "/../controller/connection.php";
-require_once __DIR__ . "/answer.php";
+require_once __DIR__ . "/query.php";
 
 class userDAO
 {
@@ -22,8 +22,8 @@ class userDAO
         $users = $result->fetch_all(MYSQLI_ASSOC);
 
         // Devuelve el array de arrays asociativos con los registros de la tabla 'users'
-        $answer = new answer(true, "Usuarios obtenidos", $users);
-        return $answer;
+        $query = new query(true, "Usuarios obtenidos", $users);
+        return $query;
     }
 
     function addUser($ci, $correo, $usuario, $password, $telefono)
@@ -33,9 +33,9 @@ class userDAO
         $connection = connection();
         try {
             $connection->query($sql);
-            $answer = new answer(true, "Usuario agregado con exito", null);
+            $query = new query(true, "Usuario agregado con exito", $ci);
         } catch (Exception $e) {
-            $answer = new answer(false, "No se pudo agregar el usuario (ci ya existe)", null);
+            $query = new query(false, "No se pudo agregar el usuario (ci ya existe)", null);
         }
 
         $para = $correo;
@@ -60,10 +60,10 @@ El equipo de TopStyleShop';
         $de = 'projectEpicWeb@gmail.com';
 
         if (!mail($para, $asunto, $descripcion, $de)) {
-            $answer = new answer(false, "No se pudo enviar el correo de verificacion", null);
-            return $answer;
+            $query = new query(false, "No se pudo enviar el correo de verificacion", null);
+            return $query;
         }
-        return $answer;
+        return $query;
     }
 
     // Función para eliminar un usuario
@@ -73,11 +73,11 @@ El equipo de TopStyleShop';
         $connection = connection();
         try {
             $connection->query($sql);
-            $answer = new answer(true, "Usuario eliminado", null);
+            $query = new query(true, "Usuario eliminado", null);
         } catch (Exception $e) {
-            $answer = new answer(false, "No se pudo eliminar el usuario (ci incorrecta)", null);
+            $query = new query(false, "No se pudo eliminar el usuario (ci incorrecta)", null);
         }
-        return $answer;
+        return $query;
     }
 
     // Función para modificar un usuario
@@ -87,11 +87,11 @@ El equipo de TopStyleShop';
         $connection = connection();
         try {
             $connection->query($sql);
-            $answer = new answer(true, "Usuario modificado", null);
+            $query = new query(true, "Usuario modificado", null);
         } catch (Exception $e) {
-            $answer = new answer(false, "No se pudo modificar el usuario (ci incorrecta)", null);
+            $query = new query(false, "No se pudo modificar el usuario (ci incorrecta)", null);
         }
-        return $answer;
+        return $query;
     }
 
     // Función para verificar un usuario
@@ -103,23 +103,23 @@ El equipo de TopStyleShop';
         $fila = $answer->fetch_assoc();
 
         if ($fila != null) {
-            $answer = new answer(true, "cuenta verificada", null);
+            $query = new query(true, "cuenta verificada", null);
             $ci = $fila['ci'];
             $sql = "UPDATE usuario SET isVerficada = 1 WHERE ci = '$ci'";
             try {
                 $connection->query($sql);
-                $answer = new answer(true, "Usuario verificado", null);
+                $query = new query(true, "Usuario verificado", null);
             } catch (Exception $e) {
-                $answer = new answer(true, "Codigo de verificación de Usuario incorrecto", null);
-                return $answer;
+                $query = new query(true, "Codigo de verificación de Usuario incorrecto", null);
+                return $query;
             }
 
         } else {
-            $answer = new answer(false, "Email de Usuario incorrecto", null);
-            return $answer;
+            $query = new query(false, "Email de Usuario incorrecto", null);
+            return $query;
         }
 
-        return $answer;
+        return $query;
     }
 
 }

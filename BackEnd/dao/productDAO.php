@@ -1,7 +1,7 @@
 <?php
-// Se incluye el archivo que contiene la función de conexión a la base de datos
+// Se incluye el archivo que contiene la función de conexión a la base de datos y el modelo query
 require_once __DIR__ . "/../controller/connection.php";
-require_once __DIR__ . "/answer.php";
+require_once __DIR__ . "/query.php";
 
 // Definición de la clase 'product'
 class productsDAO
@@ -13,8 +13,8 @@ class productsDAO
         $sql = "SELECT * FROM producto";
         $rersult = $connection->query($sql);
         $productos = $rersult->fetch_all(MYSQLI_ASSOC);
-        $answer = new answer(true,"Productos obtenidos",$productos);
-        return $answer;
+        $query = new query(true,"Productos obtenidos",$productos);
+        return $query;
     }
 
     // Función para agregar un producto a la base de datos
@@ -26,14 +26,14 @@ class productsDAO
         $connection = connection();
         try {
             $connection->query($sql);
-            $answer = new answer(true, "producto agregado correctamente", null);
+            $query = new query(true, "producto agregado correctamente", null);
             $idProducto = $connection->insert_id;
             move_uploaded_file($rutaTemporal, "../imgs/$idProducto.$extension");
         } catch (Exception $e) {
-            $answer = new answer(false, "no se pudo agregar el producto", null);
+            $query = new query(false, "no se pudo agregar el producto", null);
         }
 
-        return $answer;
+        return $query;
     }
 
     // Función para eliminar un producto
@@ -43,11 +43,11 @@ class productsDAO
         $connection = connection();
         try {
             $connection->query($sql);
-            $answer = new answer(true, "producto eliminado", null);
+            $query = new query(true, "producto eliminado", null);
         } catch (Exception $e) {
-            $answer = new answer(false, "no se pudo eliminar el producto (id incorrecta)", null);
+            $query = new query(false, "no se pudo eliminar el producto (id incorrecta)", null);
         }
-        return $answer;
+        return $query;
     }
 
     // Función para modificar un producto
@@ -57,11 +57,11 @@ class productsDAO
         $connection = connection();
         try {
             $connection->query($sql);
-            $answer = new answer(true, "producto modificado", null);
+            $query = new query(true, "producto modificado", null);
         } catch (Exception $e) {
-            $answer = new answer(false, "no se pudo modificar el producto", null);
+            $query = new query(false, "no se pudo modificar el producto", null);
         }
-        return $answer;
+        return $query;
     }
 
     // Función para obtener detalles de un producto específico
@@ -71,9 +71,9 @@ class productsDAO
         $sql = "SELECT * FROM producto WHERE idProducto ='$id'";
         $result = $connection->query($sql);
         $productos = $result->fetch_all(MYSQLI_ASSOC);
-        $answer = new answer(true, "producto obtenido correctamente", $productos);
+        $query = new query(true, "producto obtenido correctamente", $productos);
 
-        return $answer;
+        return $query;
     }
 
     function setStock($idProducto, $stock){
@@ -81,11 +81,11 @@ class productsDAO
         $connection = connection();
         try {
             $connection->query($sql);
-            $answer = new answer(true, "Stock Agregado", null);
+            $query = new query(true, "Stock Agregado", null);
         } catch (Exception $e) {
-            $answer = new answer(false, "No se pudo agregar el stock al producto", null);
+            $query = new query(false, "No se pudo agregar el stock al producto", null);
         }
-        return $answer;
+        return $query;
     }
 
     function updateStock($idProducto, $stock){
@@ -93,11 +93,11 @@ class productsDAO
         $connection = connection();
         try {
             $connection->query($sql);
-            $answer = new answer(true, "Stock Agregado", null);
+            $query = new query(true, "Stock Agregado", null);
         } catch (Exception $e) {
-            $answer = new answer(false, "No se pudo agregar el stock al producto", null);
+            $query = new query(false, "No se pudo agregar el stock al producto", null);
         }
-        return $answer;
+        return $query;
     }
 
     function getStock($idProducto){
@@ -105,8 +105,8 @@ class productsDAO
         $sql = "SELECT nombre, stock FROM producto WHERE idProducto = '$idProducto'";
         $rersult = $connection->query($sql);
         $producto = $rersult->fetch_all(MYSQLI_ASSOC);
-        $answer = new answer(true,"Stock obtenido",$producto);
-        return $answer;
+        $query = new query(true,"Stock obtenido",$producto);
+        return $query;
     }
 }
 ?>

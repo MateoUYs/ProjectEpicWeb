@@ -1,9 +1,9 @@
 <?php
-// Se incluye el archivo que contiene la función de conexión a la base de datos
+// Se incluye el archivo que contiene la función de conexión a la base de datos y el modelo de query
 require_once __DIR__ . "/../controller/connection.php";
-require_once __DIR__ . "/answer.php";
+require_once __DIR__ . "/query.php";
 
-// Definición de la clase 'product'
+// Definición de la clase 'size'
 class sizeDAO
 {
     // Método para obtener todos los talles desde la base de datos
@@ -13,9 +13,9 @@ class sizeDAO
         $sql = "SELECT * FROM talle";
         $result = $connection->query($sql);
         $sizes = $result->fetch_all(MYSQLI_ASSOC);
-        $answer = new answer(true, "talles obtenidos", $sizes);
+        $query = new query(true, "talles obtenidos", $sizes);
 
-        return $answer;
+        return $query;
     }
 
     // Función para agregar un talle a la base de datos
@@ -25,12 +25,12 @@ class sizeDAO
         $connection = connection();
         try{
             $connection->query($sql);
-            $answer = new answer(true, "Talle agregado correctamente", null);
+            $query = new query(true, "Talle agregado correctamente", null);
         } catch (Exception $e) {
-            $answer = new answer(false, "No se pudo agregar el talle", null);
+            $query = new query(false, "No se pudo agregar el talle", null);
         }
 
-        return $answer;
+        return $query;
     }
 
     // Función para eliminar un talle de la base de datos
@@ -40,11 +40,11 @@ class sizeDAO
         $connection = connection();
         try{
             $connection->query($sql);
-            $answer = new answer(true, "talle eliminado", null);
+            $query = new query(true, "talle eliminado", null);
         } catch (Exception $e) {
-            $answer = new answer(false, "no se pudo eliminar el talle (tipo incorrecto)", null);
+            $query = new query(false, "no se pudo eliminar el talle (tipo incorrecto)", null);
         }
-        return $answer;
+        return $query;
     }
 }
 

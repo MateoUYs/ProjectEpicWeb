@@ -1,8 +1,8 @@
-export default class SesionDAO{
+export default class SessionDAO{
 
-//iniciarSesion
-    async iniciarSesion(email,password) {
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/sesionController.php?function=iniciarSesion";
+
+    async logIn(email,password) {
+        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/sesionController.php?function=logIn";
         let formData = new FormData();
         formData.append("email",email);
         formData.append("password",password);
@@ -11,24 +11,21 @@ export default class SesionDAO{
             body:formData
         }
 
-        let respuestaConsulta = await fetch(url,config);
-        let respuesta  = await respuestaConsulta.json();
-        return respuesta;
-       
-
-        
+        let queryResponse = await fetch(url,config);
+        let query  = await queryResponse.json();
+        return query;
     }
-    //obtenerSesion
-    async obtenerSesion() {
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/sesionController.php?function=obtenerSesion";
-        let respuestaConsulta = await fetch(url);
-        let respuesta  = await respuestaConsulta.json();
-        return respuesta;
+
+    async getSession() {
+        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/sesionController.php?function=getSession";
+        let queryResponse = await fetch(url);
+        let query  = await queryResponse.json();
+        return query;
 
     }
-    //cerrarSesion
-    async cerrarSesion() {
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/sesionController.php?function=cerrarSesion";
+
+    async logOut() {
+        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/sesionController.php?function=logOut";
         let respuestaConsulta = await fetch(url);
         let respuesta  = await respuestaConsulta.json();
         return respuesta;

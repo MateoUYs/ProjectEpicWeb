@@ -2,7 +2,7 @@
 
     session_start();
     require_once __DIR__ . "/../controller/connection.php";
-    require_once __DIR__ . "/respuesta.php";
+    require_once __DIR__ . "/query.php";
 
 
     class SesionDAO{
@@ -10,7 +10,7 @@
         public $nombre;
 
 
-        public function iniciarSesion($email , $password){
+        public function logIn($email , $password){
             
 
             $connection = connection();
@@ -19,31 +19,31 @@
             $fila = $answer->fetch_assoc();
             
             if($fila != null){
-                $answer = new answer(true,"sesion iniciada",null);
+                $query = new query(true,"sesion iniciada",null);
                 $_SESSION['sesion'] = ["usuario"=>$fila['username'],"email"=>$fila['email'],"isAdmin"=>$fila['isAdmin']==1 ? true:false];
             }else{
-                $answer = new answer(false,"Credenciales incorrectas",null);
+                $query = new query(false,"Credenciales incorrectas",null);
                 $_SESSION['sesion'] = null;
 
             }
         
-            return $answer ;
+            return $query ;
         }
 
-        public function obtenerSesion(){
+        public function getSession(){
            
             if(isset($_SESSION['sesion'])){
-                $answer = new answer(true,"sesion obtenida ",$_SESSION['sesion']);
+                $query = new query(true,"sesion obtenida ",$_SESSION['sesion']);
             }else{
-                $answer = new answer(false,"no se encuentra una  sesion",null);
+                $query = new query(false,"no se encuentra una  sesion",null);
             }
-            return $answer;
+            return $query;
         }
 
-        public function cerrarSession(){
+        public function logOut(){
             $_SESSION['sesion'] = null;
-            $answer = new answer(true,"sesion cerrada",null);
-            return $answer;
+            $query = new query(true,"sesion cerrada",null);
+            return $query;
         }
 
     }

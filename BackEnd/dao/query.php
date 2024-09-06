@@ -1,5 +1,5 @@
 <?php
-    class answer {
+    class query {
         public $estado;
         public $mensaje;
         public $datos;

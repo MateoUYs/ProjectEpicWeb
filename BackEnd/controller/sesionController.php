@@ -9,17 +9,17 @@ $funcion = isset($_GET['function']) ? $_GET['function'] : '';
 
 
 switch ($funcion) {
-    case 'iniciarSesion':
-//llama a la funcion iniciarSesion
-        iniciarSesion();
+    case 'logIn':
+        //llama a la funcion iniciarSesion
+        logIn();
         break;
-    case 'obtenerSesion':
-//llama a la funcion  obtenerSesion
-        obtenerSesion();
+    case 'getSession':
+        //llama a la funcion  obtenerSesion
+        getSession();
         break;
-    case 'cerrarSesion':
-//llama a la funcion cerrarSesion
-        cerrarSesion();
+    case 'logOut':
+        //llama a la funcion cerrarSesion
+        logOut();
         break;
     default:
 
@@ -27,21 +27,24 @@ switch ($funcion) {
         break;
 }
 
-function iniciarSesion() {
-    $email= $_POST["email"];
-    $password  = $_POST["password"];
+function logIn()
+{
+    $email = $_POST["email"];
+    $password = $_POST["password"];
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-    $Respuesta = (new SesionDAO)->iniciarSesion($email, $hashedPassword);
-    echo json_encode($Respuesta);
+    $result = (new SesionDAO)->logIn($email, $hashedPassword);
+    echo json_encode($result);
 }
 
-function obtenerSesion() {
-    $Respuesta = (new SesionDAO)->obtenerSesion();
-    echo json_encode($Respuesta);
+function getSession()
+{
+    $result = (new SesionDAO)->getSession();
+    echo json_encode($result);
 }
 
-function cerrarSesion() {
-    $Respuesta = (new SesionDAO)->cerrarSession();
-    echo json_encode($Respuesta);
+function logOut()
+{
+    $result = (new SesionDAO)->logOut();
+    echo json_encode($result);
 }
 

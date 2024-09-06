@@ -6,7 +6,7 @@
     <title>Login</title>
     <link rel="stylesheet" href="verificarCuenta.css">
     
-    <script src="iniciarSesion.js" type="module"></script>
+    <script src="verificarCuenta.js" type="module"></script>
    
 </head>
 <body>
@@ -16,12 +16,10 @@
                 <form action="" class="formulario" id="frmCrear">  
                     <p class="Title">Verificación de cuenta</p>
                     <div class="barrita"></div>
-                    <p class="descripcion">Te hemos enviado un correo con un código de verificación. Por favor, revisa tu bandeja de entrada e ingresa el código en el campo de abajo para continuar.</p>
+                    <p class="descripcion" id="descripcion"></p>
                     <div class="form-group">
                         <input type="text" name="email" placeholder="Codigo de verificación" class="form-input" required />
-                        <button type="submit" class="form-btn" id="btn">
-                            Continuar
-                        </button>
+                        <button type="submit" class="form-btn" id="btn">Verificar Cuenta</button>
                     </div>
                     <div class="barrita"></div>
                 </form>
