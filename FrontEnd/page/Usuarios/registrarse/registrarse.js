@@ -1,4 +1,4 @@
-import userDAO from "../../../dao/userDao.js";
+import UserDAO from "../../../dao/userDao.js";
 
 window.onload = () => {
     agregarEventos();
@@ -17,14 +17,13 @@ function agregarEventos() {
         let password = formElement.password.value;
         let telefono = formElement.telefono.value;
 
-        registrarUser(ci, correo, usuario, password, telefono);
+        registrarUsuario(ci, correo, usuario, password, telefono);
 
     };
 }
 
-async function registrarUser(ci, correo, usuario, password, telefono) {
-    let userDAO = new userDAO();
-    let respuesta = await userDAO.registrarUser(ci, correo, usuario, password, telefono);
+async function registrarUsuario(ci, correo, usuario, password, telefono) {
+    let respuesta = await new UserDAO().registrarUsuario(ci, correo, usuario, password, telefono);
 
     if (respuesta.estado) {
         alert("Usuario registrado con exito.");
