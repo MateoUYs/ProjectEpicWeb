@@ -6,13 +6,13 @@ export default class UserDAO{
         let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/userController.php?function=addUser";
         let formData = new FormData();
         formData.append("ci",ci);
-        formData.append("correo",correo);
         formData.append("usuario",usuario);
         formData.append("password",password);
-        formData.append("telefono",telefono);
+        formData.append("email",correo);
+        formData.append("phone",telefono);
         let config = {
             method:"POST",
-            body:formData
+            body: formData
         }
 
 
