@@ -22,7 +22,16 @@ switch ($funcion) {
         break;
     case 'getProductDetails':
         getProductDetails();
-        break;            
+        break; 
+    case 'setStock':
+        setStock();
+        break;
+    case 'updateStock':
+        updateStock();
+        break;
+    case 'getStock':
+        getStock();
+        break;           
     // Si el valor de 'function' no es reconocido, se devuelve un mensaje de error en formato JSON
     default:
         echo json_encode(['error' => 'Función no reconocida']);
@@ -70,6 +79,26 @@ function modifyProduct() {
 function getProductDetails() {
     $idProducto = $_POST["id"];
     $result = (new productsDAO())->getProductDetails($idProducto);
+    echo json_encode($result);
+}
+
+function setStock(){
+    $idProducto = $_POST["id"];
+    $stock = $_POST["stock"];
+    $result = (new productsDAO())->setStock($idProducto, $stock);
+    echo json_encode($result);
+}
+
+function updateStock(){
+    $idProducto = $_POST["id"];
+    $stock = $_POST["stock"];
+    $result = (new productsDAO())->updateStock($idProducto, $stock);
+    echo json_encode($result);
+}
+
+function getStock(){
+    $idProducto = $_POST["id"];
+    $result = (new productsDAO())->getStock($idProducto);
     echo json_encode($result);
 }
 ?>

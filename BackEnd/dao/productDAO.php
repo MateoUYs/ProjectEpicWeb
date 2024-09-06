@@ -75,5 +75,38 @@ class productsDAO
 
         return $answer;
     }
+
+    function setStock($idProducto, $stock){
+        $sql = "UPDATE producto SET stock ='$stock' WHERE idProducto = '$idProducto'";
+        $connection = connection();
+        try {
+            $connection->query($sql);
+            $answer = new answer(true, "Stock Agregado", null);
+        } catch (Exception $e) {
+            $answer = new answer(false, "No se pudo agregar el stock al producto", null);
+        }
+        return $answer;
+    }
+
+    function updateStock($idProducto, $stock){
+        $sql = "UPDATE producto SET stock = stock + '$stock' WHERE idProducto = '$idProducto'";
+        $connection = connection();
+        try {
+            $connection->query($sql);
+            $answer = new answer(true, "Stock Agregado", null);
+        } catch (Exception $e) {
+            $answer = new answer(false, "No se pudo agregar el stock al producto", null);
+        }
+        return $answer;
+    }
+
+    function getStock($idProducto){
+        $connection = connection();
+        $sql = "SELECT nombre, stock FROM producto WHERE idProducto = '$idProducto'";
+        $rersult = $connection->query($sql);
+        $producto = $rersult->fetch_all(MYSQLI_ASSOC);
+        $answer = new answer(true,"Stock obtenido",$producto);
+        return $answer;
+    }
 }
 ?>
