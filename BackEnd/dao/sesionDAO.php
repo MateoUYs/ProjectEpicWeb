@@ -11,10 +11,10 @@
 
 
         public function logIn($email , $password){
-            
-
+            echo $password;
             $connection = connection();
             $sql = "SELECT * FROM `usuario` WHERE  email = '$email' AND password  = '$password'";
+            echo $sql;
             $answer = $connection->query($sql);
             $fila = $answer->fetch_assoc();
             

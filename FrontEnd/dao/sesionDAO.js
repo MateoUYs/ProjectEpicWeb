@@ -18,7 +18,14 @@ export default class SessionDAO{
 
     async getSession() {
         let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/sesionController.php?function=getSession";
-        let queryResponse = await fetch(url);
+        formData.append("email",email);
+        formData.append("password",password);
+        let config = {
+            method:"POST",
+            body:formData
+        }
+
+        let queryResponse = await fetch(url,config);
         let query  = await queryResponse.json();
         return query;
 

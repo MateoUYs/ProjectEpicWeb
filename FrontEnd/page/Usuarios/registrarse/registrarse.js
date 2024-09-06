@@ -26,7 +26,8 @@ async function addUser(ci, correo, usuario, password, telefono) {
 
     if (query.estado) {
         let query = await new SessionDAO().logIn(correo, password);
-        console.log(query.datos);
+        console.log(password);
+        console.log(correo);
         //
     } else {
         alert(`Error al registrar: ${query.mensaje}`);
