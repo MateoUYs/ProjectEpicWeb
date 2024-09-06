@@ -1,6 +1,7 @@
 <?php
 // Se incluye el archivo que contiene la función de conexión a la base de datos
-require_once __DIR__ . "../controller/connection.php";
+require_once __DIR__ . "/../controller/connection.php";
+require_once __DIR__ . "/answer.php";
 
 // Definición de la clase 'product'
 class sizeDAO
@@ -23,7 +24,7 @@ class sizeDAO
         $sql = "INSERT INTO talle(tipo) VALUES ('$tipo')";
         $connection = connection();
         try{
-            $result = $connection->query($sql);
+            $connection->query($sql);
             $answer = new answer(true, "Talle agregado correctamente", null);
         } catch (Exception $e) {
             $answer = new answer(false, "No se pudo agregar el talle", null);
@@ -33,12 +34,12 @@ class sizeDAO
     }
 
     // Función para eliminar un talle de la base de datos
-    function deleteProducts($tipo)
+    function deleteSize($tipo)
     {
         $sql = "DELETE FROM talle WHERE tipo = '$tipo'";
         $connection = connection();
-        $sqlAnswer = $connection->query($sql);
         try{
+            $connection->query($sql);
             $answer = new answer(true, "talle eliminado", null);
         } catch (Exception $e) {
             $answer = new answer(false, "no se pudo eliminar el talle (tipo incorrecto)", null);

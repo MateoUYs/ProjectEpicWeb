@@ -28,9 +28,10 @@ switch ($funcion) {
 }
 
 function iniciarSesion() {
-    $email=$_POST["email"];
-    $password=$_POST["password"];
-    $Respuesta = (new SesionDAO)->iniciarSesion($email,$password);
+    $email= $_POST["email"];
+    $password  = $_POST["password"];
+    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+    $Respuesta = (new SesionDAO)->iniciarSesion($email, $hashedPassword);
     echo json_encode($Respuesta);
 }
 

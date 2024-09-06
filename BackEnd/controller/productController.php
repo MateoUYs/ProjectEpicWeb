@@ -8,17 +8,17 @@ $funcion = isset($_GET['function']) ? $_GET['function'] : '';
 // Se usa un switch para manejar diferentes valores del parámetro 'function'
 switch ($funcion) {
     // Si el valor de 'function' es 'obtener', se llama a la función 'getProducts'
-    case 'get':
+    case 'getProducts':
         getProducts();
         break;
-    case 'add':
-        addProducts();
+    case 'addProduct':
+        addProduct();
         break;
-    case 'delete':
-        deleteProducts();
+    case 'deleteProduct':
+        deleteProduct();
         break;
-    case 'modify':
-        modifyProducts();
+    case 'modifyProduct':
+        modifyProduct();
         break;
     case 'getProductDetails':
         getProductDetails();
@@ -38,7 +38,7 @@ function getProducts() {
 }
 
 // Función para agregar un producto
-function addProducts() {
+function addProduct() {
     $precio = $_POST["precio"];
     $descripcion = $_POST["descripcion"];
     $imagen = $_FILES['imagen'];
@@ -49,14 +49,14 @@ function addProducts() {
 }
 
 // Función para eliminar un producto
-function deleteProducts() {
+function deleteProduct() {
     $id = $_POST["id"];
     $result = (new productsDAO())->deleteProducts($id);
     echo json_encode($result);
 }
 
 // Función para modificar un producto
-function modifyProducts() {
+function modifyProduct() {
     $idProducto = $_POST["id"];
     $precio = $_POST["precio"];
     $descripcion = $_POST["descripcion"];
