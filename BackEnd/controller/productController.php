@@ -8,21 +8,30 @@ $funcion = isset($_GET['function']) ? $_GET['function'] : '';
 // Se usa un switch para manejar diferentes valores del parámetro 'function'
 switch ($funcion) {
     // Si el valor de 'function' es 'obtener', se llama a la función 'getProducts'
-    case 'get':
+    case 'getProducts':
         getProducts();
         break;
-    case 'add':
-        addProducts();
+    case 'addProduct':
+        addProduct();
         break;
-    case 'delete':
-        deleteProducts();
+    case 'deleteProduct':
+        deleteProduct();
         break;
-    case 'modify':
-        modifyProducts();
+    case 'modifyProduct':
+        modifyProduct();
         break;
     case 'getProductDetails':
         getProductDetails();
-        break;            
+        break; 
+    case 'setStock':
+        setStock();
+        break;
+    case 'updateStock':
+        updateStock();
+        break;
+    case 'getStock':
+        getStock();
+        break;           
     // Si el valor de 'function' no es reconocido, se devuelve un mensaje de error en formato JSON
     default:
         echo json_encode(['error' => 'Función no reconocida']);
@@ -38,7 +47,7 @@ function getProducts() {
 }
 
 // Función para agregar un producto
-function addProducts() {
+function addProduct() {
     $precio = $_POST["precio"];
     $descripcion = $_POST["descripcion"];
     $imagen = $_FILES['imagen'];
@@ -49,14 +58,14 @@ function addProducts() {
 }
 
 // Función para eliminar un producto
-function deleteProducts() {
+function deleteProduct() {
     $id = $_POST["id"];
     $result = (new productsDAO())->deleteProducts($id);
     echo json_encode($result);
 }
 
 // Función para modificar un producto
-function modifyProducts() {
+function modifyProduct() {
     $idProducto = $_POST["id"];
     $precio = $_POST["precio"];
     $descripcion = $_POST["descripcion"];
@@ -70,6 +79,26 @@ function modifyProducts() {
 function getProductDetails() {
     $idProducto = $_POST["id"];
     $result = (new productsDAO())->getProductDetails($idProducto);
+    echo json_encode($result);
+}
+
+function setStock(){
+    $idProducto = $_POST["id"];
+    $stock = $_POST["stock"];
+    $result = (new productsDAO())->setStock($idProducto, $stock);
+    echo json_encode($result);
+}
+
+function updateStock(){
+    $idProducto = $_POST["id"];
+    $stock = $_POST["stock"];
+    $result = (new productsDAO())->updateStock($idProducto, $stock);
+    echo json_encode($result);
+}
+
+function getStock(){
+    $idProducto = $_POST["id"];
+    $result = (new productsDAO())->getStock($idProducto);
     echo json_encode($result);
 }
 ?>

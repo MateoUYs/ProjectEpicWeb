@@ -1,5 +1,5 @@
 <?php
-// Se incluye el archivo que contiene la definición de la clase 'products' y su método 'getProductsModel'
+// Se incluye el archivo que contiene la definición de la clase 'size' y sus métodos
 require_once __DIR__ . "/../dao/sizeDAO.php";
 
 // Se obtiene el valor del parámetro 'function' de la solicitud GET
@@ -8,17 +8,14 @@ $funcion = isset($_GET['function']) ? $_GET['function'] : '';
 // Se usa un switch para manejar diferentes valores del parámetro 'function'
 switch ($funcion) {
     // Si el valor de 'function' es 'obtener', se llama a la función 'getProducts'
-    case 'get':
+    case 'getSize':
         getSize();
         break;
-    case 'add':
+    case 'addSize':
         addSize();
         break;
-    case 'delete':
+    case 'deleteSize':
         deleteSize();
-        break;
-    case 'setSizeProduct':
-        setSizeProduct();
         break;
     // Si el valor de 'function' no es reconocido, se devuelve un mensaje de error en formato JSON
     default:
@@ -42,11 +39,8 @@ function addSize() {
 // Función para eliminar un producto
 function deleteSize() {
     $tipo = $_POST["tipo"];
-    $result = (new productsDAO())->deleteProducts($tipo);
+    $result = (new sizeDAO())->deleteSize($tipo);
     echo json_encode($result);
 }
 
-function setSizeProduct() {
-
-}
 ?>

@@ -1,24 +1,34 @@
-window.onload = async () => {
-    agregarEventoSubmit();
+import userDAO from "../../../dao/userDao.js";
+
+window.onload = () => {
+    agregarEventos();
+    
 }
 
-function agregarEventoSubmit() {
-    let form = document.querySelector("#frmCrear");
-    form.onsubmit = async (e) => {
-        e.preventDefault();
-        let url = window.location.origin+ "/projectepicweb/BackEnd/controller/UserController.php?function=agregarUsuario";
-        let formdata = new FormData(form);
-        let config = {
-            method: "POST",
-            body: formdata
-        }
-        let respuesta = await fetch(url, config);
-        let datos = await respuesta.json();
-        console.log(datos);
-        if (datos) {
-            alert("Usuario logeado con exito");
-        } else {
-            document.getElementById("alert").textContent = "La contraseña o el mail es erroneo";
-        }
+function agregarEventos() {
+    let formElement = document.querySelector("#frmCrear"); 
+    
+    formElement.onsubmit = async (e) => {
+        e.preventDefault(); 
+
+        let ci = formElement.ci.value;
+        let correo = formElement.correo.value;
+        let usuario = formElement.usuario.value;
+        let password = formElement.password.value;
+        let telefono = formElement.telefono.value;
+
+        registrarUser(ci, correo, usuario, password, telefono);
+
+    };
+}
+
+async function registrarUser(ci, correo, usuario, password, telefono) {
+    let userDAO = new userDAO();
+    let respuesta = await userDAO.registrarUser(ci, correo, usuario, password, telefono);
+
+    if (respuesta.estado) {
+        alert("Usuario registrado con exito.");
+    } else {
+        alert(`Error al registrar: ${respuesta.mensaje}`);
     }
 }

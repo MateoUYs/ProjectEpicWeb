@@ -8,25 +8,21 @@ $funcion = isset($_GET['function']) ? $_GET['function'] : '';
 
 // Realiza una acción diferente dependiendo del valor de '$funcion'
 switch ($funcion) {
-    case 'obtener':
-        // Si el valor de '$funcion' es 'obtener', se llama a la función getUsers()
+    // Si el valor de '$funcion' es 'x', se llama a la función x()
+    case 'getUsers':
         getUsers();
         break;
-    case 'agregarUsuario':
-        // Si el valor de '$funcion' es 'agregarUsuario', se llama a la función agregarUsuario()
-        agregarUsuario();
+    case 'addUser':
+        addUser();
         break;
-    case 'eliminarUsuario':
-        // Si el valor de '$funcion' es 'eliminarUsuario', se llama a la función eliminarUsuario()
-        eliminarUsuario();
+    case 'deleteUser':
+        deleteUser();
         break;
-    case 'modificarUsuario':
-        // Si el valor de '$funcion' es 'modificarUsuario', se llama a la función modificarUsuario()
-        modificarUsuario();
+    case 'modifyUser':
+        modifyUser();
         break;
-    case 'verificarUsuario':
-        // Si el valor de '$funcion' es 'verificarUsuario', se llama a la función verificarUsuario()
-        verificarUsuario();
+    case 'verifyUser':
+        verifyUser();
         break;
     default:
         // Si el valor de '$funcion' no coincide con ningún caso, se puede manejar aquí
@@ -36,39 +32,52 @@ switch ($funcion) {
 
 // Función para obtener los usuarios de la base de datos
 function getUsers() {
-    // Implementación pendiente
+    $result = (new userDAO())->getUsers();
+    echo json_encode($result);
 }
 
 // Función para agregar un usuario
-function agregarUsuario() {
-    // Implementación pendiente
-
+function addUser() {
     $ci = $_POST["ci"];
-    $usuario = $_POST["userName"];
+    $usuario = $_POST["usuario"];
     $password  = $_POST["password"];
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-    $correo  = $_POST["correo"];
+    $correo  = $_POST["email"];
     $telefono = $_POST["phone"];    
     
-    $respuesta = (new userDAO)->agregarUsuario($ci,$correo,$usuario,$hashedPassword,$telefono);
-    echo json_encode($respuesta);
+    $result = (new userDAO)->addUser($ci,$correo,$usuario,$hashedPassword,$telefono);
+    echo json_encode($result);
 }
 
 // Función para eliminar un usuario
-function eliminarUsuario() {
-    // Implementación pendiente
+function deleteUser() {
+    $ci = $_POST["ci"];
+    $result = (new userDAO)->deleteUser($ci);
+    echo json_encode($result);
 }
 
 // Función para modificar un usuario
-function modificarUsuario() {
-    // Implementación pendiente
+function modifyUser() {
+    $ci = $_POST["ci"];
+    $usuario = $_POST["usuario"];
+    $password  = $_POST["password"];
+    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+    $correo  = $_POST["email"];
+    $telefono = $_POST["phone"];
+
+    $result = (new userDAO)->modifyUser($ci,$correo,$usuario,$hashedPassword,$telefono);
+    echo json_encode($result);    
 }
 
 
 
 // Función para verificar un usuario
-function verificarUsuario() {
-    // Implementación pendiente
+function verifyUser() {
+    $email = $_POST["email"];
+    $codigoVerif = $_POST["code"];
+
+    $result = (new userDAO)->verifyUser($email, $codigoVerif);
+    echo json_encode($result);
 }
 
 ?>
