@@ -39,7 +39,7 @@ function getUsers() {
 // Función para agregar un usuario
 function addUser() {
     $ci = $_POST["ci"];
-    $usuario = $_POST["userName"];
+    $usuario = $_POST["usuario"];
     $password  = $_POST["password"];
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
     $correo  = $_POST["email"];
@@ -59,7 +59,7 @@ function deleteUser() {
 // Función para modificar un usuario
 function modifyUser() {
     $ci = $_POST["ci"];
-    $usuario = $_POST["userName"];
+    $usuario = $_POST["usuario"];
     $password  = $_POST["password"];
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
     $correo  = $_POST["email"];
