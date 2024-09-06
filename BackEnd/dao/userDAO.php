@@ -6,13 +6,13 @@ require_once __DIR__ . "/answer.php";
 class userDAO
 {
     // Método para obtener los usuarios desde el modelo (base de datos)
-    function getUsersModel()
+    function getUsers()
     {
         // Establece la conexión a la base de datos utilizando la función connection() del archivo connection.php
         $connection = connection();
 
         // Define la consulta SQL para seleccionar todos los registros de la tabla 'users'
-        $sql = "SELECT * FROM users";
+        $sql = "SELECT * FROM usuario";
 
         // Ejecuta la consulta SQL y almacena el resultado en la variable $result
         $result = $connection->query($sql);
@@ -26,20 +26,17 @@ class userDAO
         return $answer;
     }
 
-    function agregarUsuario($ci, $correo, $usuario, $password, $telefono)
+    function addUser($ci, $correo, $usuario, $password, $telefono)
     {
         $codigoUnico=uniqid();
-
         $sql = "INSERT INTO `usuario` (`email`, `ci`, `username`, `password`, `telefono`,codigoVerificacion,isVerficada,isAdmin) VALUES ('$correo', '$ci' ,'$usuario', '$password', '$telefono','$codigoUnico',0,0);";
         $connection = connection();
         try {
             $connection->query($sql);
-            $answer = new answer(true,"Usuario agregado con éxito",null);
+            $answer = new answer(true,"Usuario agregado con exito",null);
         } catch (Exception $e) {
             $answer = new answer(false,"No se pudo agregar el usuario (ci ya existe)",null);
         }
-
-        
 
         $para= $correo;
         $asunto = 'Codigo de validacion';
@@ -54,12 +51,12 @@ class userDAO
     }
 
     // Función para eliminar un usuario
-    function eliminarUsuario($ci)
+    function deleteUser($ci)
     {
         $sql = "DELETE FROM usuario WHERE ci = '$ci'";
         $connection = connection();
         try {
-            $result = $connection->query($sql);
+            $connection->query($sql);
             $answer = new answer(true, "Usuario eliminado", null);
         } catch (Exception $e) {
             $answer = new answer(false, "No se pudo eliminar el usuario (ci incorrecta)", null);
@@ -68,12 +65,12 @@ class userDAO
     }
 
     // Función para modificar un usuario
-    function modificarUsuario($ci, $email, $usuario, $password, $telefono)
+    function modifyUser($ci, $email, $usuario, $password, $telefono)
     {
         $sql = "UPDATE usuario SET email ='$email', username = '$usuario', password ='$password', telefono ='$telefono' WHERE ci = '$ci'";
         $connection = connection();
         try {
-            $result = $connection->query($sql);
+            $connection->query($sql);
             $answer = new answer(true, "Usuario modificado", null);
         } catch (Exception $e) {
             $answer = new answer(false, "No se pudo modificar el usuario (ci incorrecta)", null);
@@ -82,7 +79,7 @@ class userDAO
     }
 
     // Función para verificar un usuario
-    function verificarUsuario($email,$codigoVerificacion)
+    function verifyUser($email,$codigoVerificacion)
     {
         $connection = connection();
         $sql = "SELECT * FROM `usuario` WHERE  email = '$email' AND codigoVerificacion  = '$codigoVerificacion'";
@@ -91,11 +88,19 @@ class userDAO
         
         if($fila != null){
             $answer = new answer(true,"cuenta verificada",null);
-            //actualizar 
+            $ci = $fila['ci'];
+            $sql = "UPDATE usuario SET isVerficada = 1 WHERE ci = '$ci'";
+            try{
+               $connection->query($sql); 
+               $answer = new answer(true, "Usuario verificado", null);
+            }catch (Exception $e){
+                $answer = new answer(true, "Codigo de verificación de Usuario incorrecto", null);
+                return $answer;
+            }
+            
         }else{
-            $answer = new answer(false,"eror incorrectas",null);
-           
-
+            $answer = new answer(false,"Email de Usuario incorrecto",null);
+            return $answer;
         }
     
         return $answer ;
