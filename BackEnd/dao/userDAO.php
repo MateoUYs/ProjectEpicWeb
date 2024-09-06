@@ -22,29 +22,45 @@ class userDAO
         $users = $result->fetch_all(MYSQLI_ASSOC);
 
         // Devuelve el array de arrays asociativos con los registros de la tabla 'users'
-        $answer = new answer(true,"Usuarios obtenidos",$users);
+        $answer = new answer(true, "Usuarios obtenidos", $users);
         return $answer;
     }
 
     function addUser($ci, $correo, $usuario, $password, $telefono)
     {
-        $codigoUnico=uniqid();
+        $codigoUnico = uniqid();
         $sql = "INSERT INTO `usuario` (`email`, `ci`, `username`, `password`, `telefono`,codigoVerificacion,isVerficada,isAdmin) VALUES ('$correo', '$ci' ,'$usuario', '$password', '$telefono','$codigoUnico',0,0);";
         $connection = connection();
         try {
             $connection->query($sql);
-            $answer = new answer(true,"Usuario agregado con exito",null);
+            $answer = new answer(true, "Usuario agregado con exito", null);
         } catch (Exception $e) {
-            $answer = new answer(false,"No se pudo agregar el usuario (ci ya existe)",null);
+            $answer = new answer(false, "No se pudo agregar el usuario (ci ya existe)", null);
         }
 
-        $para= $correo;
-        $asunto = 'Codigo de validacion';
-        $descripcion   = ''.$codigoUnico;
+        $para = $correo;
+        $asunto = 'Verificación de tu cuenta en TopStyleShop';
+        $descripcion = '¡Hola Usuario!
+
+Gracias por registrarte en TopStyleShop. Antes de que puedas comenzar a disfrutar de nuestras ofertas y productos exclusivos, necesitamos verificar tu dirección de correo electrónico.
+
+Por favor, utiliza el siguiente código de verificación para completar tu registro:
+
+Código de verificación: ' . $codigoUnico .
+
+'
+Si no solicitaste la creación de esta cuenta, por favor ignora este correo.
+
+Si tienes alguna pregunta o necesitas ayuda, no dudes en contactarnos.
+
+¡Gracias por unirte a TopStyleShop!
+
+Saludos,
+El equipo de TopStyleShop';
         $de = 'projectEpicWeb@gmail.com';
 
-        if (!mail($para, $asunto, $descripcion, $de)){
-            $answer = new answer(false,"No se pudo enviar el correo de verificacion",null);
+        if (!mail($para, $asunto, $descripcion, $de)) {
+            $answer = new answer(false, "No se pudo enviar el correo de verificacion", null);
             return $answer;
         }
         return $answer;
@@ -79,31 +95,31 @@ class userDAO
     }
 
     // Función para verificar un usuario
-    function verifyUser($email,$codigoVerificacion)
+    function verifyUser($email, $codigoVerificacion)
     {
         $connection = connection();
         $sql = "SELECT * FROM `usuario` WHERE  email = '$email' AND codigoVerificacion  = '$codigoVerificacion'";
         $answer = $connection->query($sql);
         $fila = $answer->fetch_assoc();
-        
-        if($fila != null){
-            $answer = new answer(true,"cuenta verificada",null);
+
+        if ($fila != null) {
+            $answer = new answer(true, "cuenta verificada", null);
             $ci = $fila['ci'];
             $sql = "UPDATE usuario SET isVerficada = 1 WHERE ci = '$ci'";
-            try{
-               $connection->query($sql); 
-               $answer = new answer(true, "Usuario verificado", null);
-            }catch (Exception $e){
+            try {
+                $connection->query($sql);
+                $answer = new answer(true, "Usuario verificado", null);
+            } catch (Exception $e) {
                 $answer = new answer(true, "Codigo de verificación de Usuario incorrecto", null);
                 return $answer;
             }
-            
-        }else{
-            $answer = new answer(false,"Email de Usuario incorrecto",null);
+
+        } else {
+            $answer = new answer(false, "Email de Usuario incorrecto", null);
             return $answer;
         }
-    
-        return $answer ;
+
+        return $answer;
     }
 
 }
