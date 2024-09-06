@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="gestionarUsuario.css" />
+  </head>
+  <body>
+    <div class="topbar">
+      <nav>
+        <ul class="Izq">
+          <li><a href="#">Inicio</a></li>
+          <li>
+            <a href="#">Catálogo</a>
+            <ul>
+              <li><a href="#">Hoodies</a></li>
+              <li><a href="#">Pantalones</a></li>
+              <li><a href="#">Remeras</a></li>
+              <li><a href="#">Varios</a></li>
+              <li><a href="#">Abrigos</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Ofertas</a></li>
+          <li><a href="#">Acerca de</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+        <div class="logged Desactivado">
+          <ul class="Der">
+            <li><a href="#">Carrito</a></li>
+            <li>
+              <a href="#">Usuario</a>
+              <ul>
+                <li><a href="#" id="login">IniciarSesion</a></li>
+                <li><a href="#" id="register">Registrarse</a></li>
+                <li><a href="#" id="config">Configuraciones</a></li>
+                <li><a href="#" id="logout">Cerrar sesion</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <main>
+        <div class="container">
+        <form action="" class="auth-form" id="frmCrear">  
+            <p class="form-title">Modificar datos del usuario</p>
+            <div class="barrita"></div>
+                <input type="text" name="ci" placeholder="Cedula de identidad" class="form-input" required>
+                <input type="email" name="correo" placeholder="Email" class="form-input" required />
+                <input type="text" name="usuario" placeholder="Nombre de usuario" class="form-input" required>
+                <input type="password" name="password" placeholder="Contraseña" class="form-input" required />
+                <input type="text" name="usuario" placeholder="Numero de telefono" class="form-input" required>
+                <button type="submit" class="form-btn" id="btn">
+                    Confirmar
+                </button>
+            <div class="barrita"></div>
+            <button type="button" class="eliminarCuenta-btn" id="btn">
+                Eliminar cuenta
+            </button>
+        </form>
+    </div>
+    </main>
+
+  </body>
+</html>
