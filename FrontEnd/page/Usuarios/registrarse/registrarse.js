@@ -25,10 +25,8 @@ async function addUser(ci, correo, usuario, password, telefono) {
     let query = await new UserDAO().addUser(ci, correo, usuario, password, telefono);
 
     if (query.estado) {
-        let query = await new SessionDAO().logIn(correo, password);
-        console.log(password);
-        console.log(correo);
-        //
+        await new SessionDAO().logIn(correo, password);
+        window.location.href = "../verificarCuenta/verificarCuenta.html";
     } else {
         alert(`Error al registrar: ${query.mensaje}`);
     }

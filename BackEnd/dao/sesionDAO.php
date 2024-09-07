@@ -11,20 +11,21 @@
 
 
         public function logIn($email , $password){
-            echo $password;
             $connection = connection();
-            $sql = "SELECT * FROM `usuario` WHERE  email = '$email' AND password  = '$password'";
-            echo $sql;
+            $sql = "SELECT * FROM `usuario` WHERE  email = '$email'";
             $answer = $connection->query($sql);
             $fila = $answer->fetch_assoc();
-            
             if($fila != null){
-                $query = new query(true,"sesion iniciada",null);
-                $_SESSION['sesion'] = ["usuario"=>$fila['username'],"email"=>$fila['email'],"isAdmin"=>$fila['isAdmin']==1 ? true:false];
+                if(password_verify($password, $fila['password'])){
+                    $query = new query(true,"sesion iniciada",null);
+                    $_SESSION['sesion'] = ["usuario"=>$fila['username'],"email"=>$fila['email'],"isAdmin"=>$fila['isAdmin']==1 ? true:false];
+                }else{
+                    $query = new query(false,"Contraseña incorrecta",null);
+                    $_SESSION['sesion'] = null;
+                }
             }else{
-                $query = new query(false,"Credenciales incorrectas",null);
+                $query = new query(false,"Email incorrecto",null);
                 $_SESSION['sesion'] = null;
-
             }
         
             return $query ;
