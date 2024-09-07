@@ -98,28 +98,17 @@ El equipo de TopStyleShop';
     function verifyUser($email, $codigoVerificacion)
     {
         $connection = connection();
-        $sql = "SELECT * FROM `usuario` WHERE  email = '$email' AND codigoVerificacion  = '$codigoVerificacion'";
-        $answer = $connection->query($sql);
-        $fila = $answer->fetch_assoc();
+        $sql = "UPDATE usuario SET isVerficada = 1 WHERE  email = '$email' AND codigoVerificacion  = '$codigoVerificacion'";
+        $connection->query($sql);
+        $filasAfectadas = $connection->affected_rows;
 
-        if ($fila != null) {
+        if ($filasAfectadas == 1) {
             $query = new query(true, "cuenta verificada", null);
-            $ci = $fila['ci'];
-            $sql = "UPDATE usuario SET isVerficada = 1 WHERE ci = '$ci'";
-            try {
-                $connection->query($sql);
-                $query = new query(true, "Usuario verificado", null);
-            } catch (Exception $e) {
-                $query = new query(true, "Codigo de verificación de Usuario incorrecto", null);
-                return $query;
-            }
-
+            return $query;
         } else {
             $query = new query(false, "Email de Usuario incorrecto", null);
             return $query;
         }
-
-        return $query;
     }
 
 }

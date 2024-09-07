@@ -15,12 +15,13 @@ async function mostrarMensaje() {
 }
 
 function addEvent(){
-    let frmElement = document.querySelector("frmVerificar");
+    let frmElement = document.querySelector("#frmVerificar");
 
     frmElement.onsubmit = async(e) => {
         e.preventDefault();
 
         let code = frmElement.code.value;
+        console.log(code);
 
         verifyUser(code);
     }
@@ -28,10 +29,9 @@ function addEvent(){
 
 async function verifyUser(code){
     let query = await new SessionDAO().getSession();
-    let verifyQuery = new UserDAO().verifyUser(query.datos.email, code);
+    let verifyQuery = await new UserDAO().verifyUser(query.datos.email, code);
     if(verifyQuery.estado){
-        console.log("llego");
-        // window.location.href = "../IndexUsuario/indexUsuario.html";
+        window.location.href = "../IndexUsuario/indexUsuario.html";
     }else{
         alert(`Error al verificar ${verifyQuery.mensaje}`)
     }
