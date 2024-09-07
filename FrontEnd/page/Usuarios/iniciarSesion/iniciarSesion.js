@@ -1,41 +1,42 @@
-import SesionDAO from "../../../dao/sesionDAO.js";
+import SessionDAO from "../../../dao/sesionDAO.js";
 
-window.onload = () => {
-    agregarEventos();
-    
+window.onload = async() => {
+    let query = await new SessionDAO().getSession();
+    if (query.estado){
+        if(query.datos.isAdmin == 1){
+            window.location.href = "../indexAdmin/indexAdmin.html";
+        }else{
+            window.location.href = "../IndexUsuario/indexUsuario.html";
+        }
+    }
+    addEvents();
 }
 
 
-function agregarEventos(){
-    let formElement = document.querySelector("#frmCrear");
+function addEvents(){
+    let formElement = document.querySelector("#frmLogIn");
     formElement.onsubmit = (e)=>{
         e.preventDefault();
         let email  = formElement.email.value;
         let password =formElement.password.value;
         
-        iniciarSesion(email,password);
+        logIn(email,password);
     }
 }
 
-async function iniciarSesion(email,password){
-    let respuesta = await new SesionDAO().iniciarSesion(email,password);
-    if(respuesta.estado){
-        let respuesta = await new SesionDAO().obtenerSesion();
-        redirigirAdmin(respuesta.isAdmin);
-        console.log(respuesta);
+async function logIn(email,password){
+    let loggedQuery = await new SessionDAO().logIn(email,password);
+    console.log(loggedQuery.datos);
+    if(loggedQuery.estado){
+        if(loggedQuery.datos.isAdmin == 1){
+            window.location.href = "../indexAdmin/indexAdmin.html";
+        }else{
+            window.location.href = "../IndexUsuario/indexUsuario.html";
+        }
     }else{
-        alert(respuesta.mensaje);
+        alert(loggedQuery.mensaje);
     }
   
 }
 
-async function redirigirAdmin(isAdmin){
-   if(isAdmin){
-    window.location.href = "../indexAdmin/indexAdmin.html";
-   }else{
-    window.location.href = "../IndexUsuario/indexUsuario.html";
-   }
 
-
-
-}

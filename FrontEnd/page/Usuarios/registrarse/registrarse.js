@@ -2,10 +2,10 @@ import UserDAO from "../../../dao/userDao.js";
 import SessionDAO from "../../../dao/sesionDAO.js";
 
 window.onload = () => {
-    agregarEventos(); 
+    addEvents(); 
 }
 
-function agregarEventos() {
+function addEvents() {
     let formElement = document.querySelector("#frmCrear"); 
     
     formElement.onsubmit = async (e) => {

@@ -31,7 +31,6 @@ function logIn()
 {
     $email = $_POST["email"];
     $password = $_POST["password"];
-    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
     $result = (new SesionDAO)->logIn($email, $password);
     echo json_encode($result);
 }
