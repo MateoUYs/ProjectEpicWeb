@@ -4,51 +4,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Main Page</title>
-  <link rel="stylesheet" href="indexAdmin.css" />
+  <title>Gestión Consultas</title>
+  <link rel="stylesheet" href="gestionarConsultas.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap"
-    rel="stylesheet" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
-    rel="stylesheet" />
-  <script type="module" src="indexAdmin.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet" />
+  <script type="module" src="gestionarConsultas.css"></script>
 </head>
-
 <body>
   <nav>
-    <a href="indexAdmin.html">Inicio</a>
+    <a href="../../Usuarios/indexAdmin/indexAdmin.html">Inicio</a>
     <a href="../../Productos/gestionarProducto/gestionarProducto.html">Gestionar Productos</a>
     <a href="../../Stock/gestionarStock/gestionarStock.html">Gestionar Stock</a>
     <a href="../../Talle/gestionarTalle/gestionarTalle.html">Gestionar Talles</a>
     <a href="../../Ofertas/gestionarOfertas/gestionarOfertas.html">Gestionar Ofertas</a>
     <a href="../../Compras/gestionarCompras/gestionarCompras.html">Gestionar Compras</a>
+    <a href="gestionarConsultas.html">Gestionar Consultas</a>
     <a href="../../Estadisticas/verEstadisticas/verEstadisticas.html">Ver Estadísticas</a>
     <button class="consulta" id="btnConsulta">
       <img src="../../../assets/consultaIcon.png">
       <p id="countConsults" class="empty">0</p>
     </button>
     <button class="logOut" id="btnLogOut"><img src="../../../assets/logOut.png"></button>
-
+    
   </nav>
   <main>
-    <div class="inicio">
-      <p class="title">Bienvenido Administrador</p>
-      <div class="separator"></div>
-      <div class="content">
-      <div class="lastBuys">
-        <p class="subTitle">Compras Recientes:</p>
-        <div class="separator"></div>
-      </div>
-      <div class="previewStats">
-        <p class="subTitle">Vista Previa de las Estadísticas:</p>
-        <div class="separator"></div>
-      </div>
-    </div>
-    </div>
     <div id="listaConsultas" class="desactivado"></div>
   </main>
 </body>
 
-</html>
+</html> 
