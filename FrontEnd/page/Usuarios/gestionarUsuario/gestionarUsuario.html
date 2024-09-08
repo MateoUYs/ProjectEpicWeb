@@ -1,60 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="gestionarUsuario.css" />
-  </head>
-  <body>
-    <div class="topbar">
-      <nav>
-        <ul class="Izq">
-          <li><a href="/FrontEnd/page/Usuarios/IndexUsuario/indexUsuario.html">Inicio</a></li>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="gestionarUsuario.css">
+  <script type="module" src="gestionarUsuario.js"></script>
+</head>
+
+<body>
+    <nav>
+      <ul class="Izq">
+        <li><a href="/FrontEnd/page/Usuarios/IndexUsuario/indexUsuario.html">Inicio</a></li>
+        <li>
+          <a href="#">Catálogo</a>
+        </li>
+        <li><a href="#">Ofertas</a></li>
+        <li><a href="#">Acerca de</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+      <div class="logged Desactivado">
+        <ul class="Der">
+          <li><a href="#">Carrito</a></li>
           <li>
-            <a href="#">Catálogo</a>
+            <a href="#">Usuario</a>
+            <ul>
+              <li><a href="/FrontEnd/page/Usuarios/iniciarSesion/iniciarSesion.html" id="login">IniciarSesion</a></li>
+              <li><a href="/FrontEnd/page/Usuarios/registrarse/registrarse.html" id="register">Registrarse</a></li>
+              <li><a href="/FrontEnd/page/Usuarios/gestionarUsuario/gestionarUsuario.html"
+                  id="config">Configuraciones</a></li>
+              <li><a href="#" id="logout">Cerrar sesion</a></li>
+            </ul>
           </li>
-          <li><a href="#">Ofertas</a></li>
-          <li><a href="#">Acerca de</a></li>
-          <li><a href="#">Contacto</a></li>
         </ul>
-        <div class="logged Desactivado">
-          <ul class="Der">
-            <li><a href="#">Carrito</a></li>
-            <li>
-              <a href="#">Usuario</a>
-              <ul>
-                <li><a href="/FrontEnd/page/Usuarios/iniciarSesion/iniciarSesion.html" id="login">IniciarSesion</a></li>
-                <li><a href="/FrontEnd/page/Usuarios/registrarse/registrarse.html" id="register">Registrarse</a></li>
-                <li><a href="/FrontEnd/page/Usuarios/gestionarUsuario/gestionarUsuario.html" id="config">Configuraciones</a></li>
-                <li><a href="#" id="logout">Cerrar sesion</a></li>
-              </ul>
-            </li>
-          </ul>
+      </div>
+    </nav>
+
+  <main>
+    <div class="container">
+      <form action="" class="auth-form" id="frmCrear">
+        <p class="form-title">Datos actuales del usuario</p>
+        <div class="barrita"></div>
+        <div id="inputs">
+          <p>Email: </p>
+          <p id="email">bas.gdmc@gmail.com</p>
+          <input type="email" name="correo" placeholder="Email" class="form-input">
         </div>
-      </nav>
+        <div id="inputs">
+          <p>Nombre de usuario: </p>
+          <p id="name">Lautaro</p>
+          <input type="text" name="usuario" placeholder="Nombre de usuario" class="form-input">
+        </div>
+        <input type="password" name="password" id="pass" placeholder="Contraseña" class="form-input">
+        <div id="inputs">
+          <p>Número de teléfono: </p>
+          <p id="phone">097 385 962</p>
+          <input type="text" name="usuario" placeholder="Numero de telefono" class="form-input">
+        </div>
+        <button type="submit" class="form-btn" id="btnModificar">Modificar</button>
+        <div class="barrita"></div>
+        <button type="button" class="eliminarCuenta-btn" id="btnEliminar">Eliminar cuenta</button>
+      </form>
     </div>
+  </main>
+</body>
 
-    <main>
-        <div class="container">
-        <form action="" class="auth-form" id="frmCrear">  
-            <p class="form-title">Modificar datos del usuario</p>
-            <div class="barrita"></div>
-                <input type="text" name="ci" placeholder="Cedula de identidad" class="form-input" required>
-                <input type="email" name="correo" placeholder="Email" class="form-input" required />
-                <input type="text" name="usuario" placeholder="Nombre de usuario" class="form-input" required>
-                <input type="password" name="password" placeholder="Contraseña" class="form-input" required />
-                <input type="text" name="usuario" placeholder="Numero de telefono" class="form-input" required>
-                <button type="submit" class="form-btn" id="btn">
-                    Confirmar
-                </button>
-            <div class="barrita"></div>
-            <button type="button" class="eliminarCuenta-btn" id="btn">
-                Eliminar cuenta
-            </button>
-        </form>
-    </div>
-    </main>
-
-  </body>
 </html>
