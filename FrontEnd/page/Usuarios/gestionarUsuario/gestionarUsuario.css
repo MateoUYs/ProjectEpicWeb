@@ -215,22 +215,6 @@ img {
     animation-fill-mode: both;
 }
 
-/*!!!formulario!!!*/
-
-body {
-    background-image: url(/FrontEnd/assets/background.jpg);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    justify-content: center;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    font-family: "Cabin", sans-serif;
-    overflow: overlay;
-}
-
 .barrita{
     border: #333 1px solid;
     margin-bottom: 20px;
@@ -335,7 +319,7 @@ body {
     color: #f81b0b;
 }
 
-#inputs{
+.inputs{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
