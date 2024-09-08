@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-09-2024 a las 18:54:24
+-- Tiempo de generación: 08-09-2024 a las 07:59:52
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -114,7 +114,7 @@ CREATE TABLE `producto` (
   `precio` int(11) NOT NULL,
   `stock` int(11) NOT NULL,
   `descripcion` varchar(255) NOT NULL,
-  `imagen` varchar(255) NOT NULL,
+  `extension` varchar(255) NOT NULL,
   `nombre` varchar(255) NOT NULL,
   `color` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -167,6 +167,15 @@ CREATE TABLE `usuario` (
   `telefono` varchar(255) NOT NULL,
   `codigoVerificacion` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`email`, `isAdmin`, `isVerficada`, `ci`, `username`, `password`, `telefono`, `codigoVerificacion`) VALUES
+('projectepicweb@gmail.com', 1, 1, '1', 'Admin', '$2y$10$7w.qkpLc0Kg0wKr/x7HubuzXrTHUTW4GnWVzjEIKVtP8fA/pSBkkq', '093540768', '66dd3cd263a75'),
+('bas.gdmc@gmail.com', 0, 1, '55558115', 'Lautaro', '$2y$10$6NhtHZZkV18mI9I2.hEmVeXuwW.a37hhY7YmwJTIcjqtxQbfErmTi', '097385962', '66dd3cfe0c04a'),
+('a@a', 0, 0, '556', 'Lautaro', '$2y$10$rzhh6swpnq90hXojUy1KBO0Zfa0OqNWFKBeH5HkMhv0z62JoLxWvG', '097', '66dd3d20f3f58');
 
 -- --------------------------------------------------------
 
@@ -257,7 +266,8 @@ ALTER TABLE `talle`
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`ci`);
+  ADD PRIMARY KEY (`ci`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indices de la tabla `usuarioproductofavorito`
@@ -304,7 +314,7 @@ ALTER TABLE `oferta`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
