@@ -26,15 +26,16 @@ export default class UserDAO{
         return query;
     }
 
-    async modifyUser(ci, userData){
+    async modifyUser(ci, ){
         let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/userController.php?function=modifyUser";
         let formData = new FormData();
-        formData.append("ci",ci);
         formData.append("ci", ci);
-        if (userData.correo) formData.append("email", userData.correo);
-        if (userData.usuario) formData.append("usuario", userData.usuario);
-        if (userData.password) formData.append("password", userData.password);
-        if (userData.telefono) formData.append("phone", userData.telefono);
+        formData.append("usuario", usuario);
+        zformData.append("password", password);
+        formData.append("email", correo);
+        
+        
+        formData.append("phone", telefono);
         let config = {
             method:"POST",
             body: formData

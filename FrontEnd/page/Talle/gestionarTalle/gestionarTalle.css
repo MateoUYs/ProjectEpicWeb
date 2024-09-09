@@ -44,7 +44,7 @@ button img {
   background-color: rgba(0, 0, 0, 0);
   border: 0;
   position: relative;
-  left: 110px;
+  left: 160px;
   width: 60px;
   box-sizing: border-box;
 }
@@ -71,7 +71,7 @@ button img {
   background-color: rgba(0, 0, 0, 0);
   border: 0;
   position: relative;
-  left: 55px;
+  left: 80px;
   width: 50px;
   box-sizing: border-box;
 }
