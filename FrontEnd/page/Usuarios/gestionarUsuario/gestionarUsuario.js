@@ -31,19 +31,12 @@ function addEvents() {
         let query = await new SessionDAO().getSession();
 
         let ci = query.datos.ci;
-        let correo = formElement.correo.value;
-        let usuario = formElement.usuario.value;
-        let password = formElement.password.value;
-        let telefono = formElement.telefono.value;
-    
-        let userData = {};
-        if (correo) userData.correo = correo;
-        if (usuario) userData.usuario = usuario;
-        if (password) userData.password = password;
-        if (telefono) userData.telefono = telefono;
+        let correo = formElement.correo.value || query.datos.email;
+        let usuario = formElement.usuario.value || query.datos.usuario;
+        let password = formElement.password.value || query.datos.pass;
+        let telefono = formElement.telefono.value || query.datos.phone;
 
-        console.log(userData);
-       //modifyUser(ci, userData);
+       modifyUser(ci, correo, usuario, password, telefono);
     };
 
     btnDelete.onclick = async (e) => {
