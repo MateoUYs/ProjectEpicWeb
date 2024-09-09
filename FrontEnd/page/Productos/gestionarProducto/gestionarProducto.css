@@ -137,14 +137,17 @@ button img {
   display: flex;
   flex-direction: column;
   background-color: white;
-  width: 80%;
-  height: 80%;
-  margin-top: 1000px;
+  width: 90%;
+  height: 20%;
+  position: absolute;
+  bottom: 20%;
+  align-items: center;
+  /* margin-top: 1000px; */
 }
 
 .form-input {
   margin-bottom: 10px;
-  width: 100%;
+  width: 70%;
   padding: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -159,7 +162,7 @@ button img {
 
 .form-btn {
   margin-bottom: 10px;
-  width: 100%;
+  width: 70%;
   padding: 15px;
   border: white 1px solid;
   border-radius: 5px;
