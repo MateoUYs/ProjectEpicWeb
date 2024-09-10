@@ -120,9 +120,10 @@ button img {
   background-color: #454f58ce;
 }
 
-.frmDesactivado{
+/* .frmDesactivado{
   overflow: hidden;
-}
+  height: 0 !important;
+} */
 
 .frmActivado{
   display: flex;
@@ -130,22 +131,26 @@ button img {
   align-items: center;
   margin: 0;
   width: 100vw;
-  height: 192.7vh;
+  height: 100vh;
   position: absolute;
   background-color: #0000008a;
   z-index: 1;
+  top: 0;
+  
 }
 
 #frmProducts{
   display: flex;
   flex-direction: column;
   background-color: white;
-  width: 80%;
-  height: 40%;
+  width: 60%;
+  height: 70%;
   position: absolute;
   bottom: 20%;
+  justify-content: center;
   align-items: center;
-  /* margin-top: 1000px; */
+  gap: 5%;
+  border-radius: 5%;
 }
 
 .form-input {
@@ -181,4 +186,39 @@ button img {
   background-color: white;
   color: #4CAF50;
   border: #4CAF50 1px solid;
+}
+
+.form-file{
+  margin-bottom: 10px;
+  width: 72%;
+  padding: 15px;
+  border: white 1px solid;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 18px;
+  font-family: 'Kanit', sans-serif;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.form-file:hover{
+  background-color: white;
+  color: #4CAF50;
+  border: #4CAF50 1px solid;
+}
+
+.content{
+  background-color: white;
+  height: 700px;
+  width: 90%;
+  border-radius: 50px;
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main{
+  
 }

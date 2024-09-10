@@ -7,15 +7,13 @@ window.onload = () => {
 }
 
 async function loadData() {
-    let pEmail = document.querySelector("#email");
-    let pName = document.querySelector("#name");
-    let pPhone = document.querySelector("#phone");
+    let formElement = document.querySelector("#frmUserSettings");
     let query = await new SessionDAO().getSession();
 
     if (query.estado) {
-        pEmail.innerHTML = query.datos.email;
-        pName.innerHTML = query.datos.usuario;
-        pPhone.innerHTML = query.datos.phone;
+        formElement.correo.value = query.datos.email;
+        formElement.usuario.value = query.datos.usuario;
+        formElement.telefono.value = query.datos.phone;
     } else {
         window.location.href = "../iniciarSesion/iniciarSesion.html";
     }
@@ -31,10 +29,10 @@ function addEvents() {
         let query = await new SessionDAO().getSession();
 
         let ci = query.datos.ci;
-        let correo = formElement.correo.value || query.datos.email;
-        let usuario = formElement.usuario.value || query.datos.usuario;
-        let password = formElement.password.value || query.datos.pass;
-        let telefono = formElement.telefono.value || query.datos.phone;
+        let correo = formElement.correo.value;
+        let usuario = formElement.usuario.value;
+        let password = formElement.password.value;
+        let telefono = formElement.telefono.value;
 
        modifyUser(ci, correo, usuario, password, telefono);
     };
