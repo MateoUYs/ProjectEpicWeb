@@ -66,4 +66,10 @@ function addProductEvent() {
         divFrm.classList.remove("frmActivado");
         frmProduct.reset();
     }
+
+    let inputFile = document.querySelector("#imagenInput");
+    let imgPreview = document.querySelector("#imgPreview");
+    inputFile.onload = ()=>{
+        imgPreview.src = inputFile.files[0];
+    }
 }
