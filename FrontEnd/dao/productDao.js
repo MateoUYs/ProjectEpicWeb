@@ -1,9 +1,9 @@
 export default class ProductoDao {
     async getProducts() {
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=obtener";
-        let respuestaConsulta = await fetch(url);
-        let respuesta = await respuestaConsulta.json();
-
+        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=getProducts";
+        let queryResponse = await fetch(url);
+        let query = await queryResponse.json();
+        return query;
     }
 
     // Función para agregar un producto
@@ -25,7 +25,7 @@ export default class ProductoDao {
     }
 
     // Función para obtener detalles de un producto específico
-    async obtenerDetalleProducto() {
+    async getProductDetails() {
 
         // Implementación pendiente
     }

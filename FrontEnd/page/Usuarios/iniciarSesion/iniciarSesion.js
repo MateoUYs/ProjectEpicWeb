@@ -1,4 +1,4 @@
-import SessionDAO from "../../../dao/sesionDAO.js";
+import SessionDAO from "../../../dao/sessionDAO.js";
 
 window.onload = async() => {
     let query = await new SessionDAO().getSession();

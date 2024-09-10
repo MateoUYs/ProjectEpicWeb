@@ -1,4 +1,4 @@
-import SessionDAO from "../../../dao/sesionDAO.js";
+import SessionDAO from "../../../dao/sessionDAO.js";
 import UserDAO from "../../../dao/userDao.js";
 
 window.onload = () => {
