@@ -14,7 +14,7 @@
 </head>
 <body>
   <nav>
-    <button class="logoPage" href="indexAdmin.html">
+    <button type="button" class="logoPage" id="homeBtn">
       <img src="../../../assets/logoPageAdmin.png">
     </button>
     <a href="gestionarProducto.html">Gestionar Productos</a>
@@ -23,11 +23,11 @@
     <a href="../../Ofertas/gestionarOfertas/gestionarOfertas.html">Gestionar Ofertas</a>
     <a href="../../Compras/gestionarCompras/gestionarCompras.html">Gestionar Compras</a>
     <a href="../../Estadisticas/verEstadisticas/verEstadisticas.html">Ver Estadísticas</a>
-    <button class="consulta" id="btnConsulta">
+    <button type="button" class="consulta" id="btnConsulta">
       <img src="../../../assets/consultaIcon.png">
       <p id="countConsults" class="empty">0</p>
     </button>
-    <button class="logOut" id="btnLogOut"><img src="../../../assets/logOut.png"></button>
+    <button type="button" class="logOut" id="btnLogOut"><img src="../../../assets/logOut.png"></button>
     
   </nav>
   <div id="frmProducto" class="contenedor-frm frmDesactivado">
@@ -41,7 +41,7 @@
       </select>
       <label for="imagenInput" class="form-file">Seleccionar Imágen: </label>
       <input type="file" name="imagen" id="imagenInput" class="form-file" required>
-      <img src="" id="imgPreview" alt="">
+      <img src="../../../assets/noImage.png" id="imgPreview" alt="">
       <button type="submit" class="form-btn" id="btn">Confirmar</button>
       <button type="button" class="cancelar-btn" id="btn">Cancelar</button>
     </form>
@@ -62,8 +62,7 @@
                 <th>Precio</th>
                 <th>Color</th>
                 <th>Imágen</th>
-                <th></th>
-                <th></th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody id="productData"> 

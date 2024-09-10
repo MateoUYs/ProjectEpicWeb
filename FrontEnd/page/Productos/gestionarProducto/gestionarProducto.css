@@ -344,5 +344,22 @@ thead {
 
 .cancelar-btn:hover{
   background-color: white;
-    color: #f81b0b;
+  color: #f81b0b;
+}
+
+.btnTd{
+  border: 0;
+  background-color: #33333300;
+  width: 50%;
+  height: 75%;
+}
+
+.btnTd img{
+  width: 40%;
+}
+
+#actionTd{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }

@@ -6,10 +6,22 @@ export default class ProductoDao {
         return query;
     }
 
-    // Función para agregar un producto
-    async addProducts() {
+    async addProducts(precio, descripcion, imagen, nombre, color) {
+        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=addProduct";
+        let formData = new FormData();
+        formData.append("precio",precio);
+        formData.append("descripcion",descripcion);
+        formData.append("imagen",imagen);
+        formData.append("nombre",nombre);
+        formData.append("color",color);
 
-        // Implementación pendiente
+        let config = {
+            method:"POST",
+            body: formData
+        }
+        let queryResponse = await fetch(url,config);
+        let query  = await queryResponse.json();
+        return query;
     }
 
     // Función para eliminar un producto
