@@ -6,10 +6,10 @@ window.onload = async () => {
     if (query.estado) {
         if (query.datos.isAdmin == 1) {
         } else {
-            window.location.href = "../IndexUsuario/indexUsuario.html";
+            window.location.href = "../../Usuarios/IndexUsuario/indexUsuario.html";
         }
     } else {
-        window.location.href = "../iniciarSesion/iniciarSesion.html";
+        window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
     }
     loadData();
     addProductEvent();
