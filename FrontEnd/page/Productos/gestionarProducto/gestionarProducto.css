@@ -106,17 +106,17 @@ button img {
   right: 0;
   margin: 0;
   top: 53px;
-  overflow:  hidden;
+  overflow: hidden;
   transition: all .3s;
   border-bottom-left-radius: 5%;
   border-bottom-right-radius: 5%;
 }
 
-.desactivado{
+.desactivado {
   height: 0px;
 }
 
-.activado{
+.activado {
   height: 500px;
   background-color: #454f58ce;
 }
@@ -129,17 +129,22 @@ button img {
 }
 
 .logoPage img {
-  width: 150px; 
-  height: auto; 
-  display: block; 
+  width: 150px;
+  height: auto;
+  display: block;
 }
 
-/* .frmDesactivado{
-  overflow: hidden;
-  height: 0 !important;
-} */
+.frmDesactivado {
+  display: none !important;
+  opacity: 0;
+}
 
-.frmActivado{
+.frmActivado {
+  display: flex !important;
+  opacity: 1;
+}
+
+.contenedor-frm {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -150,17 +155,15 @@ button img {
   background-color: #0000008a;
   z-index: 1;
   top: 0;
-  
+  transition: all .4s;
 }
 
-#frmProducts{
+.contenedor-frm form {
   display: flex;
   flex-direction: column;
   background-color: white;
   width: 60%;
   height: 70%;
-  position: absolute;
-  bottom: 20%;
   justify-content: center;
   align-items: center;
   gap: 5%;
@@ -202,7 +205,11 @@ button img {
   border: #4CAF50 1px solid;
 }
 
-.form-file{
+#imagenInput{
+  display: none;
+}
+
+.form-file {
   margin-bottom: 10px;
   width: 72%;
   padding: 15px;
@@ -216,13 +223,13 @@ button img {
   transition: 0.3s ease;
 }
 
-.form-file:hover{
+.form-file:hover {
   background-color: white;
   color: #4CAF50;
   border: #4CAF50 1px solid;
 }
 
-.content{
+.content {
   background-color: rgba(255, 255, 255, 0.829);
   height: 700px;
   width: 90%;
@@ -234,46 +241,48 @@ button img {
   gap: 60px;
 }
 
-main{
+main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-#addBtn{
+#addBtn {
   background-color: rgba(0, 0, 0, 0);
   border: 0;
   box-sizing: border-box;
 }
 
-table{
+table {
   width: 80%;
 }
 
-table, thead{
+table,
+thead {
   border: 1px solid black;
   border-collapse: collapse;
 }
 
-table, tbody{
-  border:1px solid black;
+table,
+tbody {
+  border: 1px solid black;
   border-collapse: collapse;
 }
 
-th{
+th {
   padding: 2px 10px 2px 10px;
-  border:1px solid white;
+  border: 1px solid white;
   border-collapse: collapse;
 }
 
-td{
+td {
   padding: 2px 10px 2px 10px;
-  border:1px solid black;
+  border: 1px solid black;
   border-collapse: collapse;
 }
 
-thead{
+thead {
   background-color: black;
   color: white;
 }
@@ -289,12 +298,12 @@ thead{
   left: 2%;
 }
 
-.addBtn{
+.addBtn {
   display: flex;
   width: 100%;
 }
 
-#addBtn{
+#addBtn {
   display: flex;
   width: 64px;
   height: 64px;
@@ -304,7 +313,30 @@ thead{
   top: 20%;
 }
 
-.addBtn img{
+.addBtn img {
   width: 100%;
   height: 100%;
+}
+
+.cancelar-btn {
+  display: flex;
+  margin-bottom: 10px;
+  width: 75%;
+  padding: 15px;
+  justify-content: center;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  background-color: #f81b0b;
+  color: white;
+  border: #f81b0b 1px solid;
+  font-size: 18px;
+  font-family: 'Kanit', sans-serif;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.cancelar-btn:hover{
+  background-color: white;
+    color: #f81b0b;
 }

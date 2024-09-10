@@ -52,13 +52,18 @@ async function showProducts(products) {
 
 function addProductEvent() {
     let addBtn = document.querySelector("#addBtn");
-    let divFrm = document.querySelector("#frmDesactivado");
-    let frmProduct = document.querySelector();
+    let divFrm = document.querySelector("#frmProducto");
+    let cancelarBtn = document.querySelector(".cancelar-btn");
+    let frmProduct = document.querySelector("#frmProducto form");
 
     addBtn.onclick = () => {
-   
-            divFrm.classList.remove("frmDesactivado");
-            divFrm.classList.add("frmActivado");
-        
+        divFrm.classList.remove("frmDesactivado");
+        divFrm.classList.add("frmActivado");
+    }
+
+    cancelarBtn.onclick = () => {
+        divFrm.classList.add("frmDesactivado");
+        divFrm.classList.remove("frmActivado");
+        frmProduct.reset();
     }
 }
