@@ -163,7 +163,8 @@ button img {
   flex-direction: column;
   background-color: white;
   width: 60%;
-  height: 70%;
+  height: max-content;
+  padding: 50px;
   justify-content: center;
   align-items: center;
   gap: 5%;
@@ -206,7 +207,12 @@ button img {
 }
 
 #imagenInput{
-  display: none;
+ display: none;
+}
+#imgPreview{
+  width: 150px;
+  height: 150px;
+  margin-bottom: 10px;
 }
 
 .form-file {

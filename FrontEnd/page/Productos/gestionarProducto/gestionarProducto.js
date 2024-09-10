@@ -1,5 +1,6 @@
 import SessionDAO from "../../../dao/sessionDAO.js";
 import ProductDAO from "../../../dao/productDao.js";
+import SizeDAO from "../../../dao/sizeDAO.js";
 
 window.onload = async () => {
     let query = await new SessionDAO().getSession();
@@ -13,6 +14,7 @@ window.onload = async () => {
     }
     loadData();
     addProductEvent();
+    insertSize();
 }
 
 async function loadData() {
@@ -69,7 +71,24 @@ function addProductEvent() {
 
     let inputFile = document.querySelector("#imagenInput");
     let imgPreview = document.querySelector("#imgPreview");
-    inputFile.onload = ()=>{
-        imgPreview.src = inputFile.files[0];
+    inputFile.onchange = ()=>{
+        let rutaTemporal = URL.createObjectURL(inputFile.files[0]);
+        imgPreview.src = rutaTemporal;
     }
+}
+
+async function insertSize(){
+    let requestSizes = await new SizeDAO().getSizes();
+    if(requestSizes.estado){
+        let sizes = requestSizes.datos;
+        let inputSize = document.querySelector("#inputSize");
+        inputSize.innerHTML="";
+        sizes.forEach((size)=>{
+            inputSize.innerHTML += `
+                <option value="${size.tipo}">${size.tipo}</option>
+            `;
+        })
+
+    }
+    console.log(requestSizes);
 }
