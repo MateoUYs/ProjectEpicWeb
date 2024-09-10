@@ -14,7 +14,9 @@
 </head>
 <body>
   <nav>
-    <a href="../../Usuarios/indexAdmin/indexAdmin.html">Inicio</a>
+    <button class="logoPage" href="indexAdmin.html">
+      <img src="../../../assets/logoPageAdmin.png">
+    </button>
     <a href="gestionarProducto.html">Gestionar Productos</a>
     <a href="../../Stock/gestionarStock/gestionarStock.html">Gestionar Stock</a>
     <a href="../../Talle/gestionarTalle/gestionarTalle.html">Gestionar Talles</a>
@@ -30,9 +32,9 @@
   </nav>
   <!-- <div class="frmActivado">
     <form action="" id="frmProducts" class="frmActivado">
-      <input type="text" name="precio" placeholder="Precio" class="form-input" required>
-      <input type="text" name="descripcion" placeholder="Descripción del Producto" class="form-input" required />
       <input type="text" name="nombre" placeholder="Nombre del Producto" class="form-input" required>
+      <input type="text" name="descripcion" placeholder="Descripción del Producto" class="form-input" required />
+      <input type="text" name="precio" placeholder="Precio" class="form-input" required>
       <input type="text" name="color" placeholder="Color" class="form-input" required />
       <input type="file" name="imagen" id="imagenInput" class="form-file" required>
       <button type="submit" class="form-btn" id="btn">Confirmar</button>
@@ -41,10 +43,27 @@
   <main>
     <div class="content">
       <div class="addBtn">
-        <button>
-          
+        <p class="title">Productos:</p>
+        <button id="addBtn">
+          <img src="../../../assets/addIcon.png">
         </button>
       </div>
+      <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Color</th>
+                <th>Imágen</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="productData"> 
+                        
+        </tbody>
+    </table>
     </div>
     <div id="listaConsultas" class="desactivado"></div>
   </main>
