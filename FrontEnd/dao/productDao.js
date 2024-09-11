@@ -25,15 +25,38 @@ export default class ProductoDao {
     }
 
     // Función para eliminar un producto
-    async deleteProducts() {
-
-        // Implementación pendiente
+    async deleteProduct(idProducto) {
+        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=deleteProduct";
+        let formData = new FormData();
+        formData.append("idProducto",idProducto);
+       
+        let config = {
+            method:"POST",
+            body: formData
+        }
+        let queryResponse = await fetch(url,config);
+        let query  = await queryResponse.json();
+        return query;
     }
 
     // Función para modificar un producto
-    async modifyProducts() {
+    async modifyProduct(idProducto, precio, descripcion, imagen, nombre, color) {
+        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=addProduct";
+        let formData = new FormData();
+        formData.append("idProducto",idProducto);
+        formData.append("precio",precio);
+        formData.append("descripcion",descripcion);
+        formData.append("imagen",imagen);
+        formData.append("nombre",nombre);
+        formData.append("color",color);
 
-        // Implementación pendiente
+        let config = {
+            method:"POST",
+            body: formData
+        }
+        let queryResponse = await fetch(url,config);
+        let query  = await queryResponse.json();
+        return query;
     }
 
     // Función para obtener detalles de un producto específico

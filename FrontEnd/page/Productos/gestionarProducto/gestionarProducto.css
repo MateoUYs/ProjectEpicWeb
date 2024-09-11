@@ -37,10 +37,6 @@ button:hover {
   cursor: pointer;
 }
 
-button img {
-  width: 100%;
-}
-
 .consulta {
   background-color: rgba(0, 0, 0, 0);
   border: 0;
@@ -286,6 +282,7 @@ td {
   padding: 2px 10px 2px 10px;
   border: 1px solid black;
   border-collapse: collapse;
+  height: 40px;
 }
 
 thead {
@@ -351,15 +348,26 @@ thead {
   border: 0;
   background-color: #33333300;
   width: 50%;
-  height: 75%;
+  height: 100%;
 }
 
-.btnTd img{
-  width: 40%;
-}
-
-#actionTd{
+#actionsTd{
   display: flex;
   flex-direction: row;
   gap: 20px;
+  height: 100%;
+}
+
+#actionsTd img{
+  height: 100%;
+}
+
+.imgTd{
+  height: 100%;
+}
+
+.tdImg{
+  display: flex;
+  justify-content: center;
+  border: 0;
 }
