@@ -28,7 +28,7 @@ export default class ProductoDao {
     async deleteProduct(idProducto) {
         let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=deleteProduct";
         let formData = new FormData();
-        formData.append("idProducto",idProducto);
+        formData.append("id",idProducto);
        
         let config = {
             method:"POST",
@@ -36,6 +36,7 @@ export default class ProductoDao {
         }
         let queryResponse = await fetch(url,config);
         let query  = await queryResponse.json();
+        console.log(query);
         return query;
     }
 

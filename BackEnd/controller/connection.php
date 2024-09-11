@@ -2,6 +2,7 @@
 function connection()
 {
     try {
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         // Se establecen los parámetros necesarios para realizar la conexión a la base de datos.
         $host = "localhost"; // Dirección del servidor de la base de datos
         $user = "root";      // Nombre de usuario para la conexión
@@ -12,9 +13,7 @@ function connection()
         // Se crea una nueva instancia de mysqli para establecer la conexión
         $mysqli = new mysqli($host, $user, $pass, $bd, $port);
 
-        // Desactiva el reporte automático de errores de mysqli
-        mysqli_report(MYSQLI_REPORT_OFF);
-
+    
         // Devuelve el objeto de conexión
         return $mysqli;
     } catch (Exception $e) {

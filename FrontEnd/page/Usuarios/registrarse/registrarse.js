@@ -23,7 +23,7 @@ function addEvents() {
 
 async function addUser(ci, correo, usuario, password, telefono) {
     let query = await new UserDAO().addUser(ci, correo, usuario, password, telefono);
-
+    console.log(query);
     if (query.estado) {
         await new SessionDAO().logIn(correo, password);
         window.location.href = "../verificarCuenta/verificarCuenta.html";

@@ -2,6 +2,7 @@
 // Incluir el archivo buysDAO.php desde el directorio actual
 require_once __DIR__ . "/../model/buysDAO.php";
 
+
 // Obtener el parámetro 'function' desde la URL
 $funcion = $_GET['function'];
 

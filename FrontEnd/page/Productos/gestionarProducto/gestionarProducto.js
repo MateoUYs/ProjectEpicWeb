@@ -31,16 +31,39 @@ async function showProducts(products) {
     tbodyElement.innerHTML = "";
     products.forEach((product) => {
         console.log(JSON.stringify(product));
-        tbodyElement.innerHTML += `
-        <tr>
+        let tr = document.createElement("tr");
+        tr.innerHTML += `
              <td>${product.nombre}</td>
              <td>${product.descripcion}</td>
              <td>${product.precio}</td>
-             <td>${product.color}</td>
+             <td><div style="background-color: ${product.color}"}>d </div></td>
              <td class="tdImg"><img class="imgTd" src="../../../../backEnd/imgs/${product.idProducto}.${product.extension}"></td>
-             <td><div id="actionsTd"><button class="btnTd" onclick="loadInputs('${JSON.stringify(product)}')"><img src="../../../assets/modifyIcon.png"></button>
-             <button class="btnTd" onclick="deleteProduct('${product.idProducto}')"><img src="../../../assets/deleteIcon.png"></button></div></td>
-        </tr>`;
+        `;
+        let td = document.createElement("td");
+        let div = document.createElement("div");
+        let btn  = document.createElement("button");
+        td.appendChild(div);
+        div.appendChild(btn);
+        tr.appendChild(td);
+
+       
+        btn.className="";
+        btn.innerHTML=`<img src="../../../assets/modifyIcon.png">`;
+        btn.onclick = ()=>{
+            loadInputs(product);
+        }
+       
+        let btn2 = document.createElement("button");
+        btn2.innerHTML=`<img src="../../../assets/deleteIcon.png">`;
+        div.appendChild(btn2);
+        btn2.className="btnTd";
+        btn2.onclick = ()=>{
+            deleteProduct(product.idProducto);
+        }
+        
+       
+        div.id="actionsTd";
+        tbodyElement.appendChild(tr);
 
     });
 }
@@ -62,7 +85,7 @@ function addEvents() {
         divFrm.classList.remove("frmDesactivado");
         divFrm.classList.add("frmActivado");
         pTitle.innerHTML = "Agregando Producto";
-        frmProduct.value = "Agregar";
+        frmProduct.submit.value = "Agregar";
     }
 
     cancelarBtn.onclick = () => {
@@ -105,9 +128,9 @@ function addEvents() {
         let nombre = frmProduct.nombre.value;
         let color = frmProduct.color.value;
 
-        if(frmProduct.value == "Agregar"){
+        if(frmProduct.submit.value == "Agregar"){
             addProduct(precio, descripcion, imagen, nombre, color);
-        }else if(frmProduct.value == "Modificar"){
+        }else if(frmProduct.submit.value == "Modificar"){
             modifyProduct(idProduct, precio, descripcion, imagen, nombre, color);
         }
         
@@ -154,13 +177,13 @@ async function addProduct(precio, descripcion, imagen, nombre, color) {
 }
 
 function loadInputs(product) {
-    let parsedProduct = JSON.parse(product);
-    let idProducto = parsedProduct.idProducto;
-    let precio = parsedProduct.precio;
-    let descripcion = parsedProduct.descripcion;
-    let imagen = parsedProduct.extension;
-    let nombre = parsedProduct.nombre;
-    let color = parsedProduct.color;
+    console.log(product);
+    let idProducto = product.idProducto;
+    let precio = product.precio;
+    let descripcion = product.descripcion;
+    let imagen = product.extension;
+    let nombre = product.nombre;
+    let color = product.color;
     let divFrm = document.querySelector("#frmProducto");
     let frmProduct = document.querySelector("#frmProducto form");
     let imgPreview = document.querySelector("#imgPreview");
@@ -199,6 +222,7 @@ async function modifyProduct(idProduct, precio, descripcion, imagen, nombre, col
 }
 
 async function deleteProduct(idProducto){
+    console.log(idProducto);
     let query = await new ProductDAO().deleteProduct(idProducto);
 
     if(query.estado){
