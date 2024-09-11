@@ -2,7 +2,6 @@ import SessionDAO from "../../../dao/sessionDAO.js";
 import ProductDAO from "../../../dao/productDao.js";
 import SizeDAO from "../../../dao/sizeDAO.js";
 
-let action = null; 
 let id = null;
 
 window.onload = async () => {
@@ -14,19 +13,14 @@ window.onload = async () => {
     } else {
         window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
     }
-    loadData();
+    showProducts();
     addEvents();
     insertSize();
 }
 
-async function loadData() {
+async function showProducts() {
     let query = await new ProductDAO().getProducts();
-    if (query.estado) {
-        showProducts(query.datos);
-    }
-}
-
-async function showProducts(products) {
+    let products = query.datos;
     let tbodyElement = document.querySelector("#productData");
     tbodyElement.innerHTML = "";
     products.forEach((product) => {
@@ -116,7 +110,6 @@ function addEvents() {
 
     btnLogOut.onclick = () => {
         logOut();
-
     }
 
     frmProduct.onsubmit = (e) => {
@@ -130,8 +123,10 @@ function addEvents() {
 
         if(frmProduct.submit.value == "Agregar"){
             addProduct(precio, descripcion, imagen, nombre, color);
+            showProducts();
         }else if(frmProduct.submit.value == "Modificar"){
             modifyProduct(idProduct, precio, descripcion, imagen, nombre, color);
+            showProducts();
         }
         
     }
@@ -177,7 +172,6 @@ async function addProduct(precio, descripcion, imagen, nombre, color) {
 }
 
 function loadInputs(product) {
-    console.log(product);
     let idProducto = product.idProducto;
     let precio = product.precio;
     let descripcion = product.descripcion;
@@ -193,15 +187,14 @@ function loadInputs(product) {
     divFrm.classList.remove("frmDesactivado");
     divFrm.classList.add("frmActivado");
 
-    pTitle.innerHTML = "Agregando Producto";
-    frmProduct.value = "Modificar";
+    pTitle.innerHTML = "Modificando Producto";
+    frmProduct.submit.value = "Modificar";
     frmProduct.precio.value = precio;
     frmProduct.descripcion.value = descripcion;
     imgPreview.src = `../../../../BackEnd/imgs/${idProducto}.${imagen}`;
     frmProduct.nombre.value = nombre;
     frmProduct.color.value = color;
     id = idProducto;
-    action = "modify";
 }
 
 async function modifyProduct(idProduct, precio, descripcion, imagen, nombre, color){

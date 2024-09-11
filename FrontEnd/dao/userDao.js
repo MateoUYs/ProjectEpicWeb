@@ -26,7 +26,7 @@ export default class UserDAO{
         return query;
     }
 
-    async modifyUser(ci, ){
+    async modifyUser(ci,correo,usuario,password,telefono){
         let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/userController.php?function=modifyUser";
         let formData = new FormData();
         formData.append("ci", ci);

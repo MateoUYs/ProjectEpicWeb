@@ -36,7 +36,6 @@ export default class ProductoDao {
         }
         let queryResponse = await fetch(url,config);
         let query  = await queryResponse.json();
-        console.log(query);
         return query;
     }
 
@@ -56,7 +55,8 @@ export default class ProductoDao {
             body: formData
         }
         let queryResponse = await fetch(url,config);
-        let query  = await queryResponse.json();
+        let query  = await queryResponse.text();
+        console.log(query);
         return query;
     }
 
