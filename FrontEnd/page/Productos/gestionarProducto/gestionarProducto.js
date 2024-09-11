@@ -56,11 +56,13 @@ function addEvents() {
     let listConsultation = document.querySelector("#listaConsultas");
     let homeBtn = document.querySelector("#homeBtn");
     let btnLogOut = document.querySelector("#btnLogOut");
+    let pTitle = document.querySelector("#title");
 
     addBtn.onclick = () => {
         divFrm.classList.remove("frmDesactivado");
         divFrm.classList.add("frmActivado");
-        action = "add";
+        pTitle.innerHTML = "Agregando Producto";
+        frmProduct.value = "Agregar";
     }
 
     cancelarBtn.onclick = () => {
@@ -103,9 +105,9 @@ function addEvents() {
         let nombre = frmProduct.nombre.value;
         let color = frmProduct.color.value;
 
-        if(action == "add"){
+        if(frmProduct.value == "Agregar"){
             addProduct(precio, descripcion, imagen, nombre, color);
-        }else if(action == "modify"){
+        }else if(frmProduct.value == "Modificar"){
             modifyProduct(idProduct, precio, descripcion, imagen, nombre, color);
         }
         
@@ -162,10 +164,14 @@ function loadInputs(product) {
     let divFrm = document.querySelector("#frmProducto");
     let frmProduct = document.querySelector("#frmProducto form");
     let imgPreview = document.querySelector("#imgPreview");
+    let pTitle = document.querySelector("#title");
+    
 
     divFrm.classList.remove("frmDesactivado");
     divFrm.classList.add("frmActivado");
 
+    pTitle.innerHTML = "Agregando Producto";
+    frmProduct.value = "Modificar";
     frmProduct.precio.value = precio;
     frmProduct.descripcion.value = descripcion;
     imgPreview.src = `../../../../BackEnd/imgs/${idProducto}.${imagen}`;

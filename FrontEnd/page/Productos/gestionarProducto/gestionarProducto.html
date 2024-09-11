@@ -32,6 +32,7 @@
   </nav>
   <div id="frmProducto" class="contenedor-frm frmDesactivado">
     <form action="">
+      <p class="subTitle" id="title"></p>
       <input type="text" name="nombre" placeholder="Nombre del Producto" class="form-input" required>
       <input type="text" name="descripcion" placeholder="Descripción del Producto" class="form-input" required />
       <input type="text" name="precio" placeholder="Precio" class="form-input" required>
@@ -42,8 +43,8 @@
       <label for="imagenInput" class="form-file">Seleccionar Imágen: </label>
       <input type="file" name="imagen" id="imagenInput" class="form-file" required>
       <img src="../../../assets/noImage.png" id="imgPreview" alt="">
-      <button type="submit" class="form-btn" id="btn">Confirmar</button>
-      <button type="button" class="cancelar-btn" id="btn">Cancelar</button>
+      <input type="submit" class="form-btn" id="btn" name="submit" value=""></input>
+      <input type="button" class="cancelar-btn" id="btn" name="cancelar" value="Cancelar"></input>
     </form>
   </div>
   <main>

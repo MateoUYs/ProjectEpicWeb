@@ -167,6 +167,12 @@ button:hover {
   border-radius: 5%;
 }
 
+.subTitle{
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  color: #555454de;
+}
+
 .form-input {
   margin-bottom: 10px;
   width: 75%;
