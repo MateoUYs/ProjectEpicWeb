@@ -13,7 +13,7 @@ class productsDAO
         $sql = "SELECT * FROM producto";
         $rersult = $connection->query($sql);
         $productos = $rersult->fetch_all(MYSQLI_ASSOC);
-        $query = new query(true,"Productos obtenidos",$productos);
+        $query = new query(true, "Productos obtenidos", $productos);
         return $query;
     }
 
@@ -51,17 +51,33 @@ class productsDAO
     }
 
     // Función para modificar un producto
-    function modifyProducts($id, $precio, $descripcion, $nombre, $color)
+    function modifyProducts($idProducto, $precio, $descripcion, $imagen, $nombre, $color)
     {
-        $sql = "UPDATE producto SET precio ='$precio', descripcion = '$descripcion', nombre ='$nombre', color ='$color' WHERE idProducto = '$id'";
-        $connection = connection();
-        try {
-            $connection->query($sql);
-            $query = new query(true, "producto modificado", null);
-        } catch (Exception $e) {
-            $query = new query(false, "no se pudo modificar el producto", null);
+        if (isset($imagen) && $imagen["error"] === 0) {
+            $extension = pathinfo($imagen['name'], PATHINFO_EXTENSION);
+            $rutaTemporal = $imagen['tmp_name'];
+            $sql = "UPDATE producto SET precio ='$precio', descripcion = '$descripcion', extension = '$extension', nombre ='$nombre', color ='$color' WHERE idProducto = '$idProducto'";
+            $connection = connection();
+            try {
+                $connection->query($sql);
+                $query = new query(true, "Producto modificado", null);
+                move_uploaded_file($rutaTemporal, "../imgs/$idProducto.$extension");
+            } catch (Exception $e) {
+                $query = new query(false, "No se pudo modificar el producto", null);
+            }
+            return $query;
+        } else {
+            $sql = "UPDATE producto SET precio ='$precio', descripcion = '$descripcion', nombre ='$nombre', color ='$color' WHERE idProducto = '$idProducto'";
+            $connection = connection();
+            try {
+                $connection->query($sql);
+                $query = new query(true, "producto modificado", null);
+            } catch (Exception $e) {
+                $query = new query(false, "no se pudo modificar el producto", null);
+            }
+            return $query;
         }
-        return $query;
+
     }
 
     // Función para obtener detalles de un producto específico
@@ -76,7 +92,8 @@ class productsDAO
         return $query;
     }
 
-    function setStock($idProducto, $stock){
+    function setStock($idProducto, $stock)
+    {
         $sql = "UPDATE producto SET stock ='$stock' WHERE idProducto = '$idProducto'";
         $connection = connection();
         try {
@@ -88,7 +105,8 @@ class productsDAO
         return $query;
     }
 
-    function updateStock($idProducto, $stock){
+    function updateStock($idProducto, $stock)
+    {
         $sql = "UPDATE producto SET stock = stock + '$stock' WHERE idProducto = '$idProducto'";
         $connection = connection();
         try {
@@ -100,12 +118,13 @@ class productsDAO
         return $query;
     }
 
-    function getStock($idProducto){
+    function getStock($idProducto)
+    {
         $connection = connection();
         $sql = "SELECT nombre, stock FROM producto WHERE idProducto = '$idProducto'";
         $rersult = $connection->query($sql);
         $producto = $rersult->fetch_all(MYSQLI_ASSOC);
-        $query = new query(true,"Stock obtenido",$producto);
+        $query = new query(true, "Stock obtenido", $producto);
         return $query;
     }
 }

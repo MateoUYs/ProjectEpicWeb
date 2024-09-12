@@ -69,9 +69,10 @@ function modifyProduct() {
     $idProducto = $_POST["id"];
     $precio = $_POST["precio"];
     $descripcion = $_POST["descripcion"];
+    $imagen = isset($_FILES['imagen']) ? $_FILES['imagen'] : null;
     $nombre = $_POST["nombre"];
     $color = $_POST["color"];
-    $result = (new productsDAO())->modifyProducts($idProducto,$precio, $descripcion, $nombre, $color); 
+    $result = (new productsDAO())->modifyProducts($idProducto,$precio, $descripcion, $imagen, $nombre, $color); 
     echo json_encode($result);
 }
 

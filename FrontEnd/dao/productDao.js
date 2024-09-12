@@ -41,9 +41,9 @@ export default class ProductoDao {
 
     // Función para modificar un producto
     async modifyProduct(idProducto, precio, descripcion, imagen, nombre, color) {
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=addProduct";
+        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=modifyProduct";
         let formData = new FormData();
-        formData.append("idProducto",idProducto);
+        formData.append("id",idProducto);
         formData.append("precio",precio);
         formData.append("descripcion",descripcion);
         formData.append("imagen",imagen);
@@ -61,8 +61,18 @@ export default class ProductoDao {
     }
 
     // Función para obtener detalles de un producto específico
-    async getProductDetails() {
-
-        // Implementación pendiente
+    async getProductDetails(idProducto) {
+        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=getProductDetails";
+        let formData = new FormData();
+        formData.append("id",idProducto);
+       
+        let config = {
+            method:"POST",
+            body: formData
+        }
+        let queryResponse = await fetch(url,config);
+        let query  = await queryResponse.json();
+        return query;
+        
     }
 }

@@ -165,7 +165,7 @@ async function addProduct(precio, descripcion, imagen, nombre, color) {
         divFrm.classList.remove("frmActivado");
         frmProduct.reset();
         imgPreview.src = "../../../assets/noImage.png";
-        loadData();
+        showProducts();
     } else {
         alert("Error");
     }
@@ -208,7 +208,7 @@ async function modifyProduct(idProduct, precio, descripcion, imagen, nombre, col
         divFrm.classList.remove("frmActivado");
         frmProduct.reset();
         imgPreview.src = "../../../assets/noImage.png";
-        loadData();
+        showProducts();
     } else {
         alert("Error");
     }
@@ -220,7 +220,7 @@ async function deleteProduct(idProducto){
 
     if(query.estado){
         alert("Producto eliminado");
-        loadData();
+        showProducts();
     }else{
         alert("Error");
     }
