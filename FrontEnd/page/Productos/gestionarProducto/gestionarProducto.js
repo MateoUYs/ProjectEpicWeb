@@ -30,7 +30,7 @@ async function showProducts() {
              <td>${product.nombre}</td>
              <td>${product.descripcion}</td>
              <td>${product.precio}</td>
-             <td><div style="background-color: ${product.color}"}>d </div></td>
+             <td><div style="background-color: ${product.color}; color: ${product.color}"}>..</div></td>
              <td class="tdImg"><img class="imgTd" src="../../../../backEnd/imgs/${product.idProducto}.${product.extension}"></td>
         `;
         let td = document.createElement("td");
@@ -41,8 +41,8 @@ async function showProducts() {
         tr.appendChild(td);
 
        
-        btn.className="";
-        btn.innerHTML=`<img src="../../../assets/modifyIcon.png">`;
+        btn.className="btnTd";
+        btn.innerHTML=`<img class="modifyImg" src="../../../assets/modifyIcon.png">`;
         btn.onclick = ()=>{
             loadInputs(product);
         }
@@ -138,14 +138,13 @@ async function insertSize() {
         let sizes = requestSizes.datos;
         let inputSize = document.querySelector("#inputSize");
         inputSize.innerHTML = "";
+        inputSize.innerHTML += `<option value="" disabled selected>Talle</option>`;
         sizes.forEach((size) => {
             inputSize.innerHTML += `
                 <option value="${size.tipo}">${size.tipo}</option>
             `;
         })
-
     }
-    console.log(requestSizes);
 }
 
 async function logOut() {
