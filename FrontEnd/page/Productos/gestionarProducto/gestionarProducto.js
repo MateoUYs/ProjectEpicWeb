@@ -138,7 +138,7 @@ async function insertSize() {
         let sizes = requestSizes.datos;
         let inputSize = document.querySelector("#inputSize");
         inputSize.innerHTML = "";
-        inputSize.innerHTML += `<option value="" disabled selected>Talle</option>`;
+        inputSize.innerHTML += `<option value="" disabled selected>Selecciona el talle del producto</option>`;
         sizes.forEach((size) => {
             inputSize.innerHTML += `
                 <option value="${size.tipo}">${size.tipo}</option>
