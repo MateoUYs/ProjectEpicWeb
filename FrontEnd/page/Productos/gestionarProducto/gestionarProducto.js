@@ -35,28 +35,28 @@ async function showProducts() {
         `;
         let td = document.createElement("td");
         let div = document.createElement("div");
-        let btn  = document.createElement("button");
+        let btn = document.createElement("button");
         td.appendChild(div);
         div.appendChild(btn);
         tr.appendChild(td);
 
-       
-        btn.className="btnTd";
-        btn.innerHTML=`<img class="modifyImg" src="../../../assets/modifyIcon.png">`;
-        btn.onclick = ()=>{
+
+        btn.className = "btnTd";
+        btn.innerHTML = `<img class="modifyImg" src="../../../assets/modifyIcon.png">`;
+        btn.onclick = () => {
             loadInputs(product);
         }
-       
+
         let btn2 = document.createElement("button");
-        btn2.innerHTML=`<img src="../../../assets/deleteIcon.png">`;
+        btn2.innerHTML = `<img src="../../../assets/deleteIcon.png">`;
         div.appendChild(btn2);
-        btn2.className="btnTd";
-        btn2.onclick = ()=>{
+        btn2.className = "btnTd";
+        btn2.onclick = () => {
             deleteProduct(product.idProducto);
         }
-        
-       
-        div.id="actionsTd";
+
+
+        div.id = "actionsTd";
         tbodyElement.appendChild(tr);
 
     });
@@ -74,6 +74,10 @@ function addEvents() {
     let homeBtn = document.querySelector("#homeBtn");
     let btnLogOut = document.querySelector("#btnLogOut");
     let pTitle = document.querySelector("#title");
+    let divAlert = document.querySelector(".alertDesactivado");
+    let pAlertTitle = document.querySelector("#alertTitle");
+    let alertQuestion = document.querySelector("#question");
+    let frmAlert = document.querySelector(".alertDesactivado form");
 
     addBtn.onclick = () => {
         divFrm.classList.remove("frmDesactivado");
@@ -109,7 +113,11 @@ function addEvents() {
     }
 
     btnLogOut.onclick = () => {
-        logOut();
+        divAlert.classList.add("alertActivado");
+        divAlert.classList.remove("alertDesactivado");
+        pAlertTitle.innerHTML = "Cerrar Sesión";
+        alertQuestion.innerHTML = "¿Estás seguro de que deseas cerrar sesión? Si cierras sesión, serás redirigido al Inicio de Sesión";
+        frmAlert.submit.value = "Cerrar Sesión";
     }
 
     frmProduct.onsubmit = (e) => {
@@ -121,14 +129,25 @@ function addEvents() {
         let nombre = frmProduct.nombre.value;
         let color = frmProduct.color.value;
 
-        if(frmProduct.submit.value == "Agregar"){
+        if (frmProduct.submit.value == "Agregar") {
             addProduct(precio, descripcion, imagen, nombre, color);
             showProducts();
-        }else if(frmProduct.submit.value == "Modificar"){
+        } else if (frmProduct.submit.value == "Modificar") {
             modifyProduct(idProduct, precio, descripcion, imagen, nombre, color);
             showProducts();
         }
-        
+
+    }
+
+    frmAlert.onsubmit = (e) => {
+        e.preventDefault();
+        if (frmAlert.submit.value == "Cerrar Sesión") {
+            setTimeout(async() => {
+                logOut();
+            }, 3000);
+        } else if (frmAlert.submit.value == "Eliminar Producto") {
+
+        }
     }
 }
 
@@ -181,7 +200,7 @@ function loadInputs(product) {
     let frmProduct = document.querySelector("#frmProducto form");
     let imgPreview = document.querySelector("#imgPreview");
     let pTitle = document.querySelector("#title");
-    
+
 
     divFrm.classList.remove("frmDesactivado");
     divFrm.classList.add("frmActivado");
@@ -196,7 +215,7 @@ function loadInputs(product) {
     id = idProducto;
 }
 
-async function modifyProduct(idProduct, precio, descripcion, imagen, nombre, color){
+async function modifyProduct(idProduct, precio, descripcion, imagen, nombre, color) {
     let query = await new ProductDAO().modifyProduct(idProduct, precio, descripcion, imagen, nombre, color);
     let frmProduct = document.querySelector("#frmProducto form");
     let divFrm = document.querySelector("#frmProducto");
@@ -213,14 +232,14 @@ async function modifyProduct(idProduct, precio, descripcion, imagen, nombre, col
     }
 }
 
-async function deleteProduct(idProducto){
+async function deleteProduct(idProducto) {
     console.log(idProducto);
     let query = await new ProductDAO().deleteProduct(idProducto);
 
-    if(query.estado){
+    if (query.estado) {
         alert("Producto eliminado");
         showProducts();
-    }else{
+    } else {
         alert("Error");
     }
 }

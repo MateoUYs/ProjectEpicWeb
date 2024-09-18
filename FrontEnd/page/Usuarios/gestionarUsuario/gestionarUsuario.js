@@ -34,7 +34,7 @@ function addEvents() {
         let password = formElement.password.value;
         let telefono = formElement.telefono.value;
 
-       modifyUser(ci, correo, usuario, password, telefono);
+        modifyUser(ci, correo, usuario, password, telefono);
     };
 
     btnDelete.onclick = async (e) => {
@@ -64,16 +64,16 @@ async function modifyUser(ci, userData) {
     }
 }
 
-async function deleteUser(ci){
+async function deleteUser(ci) {
     let query = await new UserDAO().deleteUser(ci);
     let pAlert = document.querySelector("#deleteAlert");
     if (query.estado) {
         pAlert.innerHTML = "¡Usuario eliminado con éxito!";
-        setTimeout(async() => {
+        setTimeout(async () => {
             await new SessionDAO().logOut();
-            window.location.href = "../iniciarSesion/iniciarSesion.html"; 
+            window.location.href = "../iniciarSesion/iniciarSesion.html";
         }, 3000);
-    }else{
+    } else {
         pAlert.innerHTML = `¡Error al eliminar el usuario ${query.mensaje}!`;
     }
 }

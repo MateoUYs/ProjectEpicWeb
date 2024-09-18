@@ -8,10 +8,14 @@
   <link rel="stylesheet" href="gestionarProducto.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+    rel="stylesheet" />
   <script type="module" src="gestionarProducto.js"></script>
 </head>
+
 <body>
   <nav>
     <button type="button" class="logoPage" id="homeBtn">
@@ -28,8 +32,18 @@
       <p id="countConsults" class="empty">0</p>
     </button>
     <button type="button" class="logOut" id="btnLogOut"><img src="../../../assets/logOut.png"></button>
-    
+
   </nav>
+  <div class="alertFrm alertDesactivado">
+    <form action="">
+      <p class="subTitle" id="alertTitle"></p>
+      <label for="" id="question"></label>
+      <div class="btns">
+        <input type="submit" class="form-btn" id="alertBtn" name="submit" value=""></input>
+        <input type="button" class="cancelar-btn" id="btnCancelAlert" name="cancelar" value="Cancelar"></input>
+      </div>
+    </form>
+  </div>
   <div id="frmProducto" class="contenedor-frm frmDesactivado">
     <form action="">
       <p class="subTitle" id="title"></p>
@@ -37,12 +51,13 @@
       <input type="text" name="descripcion" placeholder="Descripción del Producto" class="form-input" required />
       <input type="text" name="precio" placeholder="Precio" class="form-input" required>
       <input type="color" name="color" placeholder="Color" class="formColor" required />
-      <select name="talle"  class="form-input" id="inputSize">
+      <select name="talle" class="form-input" id="inputSize">
         <option value="Talle" selected></option>
       </select>
       <label for="imagenInput" class="form-file">Seleccionar Imágen: </label>
       <input type="file" name="imagen" id="imagenInput" class="form-file">
       <img src="../../../assets/noImage.png" id="imgPreview" alt="">
+      <p id="confirmation"></p>
       <input type="submit" class="form-btn" id="btn" name="submit" value=""></input>
       <input type="button" class="cancelar-btn" id="btnCancelar" name="cancelar" value="Cancelar"></input>
     </form>
@@ -57,22 +72,22 @@
       </div>
       <table>
         <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Precio</th>
-                <th>Color</th>
-                <th>Imágen</th>
-                <th>Acciones</th>
-            </tr>
+          <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Color</th>
+            <th>Imágen</th>
+            <th>Acciones</th>
+          </tr>
         </thead>
-        <tbody id="productData"> 
-                        
+        <tbody id="productData">
+
         </tbody>
-    </table>
+      </table>
     </div>
     <div id="listaConsultas" class="desactivado"></div>
   </main>
 </body>
 
-</html> 
+</html>
