@@ -38,6 +38,7 @@
     <form action="">
       <p class="subTitle" id="alertTitle"></p>
       <label for="" id="question"></label>
+      <p id="confirmationAlert" class="confirmation"></p>
       <div class="btns">
         <input type="submit" class="form-btn" id="alertBtn" name="submit" value=""></input>
         <input type="button" class="cancelar-btn" id="btnCancelAlert" name="cancelar" value="Cancelar"></input>
@@ -57,7 +58,7 @@
       <label for="imagenInput" class="form-file">Seleccionar Imágen: </label>
       <input type="file" name="imagen" id="imagenInput" class="form-file">
       <img src="../../../assets/noImage.png" id="imgPreview" alt="">
-      <p id="confirmation"></p>
+      <p id="message" class="confirmation"></p>
       <input type="submit" class="form-btn" id="btn" name="submit" value=""></input>
       <input type="button" class="cancelar-btn" id="btnCancelar" name="cancelar" value="Cancelar"></input>
     </form>
@@ -73,6 +74,7 @@
       <table>
         <thead>
           <tr>
+            <th>ID Producto</th>
             <th>Nombre</th>
             <th>Descripción</th>
             <th>Precio</th>

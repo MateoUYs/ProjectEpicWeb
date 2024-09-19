@@ -442,3 +442,21 @@ thead {
 #alertBtn{
   margin-right: 10px;
 }
+
+.confirmation{
+  color: #4CAF50;
+}
+
+.error{
+  color: #f81b0b;
+}
+
+#confirmationAlert{
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 15px;
+}
+
+#message{
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 15px;
+}

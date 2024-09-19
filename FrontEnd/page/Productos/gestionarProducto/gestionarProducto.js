@@ -22,11 +22,16 @@ async function showProducts() {
     let query = await new ProductDAO().getProducts();
     let products = query.datos;
     let tbodyElement = document.querySelector("#productData");
+    let divAlert = document.querySelector(".alertDesactivado");
+    let pAlertTitle = document.querySelector("#alertTitle");
+    let alertQuestion = document.querySelector("#question");
+    let frmAlert = document.querySelector(".alertDesactivado form");
     tbodyElement.innerHTML = "";
     products.forEach((product) => {
         console.log(JSON.stringify(product));
         let tr = document.createElement("tr");
         tr.innerHTML += `
+             <td>${product.idProducto}</td>
              <td>${product.nombre}</td>
              <td>${product.descripcion}</td>
              <td>${product.precio}</td>
@@ -52,9 +57,13 @@ async function showProducts() {
         div.appendChild(btn2);
         btn2.className = "btnTd";
         btn2.onclick = () => {
-            deleteProduct(product.idProducto);
+            divAlert.classList.add("alertActivado");
+            divAlert.classList.remove("alertDesactivado");
+            pAlertTitle.innerHTML = "Eliminar Producto";
+            alertQuestion.innerHTML = "¿Estás seguro de que deseas eliminar el producto? Si eliminas el producto, no se podrá deshacer los cambios";
+            frmAlert.submit.value = "Eliminar Producto";
+            frmAlert.setAttribute("dataProductId", product.idProducto);
         }
-
 
         div.id = "actionsTd";
         tbodyElement.appendChild(tr);
@@ -65,7 +74,7 @@ async function showProducts() {
 function addEvents() {
     let addBtn = document.querySelector("#addBtn");
     let divFrm = document.querySelector("#frmProducto");
-    let cancelarBtn = document.querySelector(".cancelar-btn");
+    let cancelarBtn = document.querySelector("#btnCancelar");
     let frmProduct = document.querySelector("#frmProducto form");
     let inputFile = document.querySelector("#imagenInput");
     let imgPreview = document.querySelector("#imgPreview");
@@ -78,6 +87,10 @@ function addEvents() {
     let pAlertTitle = document.querySelector("#alertTitle");
     let alertQuestion = document.querySelector("#question");
     let frmAlert = document.querySelector(".alertDesactivado form");
+    let alertCancel = document.querySelector("#btnCancelAlert");
+    let message = document.querySelector("#message");
+    let confirmationAlert = document.querySelector("#confirmationAlert");
+
 
     addBtn.onclick = () => {
         divFrm.classList.remove("frmDesactivado");
@@ -91,6 +104,7 @@ function addEvents() {
         divFrm.classList.remove("frmActivado");
         frmProduct.reset();
         imgPreview.src = "../../../assets/noImage.png";
+        message.innerHTML = "";
     }
 
     inputFile.onchange = () => {
@@ -131,10 +145,12 @@ function addEvents() {
 
         if (frmProduct.submit.value == "Agregar") {
             addProduct(precio, descripcion, imagen, nombre, color);
-            showProducts();
+
         } else if (frmProduct.submit.value == "Modificar") {
             modifyProduct(idProduct, precio, descripcion, imagen, nombre, color);
-            showProducts();
+            setTimeout(async () => {
+
+            }, 3000);
         }
 
     }
@@ -142,12 +158,27 @@ function addEvents() {
     frmAlert.onsubmit = (e) => {
         e.preventDefault();
         if (frmAlert.submit.value == "Cerrar Sesión") {
-            setTimeout(async() => {
+            setTimeout(async () => {
+                confirmationAlert.innerHTML = "";
                 logOut();
             }, 3000);
         } else if (frmAlert.submit.value == "Eliminar Producto") {
-
+            let idProduct = frmAlert.getAttribute("dataProductId");
+            deleteProduct(idProduct);
+            setTimeout(async () => {
+                divAlert.classList.add("alertDesactivado");
+                divAlert.classList.remove("alertActivado");
+                confirmationAlert.innerHTML = "";
+            }, 3000);
         }
+    }
+
+    alertCancel.onclick = () => {
+        divAlert.classList.add("alertDesactivado");
+        divAlert.classList.remove("alertActivado");
+        alertQuestion.innerHTML = "";
+        pAlertTitle.innerHTML = "";
+        frmAlert.submit.value = "";
     }
 }
 
@@ -175,17 +206,28 @@ async function addProduct(precio, descripcion, imagen, nombre, color) {
     let query = await new ProductDAO().addProducts(precio, descripcion, imagen, nombre, color);
     let frmProduct = document.querySelector("#frmProducto form");
     let divFrm = document.querySelector("#frmProducto");
-
+    let message = document.querySelector("#message");
 
     if (query.estado) {
-        alert("Agregado con éxito");
-        divFrm.classList.add("frmDesactivado");
-        divFrm.classList.remove("frmActivado");
-        frmProduct.reset();
-        imgPreview.src = "../../../assets/noImage.png";
-        showProducts();
+        if (message.classList.contains("error")) {
+            message.classList.remove("error");
+            message.classList.add("confirmation");
+        }
+        message.innerHTML = "Producto Agregado con éxito";
+        setTimeout(async () => {
+            divFrm.classList.add("frmDesactivado");
+            divFrm.classList.remove("frmActivado");
+            frmProduct.reset();
+            imgPreview.src = "../../../assets/noImage.png";
+            message.innerHTML = "";
+            showProducts();
+        }, 3000);
     } else {
-        alert("Error");
+        if (message.classList.contains("confirmation")) {
+            message.classList.add("error");
+            message.classList.remove("confirmation");
+        }
+        message.innerHTML = `Error al agregar el producto ${query.mensaje}`;
     }
 }
 
@@ -219,27 +261,47 @@ async function modifyProduct(idProduct, precio, descripcion, imagen, nombre, col
     let query = await new ProductDAO().modifyProduct(idProduct, precio, descripcion, imagen, nombre, color);
     let frmProduct = document.querySelector("#frmProducto form");
     let divFrm = document.querySelector("#frmProducto");
+    let message = document.querySelector("#message");
 
     if (query.estado) {
-        alert("Modificado con éxito");
-        divFrm.classList.add("frmDesactivado");
-        divFrm.classList.remove("frmActivado");
-        frmProduct.reset();
-        imgPreview.src = "../../../assets/noImage.png";
-        showProducts();
+        if (message.classList.contains("error")) {
+            message.classList.remove("error");
+            message.classList.add("confirmation");
+        }
+        message.innerHTML = "Producto Modificado con éxito";
+        setTimeout(async () => {
+            divFrm.classList.add("frmDesactivado");
+            divFrm.classList.remove("frmActivado");
+            frmProduct.reset();
+            imgPreview.src = "../../../assets/noImage.png";
+            message.innerHTML = "";
+            showProducts();
+        }, 3000);
     } else {
-        alert("Error");
+        if (message.classList.contains("confirmation")) {
+            message.classList.add("error");
+            message.classList.remove("confirmation");
+        }
+        message.innerHTML = `Error al modificar el producto ${query.mensaje}`;
     }
 }
 
 async function deleteProduct(idProducto) {
-    console.log(idProducto);
     let query = await new ProductDAO().deleteProduct(idProducto);
+    let confirmationAlert = document.querySelector("#confirmationAlert");
 
     if (query.estado) {
-        alert("Producto eliminado");
+        if (confirmationAlert.classList.contains("error")) {
+            confirmationAlert.classList.remove("error");
+            confirmationAlert.classList.add("confirmation");
+        }
+        confirmationAlert.innerHTML = "Producto Eliminado con éxito";
         showProducts();
     } else {
-        alert("Error");
+        if (confirmationAlert.classList.contains("confirmation")) {
+            confirmationAlert.classList.add("error");
+            confirmationAlert.classList.remove("confirmation");
+        }
+        confirmationAlert.innerHTML = `Error al eliminar el producto ${query.mensaje}`;
     }
 }
