@@ -74,4 +74,11 @@ export default class ProductoDao {
         return query;
         
     }
+
+    async getStock() {
+        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=getStock";
+        let queryResponse = await fetch(url);
+        let query  = await queryResponse.json();
+        return query;
+    }
 }

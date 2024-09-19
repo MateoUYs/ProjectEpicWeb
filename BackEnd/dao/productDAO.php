@@ -118,10 +118,10 @@ class productsDAO
         return $query;
     }
 
-    function getStock($idProducto)
+    function getStock()
     {
         $connection = connection();
-        $sql = "SELECT nombre, stock FROM producto WHERE idProducto = '$idProducto'";
+        $sql = "SELECT idProducto, nombre, stock FROM producto";
         $rersult = $connection->query($sql);
         $producto = $rersult->fetch_all(MYSQLI_ASSOC);
         $query = new query(true, "Stock obtenido", $producto);

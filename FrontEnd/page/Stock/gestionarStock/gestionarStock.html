@@ -14,8 +14,8 @@
 </head>
 <body>
   <nav>
-    <button class="logoPage" href="indexAdmin.html">
-    <img src="../../../assets/logoPageAdmin.png">
+    <button type="button" class="logoPage" id="homeBtn">
+      <img src="../../../assets/logoPageAdmin.png">
     </button>
     <a href="../../Productos/gestionarProducto/gestionarProducto.html">Gestionar Productos</a>
     <a href="gestionarStock.html">Gestionar Stock</a>
@@ -23,37 +23,49 @@
     <a href="../../Ofertas/gestionarOfertas/gestionarOfertas.html">Gestionar Ofertas</a>
     <a href="../../Compras/gestionarCompras/gestionarCompras.html">Gestionar Compras</a>
     <a href="../../Estadisticas/verEstadisticas/verEstadisticas.html">Ver Estadísticas</a>
-    <button class="consulta" id="btnConsulta">
+    <button type="button" class="consulta" id="btnConsulta">
       <img src="../../../assets/consultaIcon.png">
       <p id="countConsults" class="empty">0</p>
     </button>
-    <button class="logOut" id="btnLogOut"><img src="../../../assets/logOut.png"></button>
-    
+    <button type="button" class="logOut" id="btnLogOut"><img src="../../../assets/logOut.png"></button>
   </nav>
-
+  <div  class="alertFrm alertDesactivado">
+    <form action="">
+      <p class="subTitle" id="alertTitle"></p>
+      <label for="" id="question"></label>
+      <p id="confirmationAlert" class="confirmation"></p>
+      <div class="btns">
+        <input type="submit" class="form-btn" id="alertBtn" name="submit" value=""></input>
+        <input type="button" class="cancelar-btn" id="btnCancelAlert" name="cancelar" value="Cancelar"></input>
+      </div>
+    </form>
+  </div>
+  <div id="frmProducto" class="contenedor-frm frmDesactivado">
+    <form action="">
+      <p class="subTitle" id="title"></p>
+      <input type="text" name="nombre" placeholder="Nombre del Producto" class="form-input" readonly>
+      <input type="number" name="stock" placeholder="Stock" class="form-input" required>
+      <p id="message" class="confirmation"></p>
+      <input type="submit" class="form-btn" id="btn" name="submit" value=""></input>
+      <input type="button" class="cancelar-btn" id="btnCancelar" name="cancelar" value="Cancelar"></input>
+    </form>
+  </div>
   <main>
     <div class="content">
-      <div class="addBtn">
         <p class="title">Productos:</p>
-      </div>
       <table>
         <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Precio</th>
-                <th>Color</th>
-                <th>Imágen</th>
-                <th>Stock</th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
+          <tr>
+            <th>ID Producto</th>
+            <th>Nombre</th>
+            <th>Stock</th>
+            <th>Acciones</th>
+          </tr>
         </thead>
-        <tbody id="productData"> 
+        <tbody id="productData">
 
         </tbody>
-    </table>
+      </table>
     </div>
     <div id="listaConsultas" class="desactivado"></div>
   </main>

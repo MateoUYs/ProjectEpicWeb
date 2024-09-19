@@ -98,8 +98,7 @@ function updateStock(){
 }
 
 function getStock(){
-    $idProducto = $_POST["id"];
-    $result = (new productsDAO())->getStock($idProducto);
+    $result = (new productsDAO())->getStock();
     echo json_encode($result);
 }
 ?>
