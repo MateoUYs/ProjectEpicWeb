@@ -20,10 +20,6 @@ async function showStock() {
     let query = await new ProductDAO().getStock();
     let products = query.datos;
     let tbodyElement = document.querySelector("#productData");
-    let divAlert = document.querySelector(".alertDesactivado");
-    let pAlertTitle = document.querySelector("#alertTitle");
-    let alertQuestion = document.querySelector("#question");
-    let frmAlert = document.querySelector(".alertDesactivado form");
     tbodyElement.innerHTML = "";
     products.forEach((product) => {
         console.log(JSON.stringify(product));
@@ -44,7 +40,7 @@ async function showStock() {
         btn.className = "btnTd";
         btn.innerHTML = `<img src="../../../assets/addStock.png">`;
         btn.onclick = () => {
-            loadInputs(product);
+            loadInfo(product, "Agregar");
         }
 
         let btn2 = document.createElement("button");
@@ -52,7 +48,7 @@ async function showStock() {
         div.appendChild(btn2);
         btn2.className = "btnTd";
         btn2.onclick = () => {
-            
+            loadInputs(product, "Actualizar");
         }
 
         div.id = "actionsTd";
@@ -62,9 +58,9 @@ async function showStock() {
 }
 
 function addEvents() {
-    let divFrm = document.querySelector("#frmProducto");
+    let divFrm = document.querySelector("#frmStock");
     let cancelarBtn = document.querySelector("#btnCancelar");
-    let frmProduct = document.querySelector("#frmProducto form");
+    let frmStock = document.querySelector("#frmStock form");
     let consultationBtn = document.querySelector("#btnConsulta");
     let listConsultation = document.querySelector("#listaConsultas");
     let homeBtn = document.querySelector("#homeBtn");
@@ -77,12 +73,12 @@ function addEvents() {
     let alertCancel = document.querySelector("#btnCancelAlert");
     let message = document.querySelector("#message");
     let confirmationAlert = document.querySelector("#confirmationAlert");
-    console.log(frmAlert);
+
 
     cancelarBtn.onclick = () => {
         divFrm.classList.add("frmDesactivado");
         divFrm.classList.remove("frmActivado");
-        frmProduct.reset();
+        frmStock.reset();
         message.innerHTML = "";
     }
 
@@ -108,20 +104,16 @@ function addEvents() {
         frmAlert.submit.value = "Cerrar Sesión";
     }
 
-    frmProduct.onsubmit = (e) => {
+    frmStock.onsubmit = (e) => {
         e.preventDefault()
         let idProduct = id;
-        let precio = frmProduct.precio.value;
-        let descripcion = frmProduct.descripcion.value;
-        let imagen = frmProduct.imagen.files[0];
-        let nombre = frmProduct.nombre.value;
-        let color = frmProduct.color.value;
+        let stock = frmStock.stock.value;
 
-        if (frmProduct.submit.value == "Agregar") {
-            addProduct(precio, descripcion, imagen, nombre, color);
+        if (frmStock.submit.value == "Agregar") {
+            addStock();
 
-        } else if (frmProduct.submit.value == "Modificar") {
-            modifyProduct(idProduct, precio, descripcion, imagen, nombre, color);
+        } else if (frmStock.submit.value == "Actualizar") {
+            updateStock(idProduct);
             setTimeout(async () => {
 
             }, 3000);
@@ -157,30 +149,28 @@ async function logOut() {
 
 
 
-function loadInputs(product) {
-    let idProducto = product.idProducto;
-    let precio = product.precio;
-    let descripcion = product.descripcion;
-    let imagen = product.extension;
+function loadInputs(product, use) {
     let nombre = product.nombre;
-    let color = product.color;
-    let divFrm = document.querySelector("#frmProducto");
-    let frmProduct = document.querySelector("#frmProducto form");
-    let imgPreview = document.querySelector("#imgPreview");
+    let divFrm = document.querySelector("#frmStock");
+    let frmStock = document.querySelector("#frmStock form");
     let pTitle = document.querySelector("#title");
+    let pStock = document.querySelector("#stockActual");
 
 
     divFrm.classList.remove("frmDesactivado");
     divFrm.classList.add("frmActivado");
 
-    pTitle.innerHTML = "Modificando Producto";
-    frmProduct.submit.value = "Modificar";
-    frmProduct.precio.value = precio;
-    frmProduct.descripcion.value = descripcion;
-    imgPreview.src = `../../../../BackEnd/imgs/${idProducto}.${imagen}`;
-    frmProduct.nombre.value = nombre;
-    frmProduct.color.value = color;
+    frmStock.nombre.value = nombre;
     id = idProducto;
+
+    if(use == "Agregar"){
+        pTitle.innerHTML = "Agregando Stock";
+        frmStock.submit.value = "Agregar";
+        pStock.innerHTML = `Stock Actual: ${product.stock}`;
+    }else if (use == "Actualizar"){
+        pTitle.innerHTML = "Actualizando Stock";
+        frmStock.submit.value = "Actualizar";
+    }
 }
 
 
