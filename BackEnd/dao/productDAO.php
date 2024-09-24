@@ -29,11 +29,10 @@ class productsDAO
             $query = new query(true, "producto agregado correctamente", null);
             $idProducto = $connection->insert_id;
             move_uploaded_file($rutaTemporal, "../imgs/$idProducto.$extension");
-            setProductSize($size, $idProducto);
+            $this -> setProductSize($size, $idProducto);
         } catch (Exception $e) {
             $query = new query(false, "No se pudo agregar el producto", null);
         }
-
 
         return $query;
     }
@@ -132,16 +131,16 @@ class productsDAO
 
     function setProductSize($size, $idProducto)
     {
-        echo 'LLEGA';
         $connection = connection();
         $sql = "INSERT INTO productotalle(idProducto, tipoTalle) VALUES ('$idProducto', '$size')";
         try {
             $connection->query($sql);
             $query = new query(true, "Talle Añadido al producto", null);
         } catch (Exception $e) {
-            $query = new query(false, "No se pudo akadir el talle al producto", null);
+            $query = new query(false, "No se pudo añadir el talle al producto", null);
         }
         return $query;
     }
+
 }
 ?>
