@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-09-2024 a las 07:59:52
+-- Tiempo de generación: 24-09-2024 a las 19:08:03
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -119,6 +119,13 @@ CREATE TABLE `producto` (
   `color` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`idProducto`, `precio`, `stock`, `descripcion`, `extension`, `nombre`, `color`) VALUES
+(1, 1200, 50, 'Remera Oversize Black Washed - Spider', 'png', 'Remera Washed - Spider', '#000000');
+
 -- --------------------------------------------------------
 
 --
@@ -150,6 +157,17 @@ CREATE TABLE `productotalle` (
 CREATE TABLE `talle` (
   `tipo` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `talle`
+--
+
+INSERT INTO `talle` (`tipo`) VALUES
+('L'),
+('M'),
+('S'),
+('XL'),
+('XXL');
 
 -- --------------------------------------------------------
 
