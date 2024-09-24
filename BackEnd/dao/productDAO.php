@@ -18,7 +18,7 @@ class productsDAO
     }
 
     // Función para agregar un producto a la base de datos
-    function addProducts($precio, $descripcion, $imagen, $nombre, $color)
+    function addProducts($precio, $descripcion, $imagen, $nombre, $color, $size)
     {
         $extension = pathinfo($imagen['name'], PATHINFO_EXTENSION);
         $rutaTemporal = $imagen['tmp_name'];
@@ -29,9 +29,11 @@ class productsDAO
             $query = new query(true, "producto agregado correctamente", null);
             $idProducto = $connection->insert_id;
             move_uploaded_file($rutaTemporal, "../imgs/$idProducto.$extension");
+            setProductSize($size, $idProducto);
         } catch (Exception $e) {
-            $query = new query(false, "no se pudo agregar el producto", null);
+            $query = new query(false, "No se pudo agregar el producto", null);
         }
+
 
         return $query;
     }
@@ -125,6 +127,20 @@ class productsDAO
         $rersult = $connection->query($sql);
         $producto = $rersult->fetch_all(MYSQLI_ASSOC);
         $query = new query(true, "Stock obtenido", $producto);
+        return $query;
+    }
+
+    function setProductSize($size, $idProducto)
+    {
+        echo 'LLEGA';
+        $connection = connection();
+        $sql = "INSERT INTO productotalle(idProducto, tipoTalle) VALUES ('$idProducto', '$size')";
+        try {
+            $connection->query($sql);
+            $query = new query(true, "Talle Añadido al producto", null);
+        } catch (Exception $e) {
+            $query = new query(false, "No se pudo akadir el talle al producto", null);
+        }
         return $query;
     }
 }

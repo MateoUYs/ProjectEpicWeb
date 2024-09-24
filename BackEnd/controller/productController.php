@@ -53,7 +53,8 @@ function addProduct() {
     $imagen = $_FILES['imagen'];
     $nombre = $_POST["nombre"];
     $color = $_POST["color"];
-    $result = (new productsDAO())->addProducts($precio, $descripcion, $imagen, $nombre, $color); 
+    $sizeType = $_POST["size"];
+    $result = (new productsDAO())->addProducts($precio, $descripcion, $imagen, $nombre, $color, $sizeType); 
     echo json_encode($result);
 }
 
@@ -100,5 +101,10 @@ function updateStock(){
 function getStock(){
     $result = (new productsDAO())->getStock();
     echo json_encode($result);
+}
+
+function setProductSize(){
+    $sizeType = $_POST["size"];
+
 }
 ?>
