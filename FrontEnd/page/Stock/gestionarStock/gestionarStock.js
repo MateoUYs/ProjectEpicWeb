@@ -48,7 +48,7 @@ async function showStock() {
         div.appendChild(btn2);
         btn2.className = "btnTd";
         btn2.onclick = () => {
-            loadInputs(product, "Actualizar");
+            loadInfo(product, "Actualizar");
         }
 
         div.id = "actionsTd";
@@ -149,7 +149,7 @@ async function logOut() {
 
 
 
-function loadInputs(product, use) {
+function loadInfo(product, use) {
     let nombre = product.nombre;
     let divFrm = document.querySelector("#frmStock");
     let frmStock = document.querySelector("#frmStock form");
@@ -161,7 +161,7 @@ function loadInputs(product, use) {
     divFrm.classList.add("frmActivado");
 
     frmStock.nombre.value = nombre;
-    id = idProducto;
+    id = product.idProducto;
 
     if(use == "Agregar"){
         pTitle.innerHTML = "Agregando Stock";
