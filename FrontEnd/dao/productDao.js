@@ -6,7 +6,8 @@ export default class ProductoDao {
         return query;
     }
 
-    async addProducts(precio, descripcion, imagen, nombre, color) {
+    async addProducts(precio, descripcion, imagen, nombre, color, sizes) {
+        console.log(sizes);
         let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=addProduct";
         let formData = new FormData();
         formData.append("precio",precio);
@@ -14,6 +15,9 @@ export default class ProductoDao {
         formData.append("imagen",imagen);
         formData.append("nombre",nombre);
         formData.append("color",color);
+        sizes.forEach(size => {
+            formData.append("size[]", size);
+        });
 
         let config = {
             method:"POST",
@@ -40,7 +44,7 @@ export default class ProductoDao {
     }
 
     // Función para modificar un producto
-    async modifyProduct(idProducto, precio, descripcion, imagen, nombre, color) {
+    async modifyProduct(idProducto, precio, descripcion, imagen, nombre, color, size) {
         let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=modifyProduct";
         let formData = new FormData();
         formData.append("id",idProducto);
@@ -49,6 +53,7 @@ export default class ProductoDao {
         formData.append("imagen",imagen);
         formData.append("nombre",nombre);
         formData.append("color",color);
+        formData.append("size", size);
 
         let config = {
             method:"POST",
@@ -78,6 +83,20 @@ export default class ProductoDao {
     async getStock() {
         let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=getStock";
         let queryResponse = await fetch(url);
+        let query  = await queryResponse.json();
+        return query;
+    }
+
+    async getProductSize(idProducto){
+        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=getProductSize";
+        let formData = new FormData();
+        formData.append("idProducto",idProducto);
+       
+        let config = {
+            method:"POST",
+            body: formData
+        }
+        let queryResponse = await fetch(url,config);
         let query  = await queryResponse.json();
         return query;
     }

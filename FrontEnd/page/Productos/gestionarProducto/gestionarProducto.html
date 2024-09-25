@@ -34,7 +34,7 @@
     <button type="button" class="logOut" id="btnLogOut"><img src="../../../assets/logOut.png"></button>
 
   </nav>
-  <div class="alertFrm alertDesactivado">
+  <div class="alertFrm alertDesactivado" id="alertDiv">
     <form action="">
       <p class="subTitle" id="alertTitle"></p>
       <label for="" id="question"></label>
@@ -52,9 +52,8 @@
       <input type="text" name="descripcion" placeholder="Descripción del Producto" class="form-input" required />
       <input type="text" name="precio" placeholder="Precio" class="form-input" required>
       <input type="color" name="color" placeholder="Color" class="formColor" required />
-      <select name="talle" class="form-input" id="inputSize">
-        <option value="Talle" selected></option>
-      </select>
+      <div id="inputSize">
+      </div>
       <label for="imagenInput" class="form-file">Seleccionar Imágen: </label>
       <input type="file" name="imagen" id="imagenInput" class="form-file">
       <img src="../../../assets/noImage.png" id="imgPreview" alt="">
@@ -79,6 +78,7 @@
             <th>Descripción</th>
             <th>Precio</th>
             <th>Color</th>
+            <th>Talle</th>
             <th>Imágen</th>
             <th>Acciones</th>
           </tr>

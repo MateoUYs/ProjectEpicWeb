@@ -22,20 +22,30 @@ async function showProducts() {
     let query = await new ProductDAO().getProducts();
     let products = query.datos;
     let tbodyElement = document.querySelector("#productData");
-    let divAlert = document.querySelector(".alertDesactivado");
+    let divAlert = document.querySelector("#alertDiv");
     let pAlertTitle = document.querySelector("#alertTitle");
     let alertQuestion = document.querySelector("#question");
-    let frmAlert = document.querySelector(".alertDesactivado form");
+    let frmAlert = divAlert.querySelector("form");
     tbodyElement.innerHTML = "";
     products.forEach((product) => {
         console.log(JSON.stringify(product));
         let tr = document.createElement("tr");
+        let sizeText = "";
+        product.size.forEach((size,index) =>{
+           
+            if(index == product.size.length - 1){
+                sizeText += ` ${size.tipoTalle}`;
+            }else{
+                sizeText += ` ${size.tipoTalle} , `;
+            }
+        });
         tr.innerHTML += `
              <td>${product.idProducto}</td>
              <td>${product.nombre}</td>
              <td>${product.descripcion}</td>
              <td>${product.precio}</td>
              <td><div style="background-color: ${product.color}; color: ${product.color}"}>..</div></td>
+             <td>${sizeText}</td>
              <td class="tdImg"><img class="imgTd" src="../../../../backEnd/imgs/${product.idProducto}.${product.extension}"></td>
         `;
         let td = document.createElement("td");
@@ -83,7 +93,7 @@ function addEvents() {
     let homeBtn = document.querySelector("#homeBtn");
     let btnLogOut = document.querySelector("#btnLogOut");
     let pTitle = document.querySelector("#title");
-    let divAlert = document.querySelector(".alertDesactivado");
+    let divAlert = document.querySelector("#alertDiv");
     let pAlertTitle = document.querySelector("#alertTitle");
     let alertQuestion = document.querySelector("#question");
     let frmAlert = document.querySelector(".alertDesactivado form");
@@ -142,15 +152,14 @@ function addEvents() {
         let imagen = frmProduct.imagen.files[0];
         let nombre = frmProduct.nombre.value;
         let color = frmProduct.color.value;
+        let size = Array.from(frmProduct.querySelectorAll("input[name='talle']:checked")).map(input => input.value);
+        
 
         if (frmProduct.submit.value == "Agregar") {
-            addProduct(precio, descripcion, imagen, nombre, color);
+            addProduct(precio, descripcion, imagen, nombre, color, size);
 
         } else if (frmProduct.submit.value == "Modificar") {
-            modifyProduct(idProduct, precio, descripcion, imagen, nombre, color);
-            setTimeout(async () => {
-
-            }, 3000);
+            modifyProduct(idProduct, precio, descripcion, imagen, nombre, color, size);
         }
 
     }
@@ -188,10 +197,9 @@ async function insertSize() {
         let sizes = requestSizes.datos;
         let inputSize = document.querySelector("#inputSize");
         inputSize.innerHTML = "";
-        inputSize.innerHTML += `<option value="" disabled selected>Selecciona el talle del producto</option>`;
         sizes.forEach((size) => {
             inputSize.innerHTML += `
-                <option value="${size.tipo}">${size.tipo}</option>
+                <div class="check"><input type="checkbox" name="talle" value="${size.tipo}">${size.tipo}</div>
             `;
         })
     }
@@ -202,8 +210,8 @@ async function logOut() {
     window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
 }
 
-async function addProduct(precio, descripcion, imagen, nombre, color) {
-    let query = await new ProductDAO().addProducts(precio, descripcion, imagen, nombre, color);
+async function addProduct(precio, descripcion, imagen, nombre, color, size) {
+    let query = await new ProductDAO().addProducts(precio, descripcion, imagen, nombre, color, size);
     let frmProduct = document.querySelector("#frmProducto form");
     let divFrm = document.querySelector("#frmProducto");
     let message = document.querySelector("#message");
@@ -255,9 +263,10 @@ function loadInputs(product) {
     frmProduct.nombre.value = nombre;
     frmProduct.color.value = color;
     id = idProducto;
+    setProductSize(product.size);
 }
 
-async function modifyProduct(idProduct, precio, descripcion, imagen, nombre, color) {
+async function modifyProduct(idProduct, precio, descripcion, imagen, nombre, color, size) {
     let query = await new ProductDAO().modifyProduct(idProduct, precio, descripcion, imagen, nombre, color);
     let frmProduct = document.querySelector("#frmProducto form");
     let divFrm = document.querySelector("#frmProducto");
@@ -304,4 +313,14 @@ async function deleteProduct(idProducto) {
         }
         confirmationAlert.innerHTML = `Error al eliminar el producto ${query.mensaje}`;
     }
+}
+
+async function setProductSize(sizes) {
+    
+    let frmProduct = document.querySelector("#frmProducto form");
+    Array.from(frmProduct.querySelectorAll("input[name='talle']")).forEach((input)=>{
+        if(sizes.some(sp => sp.tipoTalle == input.value)){
+            input.checked=true;
+        }
+    });
 }

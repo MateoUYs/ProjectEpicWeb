@@ -1,0 +1,2567 @@
+[25-Sep-2024 22:36:42 Europe/Berlin] Datos: 1
+[25-Sep-2024 22:37:51 Europe/Berlin] Datos: 1
+[25-Sep-2024 22:43:31 Europe/Berlin] Datos: Array
+(
+    [0] => M
+    [1] => S
+    [2] => XL
+)
+
+[25-Sep-2024 22:54:30 Europe/Berlin] Array
+(
+    [idProducto] => 1
+    [precio] => 1200
+    [stock] => 50
+    [descripcion] => Remera Oversize Black Washed - Spider
+    [extension] => png
+    [nombre] => Remera Washed - Spider
+    [color] => #000000
+    [size] => Array
+        (
+        )
+
+)
+
+[25-Sep-2024 22:54:30 Europe/Berlin] Array
+(
+    [idProducto] => 12
+    [precio] => 476
+    [stock] => 0
+    [descripcion] => gfjfj
+    [extension] => png
+    [nombre] => sgffg
+    [color] => #000000
+    [size] => Array
+        (
+        )
+
+)
+
+[25-Sep-2024 22:54:30 Europe/Berlin] Array
+(
+    [idProducto] => 13
+    [precio] => 476
+    [stock] => 0
+    [descripcion] => gfjfj
+    [extension] => png
+    [nombre] => sgffg
+    [color] => #000000
+    [size] => Array
+        (
+        )
+
+)
+
+[25-Sep-2024 22:54:30 Europe/Berlin] Array
+(
+    [idProducto] => 14
+    [precio] => 476
+    [stock] => 0
+    [descripcion] => gfjfj
+    [extension] => png
+    [nombre] => sgffg
+    [color] => #000000
+    [size] => Array
+        (
+        )
+
+)
+
+[25-Sep-2024 22:54:30 Europe/Berlin] Array
+(
+    [idProducto] => 15
+    [precio] => 476
+    [stock] => 0
+    [descripcion] => gfjfj
+    [extension] => png
+    [nombre] => sgffg
+    [color] => #000000
+    [size] => Array
+        (
+        )
+
+)
+
+[25-Sep-2024 22:54:30 Europe/Berlin] Array
+(
+    [idProducto] => 16
+    [precio] => 123
+    [stock] => 0
+    [descripcion] => fghj
+    [extension] => png
+    [nombre] => fghj
+    [color] => #000000
+    [size] => Array
+        (
+        )
+
+)
+
+[25-Sep-2024 22:54:30 Europe/Berlin] Array
+(
+    [idProducto] => 17
+    [precio] => 123
+    [stock] => 0
+    [descripcion] => fghj
+    [extension] => png
+    [nombre] => fghj
+    [color] => #000000
+    [size] => Array
+        (
+        )
+
+)
+
+[25-Sep-2024 22:54:30 Europe/Berlin] Array
+(
+    [idProducto] => 18
+    [precio] => 7
+    [stock] => 0
+    [descripcion] => jhkj
+    [extension] => png
+    [nombre] => uyuoi
+    [color] => #000000
+    [size] => Array
+        (
+        )
+
+)
+
+[25-Sep-2024 22:54:30 Europe/Berlin] Array
+(
+    [idProducto] => 19
+    [precio] => 23456
+    [stock] => 0
+    [descripcion] => fghj
+    [extension] => png
+    [nombre] => hjghjvbnm
+    [color] => #000000
+    [size] => Array
+        (
+            [0] => Array
+                (
+                    [tipoTalle] => M
+                )
+
+            [1] => Array
+                (
+                    [tipoTalle] => S
+                )
+
+            [2] => Array
+                (
+                    [tipoTalle] => XL
+                )
+
+        )
+
+)
+
+[25-Sep-2024 22:54:30 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 12
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 13
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 14
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [4] => Array
+        (
+            [idProducto] => 15
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [5] => Array
+        (
+            [idProducto] => 16
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [6] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [7] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [8] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 22:56:06 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 12
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 13
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 14
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [4] => Array
+        (
+            [idProducto] => 15
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [5] => Array
+        (
+            [idProducto] => 16
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [6] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [7] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [8] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:07:07 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 12
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 13
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 14
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [4] => Array
+        (
+            [idProducto] => 15
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [5] => Array
+        (
+            [idProducto] => 16
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [6] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [7] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [8] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:08:33 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 12
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 13
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 14
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [4] => Array
+        (
+            [idProducto] => 15
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [5] => Array
+        (
+            [idProducto] => 16
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [6] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [7] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [8] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:12:13 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 12
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 13
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 14
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [4] => Array
+        (
+            [idProducto] => 15
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [5] => Array
+        (
+            [idProducto] => 16
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [6] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [7] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [8] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:12:16 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 13
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 14
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 15
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [4] => Array
+        (
+            [idProducto] => 16
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [5] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [6] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [7] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:12:22 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 13
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 14
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 15
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [4] => Array
+        (
+            [idProducto] => 16
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [5] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [6] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [7] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:12:29 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 13
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 14
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 15
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [4] => Array
+        (
+            [idProducto] => 16
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [5] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [6] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [7] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:12:35 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 13
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 14
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 15
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [4] => Array
+        (
+            [idProducto] => 16
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [5] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [6] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [7] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:12:35 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 13
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 14
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 15
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [4] => Array
+        (
+            [idProducto] => 16
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [5] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [6] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [7] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:12:54 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 13
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 14
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 15
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [4] => Array
+        (
+            [idProducto] => 16
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [5] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [6] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [7] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:12:55 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 13
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 14
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 15
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [4] => Array
+        (
+            [idProducto] => 16
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [5] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [6] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [7] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:12:58 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 14
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 15
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 16
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [4] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [5] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [6] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:13:04 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 14
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 15
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 16
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [4] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [5] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [6] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:13:09 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 14
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 15
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 16
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [4] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [5] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [6] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:13:42 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 14
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 15
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 16
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [4] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [5] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [6] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:13:47 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 15
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 16
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [4] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [5] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:13:54 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 15
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 16
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [4] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [5] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:14:01 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 15
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 16
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [4] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [5] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:14:30 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 15
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [4] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:14:37 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 15
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [4] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:14:49 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 15
+            [precio] => 476
+            [stock] => 0
+            [descripcion] => gfjfj
+            [extension] => png
+            [nombre] => sgffg
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [4] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:14:55 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:15:02 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:15:08 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:15:09 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:15:14 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:15:34 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 17
+            [precio] => 123
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => fghj
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [3] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:15:37 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:22:41 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 18
+            [precio] => 7
+            [stock] => 0
+            [descripcion] => jhkj
+            [extension] => png
+            [nombre] => uyuoi
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:22:49 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [idProducto] => 19
+            [precio] => 23456
+            [stock] => 0
+            [descripcion] => fghj
+            [extension] => png
+            [nombre] => hjghjvbnm
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:22:56 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:28:02 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:28:48 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:29:14 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:29:25 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:29:39 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:29:46 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:32:28 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:32:40 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+)
+
+[25-Sep-2024 23:32:55 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [idProducto] => 1
+            [precio] => 1200
+            [stock] => 50
+            [descripcion] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [nombre] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+)
+
