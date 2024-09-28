@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-09-2024 a las 19:08:03
+-- Tiempo de generación: 29-09-2024 a las 00:26:45
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -124,7 +124,26 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`idProducto`, `precio`, `stock`, `descripcion`, `extension`, `nombre`, `color`) VALUES
-(1, 1200, 50, 'Remera Oversize Black Washed - Spider', 'png', 'Remera Washed - Spider', '#000000');
+(1, 1200, 50, 'Remera Oversize Black Washed - Spider', 'png', 'Remera Washed - Spider', '#000000'),
+(2, 100, 20, 'Camisa casual', 'jpg', 'Camisa Azul', 'Azul'),
+(3, 150, 15, 'Pantalón de vestir', 'jpg', 'Pantalón Negro', 'Negro'),
+(4, 75, 30, 'Camiseta deportiva', 'jpg', 'Camiseta Roja', 'Rojo'),
+(5, 120, 25, 'Chaqueta impermeable', 'jpg', 'Chaqueta Verde', 'Verde'),
+(6, 80, 40, 'Sombrero de lana', 'jpg', 'Sombrero Gris', 'Gris'),
+(7, 90, 35, 'Bufanda de algodón', 'jpg', 'Bufanda Blanca', 'Blanco'),
+(8, 110, 10, 'Zapatos de cuero', 'jpg', 'Zapatos Marrones', 'Marrón'),
+(9, 200, 5, 'Abrigo de invierno', 'jpg', 'Abrigo Negro', 'Negro'),
+(10, 60, 50, 'Guantes térmicos', 'jpg', 'Guantes Grises', 'Gris'),
+(11, 130, 18, 'Gafas de sol', 'jpg', 'Gafas Negras', 'Negro'),
+(12, 55, 28, 'Cinturón de cuero', 'jpg', 'Cinturón Marrón', 'Marrón'),
+(13, 140, 12, 'Chaqueta de cuero', 'jpg', 'Chaqueta Negra', 'Negro'),
+(14, 95, 22, 'Camisa formal', 'jpg', 'Camisa Blanca', 'Blanco'),
+(15, 85, 40, 'Corbata de seda', 'jpg', 'Corbata Roja', 'Rojo'),
+(16, 150, 10, 'Botas de montaña', 'jpg', 'Botas Marrones', 'Marrón'),
+(17, 70, 38, 'Chaleco de lana', 'jpg', 'Chaleco Gris', 'Gris'),
+(18, 105, 25, 'Jersey de punto', 'jpg', 'Jersey Azul', 'Azul'),
+(19, 175, 8, 'Chaqueta de plumas', 'jpg', 'Chaqueta Gris', 'Gris'),
+(20, 50, 55, 'Calcetines térmicos', 'jpg', 'Calcetines Negros', 'Negro');
 
 -- --------------------------------------------------------
 
@@ -147,6 +166,65 @@ CREATE TABLE `productotalle` (
   `idProducto` int(11) NOT NULL,
   `tipoTalle` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `productotalle`
+--
+
+INSERT INTO `productotalle` (`idProducto`, `tipoTalle`) VALUES
+(1, 'L'),
+(1, 'XXL'),
+(2, 'L'),
+(2, 'M'),
+(2, 'XL'),
+(3, 'M'),
+(3, 'S'),
+(4, 'L'),
+(4, 'XL'),
+(4, 'XXL'),
+(5, 'L'),
+(5, 'M'),
+(5, 'XXL'),
+(6, 'L'),
+(6, 'M'),
+(6, 'S'),
+(7, 'M'),
+(7, 'XL'),
+(8, 'L'),
+(8, 'XXL'),
+(9, 'L'),
+(9, 'M'),
+(9, 'S'),
+(9, 'XL'),
+(10, 'M'),
+(10, 'S'),
+(10, 'XXL'),
+(11, 'L'),
+(11, 'XL'),
+(12, 'L'),
+(12, 'M'),
+(12, 'S'),
+(13, 'L'),
+(13, 'M'),
+(13, 'XXL'),
+(14, 'M'),
+(14, 'S'),
+(15, 'L'),
+(15, 'XXL'),
+(16, 'L'),
+(16, 'M'),
+(16, 'XL'),
+(17, 'M'),
+(17, 'S'),
+(17, 'XXL'),
+(18, 'L'),
+(18, 'XL'),
+(19, 'L'),
+(19, 'M'),
+(19, 'S'),
+(19, 'XXL'),
+(20, 'L'),
+(20, 'M');
 
 -- --------------------------------------------------------
 
@@ -332,7 +410,7 @@ ALTER TABLE `oferta`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Restricciones para tablas volcadas
