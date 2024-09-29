@@ -110,13 +110,9 @@ function addEvents() {
         let stock = frmStock.stock.value;
 
         if (frmStock.submit.value == "Agregar") {
-            addStock();
-
+            addStock(idProduct, stock);
         } else if (frmStock.submit.value == "Actualizar") {
-            updateStock(idProduct);
-            setTimeout(async () => {
-
-            }, 3000);
+            updateStock(idProduct, stock); 
         }
 
     }
@@ -169,9 +165,64 @@ function loadInfo(product, use) {
         pStock.innerHTML = `Stock Actual: ${product.stock}`;
     }else if (use == "Actualizar"){
         pTitle.innerHTML = "Actualizando Stock";
+        pStock.innerHTML = `Stock Actual: ${product.stock}`;
         frmStock.submit.value = "Actualizar";
     }
 }
 
+async function addStock(idProducto, stock){
+    let query = await new ProductDAO().addStock(idProducto, stock);
+    let frmProduct = document.querySelector("#frmStock form");
+    let divFrm = document.querySelector("#frmStock");
+    let message = document.querySelector("#message");
 
+    if (query.estado) {
+        if (message.classList.contains("error")) {
+            message.classList.remove("error");
+            message.classList.add("confirmation");
+        }
+        message.innerHTML = "Stock agregado con éxito";
+        setTimeout(async () => {
+            divFrm.classList.add("frmDesactivado");
+            divFrm.classList.remove("frmActivado");
+            frmProduct.reset();
+            message.innerHTML = "";
+            showStock();
+        }, 500);
+    } else {
+        if (message.classList.contains("confirmation")) {
+            message.classList.add("error");
+            message.classList.remove("confirmation");
+        }
+        message.innerHTML = `Error al agregar el stock ${query.mensaje}`;
+    }
+}
+
+async function updateStock(idProducto, stock){
+    let query = await new ProductDAO().updateStock(idProducto, stock);
+    let frmProduct = document.querySelector("#frmStock form");
+    let divFrm = document.querySelector("#frmStock");
+    let message = document.querySelector("#message");
+
+    if (query.estado) {
+        if (message.classList.contains("error")) {
+            message.classList.remove("error");
+            message.classList.add("confirmation");
+        }
+        message.innerHTML = "Stock actualizado con éxito";
+        setTimeout(async () => {
+            divFrm.classList.add("frmDesactivado");
+            divFrm.classList.remove("frmActivado");
+            frmProduct.reset();
+            message.innerHTML = "";
+            showStock();
+        }, 500);
+    } else {
+        if (message.classList.contains("confirmation")) {
+            message.classList.add("error");
+            message.classList.remove("confirmation");
+        }
+        message.innerHTML = `Error al actualizar el stock ${query.mensaje}`;
+    }
+}
 

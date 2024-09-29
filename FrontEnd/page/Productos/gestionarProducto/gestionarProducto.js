@@ -172,7 +172,7 @@ function addEvents() {
             setTimeout(async () => {
                 confirmationAlert.innerHTML = "";
                 logOut();
-            }, 3000);
+            }, 500);
         } else if (frmAlert.submit.value == "Eliminar Producto") {
             let idProduct = frmAlert.getAttribute("dataProductId");
             deleteProduct(idProduct);
@@ -180,7 +180,7 @@ function addEvents() {
                 divAlert.classList.add("alertDesactivado");
                 divAlert.classList.remove("alertActivado");
                 confirmationAlert.innerHTML = "";
-            }, 3000);
+            }, 500);
         }
     }
 
@@ -231,7 +231,7 @@ async function addProduct(precio, descripcion, imagen, nombre, color, size) {
             imgPreview.src = "../../../assets/noImage.png";
             message.innerHTML = "";
             showProducts();
-        }, 3000);
+        }, 500);
     } else {
         if (message.classList.contains("confirmation")) {
             message.classList.add("error");
@@ -288,7 +288,7 @@ async function modifyProduct(idProduct, precio, descripcion, imagen, nombre, col
             message.innerHTML = "";
             oldSizes = "";
             showProducts();
-        }, 3000);
+        }, 500);
     } else {
         if (message.classList.contains("confirmation")) {
             message.classList.add("error");

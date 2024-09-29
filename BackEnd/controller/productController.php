@@ -24,8 +24,8 @@ switch ($funcion) {
     case 'getProductDetails':
         getProductDetails();
         break;
-    case 'setStock':
-        setStock();
+    case 'addStock':
+        addStock();
         break;
     case 'updateStock':
         updateStock();
@@ -95,11 +95,11 @@ function getProductDetails()
     echo json_encode($result);
 }
 
-function setStock()
+function addStock()
 {
     $idProducto = $_POST["id"];
     $stock = $_POST["stock"];
-    $result = (new productsDAO())->setStock($idProducto, $stock);
+    $result = (new productsDAO())->addStock($idProducto, $stock);
     echo json_encode($result);
 }
 

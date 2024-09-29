@@ -118,9 +118,9 @@ class productsDAO
         return $query;
     }
 
-    function setStock($idProducto, $stock)
+    function addStock($idProducto, $stock)
     {
-        $sql = "UPDATE producto SET stock ='$stock' WHERE idProducto = '$idProducto'";
+        $sql = "UPDATE producto SET stock = stock + '$stock' WHERE idProducto = '$idProducto'";
         $connection = connection();
         try {
             $connection->query($sql);
@@ -133,7 +133,7 @@ class productsDAO
 
     function updateStock($idProducto, $stock)
     {
-        $sql = "UPDATE producto SET stock = stock + '$stock' WHERE idProducto = '$idProducto'";
+        $sql = "UPDATE producto SET stock ='$stock' WHERE idProducto = '$idProducto'";
         $connection = connection();
         try {
             $connection->query($sql);

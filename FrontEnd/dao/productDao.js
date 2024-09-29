@@ -92,6 +92,38 @@ export default class ProductoDao {
         return query;
     }
 
+    async addStock(idProducto, stock){
+        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=addStock";
+        let formData = new FormData();
+        formData.append("id",idProducto);
+        formData.append("stock",stock);
+
+        let config = {
+            method:"POST",
+            body: formData
+        }
+
+        let queryResponse = await fetch(url,config);
+        let query  = await queryResponse.json();
+        return query;
+    }
+
+    async updateStock(idProducto, stock){
+        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=updateStock";
+        let formData = new FormData();
+        formData.append("id",idProducto);
+        formData.append("stock",stock);
+
+        let config = {
+            method:"POST",
+            body: formData
+        }
+
+        let queryResponse = await fetch(url,config);
+        let query  = await queryResponse.json();
+        return query;
+    }
+
     async getProductSize(idProducto){
         let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=getProductSize";
         let formData = new FormData();
