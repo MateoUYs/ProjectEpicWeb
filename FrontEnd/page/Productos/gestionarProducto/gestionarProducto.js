@@ -3,6 +3,7 @@ import ProductDAO from "../../../dao/productDao.js";
 import SizeDAO from "../../../dao/sizeDAO.js";
 
 let id = null;
+let oldSizes = [];
 
 window.onload = async () => {
     let query = await new SessionDAO().getSession();
@@ -115,6 +116,7 @@ function addEvents() {
         frmProduct.reset();
         imgPreview.src = "../../../assets/noImage.png";
         message.innerHTML = "";
+        oldSizes = "";
     }
 
     inputFile.onchange = () => {
@@ -199,7 +201,7 @@ async function insertSize() {
         inputSize.innerHTML = "";
         sizes.forEach((size) => {
             inputSize.innerHTML += `
-                <div class="check"><input type="checkbox" name="talle" value="${size.tipo}">${size.tipo}</div>
+                <div class="check"><input class="inputCheck" type="checkbox" name="talle" value="${size.tipo}"><label class="checkText">${size.tipo}</label></div>
             `;
         })
     }
@@ -266,8 +268,8 @@ function loadInputs(product) {
     setProductSize(product.size);
 }
 
-async function modifyProduct(idProduct, precio, descripcion, imagen, nombre, color, size) {
-    let query = await new ProductDAO().modifyProduct(idProduct, precio, descripcion, imagen, nombre, color);
+async function modifyProduct(idProduct, precio, descripcion, imagen, nombre, color, sizes) {
+    let query = await new ProductDAO().modifyProduct(idProduct, precio, descripcion, imagen, nombre, color, sizes);
     let frmProduct = document.querySelector("#frmProducto form");
     let divFrm = document.querySelector("#frmProducto");
     let message = document.querySelector("#message");
@@ -284,6 +286,7 @@ async function modifyProduct(idProduct, precio, descripcion, imagen, nombre, col
             frmProduct.reset();
             imgPreview.src = "../../../assets/noImage.png";
             message.innerHTML = "";
+            oldSizes = "";
             showProducts();
         }, 3000);
     } else {
@@ -316,10 +319,11 @@ async function deleteProduct(idProducto) {
 }
 
 async function setProductSize(sizes) {
-    
     let frmProduct = document.querySelector("#frmProducto form");
     Array.from(frmProduct.querySelectorAll("input[name='talle']")).forEach((input)=>{
         if(sizes.some(sp => sp.tipoTalle == input.value)){
+            let size = input.value;
+            oldSizes += {"oldSize": size};
             input.checked=true;
         }
     });

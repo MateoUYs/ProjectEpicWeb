@@ -14,20 +14,20 @@ class productsDAO
         $rersult = $connection->query($sql);
         $productos = $rersult->fetch_all(MYSQLI_ASSOC);
         $productosSize = [];
-        foreach($productos as $producto){
+        foreach ($productos as $producto) {
             $producto["size"] = $this->getProductSize($producto["idProducto"])->datos;
             $productosSize[] = $producto;
         }
-        error_log(print_r($productos,true));
+        error_log(print_r($productos, true));
         $query = new query(true, "Productos obtenidos", $productosSize);
         return $query;
     }
 
-   
+
     // Función para agregar un producto a la base de datos
     function addProducts($precio, $descripcion, $imagen, $nombre, $color, $sizes)
     {
-        error_log('Datos: ' . print_r($sizes,true));
+        error_log('Datos: ' . print_r($sizes, true));
         $extension = pathinfo($imagen['name'], PATHINFO_EXTENSION);
         $rutaTemporal = $imagen['tmp_name'];
         $sql = "INSERT INTO producto(precio, descripcion, extension, nombre, color) VALUES ('$precio', '$descripcion', '$extension', '$nombre', '$color')";
@@ -63,7 +63,7 @@ class productsDAO
     }
 
     // Función para modificar un producto
-    function modifyProducts($idProducto, $precio, $descripcion, $imagen, $nombre, $color, $size)
+    function modifyProducts($idProducto, $precio, $descripcion, $imagen, $nombre, $color, $sizes, $oldSizes)
     {
         if (isset($imagen) && $imagen["error"] === 0) {
             $extension = pathinfo($imagen['name'], PATHINFO_EXTENSION);
@@ -72,7 +72,13 @@ class productsDAO
             $connection = connection();
             try {
                 $connection->query($sql);
-                $this->updateProductSize($size, $idProducto);
+                foreach ($sizes as $size) {
+                    foreach ($oldSizes as $oldSize){
+                        if($size == $oldSizes){
+                            $this->updateProductSize($size, $idProducto, $oldSize);
+                        }
+                    }
+                }
                 $query = new query(true, "Producto modificado", null);
                 move_uploaded_file($rutaTemporal, "../imgs/$idProducto.$extension");
             } catch (Exception $e) {
@@ -84,7 +90,13 @@ class productsDAO
             $connection = connection();
             try {
                 $connection->query($sql);
-                $this->updateProductSize($size, $idProducto);
+                foreach ($sizes as $size) {
+                    foreach ($oldSizes as $oldSize){
+                        if($size == $oldSizes){
+                            $this->updateProductSize($size, $idProducto, $oldSize);
+                        }
+                    }
+                }
                 $query = new query(true, "Producto modificado", null);
             } catch (Exception $e) {
                 $query = new query(false, "No se pudo modificar el producto", null);
@@ -155,10 +167,10 @@ class productsDAO
         return $query;
     }
 
-    function updateProductSize($size, $idProducto)
+    function updateProductSize($size, $idProducto, $oldSize)
     {
         $connection = connection();
-        $sql = "UPDATE productotalle SET tipoTalle ='$size' WHERE idProducto = '$idProducto'";
+        $sql = "UPDATE productotalle SET tipoTalle ='$size' WHERE idProducto = '$idProducto' AND tipoTalle = '$oldSize'";
         try {
             $connection->query($sql);
             $query = new query(true, "Talle del producto modificado", null);

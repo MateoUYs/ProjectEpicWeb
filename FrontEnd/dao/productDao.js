@@ -44,7 +44,7 @@ export default class ProductoDao {
     }
 
     // Función para modificar un producto
-    async modifyProduct(idProducto, precio, descripcion, imagen, nombre, color, size) {
+    async modifyProduct(idProducto, precio, descripcion, imagen, nombre, color, sizes, oldSizes) {
         let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=modifyProduct";
         let formData = new FormData();
         formData.append("id",idProducto);
@@ -53,7 +53,12 @@ export default class ProductoDao {
         formData.append("imagen",imagen);
         formData.append("nombre",nombre);
         formData.append("color",color);
-        formData.append("size", size);
+        sizes.forEach(size => {
+            formData.append("size[]", size);
+        });
+        oldSizes.forEach(oldSize => {
+            formData.append("oldSizes[]", oldSize);
+        });
 
         let config = {
             method:"POST",

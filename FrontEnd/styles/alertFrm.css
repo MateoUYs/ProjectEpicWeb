@@ -1,0 +1,63 @@
+.alertFrm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: #0000008a;
+    z-index: 1;
+    top: 0;
+    transition: all .4s;
+}
+
+.alertFrm form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 15%;
+    height: max-content;
+    padding: 50px;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    border-radius: 5%;
+    box-sizing: content-box;
+}
+
+.alertDesactivado {
+    display: none !important;
+    opacity: 0;
+}
+
+.alertActivado {
+    display: flex !important;
+    opacity: 1;
+}
+
+.btns {
+    display: flex;
+    width: 100%;
+}
+
+.btns input {
+    margin-top: 10px;
+}
+
+#alertBtn {
+    margin-right: 10px;
+}
+
+.confirmation {
+    color: #4CAF50;
+}
+
+.error {
+    color: #f81b0b;
+}
+
+#confirmationAlert {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+}

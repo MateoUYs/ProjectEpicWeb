@@ -1,0 +1,66 @@
+#listaConsultas {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    width: 400px;
+    position: absolute;
+    right: 0;
+    margin: 0;
+    top: 53px;
+    overflow: hidden;
+    transition: all .3s;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+  }
+  
+  .desactivado {
+    height: 0px;
+  }
+  
+  .activado {
+    height: 500px;
+    background-color: #454f58ce;
+  }
+
+  .notify {
+    background-color: rgb(247, 0, 0);
+    position: absolute;
+    font-size: 1.3rem;
+    top: 0;
+    right: 0;
+    margin: 0;
+    width: 25px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 100%;
+  }
+  
+  .notify p {
+    color: white;
+  }
+
+  .consulta {
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    position: relative;
+    left: 155px;
+    width: 60px;
+    box-sizing: border-box;
+  }
+  
+  .consulta img{
+    position: relative;
+    right: 10px;
+    width: 60px;
+  }
+
+  .empty {
+    position: absolute;
+    font-size: 1.3rem;
+    top: 0;
+    right: 0;
+    margin: 0;
+    width: 25px;
+    background-color: rgba(252, 252, 252, 0.649);
+    border: 1px solid black;
+    border-radius: 100%;
+  }
