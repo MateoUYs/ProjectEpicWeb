@@ -14,3 +14,4 @@ async function cerrarSesion(){
     console.log(request);
     
 }
+
