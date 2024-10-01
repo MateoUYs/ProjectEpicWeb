@@ -16,30 +16,27 @@
 <body>
   <div class="topbar">
     <nav>
-      <ul class="Izq">
-        <li><a href="/FrontEnd/page/Usuarios/IndexUsuario/indexUsuario.html">Inicio</a></li>
-        <li>
-          <a href="#">Catálogo</a>
-        </li>
-        <li><a href="#">Ofertas</a></li>
-        <li><a href="#">Acerca de</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
-      <div class="logged Desactivado">
-        <ul class="Der">
-          <li><a href="#">Carrito</a></li>
-          <li>
-            <a href="#">Usuario</a>
-            <ul>
-              <li><a href="/FrontEnd/page/Usuarios/iniciarSesion/iniciarSesion.html" id="login">IniciarSesion</a></li>
-              <li><a href="/FrontEnd/page/Usuarios/registrarse/registrarse.html" id="register">Registrarse</a></li>
-              <li><a href="/FrontEnd/page/Usuarios/gestionarUsuario/gestionarUsuario.html" id="config">Configuraciones</a></li>
-              <li><a href="#" id="logout">Cerrar sesion</a></li>
-            </ul>
-          </li>
-        </ul>
+      <div class="nav">
+          
+          <div id="panelMenu" class="panelMenuDesactivado">
+            
+            <div class="dentroMenu" id="listaCatalogo">
+              <a href="#">Catálogo</a>
+              <a href="#">Ofertas</a>
+              <a href="#">Acerca de</a>
+              <a href="#">Contacto</a>
+            </div>
+            
+          </div>
+
+          <button class="logos" id="menu"><img src="../../../assets/menu.png"></button>
+          <button class="logos" id="cart"><img src="../../../assets/carrito.png"></button>
+          <button class="logos" id="login"><img src="../../../assets/usuario.png"></button>
       </div>
     </nav>
+
+    
+
   </div>
   <header>
     <div class="topper">
@@ -69,6 +66,7 @@
       </div>
     </div>
   </main>
+  <script type="module" src="indexUsuario.js"></script>
 </body>
 
 </html> 

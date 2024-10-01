@@ -1,17 +1,21 @@
-import SessionDAO from "../../../dao/sessionDAO.js"
+window.onload = () => {
+    agregarEventoMenu();
+};
 
-window.onload = ()=>{
- let logout = document.querySelector("#logout");
- console.log(logout);
- logout.onclick = ()=>{
-    cerrarSesion();
- }
+function agregarEventoMenu() {
+    const menuBoton = document.querySelector("#menu");
+    const panelElemento = document.querySelector("#panelMenu");
+
+    menuBoton.onclick = () => {
+        console.log(panelElemento.classList);
+        
+
+        if (panelElemento.classList.contains("panelMenuDesactivado")) {
+            panelElemento.classList.remove("panelMenuDesactivado");
+            panelElemento.classList.add("panelMenuActivado");
+        } else {
+            panelElemento.classList.add("panelMenuDesactivado");
+            panelElemento.classList.remove("panelMenuActivado");
+        }
+    };
 }
-
-async function cerrarSesion(){
-    console.log(",fdcaevfd");
-    let request = await new SessionDAO().logOut();
-    console.log(request);
-    
-}
-

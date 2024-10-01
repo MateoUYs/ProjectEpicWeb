@@ -22,7 +22,11 @@ body {
   position: sticky;
   top: 0;
   z-index: 50;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgb(255, 255, 255);
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 10px; 
 }
 
 nav {
@@ -31,6 +35,7 @@ nav {
   align-items: center;
   width: 100%;
   padding: 0 10px;
+  position: relative;
 }
 
 ul {
@@ -142,4 +147,67 @@ body {
   width: 100%;
   font-family: "Cabin", sans-serif;
   font-weight: 400;
+}
+
+.logos {
+  background: none;
+  border: none;   
+  padding: 0;
+  margin: 0 10px; 
+  cursor: pointer; 
+}
+
+.logos img {
+  width: 30px; 
+  height: auto; 
+  transition: width 0.3s ease;
+  display: block;
+  border: none;   
+  outline: none; 
+}
+
+.logos img:hover {
+  width: 35px; 
+}
+
+nav{
+  display: flex;
+  flex-direction: end;
+  align-items: center; 
+}
+
+.panelMenuActivado {
+  background-color: rgb(255, 255, 255);
+  width: 350px;
+  height: 700px;
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  transition: all 1s;
+  z-index: 40; 
+}
+
+.panelMenuDesactivado {
+  width: 250px;
+  height: 500px;
+  position: absolute;
+  left: -250px;
+  transition: all 1s;
+}
+
+.dentroMenu{
+  display: flex;
+  flex-direction: column; 
+  padding: 10px; 
+}
+
+.dentroMenu a {
+  text-decoration: none; 
+  padding: 10px 15px; 
+  transition: background-color 0.2s, color 0.2s; 
+}
+
+.dentroMenu a:hover {
+  background-color: #444; 
+  color: white; 
 }
