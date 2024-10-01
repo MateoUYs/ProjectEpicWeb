@@ -176,10 +176,49 @@ nav{
   align-items: center; 
 }
 
+.panelCartActivado {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  width: 450px;
+  height: 450px;
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  display: flex; /* Añadir esto */
+  flex-direction: column; /* Añadir esto */
+  justify-content: space-between; /* Añadir esto */
+  transition: all 1s;
+  z-index: 40; 
+}
+
+.panelCartDesactivado {
+  width: 250px;
+  height: 100px;
+  position: absolute;
+  left: -250px;
+  transition: all 1s;
+}
+
+.form-btn {
+  margin-bottom: 10px;
+  width: auto;
+  height: auto;
+  padding: 15px;
+  border: white 1px solid;
+  border-radius: 10px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 18px;
+  font-family: 'Kanit', sans-serif;
+  cursor: pointer;
+
+}
+
 .panelMenuActivado {
   background-color: rgb(255, 255, 255);
+  border-radius: 10px;
   width: 350px;
-  height: 700px;
+  height: 200px;
   position: absolute;
   top: 100%; 
   left: 0;
@@ -189,7 +228,7 @@ nav{
 
 .panelMenuDesactivado {
   width: 250px;
-  height: 500px;
+  height: 100px;
   position: absolute;
   left: -250px;
   transition: all 1s;
