@@ -64,4 +64,11 @@ table {
   .modifyImg{
     height: 34px !important;
   }
+
+  .deleteSize{
+    border: 0;
+    background-color: #33333300;
+    width: 100%;
+    height: 40px;
+  }
     

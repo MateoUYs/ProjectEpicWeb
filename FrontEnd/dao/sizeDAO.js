@@ -5,4 +5,34 @@ export default class SizeDAO{
         let query = await queryResponse.json();
         return query;
     }
+
+    async addSize(size){
+        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/sizeController.php?function=addSize";
+        let formData = new FormData();
+        formData.append("size", size);
+
+        let config = {
+            method:"POST",
+            body: formData
+        }
+
+        let queryResponse = await fetch(url, config);
+        let query = await queryResponse.json();
+        return query;
+    }
+
+    async deleteSize(size){
+        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/sizeController.php?function=deleteSize";
+        let formData = new FormData();
+        formData.append("size", size);
+
+        let config = {
+            method:"POST",
+            body: formData
+        }
+
+        let queryResponse = await fetch(url, config);
+        let query = await queryResponse.json();
+        return query;
+    }
 }
