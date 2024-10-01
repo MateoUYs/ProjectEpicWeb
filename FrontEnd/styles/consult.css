@@ -38,21 +38,6 @@
     color: white;
   }
 
-  .consulta {
-    background-color: rgba(0, 0, 0, 0);
-    border: 0;
-    position: relative;
-    left: 155px;
-    width: 60px;
-    box-sizing: border-box;
-  }
-  
-  .consulta img{
-    position: relative;
-    right: 10px;
-    width: 60px;
-  }
-
   .empty {
     position: absolute;
     font-size: 1.3rem;

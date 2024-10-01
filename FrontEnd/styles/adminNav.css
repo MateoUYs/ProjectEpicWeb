@@ -1,17 +1,21 @@
 nav {
     display: flex;
-    justify-content: space-evenly; 
     align-items: center;
-    gap: 20px;
+    gap: 5%;
     background-color: rgba(255, 255, 255, 0.822);
     margin: 0;
-    height: 70px;
+    height: 10%;
   }
   
   nav a {
     text-decoration: none;
     color: black;
     margin: 0;
+  }
+
+  nav button{
+    width: 10%;
+    height: 100%;
   }
   
   button:hover {
@@ -21,9 +25,7 @@ nav {
   .logOut {
     background-color: rgba(0, 0, 0, 0);
     border: 0;
-    position: relative;
-    left: 75px;
-    width: 60px;
+    /* width: 20%; */
     box-sizing: border-box;
   }
   
@@ -31,10 +33,22 @@ nav {
   height: 40px;
   } 
 
+  .consulta {
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    box-sizing: border-box;
+  }
+  
+  /* .consulta img{
+    position: relative;
+    right: 10px;
+    width: 60px;
+  } */
+
   .logoPage {
     background-color: rgba(0, 0, 0, 0);
     border: 0;
-    width: auto;
+    /* width: auto; */
     box-sizing: border-box;
   }
   
@@ -42,4 +56,10 @@ nav {
     width: 150px; 
     height: auto; 
     display: block; 
+  }
+
+  .navContainer{
+    display: flex;
+    justify-content: space-evenly; 
+    width: 45%;
   }
