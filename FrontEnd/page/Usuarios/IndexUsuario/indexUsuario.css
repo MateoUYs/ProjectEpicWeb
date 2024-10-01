@@ -250,3 +250,22 @@ nav{
   background-color: #444; 
   color: white; 
 }
+
+h2{
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 45px;
+  margin: 0;
+  position: absolute;
+  color: #333;
+  left: 50%;
+  top: -1px;
+  transform: translateX(-50%);
+}
+
+.imgNav{
+  position: absolute;
+  left: 86%;
+  transform: translateX(-10%);
+  top: -100px;
+  
+}
