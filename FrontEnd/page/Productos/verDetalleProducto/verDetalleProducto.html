@@ -9,7 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap"
       rel="stylesheet" />
       <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="verDetalleProducto.css">
+
 </head>
 <body>
     <nav> 
@@ -30,5 +31,31 @@
       </ul>
       
       </nav>
+      <main>
+        <div class="container">
+          <form action="" class="auth-form" id="frmUserSettings">
+            <p class="form-title">Datos actuales del usuario</p>
+            <div class="barrita"></div>
+            <div class="inputs">
+              <p>Email: </p>
+              <input type="email" name="correo" placeholder="Email" class="form-input">
+            </div>
+            <div class="inputs">
+              <p>Nombre de usuario: </p>
+              <input type="text" name="usuario" placeholder="Nombre de usuario" class="form-input">
+            </div>
+            <input type="password" name="password" id="pass" placeholder="Contraseña" class="form-input">
+            <div class="inputs">
+              <p>Número de teléfono: </p>
+              <input type="text" name="telefono" placeholder="Numero de telefono" class="form-input">
+            </div>
+            <p id="modifyAlert"></p>
+            <button type="button" class="form-btn" id="btnModificar">Modificar</button>
+            <div class="barrita"></div>
+            <button type="button" class="eliminarCuenta-btn" id="btnEliminar">Eliminar cuenta</button>
+            <p id="deleteAlert"></p>
+          </form>
+        </div>
+      </main>
 </body>
 </html>
