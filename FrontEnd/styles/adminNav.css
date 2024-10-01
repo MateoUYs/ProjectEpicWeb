@@ -1,119 +1,117 @@
 nav {
-    display: flex;
-    justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.822);
-    margin: 0;
-    height: 70px;
-   width: 100%;
-  
-  }
-  
-  nav a {
-    text-decoration: none;
-    color: black;
-    margin: 0;
-  }
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.822);
+  margin: 0;
+  height: 70px;
+  width: 100%;
 
-  nav button{
-    width: 10%;
-    height: 100%;
-    padding: 0px;
-  }
+}
 
-  nav .acciones{
+nav a {
+  text-decoration: none;
+  color: black;
+  margin: 0;
+}
+
+nav button {
+  width: 10%;
+  height: 100%;
+  padding: 0px;
+}
+
+nav .acciones {
+  width: max-content;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.logOut {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  width: 50px;
+  height: 50px;
+  box-sizing: border-box;
+}
+
+.logOut img {
+  height: 70%;
+}
+
+.consulta {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  box-sizing: border-box;
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+.consulta img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.logoPage {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  height: 100%;
+}
+
+.logoPage img {
+  height: 70%;
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-evenly;
+  width: max-content;
+  align-items: center;
+  gap: 20px;
+
+}
+
+
+.ocultar {
+  display: none;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 5px;
+
+  left: 5px;
+}
+
+@media screen and (max-width: 600px) {
+  .navContainer {
     width: max-content;
-    height: 100%;
-    display: flex;
-    align-items: center ;
-    gap: 10px;
-  }
-  
-  button:hover {
-    cursor: pointer;
   }
 
-  .logOut {
-    background-color: rgba(0, 0, 0, 0);
-    border: 0;
-    width: 50px;
-    height: 50px;
-    box-sizing: border-box;
-  }
-  
-  .logOut img{
-    width: 100%;
-    height: 100%;
-  } 
-
-  .consulta {
-    background-color: rgba(0, 0, 0, 0);
-    border: 0;
-    box-sizing: border-box;
-    width: 50px;
-    height: 50px;
-    position: relative;
-  }
-
-
-  
-  
-  .consulta img{
-    position: relative;
-    width: 100%;
-    height: 100%;
-  } 
-
-  .logoPage {
-    background-color: rgba(0, 0, 0, 0);
-    border: 0;
-    height: 100%;
-  }
-  
-  .logoPage img {
-   height: 20px;
-  }
-
-  .navContainer{
-    display: flex;
-    justify-content: space-evenly; 
-    width: max-content;
-    align-items: center;
-    gap: 10px;
-   
-  }
-
-
-  .ocultar{
-    display: none;
-    width: 50px;
-    height: 50px;
+  nav {
+    height: max-content;
+    flex-direction: column;
+    height: max-content;
     position: absolute;
-    top: 5px;
-    
-    left: 5px;
+    top: 0px;
+    left: 0px;
+    width: max-content;
+    padding: 50px;
+    padding-top: 70px;
   }
 
-  @media screen and (max-width: 600px){
-    .navContainer{
-      width: max-content;
-    }
-    nav{
-      height: max-content;
-      flex-direction: column;
-      height: max-content;
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      width: max-content;
-      padding: 50px;
-      padding-top: 70px;
-    }
-    .navContainer{
-      flex-direction: column;
-    }
-
-    .ocultar{
-      display: block;
-    }
-    
+  .navContainer {
+    flex-direction: column;
   }
+
+  .ocultar {
+    display: block;
+  }
+
+}
