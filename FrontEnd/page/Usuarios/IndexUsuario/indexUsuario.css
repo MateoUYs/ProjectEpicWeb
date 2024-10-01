@@ -173,9 +173,9 @@ nav{
   position: absolute;
   top: 100%; 
   left: 0;
-  display: flex; /* Añadir esto */
-  flex-direction: column; /* Añadir esto */
-  justify-content: space-between; /* Añadir esto */
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between;
   transition: all 1s;
   z-index: 40; 
 }
