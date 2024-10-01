@@ -31,14 +31,14 @@ function getSize() {
 
 // Función para agregar un producto
 function addSize() {
-    $tipo = $_POST["tipo"];
+    $tipo = $_POST["size"];
     $result = (new sizeDAO())->addSize($tipo); 
     echo json_encode($result);
 }
 
 // Función para eliminar un producto
 function deleteSize() {
-    $tipo = $_POST["tipo"];
+    $tipo = $_POST["size"];
     $result = (new sizeDAO())->deleteSize($tipo);
     echo json_encode($result);
 }
