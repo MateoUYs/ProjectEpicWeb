@@ -85,7 +85,6 @@ button:hover {
   height: 50px;
   position: absolute;
   top: 5px;
-
   left: 5px;
 }
 
@@ -112,6 +111,10 @@ button:hover {
 
   .ocultar {
     display: block;
+  }
+
+  .logoPage img{
+    width: 2px;
   }
 
 }

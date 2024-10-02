@@ -14,28 +14,37 @@
   <link rel="stylesheet" href="../../../styles/adminMain.css">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+    rel="stylesheet" />
   <script type="module" src="gestionarTalle.js"></script>
 </head>
+
 <body>
   <nav>
     <button type="button" class="logoPage" id="homeBtn">
       <img src="../../../assets/logoPageAdmin.png">
     </button>
-    <a href="../../Productos/gestionarProducto/gestionarProducto.html">Gestionar Productos</a>
-    <a href="../../Stock/gestionarStock/gestionarStock.html">Gestionar Stock</a>
-    <a href="gestionarTalle.html">Gestionar Talles</a>
-    <a href="../../Ofertas/gestionarOfertas/gestionarOfertas.html">Gestionar Ofertas</a>
-    <a href="../../Compras/gestionarCompras/gestionarCompras.html">Gestionar Compras</a>
-    <a href="../../Estadisticas/verEstadisticas/verEstadisticas.html">Ver Estadísticas</a>
-    <button type="button" class="consulta" id="btnConsulta">
+    <div class="navContainer">
+      <a href="../../Productos/gestionarProducto/gestionarProducto.html">Productos</a>
+      <a href="../../Stock/gestionarStock/gestionarStock.html">Stock</a>
+      <a href="gestionarTalle.html">Talles</a>
+      <a href="../../Ofertas/gestionarOfertas/gestionarOfertas.html">Ofertas</a>
+      <a href="../../Compras/gestionarCompras/gestionarCompras.html">Compras</a>
+      <a href="../../Estadisticas/verEstadisticas/verEstadisticas.html">Ver Estadísticas</a>
+    </div>
+    <div class="acciones">
+      <button type="button" class="consulta" id="btnConsulta">
       <img src="../../../assets/consultaIcon.png">
       <p id="countConsults" class="empty">0</p>
-    </button>
+      </button>
     <button type="button" class="logOut" id="btnLogOut"><img src="../../../assets/logOut.png"></button>
+    </div>
+    
   </nav>
-  <div  class="alertFrm alertDesactivado" id="alertDiv">
+  <div class="alertFrm alertDesactivado" id="alertDiv">
     <form action="">
       <p class="subTitle" id="alertTitle"></p>
       <label for="" id="question"></label>
@@ -79,4 +88,4 @@
   </main>
 </body>
 
-</html> 
+</html>
