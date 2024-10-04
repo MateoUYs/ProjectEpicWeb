@@ -4,19 +4,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <meta name="title" content="TopStyle Indumentaria" />
+  <meta name="description" content="Top Style es una tienda de indumentaria moderna y a la moda para hombres y mujeres. Descubre las últimas tendencias en ropa, accesorios y más. Estilo y calidad al mejor precio." />
+  <title>Top Style Indumentaria</title>
   <script type="module" src="indexUsuario.js"></script>
   <link rel="stylesheet" href="indexUsuario.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet" />
+  <!-- Libreria img productos--> 
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 
 <body>
   <div class="topbar">
     <nav>
-      <div class="nav">
+      <div>
           <div id="panelMenu" class="panelMenuDesactivado">
             <div class="dentroMenu" id="listaCatalogo">
               <a href="../iniciarSesion/iniciarSesion.html">Catálogo</a>
@@ -25,11 +30,15 @@
               <a href="#">Contacto</a>
             </div> 
           </div>
+
+
           <button class="logos" id="menu"><img src="../../../assets/menu.png"></button>
           <button class="logos" id="cart"><img src="../../../assets/carrito.png"></button>
           <button class="logos" id="login" href="../iniciarSesion/iniciarSesion.html"><img src="../../../assets/usuario.png"></button>
+          
+          
           <h2>Top Style</h2>
-          <button><img src="../../../assets/logoPageAdmin.png" class="imgNav"></button>
+          <img class="imgNav" src="../../../assets/logoPageAdmin.png">
       </div>
 
       <div class="cart">     
@@ -58,24 +67,60 @@
 
   <main>
     <div class="prendas">
-      <div class="div1">
+      <div class="div1" data-aos="fade-up" data-aos-duration="3000">
         <img src="../../../assets/1.gif" alt="mono" />
         <img src="../../../assets/1.gif" alt="mono" />
         <img src="../../../assets/1.gif" alt="mono" />
       </div>
-      <div class="div2">
+      <div class="div2" data-aos="fade-up" data-aos-duration="3000">
         <img src="../../../assets/1.gif" alt="travis" />
         <img src="../../../assets/1.gif" alt="travis" />
         <img src="../../../assets/1.gif" alt="travis" />
       </div>
-      <div class="div3">
+      <div class="div3" data-aos="fade-up" data-aos-duration="3000">
         <img src="../../../assets/1.gif" alt="pepino" />
         <img src="../../../assets/1.gif" alt="pepino" />
         <img src="../../../assets/1.gif" alt="pepino" />
       </div>
     </div>
   </main>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
   <script type="module" src="indexUsuario.js"></script>
+
+
+  <footer>
+
+    <div class="container__footer">
+        <div class="box__footer">
+            <div class="logo">
+                <img src="../../../assets/logoPageAdmin.png" alt="">
+            </div>
+            <div class="terms">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas impedit cum cumque velit libero officiis quam doloremque reprehenderit quae corporis! Delectus architecto officia praesentium atque laudantium, nam deleniti sapiente deserunt.</p>
+            </div>
+        </div>
+        
+
+        <div class="box__footer">
+            <h2>Redes Sociales</h2>
+            
+            <a href="#"> <i class="facebook"><img src="../../../assets/facebook.png"></i></a>
+            <a href="#"><i class="twitter"><img src="../../../assets/twitter.png"></i></a>
+            <a href="#"><i class="linkedin"><img src="../../../assets/linkedin.png"></i></a>
+            <a href="#"><i class="instagram"><img src="../../../assets/instagram.png"></i></a>
+        </div>
+
+    </div>
+
+    <div class="box__copyright">
+        <hr>
+        <p>Todos los derechos reservados © 2024 <b>TopStyle</b></p>
+    </div>
+</footer>
 </body>
 
 </html> 

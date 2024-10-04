@@ -37,32 +37,14 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 70px;
   width: 100%;
   padding: 0 10px;
   position: relative;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-ul li {
-  display: inline-block;
-  margin-right: 20px;
-}
-
-ul li a {
-  padding: 15px;
-  text-decoration: none;
-  color: #333;
-  transition: background-color 0.2s, color 0.2s;
-}
-
-ul li a:hover {
-  background-color: #444;
-  color: white;
+.prendas img:hover {
+  transform: scale(1.1);
 }
 
 /* Estilos para las imágenes */
@@ -84,9 +66,7 @@ img {
   transition: transform 0.3s;
 }
 
-img:hover {
-  transform: scale(1.1);
-}
+
 
 /* Header */
 .topper {
@@ -155,9 +135,7 @@ img {
   outline: none; 
 }
 
-.logos img:hover {
-  width: 35px; 
-}
+
 
 nav{
   display: flex;
@@ -253,8 +231,103 @@ h2{
 
 .imgNav{
   position: absolute;
-  left: 86%;
-  transform: translateX(-10%);
-  top: -100px;
-  
+  height: 100%;
+  width: 60px;
+  right: 50px;
+  transform: translateY(-20%);
+}
+
+/*footer*/
+
+footer {
+  width: 100%;
+  padding: 50px 0px;
+  background-image: url(../../../assets/background-footer.svg);
+  background-size: cover;
+}
+
+.container__footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.box__footer {
+  display: flex;
+  flex-direction: row;
+  padding: 80px;
+}
+
+.box__footer .logo img {
+  width: 150px;
+}
+
+.box__footer .terms {
+  max-width: 350px;
+  margin-top: 20px;
+  margin-left: 50px;
+  font-weight: 500;
+  color: #7a7a7a;
+  font-size: 18px;
+}
+
+.box__footer h2 {
+  margin-bottom: 30px;
+  color: #343434;
+  font-weight: 700;
+}
+
+.box__footer a {
+  margin-top: 10px;
+  color: #7a7a7a;
+  font-weight: 600;
+}
+
+.box__footer a:hover {
+  opacity: 0.8;
+}
+
+.box__footer a .fab {
+  font-size: 25px;
+}
+
+.box__copyright {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+  padding: 0px 40px;
+}
+
+.box__copyright p {
+  margin-top: 20px;
+  color: #7a7a7a;
+}
+
+.box__copyright hr {
+  border: none;
+  height: 1px;
+  background-color: #7a7a7a;
+}
+
+.facebook img{
+  width: 50px;
+  height: 50px;
+}
+
+.instagram img{
+  width: 50px;
+  height: 50px;
+}
+
+.linkedin img{
+  width: 50px;
+  height: 50px;
+}
+
+.twitter img{
+  width: 50px;
+  height: 50px;
 }
