@@ -1,4 +1,3 @@
-
 body {
     background-image: url(../../../assets/background.jpg);
     background-attachment: fixed;
@@ -13,7 +12,7 @@ body {
     overflow: overlay;
 }
 
-.barrita{
+.bar {
     border: #333 1px solid;
     margin-bottom: 20px;
 }
@@ -26,8 +25,7 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-
-.Container {
+.container {
     background-color: #f8f8f8;
     padding: 40px;
     border-radius: 10px;
@@ -35,17 +33,15 @@ body {
     width: 100%;
     max-width: 400px;
     backdrop-filter: blur(1px);
-    
 }
 
-.Contenido {
+.content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
 }
 
-.Title {
+.title {
     font-family: 'Bebas Neue', sans-serif;
     text-align: center;
     font-size: 36px;
@@ -53,12 +49,12 @@ body {
     color: #333;
 }
 
-.form-group {
+.formGroup {
     width: 100%;
     margin-bottom: 20px;
 }
 
-.form-input {
+.formInput {
     margin-bottom: 10px;
     width: 100%;
     padding: 15px;
@@ -68,13 +64,12 @@ body {
     box-sizing: border-box;
 }
 
-.form-input:focus {
+.formInput:focus {
     border-color: #333;
     outline: none;
 }
 
-
-.form-btn {
+.formBtn {
     margin-bottom: 10px;
     width: 100%;
     padding: 15px;
@@ -88,37 +83,13 @@ body {
     transition: 0.3s ease;
 }
 
-.form-btn:hover {
+.formBtn:hover {
     background-color: white;
     color: #444444;
     border: #4CAF50 1px solid;
 }
 
-
-.reg-btn {
-    display: flex;
-    margin-bottom: 10px;
-    width: 92%;
-    padding: 15px;
-    justify-content: center;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    background-color: white;
-    color: #444444;
-    border: #444444 1px solid;
-    font-size: 18px;
-    font-family: 'Kanit', sans-serif;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.reg-btn:hover {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.descripcion{
+.description {
     margin-bottom: 10px;
     width: 100%;
     padding: 15px;

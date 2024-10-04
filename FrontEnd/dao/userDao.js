@@ -1,13 +1,13 @@
 export default class UserDAO{
 
-    async addUser(ci,correo,usuario,password,telefono){
+    async addUser(ci, email, username, password, phoneNumber){
         let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/userController.php?function=addUser";
         let formData = new FormData();
         formData.append("ci",ci);
-        formData.append("usuario",usuario);
+        formData.append("usuario",username);
         formData.append("password",password);
-        formData.append("email",correo);
-        formData.append("phone",telefono);
+        formData.append("email",email);
+        formData.append("phone",phoneNumber);
         let config = {
             method:"POST",
             body: formData
@@ -26,16 +26,15 @@ export default class UserDAO{
         return query;
     }
 
-    async modifyUser(ci,correo,usuario,password,telefono){
+    async modifyUser(ci, email, username, password, phoneNumber){
         let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/userController.php?function=modifyUser";
         let formData = new FormData();
         formData.append("ci", ci);
-        formData.append("usuario", usuario);
-        zformData.append("password", password);
-        formData.append("email", correo);
-        
-        
-        formData.append("phone", telefono);
+        formData.append("usuario", username);
+        formData.append("password", password);
+        formData.append("email", email);
+        formData.append("phone", phoneNumber);
+
         let config = {
             method:"POST",
             body: formData
@@ -69,7 +68,8 @@ export default class UserDAO{
             body: formData
         }
         let queryResponse = await fetch(url,config);
-        let query  = await queryResponse.json();
+        let query  = await queryResponse.text();
+        console.log(query);
         return query;
     }
 }
