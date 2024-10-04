@@ -11,30 +11,30 @@ async function loadData() {
     let query = await new SessionDAO().getSession();
 
     if (query.estado) {
-        formElement.correo.value = query.datos.email;
-        formElement.usuario.value = query.datos.usuario;
-        formElement.telefono.value = query.datos.phone;
+        formElement.email.value = query.datos.email;
+        formElement.username.value = query.datos.usuario;
+        formElement.phoneNumber.value = query.datos.phone;
     } else {
         window.location.href = "../iniciarSesion/iniciarSesion.html";
     }
 }
 
 function addEvents() {
-    let btnModify = document.querySelector("#btnModificar");
+    let btnModify = document.querySelector("#btnModify");
     let formElement = document.querySelector("#frmUserSettings");
-    let btnDelete = document.querySelector("#btnEliminar");
+    let btnDelete = document.querySelector("#btnDelete");
 
     btnModify.onclick = async (e) => {
         e.preventDefault();
         let query = await new SessionDAO().getSession();
 
         let ci = query.datos.ci;
-        let correo = formElement.correo.value;
-        let usuario = formElement.usuario.value;
+        let email = formElement.email.value;
+        let username = formElement.username.value;
         let password = formElement.password.value;
-        let telefono = formElement.telefono.value;
+        let phoneNumber = formElement.phoneNumber.value;
 
-        modifyUser(ci, correo, usuario, password, telefono);
+        modifyUser(ci, email, username, password, phoneNumber);
     };
 
     btnDelete.onclick = async (e) => {
@@ -47,20 +47,14 @@ function addEvents() {
     }
 }
 
-async function modifyUser(ci, userData) {
-    let query = await new UserDAO().modifyUser(ci, userData);
+async function modifyUser(ci, email, username, password, phoneNumber) {
+    let query = await new UserDAO().modifyUser(ci, email, username, password, phoneNumber);
     let pAlert = document.querySelector("#modifyAlert");
-    let pEmail = document.querySelector("#email");
-    let pName = document.querySelector("#name");
-    let pPhone = document.querySelector("#phone");
 
     if (query.estado) {
         pAlert.innerHTML = "¡Usuario modificado con éxito!";
-        pEmail.innerHTML = correo;
-        pName.innerHTML = usuario;
-        pPhone.innerHTML = telefono;
     } else {
-        pAlert.innerHTML = `¡Error al modificar el usuario ${query.mensaje}!`;
+        pAlert.innerHTML = `¡Error al modificar el usuario: ${query.mensaje}!`;
     }
 }
 
@@ -74,6 +68,6 @@ async function deleteUser(ci) {
             window.location.href = "../iniciarSesion/iniciarSesion.html";
         }, 3000);
     } else {
-        pAlert.innerHTML = `¡Error al eliminar el usuario ${query.mensaje}!`;
+        pAlert.innerHTML = `¡Error al eliminar el usuario: ${query.mensaje}!`;
     }
 }

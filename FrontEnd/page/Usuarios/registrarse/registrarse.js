@@ -6,26 +6,26 @@ window.onload = () => {
 }
 
 function addEvents() {
-    let formElement = document.querySelector("#frmCrear"); 
+    let formElement = document.querySelector("#frmCreate"); 
     
     formElement.onsubmit = async (e) => {
         e.preventDefault(); 
 
         let ci = formElement.ci.value;
-        let correo = formElement.correo.value;
-        let usuario = formElement.usuario.value;
+        let email = formElement.email.value;
+        let userName = formElement.userName.value;
         let password = formElement.password.value;
-        let telefono = formElement.telefono.value;
+        let phone = formElement.phoneNumber.value;
 
-        addUser(ci, correo, usuario, password, telefono);
+        addUser(ci, email, userName, password, phone);
     };
 }
 
-async function addUser(ci, correo, usuario, password, telefono) {
-    let query = await new UserDAO().addUser(ci, correo, usuario, password, telefono);
+async function addUser(ci, email, userName, password, phone) {
+    let query = await new UserDAO().addUser(ci, email, userName, password, phone);
     console.log(query);
     if (query.estado) {
-        await new SessionDAO().logIn(correo, password);
+        await new SessionDAO().logIn(email, password);
         window.location.href = "../verificarCuenta/verificarCuenta.html";
     } else {
         alert(`Error al registrar: ${query.mensaje}`);

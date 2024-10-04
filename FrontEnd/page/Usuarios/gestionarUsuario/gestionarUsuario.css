@@ -28,12 +28,12 @@ main {
     box-sizing: border-box;
 }
 
-.barrita{
+.bar {
     border: #333 1px solid;
     margin-bottom: 20px;
 }
 
-.container{
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,8 +44,7 @@ main {
     height: 485px;
 }
 
-
-.auth-container {
+.authContainer {
     background-color: white;
     padding: 40px;
     border-radius: 10px;
@@ -53,25 +52,25 @@ main {
     width: 100%;
 }
 
-.auth-content {
+.authContent {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.form-title {
+.formTitle {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 36px;
     margin-bottom: 20px;
     color: #333;
 }
 
-.form-group {
+.formGroup {
     width: 100%;
     margin-bottom: 20px;
 }
 
-.form-input {
+.formInput {
     margin-bottom: 10px;
     width: 70%;
     padding: 15px;
@@ -81,13 +80,12 @@ main {
     box-sizing: border-box;
 }
 
-.form-input:focus {
+.formInput:focus {
     border-color: #333;
     outline: none;
 }
 
-
-.form-btn {
+.formBtn {
     margin-bottom: 10px;
     width: 100%;
     padding: 15px;
@@ -101,14 +99,13 @@ main {
     transition: 0.3s ease;
 }
 
-.form-btn:hover {
+.formBtn:hover {
     background-color: white;
     color: #4CAF50;
     border: #4CAF50 1px solid;
 }
 
-
-.eliminarCuenta-btn {
+.deleteAccountBtn {
     display: flex;
     margin-bottom: 10px;
     width: 100%;
@@ -126,12 +123,12 @@ main {
     transition: 0.3s ease;
 }
 
-.eliminarCuenta-btn:hover {
+.deleteAccountBtn:hover {
     background-color: white;
     color: #f81b0b;
 }
 
-.inputs{
+.inputs {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -139,16 +136,15 @@ main {
     width: 1700px;
 }
 
-#pass{
+#password {
     position: relative;
     left: 255px;
 }
 
-#modifyAlert{
+#modifyAlert {
     color: #4CAF50;
 }
 
-#deleteAlert{
+#deleteAlert {
     color: #f81b0b;
 }
-

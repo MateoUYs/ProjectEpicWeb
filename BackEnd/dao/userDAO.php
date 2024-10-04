@@ -98,7 +98,7 @@ El equipo de TopStyleShop';
     function verifyUser($email, $codigoVerificacion)
     {
         $connection = connection();
-        $sql = "UPDATE usuario SET isVerficada = 1 WHERE  email = '$email' AND codigoVerificacion  = '$codigoVerificacion'";
+        $sql = "UPDATE usuario SET isVerificada = 1 WHERE  email = '$email' AND codigoVerificacion  = '$codigoVerificacion'";
         $connection->query($sql);
         $filasAfectadas = $connection->affected_rows;
 

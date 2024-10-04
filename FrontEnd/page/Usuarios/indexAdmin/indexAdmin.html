@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="indexAdmin.css" />
   <link rel="stylesheet" href="../../../styles/adminNav.css">
   <link rel="stylesheet" href="../../../styles/consult.css">
+  <link rel="stylesheet" href="../../../styles/adminMain.css">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap"
@@ -19,9 +20,10 @@
 </head>
 
 <body>
-  <nav>
-    <button class="ocultar">ocultar</button>
-    <button class="logoPage">
+  <img class="hide" src="../../../assets/closeIcon.png">
+  <div class="activatedDiv"></div>
+  <nav class="activatedNav">
+    <button class="pageLogo">
       <img src="../../../assets/logoPageAdmin.png">
     </button>
     <div class="navContainer">
@@ -32,32 +34,30 @@
       <a href="../../Compras/gestionarCompras/gestionarCompras.html">Compras</a>
       <a href="../../Estadisticas/verEstadisticas/verEstadisticas.html">Ver Estadísticas</a>
     </div>
-    <div class="acciones">
-      <button class="consulta" id="btnConsulta">
+    <div class="actions">
+      <button class="inquiry" id="btnInquiry">
         <img src="../../../assets/consultaIcon.png">
-        <p id="countConsults" class="empty">0</p>
+        <p id="consultCount" class="empty">0</p>
       </button>
       <button class="logOut" id="btnLogOut"><img src="../../../assets/logOut.png"></button>
     </div>
-   
-
   </nav>
   <main>
-    <div class="inicio">
+    <div class="start">
       <p class="title">Bienvenido Administrador</p>
       <div class="separator"></div>
-      <div class="content">
-        <div class="lastBuys">
+      <div class="indexContent">
+        <div class="recentPurchases">
           <p class="subTitle">Compras Recientes:</p>
           <div class="separator"></div>
         </div>
-        <div class="previewStats">
+        <div class="statsPreview">
           <p class="subTitle">Vista Previa de las Estadísticas:</p>
           <div class="separator"></div>
         </div>
       </div>
     </div>
-    <div id="listaConsultas" class="desactivado"></div>
+    <div id="inquiryList" class="deactivated"></div>
   </main>
 </body>
 
