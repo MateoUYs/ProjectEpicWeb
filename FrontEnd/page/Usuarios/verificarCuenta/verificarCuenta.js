@@ -9,7 +9,7 @@ window.onload = () => {
 async function showMessage() {
     let query = await new SessionDAO().getSession();
     let pMessage = document.querySelector("#description");
-    pMessage.innerHTML = `Te hemos enviado un correo con un código de verificación a ${query.datos.email}. Por favor, revisa tu bandeja de entrada e ingresa el código en el campo de abajo para continuar.`;
+    pMessage.innerHTML = `Te hemos enviado un correo con un código de verificación a ${query.data.email}. Por favor, revisa tu bandeja de entrada e ingresa el código en el campo de abajo para continuar.`;
 }
 
 function addEvent() {
@@ -26,10 +26,10 @@ function addEvent() {
 
 async function verifyUser(code) {
     let query = await new SessionDAO().getSession();
-    let verifyQuery = await new UserDAO().verifyUser(query.datos.email, code);
-    if (verifyQuery.estado) {
+    let verifyQuery = await new UserDAO().verifyUser(query.data.email, code);
+    if (verifyQuery.status) {
         window.location.href = "../IndexUsuario/indexUsuario.html";
     } else {
-        alert(`Error al verificar: ${verifyQuery.mensaje}`);
+        alert(`Error al verificar: ${verifyQuery.message}`);
     }
 }

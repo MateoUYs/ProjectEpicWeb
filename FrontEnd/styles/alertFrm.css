@@ -26,12 +26,12 @@
     box-sizing: content-box;
 }
 
-.alertDesactivado {
+.alertDeactivated {
     display: none !important;
     opacity: 0;
 }
 
-.alertActivado {
+.alertActivated {
     display: flex !important;
     opacity: 1;
 }

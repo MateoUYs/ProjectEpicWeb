@@ -5,8 +5,8 @@ let id = null;
 
 window.onload = async () => {
     let query = await new SessionDAO().getSession();
-    if (query.estado) {
-        if (query.datos.isAdmin == 0) {
+    if (query.status) {
+        if (query.data.isAdmin == 0) {
             window.location.href = "../../Usuarios/IndexUsuario/indexUsuario.html";
         }
     } else {
@@ -18,15 +18,15 @@ window.onload = async () => {
 
 async function showStock() {
     let query = await new ProductDAO().getStock();
-    let products = query.datos;
+    let products = query.data;
     let tbodyElement = document.querySelector("#productData");
     tbodyElement.innerHTML = "";
     products.forEach((product) => {
         console.log(JSON.stringify(product));
         let tr = document.createElement("tr");
         tr.innerHTML += `
-             <td>${product.idProducto}</td>
-             <td>${product.nombre}</td>
+             <td>${product.productId}</td>
+             <td>${product.name}</td>
              <td>${product.stock}</td>
         `;
         let td = document.createElement("td");
@@ -59,36 +59,36 @@ async function showStock() {
 
 function addEvents() {
     let divFrm = document.querySelector("#frmStock");
-    let cancelarBtn = document.querySelector("#btnCancelar");
+    let cancelarBtn = document.querySelector("#cancelBtn");
     let frmStock = document.querySelector("#frmStock form");
-    let consultationBtn = document.querySelector("#btnConsulta");
+    let consultationBtn = document.querySelector("#inquiryBtn");
     let listConsultation = document.querySelector("#listaConsultas");
     let homeBtn = document.querySelector("#homeBtn");
     let btnLogOut = document.querySelector("#btnLogOut");
     let pTitle = document.querySelector("#title");
-    let divAlert = document.querySelector(".alertDesactivado");
+    let divAlert = document.querySelector("#alertDiv");
     let pAlertTitle = document.querySelector("#alertTitle");
     let alertQuestion = document.querySelector("#question");
-    let frmAlert = document.querySelector(".alertDesactivado form");
+    let frmAlert = divAlert.querySelector("form");
     let alertCancel = document.querySelector("#btnCancelAlert");
     let message = document.querySelector("#message");
     let confirmationAlert = document.querySelector("#confirmationAlert");
 
 
     cancelarBtn.onclick = () => {
-        divFrm.classList.add("frmDesactivado");
-        divFrm.classList.remove("frmActivado");
+        divFrm.classList.add("frmDeactivated");
+        divFrm.classList.remove("frmActivated");
         frmStock.reset();
         message.innerHTML = "";
     }
 
     consultationBtn.onclick = () => {
-        if (listConsultation.classList.contains("desactivado")) {
-            listConsultation.classList.add("activado");
-            listConsultation.classList.remove("desactivado");
+        if (listConsultation.classList.contains("deactivated")) {
+            listConsultation.classList.add("activated");
+            listConsultation.classList.remove("deactivated");
         } else {
-            listConsultation.classList.remove("activado");
-            listConsultation.classList.add("desactivado");
+            listConsultation.classList.remove("activated");
+            listConsultation.classList.add("deactivated");
         }
     }
 
@@ -97,8 +97,8 @@ function addEvents() {
     }
 
     btnLogOut.onclick = () => {
-        divAlert.classList.add("alertActivado");
-        divAlert.classList.remove("alertDesactivado");
+        divAlert.classList.add("alertActivated");
+        divAlert.classList.remove("alertDeactivated");
         pAlertTitle.innerHTML = "Cerrar Sesión";
         alertQuestion.innerHTML = "¿Estás seguro de que deseas cerrar sesión? Si cierras sesión, serás redirigido al Inicio de Sesión";
         frmAlert.submit.value = "Cerrar Sesión";
@@ -128,8 +128,8 @@ function addEvents() {
     }
 
     alertCancel.onclick = () => {
-        divAlert.classList.add("alertDesactivado");
-        divAlert.classList.remove("alertActivado");
+        divAlert.classList.add("alertDeactivated");
+        divAlert.classList.remove("alertActivated");
         alertQuestion.innerHTML = "";
         pAlertTitle.innerHTML = "";
         frmAlert.submit.value = "";
@@ -146,18 +146,18 @@ async function logOut() {
 
 
 function loadInfo(product, use) {
-    let nombre = product.nombre;
+    let name = product.name;
     let divFrm = document.querySelector("#frmStock");
     let frmStock = document.querySelector("#frmStock form");
     let pTitle = document.querySelector("#title");
     let pStock = document.querySelector("#stockActual");
 
 
-    divFrm.classList.remove("frmDesactivado");
-    divFrm.classList.add("frmActivado");
+    divFrm.classList.remove("frmDeactivated");
+    divFrm.classList.add("frmActivated");
 
-    frmStock.nombre.value = nombre;
-    id = product.idProducto;
+    frmStock.name.value = name;
+    id = product.productId;
 
     if(use == "Agregar"){
         pTitle.innerHTML = "Agregando Stock";
@@ -170,21 +170,21 @@ function loadInfo(product, use) {
     }
 }
 
-async function addStock(idProducto, stock){
-    let query = await new ProductDAO().addStock(idProducto, stock);
+async function addStock(productId, stock){
+    let query = await new ProductDAO().addStock(productId, stock);
     let frmProduct = document.querySelector("#frmStock form");
     let divFrm = document.querySelector("#frmStock");
     let message = document.querySelector("#message");
 
-    if (query.estado) {
+    if (query.status) {
         if (message.classList.contains("error")) {
             message.classList.remove("error");
             message.classList.add("confirmation");
         }
         message.innerHTML = "Stock agregado con éxito";
         setTimeout(async () => {
-            divFrm.classList.add("frmDesactivado");
-            divFrm.classList.remove("frmActivado");
+            divFrm.classList.add("frmDeactivated");
+            divFrm.classList.remove("frmActivated");
             frmProduct.reset();
             message.innerHTML = "";
             showStock();
@@ -194,25 +194,25 @@ async function addStock(idProducto, stock){
             message.classList.add("error");
             message.classList.remove("confirmation");
         }
-        message.innerHTML = `Error al agregar el stock ${query.mensaje}`;
+        message.innerHTML = `Error al agregar el stock ${query.message}`;
     }
 }
 
-async function updateStock(idProducto, stock){
-    let query = await new ProductDAO().updateStock(idProducto, stock);
+async function updateStock(productId, stock){
+    let query = await new ProductDAO().updateStock(productId, stock);
     let frmProduct = document.querySelector("#frmStock form");
     let divFrm = document.querySelector("#frmStock");
     let message = document.querySelector("#message");
 
-    if (query.estado) {
+    if (query.status) {
         if (message.classList.contains("error")) {
             message.classList.remove("error");
             message.classList.add("confirmation");
         }
         message.innerHTML = "Stock actualizado con éxito";
         setTimeout(async () => {
-            divFrm.classList.add("frmDesactivado");
-            divFrm.classList.remove("frmActivado");
+            divFrm.classList.add("frmDeactivated");
+            divFrm.classList.remove("frmActivated");
             frmProduct.reset();
             message.innerHTML = "";
             showStock();
@@ -222,7 +222,7 @@ async function updateStock(idProducto, stock){
             message.classList.add("error");
             message.classList.remove("confirmation");
         }
-        message.innerHTML = `Error al actualizar el stock ${query.mensaje}`;
+        message.innerHTML = `Error al actualizar el stock ${query.message}`;
     }
 }
 

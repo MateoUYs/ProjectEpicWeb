@@ -2,8 +2,8 @@ import SessionDAO from "../../../dao/sessionDAO.js";
 
 window.onload = async () => {
     let query = await new SessionDAO().getSession();
-    if (query.estado) {
-        if (query.datos.isAdmin === 1) {
+    if (query.status) {
+        if (query.data.isAdmin === 1) {
             window.location.href = "../indexAdmin/indexAdmin.html";
         } else {
             window.location.href = "../indexUsuario/indexUsuario.html";
@@ -25,11 +25,9 @@ function addEvents() {
 
 async function logIn(email, password) {
     let loggedQuery = await new SessionDAO().logIn(email, password);
-    console.log(loggedQuery.datos);
-    if (loggedQuery.estado) {
-        if (loggedQuery.datos.isVerified) {
-            alert("wait");
-            if (loggedQuery.datos.isAdmin) {
+    if (loggedQuery.status) {
+        if (loggedQuery.data.isVerified) {
+            if (loggedQuery.data.isAdmin) {
                 window.location.href = "../indexAdmin/indexAdmin.html";
             } else {
                 window.location.href = "../indexUsuario/indexUsuario.html";
@@ -39,6 +37,6 @@ async function logIn(email, password) {
         }
 
     } else {
-        alert(loggedQuery.mensaje);
+        alert(loggedQuery.message);
     }
 }

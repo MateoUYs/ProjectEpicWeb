@@ -39,13 +39,13 @@ function getUsers() {
 // Función para agregar un usuario
 function addUser() {
     $ci = $_POST["ci"];
-    $usuario = $_POST["usuario"];
+    $userName = $_POST["userName"];
     $password  = $_POST["password"];
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
     $correo  = $_POST["email"];
-    $telefono = $_POST["phone"];    
+    $phone = $_POST["phone"];    
     
-    $result = (new userDAO)->addUser($ci,$correo,$usuario,$hashedPassword,$telefono);
+    $result = (new userDAO)->addUser($ci,$correo,$userName,$hashedPassword,$phone);
     echo json_encode($result);
 }
 
@@ -59,13 +59,13 @@ function deleteUser() {
 // Función para modificar un usuario
 function modifyUser() {
     $ci = $_POST["ci"];
-    $usuario = $_POST["usuario"];
+    $userName = $_POST["userName"];
     $password  = $_POST["password"];
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
     $correo  = $_POST["email"];
-    $telefono = $_POST["phone"];
+    $phone = $_POST["phone"]; 
 
-    $result = (new userDAO)->modifyUser($ci,$correo,$usuario,$hashedPassword,$telefono);
+    $result = (new userDAO)->modifyUser($ci,$correo,$userName,$hashedPassword,$phone);
     echo json_encode($result);    
 }
 

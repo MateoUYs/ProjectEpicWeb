@@ -24,10 +24,10 @@ function addEvents() {
 async function addUser(ci, email, userName, password, phone) {
     let query = await new UserDAO().addUser(ci, email, userName, password, phone);
     console.log(query);
-    if (query.estado) {
+    if (query.status) {
         await new SessionDAO().logIn(email, password);
         window.location.href = "../verificarCuenta/verificarCuenta.html";
     } else {
-        alert(`Error al registrar: ${query.mensaje}`);
+        alert(`Error al registrar: ${query.message}`);
     }
 }

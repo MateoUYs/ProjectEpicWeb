@@ -1,14 +1,14 @@
-.frmDesactivado {
+.frmDeactivated {
     display: none !important;
     opacity: 0;
   }
   
-  .frmActivado {
+  .frmActivated {
     display: flex !important;
     opacity: 1;
   }
   
-  .contenedor-frm {
+  .containerFrm {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +22,7 @@
     transition: all .4s;
   }
   
-  .contenedor-frm form {
+  .containerFrm form {
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -35,7 +35,7 @@
     border-radius: 5%;
   }
 
-  .form-input {
+  .formInput {
     margin-bottom: 10px;
     width: 75%;
     padding: 15px;
@@ -45,12 +45,12 @@
     box-sizing: border-box;
   }
   
-  .form-input:focus {
+  .formInput:focus {
     border-color: #333;
     outline: none;
   }
   
-  .form-btn {
+  .formBtn {
     margin-bottom: 10px;
     width: 75%;
     padding: 15px;
@@ -64,7 +64,7 @@
     transition: 0.3s ease;
   }
   
-  .form-btn:hover {
+  .formBtn:hover {
     background-color: white;
     color: #4CAF50;
     border: #4CAF50 1px solid;
@@ -80,7 +80,7 @@
     margin-bottom: 10px;
   }
   
-  .form-file {
+  .formFile {
     margin-bottom: 10px;
     width: 72%;
     padding: 15px;
@@ -94,13 +94,13 @@
     transition: 0.3s ease;
   }
   
-  .form-file:hover {
+  .formFile:hover {
     background-color: white;
     color: #4CAF50;
     border: #4CAF50 1px solid;
   }
 
-  .cancelar-btn {
+  .cancelBtn {
     display: flex;
     margin-bottom: 10px;
     width: 75%;
@@ -118,7 +118,7 @@
     transition: 0.3s ease;
   }
   
-  .cancelar-btn:hover{
+  .cancelBtn:hover{
     background-color: white;
     color: #f81b0b;
   }

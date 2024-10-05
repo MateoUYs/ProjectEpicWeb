@@ -12,7 +12,7 @@ class userDAO
         $connection = connection();
 
         // Define la consulta SQL para seleccionar todos los registros de la tabla 'users'
-        $sql = "SELECT * FROM usuario";
+        $sql = "SELECT * FROM users";
 
         // Ejecuta la consulta SQL y almacena el resultado en la variable $result
         $result = $connection->query($sql);
@@ -26,10 +26,10 @@ class userDAO
         return $query;
     }
 
-    function addUser($ci, $correo, $usuario, $password, $telefono)
+    function addUser($ci, $email, $userName, $password, $phoneNumber)
     {
-        $codigoUnico = uniqid();
-        $sql = "INSERT INTO `usuario` (`email`, `ci`, `username`, `password`, `telefono`,codigoVerificacion,isVerficada,isAdmin) VALUES ('$correo', '$ci' ,'$usuario', '$password', '$telefono','$codigoUnico',0,0);";
+        $uniqueCode = uniqid();
+        $sql = "INSERT INTO `users`(`userCi`, `email`, `isAdmin`, `isVerified`, `username`, `password`, `phone`, `verificationCode`) VALUES ('$ci','$email',0,0,'$userName','$password','$phoneNumber','$uniqueCode')";
         $connection = connection();
         try {
             $connection->query($sql);
@@ -38,7 +38,7 @@ class userDAO
             $query = new query(false, "No se pudo agregar el usuario (ci ya existe)", null);
         }
 
-        $para = $correo;
+        $para = $email;
         $asunto = 'Verificación de tu cuenta en TopStyleShop';
         $descripcion = '¡Hola Usuario!
 
@@ -46,7 +46,7 @@ Gracias por registrarte en TopStyleShop. Antes de que puedas comenzar a disfruta
 
 Por favor, utiliza el siguiente código de verificación para completar tu registro:
 
-Código de verificación: ' . $codigoUnico .
+Código de verificación: ' . $uniqueCode .
 
 '
 Si no solicitaste la creación de esta cuenta, por favor ignora este correo.
@@ -69,7 +69,7 @@ El equipo de TopStyleShop';
     // Función para eliminar un usuario
     function deleteUser($ci)
     {
-        $sql = "DELETE FROM usuario WHERE ci = '$ci'";
+        $sql = "DELETE FROM users WHERE userCi = '$ci'";
         $connection = connection();
         try {
             $connection->query($sql);
@@ -81,9 +81,9 @@ El equipo de TopStyleShop';
     }
 
     // Función para modificar un usuario
-    function modifyUser($ci, $email, $usuario, $password, $telefono)
+    function modifyUser($ci, $email, $userName, $password, $phoneNumber)
     {
-        $sql = "UPDATE usuario SET email ='$email', username = '$usuario', password ='$password', telefono ='$telefono' WHERE ci = '$ci'";
+        $sql = "UPDATE users SET email ='$email', userName = '$userName', `password` ='$password', phone ='$phoneNumber' WHERE ci = '$ci'";
         $connection = connection();
         try {
             $connection->query($sql);
@@ -95,15 +95,15 @@ El equipo de TopStyleShop';
     }
 
     // Función para verificar un usuario
-    function verifyUser($email, $codigoVerificacion)
+    function verifyUser($email, $verificationCode)
     {
         $connection = connection();
-        $sql = "UPDATE usuario SET isVerificada = 1 WHERE  email = '$email' AND codigoVerificacion  = '$codigoVerificacion'";
+        $sql = "UPDATE usuario SET isVerified = 1 WHERE  email = '$email' AND verificationCode  = '$verificationCode'";
         $connection->query($sql);
         $filasAfectadas = $connection->affected_rows;
 
         if ($filasAfectadas == 1) {
-            $query = new query(true, "cuenta verificada", null);
+            $query = new query(true, "Cuenta verificada", null);
             return $query;
         } else {
             $query = new query(false, "Email de Usuario incorrecto", null);

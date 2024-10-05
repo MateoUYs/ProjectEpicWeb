@@ -24,7 +24,7 @@
 
 <body>
   <nav>
-    <button type="button" class="logoPage" id="homeBtn">
+    <button type="button" class="pageLogo" id="homeBtn">
       <img src="../../../assets/logoPageAdmin.png">
     </button>
     <div class="navContainer">
@@ -35,8 +35,8 @@
       <a href="../../Compras/gestionarCompras/gestionarCompras.html">Compras</a>
       <a href="../../Estadisticas/verEstadisticas/verEstadisticas.html">Ver Estadísticas</a>
     </div>
-    <div class="acciones">
-      <button type="button" class="consulta" id="btnConsulta">
+    <div class="actions">
+      <button type="button" class="inquiry" id="inquiryBtn">
       <img src="../../../assets/consultaIcon.png">
       <p id="countConsults" class="empty">0</p>
       </button>
@@ -44,24 +44,24 @@
     </div>
     
   </nav>
-  <div class="alertFrm alertDesactivado" id="alertDiv">
+  <div class="alertFrm alertDeactivated" id="alertDiv">
     <form action="">
       <p class="subTitle" id="alertTitle"></p>
       <label for="" id="question"></label>
       <p id="confirmationAlert" class="confirmation"></p>
       <div class="btns">
-        <input type="submit" class="form-btn" id="alertBtn" name="submit" value=""></input>
-        <input type="button" class="cancelar-btn" id="btnCancelAlert" name="cancelar" value="Cancelar"></input>
+        <input type="submit" class="formBtn" id="alertBtn" name="submit" value=""></input>
+        <input type="button" class="cancelBtn" id="btnCancelAlert" name="cancelar" value="Cancelar"></input>
       </div>
     </form>
   </div>
-  <div id="frmSizes" class="contenedor-frm frmDesactivado">
+  <div id="frmSizes" class="containerFrm frmDeactivated">
     <form action="">
       <p class="subTitle" id="title"></p>
-      <input type="text" name="size" placeholder="Tipo del talle" class="form-input">
+      <input type="text" name="size" placeholder="Tipo del talle" class="formInput">
       <p id="message" class="confirmation"></p>
-      <input type="submit" class="form-btn" id="btn" name="submit" value=""></input>
-      <input type="button" class="cancelar-btn" id="btnCancelar" name="cancelar" value="Cancelar"></input>
+      <input type="submit" class="formBtn" id="btn" name="submit" value=""></input>
+      <input type="button" class="cancelBtn" id="cancelBtn" name="cancel" value="Cancelar"></input>
     </form>
   </div>
   <main>
@@ -84,7 +84,7 @@
         </tbody>
       </table>
     </div>
-    <div id="listaConsultas" class="desactivado"></div>
+    <div id="inquiryList" class="deactivated"></div>
   </main>
 </body>
 

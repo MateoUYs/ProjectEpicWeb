@@ -46,7 +46,7 @@ switch ($funcion) {
 function getProducts()
 {
     // Se crea una instancia de la clase 'products' y se llama al método 'getProductsModel' para obtener los productos
-    $result = (new productsDAO())->getProductsModel();
+    $result = (new productsDAO())->getProducts();
     // Se codifica el resultado en formato JSON y se imprime
     echo json_encode($result);
 }
@@ -54,20 +54,20 @@ function getProducts()
 // Función para agregar un producto
 function addProduct()
 {
-    $precio = $_POST["precio"];
-    $descripcion = $_POST["descripcion"];
-    $imagen = $_FILES['imagen'];
-    $nombre = $_POST["nombre"];
+    $price = $_POST["price"];
+    $description = $_POST["description"];
+    $image = $_FILES['image'];
+    $name = $_POST["name"];
     $color = $_POST["color"];
     $sizeType = $_POST["size"];
-    $result = (new productsDAO())->addProducts($precio, $descripcion, $imagen, $nombre, $color, $sizeType);
+    $result = (new productsDAO())->addProducts($price, $description, $image, $name, $color, $sizeType);
     echo json_encode($result);
 }
 
 // Función para eliminar un producto
 function deleteProduct()
 {
-    $id = $_POST["id"];
+    $id = $_POST["productId"];
     $result = (new productsDAO())->deleteProducts($id);
     echo json_encode($result);
 }
@@ -75,39 +75,39 @@ function deleteProduct()
 // Función para modificar un producto
 function modifyProduct()
 {
-    $idProducto = $_POST["id"];
-    $precio = $_POST["precio"];
-    $descripcion = $_POST["descripcion"];
-    $imagen = isset($_FILES['imagen']) ? $_FILES['imagen'] : null;
-    $nombre = $_POST["nombre"];
+    $productId = $_POST["productId"];
+    $price = $_POST["price"];
+    $description = $_POST["description"];
+    $image = isset($_FILES['image']) ? $_FILES['image'] : null;
+    $name = $_POST["name"];
     $color = $_POST["color"];
     $sizeType = $_POST["size"];
     $oldSizes = $_POST["oldSizes"];
-    $result = (new productsDAO())->modifyProducts($idProducto, $precio, $descripcion, $imagen, $nombre, $color, $sizeType, $oldSizes);
+    $result = (new productsDAO())->modifyProducts($productId, $price, $description, $image, $name, $color, $sizeType, $oldSizes);
     echo json_encode($result);
 }
 
 // Función para obtener detalles de un producto específico
 function getProductDetails()
 {
-    $idProducto = $_POST["id"];
-    $result = (new productsDAO())->getProductDetails($idProducto);
+    $productId = $_POST["productId"];
+    $result = (new productsDAO())->getProductDetails($productId);
     echo json_encode($result);
 }
 
 function addStock()
 {
-    $idProducto = $_POST["id"];
+    $productId = $_POST["productId"];
     $stock = $_POST["stock"];
-    $result = (new productsDAO())->addStock($idProducto, $stock);
+    $result = (new productsDAO())->addStock($productId, $stock);
     echo json_encode($result);
 }
 
 function updateStock()
 {
-    $idProducto = $_POST["id"];
+    $productId = $_POST["productId"];
     $stock = $_POST["stock"];
-    $result = (new productsDAO())->updateStock($idProducto, $stock);
+    $result = (new productsDAO())->updateStock($productId, $stock);
     echo json_encode($result);
 }
 
@@ -119,8 +119,8 @@ function getStock()
 
 function getProductSize()
 {
-    $idProducto = $_POST["idProducto"];
-    $result = (new productsDAO())->getProductSize($idProducto);
+    $productId = $_POST["productId"];
+    $result = (new productsDAO())->getProductSize($productId);
     echo json_encode($result);
 }
 ?>

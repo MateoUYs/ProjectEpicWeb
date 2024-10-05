@@ -1,15 +1,18 @@
 <?php
-    class query {
-        public $estado;
-        public $mensaje;
-        public $datos;
+class query
+{
+    public $status;
+    public $message;
+    public $data;
 
-        function __construct($estado,$mensaje,$datos){
-            $this->estado = $estado;
-            $this->mensaje = $mensaje;
-            $this->datos=$datos;
-        }
 
+    function __construct($status, $message, $data)
+    {
+        $this->status = $status;
+        $this->message = $message;
+        $this->data = $data;
     }
+
+}
 
 ?>

@@ -10,18 +10,18 @@ class sizeDAO
     function getSize()
     {
         $connection = connection();
-        $sql = "SELECT * FROM talle";
+        $sql = "SELECT * FROM `size`";
         $result = $connection->query($sql);
         $sizes = $result->fetch_all(MYSQLI_ASSOC);
-        $query = new query(true, "talles obtenidos", $sizes);
+        $query = new query(true, "Talles obtenidos", $sizes);
 
         return $query;
     }
 
     // Función para agregar un talle a la base de datos
-    function addSize($tipo)
+    function addSize($type)
     {
-        $sql = "INSERT INTO talle(tipo) VALUES ('$tipo')";
+        $sql = "INSERT INTO `size`(`type`) VALUES ('$type')";
         $connection = connection();
         try{
             $connection->query($sql);
@@ -34,15 +34,15 @@ class sizeDAO
     }
 
     // Función para eliminar un talle de la base de datos
-    function deleteSize($tipo)
+    function deleteSize($type)
     {
-        $sql = "DELETE FROM talle WHERE tipo = '$tipo'";
+        $sql = "DELETE FROM `size` WHERE `type` = '$type'";
         $connection = connection();
         try{
             $connection->query($sql);
-            $query = new query(true, "talle eliminado", null);
+            $query = new query(true, "Talle eliminado", null);
         } catch (Exception $e) {
-            $query = new query(false, "no se pudo eliminar el talle (tipo incorrecto)", null);
+            $query = new query(false, "No se pudo eliminar el talle (tipo incorrecto)", null);
         }
         return $query;
     }

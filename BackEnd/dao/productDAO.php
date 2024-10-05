@@ -7,15 +7,15 @@ require_once __DIR__ . "/query.php";
 class productsDAO
 {
     // Método para obtener todos los productos desde la base de datos
-    function getProductsModel()
+    function getProducts()
     {
         $connection = connection();
-        $sql = "SELECT * FROM producto";
+        $sql = "SELECT * FROM product";
         $rersult = $connection->query($sql);
         $productos = $rersult->fetch_all(MYSQLI_ASSOC);
         $productosSize = [];
         foreach ($productos as $producto) {
-            $producto["size"] = $this->getProductSize($producto["idProducto"])->datos;
+            $producto["size"] = $this->getProductSize($producto["productId"])->data;
             $productosSize[] = $producto;
         }
         error_log(print_r($productos, true));
@@ -25,20 +25,20 @@ class productsDAO
 
 
     // Función para agregar un producto a la base de datos
-    function addProducts($precio, $descripcion, $imagen, $nombre, $color, $sizes)
+    function addProducts($price, $description, $image, $name, $color, $sizes)
     {
         error_log('Datos: ' . print_r($sizes, true));
-        $extension = pathinfo($imagen['name'], PATHINFO_EXTENSION);
-        $rutaTemporal = $imagen['tmp_name'];
-        $sql = "INSERT INTO producto(precio, descripcion, extension, nombre, color) VALUES ('$precio', '$descripcion', '$extension', '$nombre', '$color')";
+        $extension = pathinfo($image['name'], PATHINFO_EXTENSION);
+        $rutaTemporal = $image['tmp_name'];
+        $sql = "INSERT INTO `product`(`price`, `description`, `extension`, `name`, `color`) VALUES ('$price', '$description', '$extension', '$name', '$color')";
         $connection = connection();
         try {
             $connection->query($sql);
-            $query = new query(true, "producto agregado correctamente", null);
-            $idProducto = $connection->insert_id;
-            move_uploaded_file($rutaTemporal, "../imgs/$idProducto.$extension");
+            $query = new query(true, "Producto agregado correctamente", null);
+            $productId = $connection->insert_id;
+            move_uploaded_file($rutaTemporal, "../imgs/$productId.$extension");
             foreach ($sizes as $size) {
-                $this->setProductSize($size, $idProducto);
+                $this->setProductSize($size, $productId);
             }
         } catch (Exception $e) {
             $query = new query(false, "No se pudo agregar el producto", null);
@@ -48,53 +48,62 @@ class productsDAO
     }
 
     // Función para eliminar un producto
-    function deleteProducts($id)
+    function deleteProducts($productId)
     {
-        $sql = "DELETE FROM producto WHERE idProducto = '$id'";
+        $sql = "DELETE FROM `product` WHERE `productId` = '$productId'";
         $connection = connection();
         try {
             $connection->query($sql);
-            $query = new query(true, "producto eliminado", null);
-            $this->deleteProductSize($id);
+            $query = new query(true, "Producto eliminado", null);
+            $this->deleteProductSize($productId);
         } catch (Exception $e) {
-            $query = new query(false, "no se pudo eliminar el producto (id incorrecta)", null);
+            $query = new query(false, "No se pudo eliminar el producto (id incorrecta)", null);
         }
         return $query;
     }
 
     // Función para modificar un producto
-    function modifyProducts($idProducto, $precio, $descripcion, $imagen, $nombre, $color, $sizes, $oldSizes)
+    function modifyProducts($productId, $price, $description, $image, $name, $color, $sizes, $oldSizes)
     {
-        if (isset($imagen) && $imagen["error"] === 0) {
-            $extension = pathinfo($imagen['name'], PATHINFO_EXTENSION);
-            $rutaTemporal = $imagen['tmp_name'];
-            $sql = "UPDATE producto SET precio ='$precio', descripcion = '$descripcion', extension = '$extension', nombre ='$nombre', color ='$color' WHERE idProducto = '$idProducto'";
+        if (isset($image) && $image["error"] === 0) {
+            $extension = pathinfo($image['name'], PATHINFO_EXTENSION);
+            $rutaTemporal = $image['tmp_name'];
+            $sql = "UPDATE `product` SET `price` ='$price', `description` = '$description', `extension` = '$extension', `name` ='$name', `color` ='$color' WHERE `productId` = '$productId'";
             $connection = connection();
             try {
                 $connection->query($sql);
                 foreach ($sizes as $size) {
-                    foreach ($oldSizes as $oldSize){
-                        if($size == $oldSizes){
-                            $this->updateProductSize($size, $idProducto, $oldSize);
+                    if ($oldSizes != "") {
+                        foreach ($oldSizes as $oldSize) {
+                            if ($size == $oldSizes) {
+                                $this->updateProductSize($size, $productId, $oldSize);
+                            }
                         }
+                    }else{
+                        $this->setProductSize($size, $productId);
                     }
+
                 }
                 $query = new query(true, "Producto modificado", null);
-                move_uploaded_file($rutaTemporal, "../imgs/$idProducto.$extension");
+                move_uploaded_file($rutaTemporal, "../imgs/$productId.$extension");
             } catch (Exception $e) {
                 $query = new query(false, "No se pudo modificar el producto", null);
             }
             return $query;
         } else {
-            $sql = "UPDATE producto SET precio ='$precio', descripcion = '$descripcion', nombre ='$nombre', color ='$color' WHERE idProducto = '$idProducto'";
+            $sql = "UPDATE `product` SET `price` ='$price', `description` = '$description', `name` ='$name', `color` ='$color' WHERE `productId` = '$productId'";
             $connection = connection();
             try {
                 $connection->query($sql);
                 foreach ($sizes as $size) {
-                    foreach ($oldSizes as $oldSize){
-                        if($size == $oldSizes){
-                            $this->updateProductSize($size, $idProducto, $oldSize);
+                    if ($oldSizes != "") {
+                        foreach ($oldSizes as $oldSize) {
+                            if ($size == $oldSizes) {
+                                $this->updateProductSize($size, $productId, $oldSize);
+                            }
                         }
+                    }else{
+                        $this->setProductSize($size, $productId);
                     }
                 }
                 $query = new query(true, "Producto modificado", null);
@@ -107,20 +116,20 @@ class productsDAO
     }
 
     // Función para obtener detalles de un producto específico
-    function getProductDetails($id)
+    function getProductDetails($productId)
     {
         $connection = connection();
-        $sql = "SELECT * FROM producto WHERE idProducto ='$id'";
+        $sql = "SELECT * FROM `product` WHERE `productId` = '$productId'";
         $result = $connection->query($sql);
         $productos = $result->fetch_all(MYSQLI_ASSOC);
-        $query = new query(true, "producto obtenido correctamente", $productos);
+        $query = new query(true, "Producto obtenido correctamente", $productos);
 
         return $query;
     }
 
-    function addStock($idProducto, $stock)
+    function addStock($productId, $stock)
     {
-        $sql = "UPDATE producto SET stock = stock + '$stock' WHERE idProducto = '$idProducto'";
+        $sql = "UPDATE `product` SET `stock` = `stock` + '$stock' WHERE `productId` = '$productId'";
         $connection = connection();
         try {
             $connection->query($sql);
@@ -131,9 +140,9 @@ class productsDAO
         return $query;
     }
 
-    function updateStock($idProducto, $stock)
+    function updateStock($productId, $stock)
     {
-        $sql = "UPDATE producto SET stock ='$stock' WHERE idProducto = '$idProducto'";
+        $sql = "UPDATE `product` SET `stock` ='$stock' WHERE `productId` = '$productId'";
         $connection = connection();
         try {
             $connection->query($sql);
@@ -147,17 +156,17 @@ class productsDAO
     function getStock()
     {
         $connection = connection();
-        $sql = "SELECT idProducto, nombre, stock FROM producto";
+        $sql = "SELECT `productId`, `name`, `stock` FROM `product`";
         $result = $connection->query($sql);
         $producto = $result->fetch_all(MYSQLI_ASSOC);
         $query = new query(true, "Stock obtenido", $producto);
         return $query;
     }
 
-    function setProductSize($size, $idProducto)
+    function setProductSize($size, $productId)
     {
         $connection = connection();
-        $sql = "INSERT INTO productotalle(idProducto, tipoTalle) VALUES ('$idProducto', '$size')";
+        $sql = "INSERT INTO `productsize`(`productId`, `sizeType`) VALUES ('$productId', '$size')";
         try {
             $connection->query($sql);
             $query = new query(true, "Talle Añadido al producto", null);
@@ -167,10 +176,10 @@ class productsDAO
         return $query;
     }
 
-    function updateProductSize($size, $idProducto, $oldSize)
+    function updateProductSize($size, $productId, $oldSize)
     {
         $connection = connection();
-        $sql = "UPDATE productotalle SET tipoTalle ='$size' WHERE idProducto = '$idProducto' AND tipoTalle = '$oldSize'";
+        $sql = "UPDATE `productsize` SET `sizeType` ='$size' WHERE `productId` = '$productId' AND `sizeType` = '$oldSize'";
         try {
             $connection->query($sql);
             $query = new query(true, "Talle del producto modificado", null);
@@ -180,19 +189,19 @@ class productsDAO
         return $query;
     }
 
-    function getProductSize($idProducto)
+    function getProductSize($productId)
     {
         $connection = connection();
-        $sql = "SELECT tipoTalle FROM productotalle WHERE idProducto = '$idProducto'";
+        $sql = "SELECT `sizeType` FROM `productsize`  WHERE `productId` = '$productId'";
         $result = $connection->query($sql);
         $size = $result->fetch_all(MYSQLI_ASSOC);
         $query = new query(true, "Talle del producto obtenido", $size);
         return $query;
     }
 
-    function deleteProductSize($idProducto)
+    function deleteProductSize($productId)
     {
-        $sql = "DELETE FROM productotalle WHERE idProducto = '$idProducto'";
+        $sql = "DELETE FROM `productsize` WHERE `productId` = '$productId'";
         $connection = connection();
         try {
             $connection->query($sql);
