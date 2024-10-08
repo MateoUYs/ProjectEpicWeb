@@ -218,7 +218,7 @@ async function addProduct(precio, descripcion, imagen, nombre, color, size) {
     let divFrm = document.querySelector("#productFrm");
     let message = document.querySelector("#message");
 
-    if (query.estado) {
+    if (query.status) {
         if (message.classList.contains("error")) {
             message.classList.remove("error");
             message.classList.add("confirmation");
@@ -237,7 +237,7 @@ async function addProduct(precio, descripcion, imagen, nombre, color, size) {
             message.classList.add("error");
             message.classList.remove("confirmation");
         }
-        message.innerHTML = `Error al agregar el producto ${query.mensaje}`;
+        message.innerHTML = `Error al agregar el producto ${query.message}`;
     }
 }
 
@@ -265,6 +265,7 @@ function loadInputs(product) {
     frmProduct.name.value = name;
     frmProduct.color.value = color;
     id = productId;
+    console.log(product.size);
     setProductSize(product.size);
 }
 
@@ -321,7 +322,7 @@ async function deleteProduct(idProducto) {
 async function setProductSize(sizes) {
     let frmProduct = document.querySelector("#productFrm form");
     Array.from(frmProduct.querySelectorAll("input[name='size']")).forEach((input)=>{
-        if(sizes.some(sp => sp.tipoTalle == input.value)){
+        if(sizes.some(sp => sp.sizeType == input.value)){
             let size = input.value;
             oldSizes += {"oldSize": size};
             input.checked=true;

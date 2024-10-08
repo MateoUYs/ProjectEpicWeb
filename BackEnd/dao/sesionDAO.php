@@ -19,7 +19,7 @@ class SesionDAO
         $fila = $answer->fetch_assoc();
         if ($fila != null) {
             if (password_verify($password, $fila['password'])) {
-                $_SESSION['sesion'] = ["userCi" => $fila['userCi'], "usuario" => $fila['userName'], "email" => $fila['email'], "isAdmin" => $fila['isAdmin'] == 1 ? true : false, "isVerified" => $fila['isVerified'] == 1 ? true : false, "phone" => $fila['phone'], "pass" => $fila['password']];
+                $_SESSION['sesion'] = ["userCi" => $fila['ci'], "usuario" => $fila['username'], "email" => $fila['email'], "isAdmin" => $fila['isAdmin'] == 1 ? true : false, "isVerified" => $fila['isVerified'] == 1 ? true : false, "phone" => $fila['phone'], "pass" => $fila['password']];
                 $query = new query(true, "Sesion iniciada", $_SESSION['sesion']);     
             } else {
                 $query = new query(false, "Contraseña incorrecta", null);
