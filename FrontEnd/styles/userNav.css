@@ -1,0 +1,94 @@
+/* Barra de navegación */
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: rgb(255, 255, 255);
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px; 
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+    padding: 0 10px;
+    position: relative;
+    flex-direction: end;
+    }
+  
+  .prendas img:hover {
+    transform: scale(1.1);
+  }
+  
+  .imgNav{
+    position: absolute;
+    height: 100%;
+    width: 60px;
+    right: 50px;
+    transform: translateY(-20%);
+  }
+  
+  .panelCartActivado {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    width: 450px;
+    height: 450px;
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
+    transition: all 1s;
+    z-index: 40; 
+  }
+  
+  .panelCartDesactivado {
+    width: 250px;
+    height: 100px;
+    position: absolute;
+    left: -250px;
+    transition: all 1s;
+  }
+  
+  .panelMenuActivado {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    width: 350px;
+    height: 200px;
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    transition: all 1s;
+    z-index: 40; 
+  }
+  
+  .panelMenuDesactivado {
+    width: 250px;
+    height: 100px;
+    position: absolute;
+    left: -250px;
+    transition: all 1s;
+  }
+  
+  .dentroMenu{
+    display: flex;
+    flex-direction: column; 
+    padding: 10px; 
+  }
+  
+  .dentroMenu a {
+    text-decoration: none; 
+    padding: 10px 15px; 
+    transition: background-color 0.2s, color 0.2s; 
+  }
+  
+  .dentroMenu a:hover {
+    background-color: #444; 
+    color: white; 
+  }
