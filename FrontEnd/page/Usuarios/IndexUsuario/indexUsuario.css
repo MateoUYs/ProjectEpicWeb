@@ -41,106 +41,19 @@ nav {
   width: 100%;
   padding: 0 10px;
   position: relative;
-}
+  flex-direction: end;
+  }
 
 .prendas img:hover {
   transform: scale(1.1);
 }
 
-/* Estilos para las imágenes */
-.prendas {
-  background-color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-.div1, .div2, .div3 {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-img {
-  width: 350px;
-  padding: 10px;
-  transition: transform 0.3s;
-}
-
-
-
-/* Header */
-.topper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  height: 90vh;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.topper1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 90px;
-  margin: 0;
-}
-
-.topper2 {
-  font-size: 18px;
-  max-width: 600px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-
-@keyframes show {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-img {
-  animation: show 1s ease-in-out;
-}
-
-::-webkit-scrollbar {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: lightgray;
-}
-
-::-webkit-scrollbar-corner {
-  border-radius: 10px;
-}
-
-.logos {
-  background: none;
-  border: none;   
-  padding: 0;
-  margin: 0 10px; 
-  cursor: pointer; 
-}
-
-.logos img {
-  width: 30px; 
-  height: auto; 
-  transition: width 0.3s ease;
-  display: block;
-  border: none;   
-  outline: none; 
-}
-
-
-
-nav{
-  display: flex;
-  flex-direction: end;
-  align-items: center; 
+.imgNav{
+  position: absolute;
+  height: 100%;
+  width: 60px;
+  right: 50px;
+  transform: translateY(-20%);
 }
 
 .panelCartActivado {
@@ -164,21 +77,6 @@ nav{
   position: absolute;
   left: -250px;
   transition: all 1s;
-}
-
-.form-btn {
-  margin-bottom: 10px;
-  width: auto;
-  height: auto;
-  padding: 15px;
-  border: white 1px solid;
-  border-radius: 10px;
-  background-color: #4CAF50;
-  color: white;
-  font-size: 18px;
-  font-family: 'Kanit', sans-serif;
-  cursor: pointer;
-
 }
 
 .panelMenuActivado {
@@ -218,6 +116,107 @@ nav{
   color: white; 
 }
 
+/* Estilos para las imágenes */
+.prendas {
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.div1, .div2, .div3 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+img {
+  width: 350px;
+  padding: 10px;
+  transition: transform 0.3s;
+  animation: show 1s ease-in-out;
+}
+
+.logos {
+  background: none;
+  border: none;   
+  padding: 0;
+  margin: 0 10px; 
+  cursor: pointer; 
+}
+
+.logos img {
+  width: 30px; 
+  height: auto; 
+  transition: width 0.3s ease;
+  display: block;
+  border: none;   
+  outline: none; 
+}
+
+
+/* Header */
+.topper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  height: 90vh;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.topper1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 90px;
+  margin: 0;
+}
+
+.topper2 {
+  font-size: 18px;
+  max-width: 600px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: lightgray;
+}
+
+::-webkit-scrollbar-corner {
+  border-radius: 10px;
+}
+
+
+.form-btn {
+  margin-bottom: 10px;
+  width: auto;
+  height: auto;
+  padding: 15px;
+  border: white 1px solid;
+  border-radius: 10px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 18px;
+  font-family: 'Kanit', sans-serif;
+  cursor: pointer;
+
+}
+
+
 h2{
   font-family: 'Bebas Neue', sans-serif;
   font-size: 45px;
@@ -229,19 +228,14 @@ h2{
   transform: translateX(-50%);
 }
 
-.imgNav{
-  position: absolute;
-  height: 100%;
-  width: 60px;
-  right: 50px;
-  transform: translateY(-20%);
-}
+
 
 /*footer*/
 
 footer {
+  margin-top: 75px;
   width: 100%;
-  padding: 50px 0px;
+  padding: 60px 0px;
   background-image: url(../../../assets/background-footer.svg);
   background-size: cover;
 }
