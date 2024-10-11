@@ -1,94 +1,141 @@
+/* Estilos globales */
+body {
+  background-image: url(../assets/background.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-family: "Cabin", sans-serif;
+  font-weight: 400;
+}
+
+.fondo {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
 /* Barra de navegación */
 .topbar {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background-color: rgb(255, 255, 255);
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 10px; 
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgb(255, 255, 255);
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 10px; 
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  width: 100%;
+  padding: 0 10px;
+  position: relative;
+  flex-direction: end;
   }
-  
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 70px;
-    width: 100%;
-    padding: 0 10px;
-    position: relative;
-    flex-direction: end;
-    }
-  
-  .prendas img:hover {
-    transform: scale(1.1);
-  }
-  
-  .imgNav{
-    position: absolute;
-    height: 100%;
-    width: 60px;
-    right: 50px;
-    transform: translateY(-20%);
-  }
-  
-  .panelCartActivado {
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-    width: 450px;
-    height: 450px;
-    position: absolute;
-    top: 100%; 
-    left: 0;
-    display: flex; 
-    flex-direction: column; 
-    justify-content: space-between;
-    transition: all 1s;
-    z-index: 40; 
-  }
-  
-  .panelCartDesactivado {
-    width: 250px;
-    height: 100px;
-    position: absolute;
-    left: -250px;
-    transition: all 1s;
-  }
-  
-  .panelMenuActivado {
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-    width: 350px;
-    height: 200px;
-    position: absolute;
-    top: 100%; 
-    left: 0;
-    transition: all 1s;
-    z-index: 40; 
-  }
-  
-  .panelMenuDesactivado {
-    width: 250px;
-    height: 100px;
-    position: absolute;
-    left: -250px;
-    transition: all 1s;
-  }
-  
-  .dentroMenu{
-    display: flex;
-    flex-direction: column; 
-    padding: 10px; 
-  }
-  
-  .dentroMenu a {
-    text-decoration: none; 
-    padding: 10px 15px; 
-    transition: background-color 0.2s, color 0.2s; 
-  }
-  
-  .dentroMenu a:hover {
-    background-color: #444; 
-    color: white; 
-  }
+
+.imgNav{
+  position: absolute;
+  height: 100%;
+  width: 60px;
+  right: 55px;
+  transform: translateY(-20%);
+}
+
+.panelCartActivado {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  width: 450px;
+  height: 450px;
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between;
+  transition: all 1s;
+  z-index: 40; 
+}
+
+.panelCartDesactivado {
+  width: 250px;
+  height: 100px;
+  position: absolute;
+  left: -250px;
+  transition: all 1s;
+}
+
+.panelMenuActivado {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  width: 350px;
+  height: 200px;
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  transition: all 1s;
+  z-index: 40; 
+}
+
+.panelMenuDesactivado {
+  width: 250px;
+  height: 100px;
+  position: absolute;
+  left: -250px;
+  transition: all 1s;
+}
+
+.dentroMenu{
+  display: flex;
+  flex-direction: column; 
+  padding: 10px; 
+}
+
+.dentroMenu a {
+  text-decoration: none; 
+  padding: 10px 15px; 
+  transition: background-color 0.2s, color 0.2s; 
+}
+
+.dentroMenu a:hover {
+  background-color: #444; 
+  color: white; 
+}
+
+.logos {
+  background: none;
+  border: none;   
+  padding: 0;
+  margin: 0 10px; 
+  cursor: pointer; 
+}
+
+.logos img {
+  width: 30px; 
+  height: auto; 
+  transition: width 0.3s ease;
+  display: block;
+  border: none;   
+  outline: none; 
+}
+
+h2{
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 45px;
+  margin: 0;
+  position: absolute;
+  color: #333;
+  left: 50%;
+  top: -1px;
+  transform: translateX(-50%);
+}

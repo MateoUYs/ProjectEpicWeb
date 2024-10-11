@@ -1,6 +1,6 @@
 /* Estilos globales */
 body {
-  background-image: url(../../../assets/background.jpg);
+  background-image: url(../assets/background.jpg);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -43,10 +43,6 @@ nav {
   position: relative;
   flex-direction: end;
   }
-
-.prendas img:hover {
-  transform: scale(1.1);
-}
 
 .imgNav{
   position: absolute;
@@ -116,26 +112,6 @@ nav {
   color: white; 
 }
 
-/* Estilos para las imágenes */
-.prendas {
-  background-color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-.div1, .div2, .div3 {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-img {
-  width: 350px;
-  padding: 10px;
-  transition: transform 0.3s;
-  animation: show 1s ease-in-out;
-}
-
 .logos {
   background: none;
   border: none;   
@@ -152,6 +128,32 @@ img {
   border: none;   
   outline: none; 
 }
+
+/* Estilos para las imágenes */
+.prendas {
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.prendas img:hover {
+  transform: scale(1.1);
+}
+
+.div1, .div2, .div3 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+img {
+  width: 350px;
+  padding: 10px;
+  transition: transform 0.3s;
+  animation: show 1s ease-in-out;
+}
+
+
 
 
 /* Header */
