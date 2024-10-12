@@ -32,11 +32,11 @@ async function showProducts() {
         console.log(JSON.stringify(product));
         let tr = document.createElement("tr");
         let sizeText = "";
-        product.size.forEach((size,index) =>{
-           
-            if(index == product.size.length - 1){
+        product.size.forEach((size, index) => {
+
+            if (index == product.size.length - 1) {
                 sizeText += ` ${size.sizeType}`;
-            }else{
+            } else {
                 sizeText += ` ${size.sizeType} , `;
             }
         });
@@ -101,6 +101,9 @@ function addEvents() {
     let alertCancel = document.querySelector("#btnCancelAlert");
     let message = document.querySelector("#message");
     let confirmationAlert = document.querySelector("#confirmationAlert");
+    let menuBtn = document.querySelector("#menuBtn");
+    let navDiv = document.querySelector("#navDiv");
+    let nav = document.querySelector("nav");
 
 
     addBtn.onclick = () => {
@@ -155,7 +158,7 @@ function addEvents() {
         let name = frmProduct.name.value;
         let color = frmProduct.color.value;
         let size = Array.from(frmProduct.querySelectorAll("input[name='size']:checked")).map(input => input.value);
-        
+
 
         if (frmProduct.submit.value == "Agregar") {
             addProduct(price, description, image, name, color, size);
@@ -190,6 +193,20 @@ function addEvents() {
         alertQuestion.innerHTML = "";
         pAlertTitle.innerHTML = "";
         frmAlert.submit.value = "";
+    }
+
+    menuBtn.onclick = () => {
+        if (menuBtn.classList.contains("hide")) {
+            navDiv.classList.add("deactivatedDiv");
+            navDiv.classList.remove("activatedDiv");
+            nav.classList.add("deactivatedNav");
+            nav.classList.remove("activatedNav");
+            menuBtn.src = "../../../assets/menu.png";
+        } else {
+            menuBtn.classList.remove("show");
+            menuBtn.classList.add("hide");
+            menuBtn.src = "../../../assets/closeIcon.png";
+        }
     }
 }
 
@@ -321,11 +338,11 @@ async function deleteProduct(idProducto) {
 
 async function setProductSize(sizes) {
     let frmProduct = document.querySelector("#productFrm form");
-    Array.from(frmProduct.querySelectorAll("input[name='size']")).forEach((input)=>{
-        if(sizes.some(sp => sp.sizeType == input.value)){
+    Array.from(frmProduct.querySelectorAll("input[name='size']")).forEach((input) => {
+        if (sizes.some(sp => sp.sizeType == input.value)) {
             let size = input.value;
-            oldSizes += {"oldSize": size};
-            input.checked=true;
+            oldSizes += { "oldSize": size };
+            input.checked = true;
         }
     });
 }
