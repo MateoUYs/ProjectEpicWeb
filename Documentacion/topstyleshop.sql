@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-10-2024 a las 23:34:16
+-- Tiempo de generación: 12-10-2024 a las 16:58:35
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -120,7 +120,6 @@ CREATE TABLE `productsize` (
 --
 
 INSERT INTO `productsize` (`productId`, `sizeType`) VALUES
-(1, 'L'),
 (1, 'XXL'),
 (2, 'L'),
 (2, 'M'),
@@ -177,31 +176,31 @@ INSERT INTO `productsize` (`productId`, `sizeType`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `purchase`
+-- Estructura de tabla para la tabla `saleproduct`
 --
 
-CREATE TABLE `purchase` (
-  `purchaseId` int(11) NOT NULL,
-  `isPaid` tinyint(1) DEFAULT NULL,
-  `purchaseStatus` varchar(255) DEFAULT NULL,
-  `trackingNumber` varchar(25) DEFAULT NULL,
-  `userCi` varchar(255) DEFAULT NULL,
-  `purchaseDate` date DEFAULT NULL
+CREATE TABLE `saleproduct` (
+  `saleProductId` int(11) NOT NULL,
+  `productId` int(11) NOT NULL,
+  `saleId` int(11) NOT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  `size` varchar(10) DEFAULT NULL,
+  `offerId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `purchaseproduct`
+-- Estructura de tabla para la tabla `sales`
 --
 
-CREATE TABLE `purchaseproduct` (
-  `productId` int(11) NOT NULL,
-  `purchaseId` int(11) NOT NULL,
-  `quantity` int(11) DEFAULT NULL,
-  `purchaseProductId` int(11) NOT NULL,
-  `size` varchar(10) DEFAULT NULL,
-  `offerId` int(11) NOT NULL
+CREATE TABLE `sales` (
+  `saleId` int(11) NOT NULL,
+  `isPaid` tinyint(1) DEFAULT NULL,
+  `saleStatus` varchar(255) DEFAULT NULL,
+  `trackingNumber` varchar(25) DEFAULT NULL,
+  `userCi` varchar(255) DEFAULT NULL,
+  `saleDate` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -243,11 +242,11 @@ CREATE TABLE `userfavoriteproduct` (
 --
 
 CREATE TABLE `users` (
-  `ci` varchar(255) NOT NULL,
+  `userCi` varchar(255) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `isAdmin` tinyint(1) DEFAULT NULL,
   `isVerified` tinyint(1) DEFAULT NULL,
-  `username` varchar(255) DEFAULT NULL,
+  `userName` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
   `verificationCode` varchar(255) DEFAULT NULL
@@ -257,7 +256,7 @@ CREATE TABLE `users` (
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`ci`, `email`, `isAdmin`, `isVerified`, `username`, `password`, `phone`, `verificationCode`) VALUES
+INSERT INTO `users` (`userCi`, `email`, `isAdmin`, `isVerified`, `userName`, `password`, `phone`, `verificationCode`) VALUES
 ('1', 'projectepicweb@gmail.com', 1, 1, 'Admin', '$2y$10$7w.qkpLc0Kg0wKr/x7HubuzXrTHUTW4GnWVzjEIKVtP8fA/pSBkkq', '093540768', '66dd3cd263a75'),
 ('55558115', 'bas.gdmc@gmail.com', 0, 1, 'Lautaro', '$2y$10$6NhtHZZkV18mI9I2.hEmVeXuwW.a37hhY7YmwJTIcjqtxQbfErmTi', '097385962', '66dd3cfe0c04a'),
 ('556', 'a@a', 0, 0, 'Lautaro', '$2y$10$rzhh6swpnq90hXojUy1KBO0Zfa0OqNWFKBeH5HkMhv0z62JoLxWvG', '097', '66dd3d20f3f58');
@@ -279,7 +278,7 @@ ALTER TABLE `inquiry`
 ALTER TABLE `message`
   ADD PRIMARY KEY (`messageId`),
   ADD KEY `idConsulta` (`inquiryId`),
-  ADD KEY `mensaje_ci` (`userCI`);
+  ADD KEY `messageCi` (`userCI`) USING BTREE;
 
 --
 -- Indices de la tabla `offer`
@@ -302,20 +301,20 @@ ALTER TABLE `productsize`
   ADD KEY `tipoTalle` (`sizeType`);
 
 --
--- Indices de la tabla `purchase`
+-- Indices de la tabla `saleproduct`
 --
-ALTER TABLE `purchase`
-  ADD PRIMARY KEY (`purchaseId`),
-  ADD KEY `ciUsuario` (`userCi`);
-
---
--- Indices de la tabla `purchaseproduct`
---
-ALTER TABLE `purchaseproduct`
-  ADD PRIMARY KEY (`purchaseProductId`,`productId`,`purchaseId`,`offerId`) USING BTREE,
-  ADD KEY `idCompra` (`purchaseId`),
+ALTER TABLE `saleproduct`
+  ADD PRIMARY KEY (`saleProductId`,`productId`,`saleId`,`offerId`) USING BTREE,
+  ADD KEY `idCompra` (`saleId`),
   ADD KEY `idProducto` (`productId`),
   ADD KEY `idOferta` (`offerId`);
+
+--
+-- Indices de la tabla `sales`
+--
+ALTER TABLE `sales`
+  ADD PRIMARY KEY (`saleId`),
+  ADD KEY `ciUsuario` (`userCi`);
 
 --
 -- Indices de la tabla `size`
@@ -334,7 +333,7 @@ ALTER TABLE `userfavoriteproduct`
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`ci`),
+  ADD PRIMARY KEY (`userCi`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
@@ -345,14 +344,14 @@ ALTER TABLE `users`
 -- Filtros para la tabla `inquiry`
 --
 ALTER TABLE `inquiry`
-  ADD CONSTRAINT `inquiry_ibfk_1` FOREIGN KEY (`userCi`) REFERENCES `users` (`ci`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `inquiry_ibfk_1` FOREIGN KEY (`userCi`) REFERENCES `users` (`userCi`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `message`
 --
 ALTER TABLE `message`
-  ADD CONSTRAINT `mensaje_ci` FOREIGN KEY (`userCI`) REFERENCES `users` (`ci`),
-  ADD CONSTRAINT `message_ibfk_1` FOREIGN KEY (`inquiryID`) REFERENCES `inquiry` (`inquiryId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `mensaje_ci` FOREIGN KEY (`userCI`) REFERENCES `users` (`userCi`),
+  ADD CONSTRAINT `message_ibfk_1` FOREIGN KEY (`inquiryId`) REFERENCES `inquiry` (`inquiryId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `offer`
@@ -368,24 +367,24 @@ ALTER TABLE `productsize`
   ADD CONSTRAINT `productsize_ibfk_2` FOREIGN KEY (`sizeType`) REFERENCES `size` (`type`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `purchase`
+-- Filtros para la tabla `saleproduct`
 --
-ALTER TABLE `purchase`
-  ADD CONSTRAINT `purchase_ibfk_1` FOREIGN KEY (`userCi`) REFERENCES `users` (`ci`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `saleproduct`
+  ADD CONSTRAINT `saleproduct_ibfk_1` FOREIGN KEY (`saleId`) REFERENCES `sales` (`saleId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `saleproduct_ibfk_2` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `saleproduct_ibfk_3` FOREIGN KEY (`offerId`) REFERENCES `offer` (`offerId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `purchaseproduct`
+-- Filtros para la tabla `sales`
 --
-ALTER TABLE `purchaseproduct`
-  ADD CONSTRAINT `purchaseproduct_ibfk_1` FOREIGN KEY (`purchaseId`) REFERENCES `purchase` (`purchaseId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `purchaseproduct_ibfk_2` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `purchaseproduct_ibfk_3` FOREIGN KEY (`offerId`) REFERENCES `offer` (`offerId`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `sales`
+  ADD CONSTRAINT `sales_ibfk_1` FOREIGN KEY (`userCi`) REFERENCES `users` (`userCi`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `userfavoriteproduct`
 --
 ALTER TABLE `userfavoriteproduct`
-  ADD CONSTRAINT `userfavoriteproduct_ibfk_1` FOREIGN KEY (`userCi`) REFERENCES `users` (`ci`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `userfavoriteproduct_ibfk_1` FOREIGN KEY (`userCi`) REFERENCES `users` (`userCi`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `userfavoriteproduct_ibfk_2` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 

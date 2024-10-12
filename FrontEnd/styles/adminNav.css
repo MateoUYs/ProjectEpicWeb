@@ -31,6 +31,10 @@ button:hover {
   cursor: pointer;
 }
 
+.deactivatedNav{
+  display: none;
+}
+
 .logOut {
   background-color: rgba(0, 0, 0, 0);
   border: 0;
@@ -56,6 +60,10 @@ button:hover {
   position: relative;
   width: 100%;
   height: 100%;
+}
+
+#homeBtn{
+  display: none;
 }
 
 .pageLogo {
@@ -103,6 +111,10 @@ button:hover {
     border-bottom-right-radius: 4%;
   }
 
+  #homeBtn{
+    display: block;
+  }
+
   .activatedNav {
     display: block;
     z-index: 2;
@@ -110,9 +122,10 @@ button:hover {
 
   .activatedDiv {
     display: block;
+    position: absolute;
     width: 100%;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.623);
+    background-color: rgba(0, 0, 0, 0.55);
     z-index: 2;
   }
 
@@ -144,7 +157,7 @@ button:hover {
     z-index: 2;
   }
 
-  .pageLogo img {
-    width: 2px;
+  .pageLogo{
+    display: none;
   }
 }
