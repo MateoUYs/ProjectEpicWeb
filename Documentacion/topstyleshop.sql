@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2024 a las 16:15:07
+-- Tiempo de generación: 15-10-2024 a las 16:18:37
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -58,8 +58,7 @@ CREATE TABLE `offer` (
   `description` varchar(255) DEFAULT NULL,
   `endDate` date DEFAULT NULL,
   `startDate` date DEFAULT NULL,
-  `discount` int(11) DEFAULT NULL,
-  `productId` int(11) DEFAULT NULL
+  `discount` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -295,8 +294,7 @@ ALTER TABLE `message`
 -- Indices de la tabla `offer`
 --
 ALTER TABLE `offer`
-  ADD PRIMARY KEY (`offerId`) USING BTREE,
-  ADD KEY `idProducto` (`productId`);
+  ADD PRIMARY KEY (`offerId`) USING BTREE;
 
 --
 -- Indices de la tabla `product`
@@ -370,12 +368,6 @@ ALTER TABLE `inquiry`
 ALTER TABLE `message`
   ADD CONSTRAINT `mensaje_ci` FOREIGN KEY (`userCI`) REFERENCES `users` (`userCi`),
   ADD CONSTRAINT `message_ibfk_1` FOREIGN KEY (`inquiryId`) REFERENCES `inquiry` (`inquiryId`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `offer`
---
-ALTER TABLE `offer`
-  ADD CONSTRAINT `offer_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `productoffer`
