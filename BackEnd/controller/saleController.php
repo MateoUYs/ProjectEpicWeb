@@ -18,15 +18,15 @@ switch ($funcion) {
 
 // Función para obtener compras
 function add(){
-    $title = $_POST['title'];
-    $description = $_POST['description'];
-    $endDate = $_POST['endDate'];
-    $startDate = $_POST['startDate'];
-    $discount = $_POST['discount'];
-    $products = $_POST['products'];
+    // $title = $_POST['title'];
+    // $description = $_POST['description'];
+    // $endDate = $_POST['endDate'];
+    // $startDate = $_POST['startDate'];
+    // $discount = $_POST['discount'];
+    // $products = $_POST['products'];
 
-    $query = (new saleDAO())->add($title, $description, $endDate, $startDate, $discount, $products);
-    echo json_encode($query); // Convertir el resultado a JSON y enviarlo como respuesta
+    // $query = (new saleDAO())->add($title, $description, $endDate, $startDate, $discount, $products);
+    // echo json_encode($query); // Convertir el resultado a JSON y enviarlo como respuesta
 }
 
 ?>
