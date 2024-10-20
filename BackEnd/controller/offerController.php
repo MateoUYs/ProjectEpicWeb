@@ -39,8 +39,8 @@ function add()
 
 function get()
 {
-    $result = (new offerDAO())->get();
-    echo json_encode($result);
+    $query = (new offerDAO())->get();
+    echo json_encode($query);
 }
 
 function delete(){

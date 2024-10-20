@@ -10,16 +10,70 @@ switch ($funcion) {
     case 'get':
         get();
         break;
+    case 'add':
+        add();
+        break;
+    case 'answerInquiry':
+        answerInquiry();
+        break;
+    case 'submitInquiry':
+        submitInquiry();
+        break;
+    case 'getPublicInquirys':
+        getPublicInquirys();
+        break;
+    case 'getAnsweredInquirys':
+        getAnsweredInquirys();
+        break;
     default:
         echo json_encode(['error' => 'Función no reconocida']);
         break;
 }
 
 // Función para obtener consultas desde la base de datos y devolverlas en formato JSON
-function get(){
-    $result = (new consults())->get();
-    echo json_encode($result);
+function get()
+{
+    $query = (new consults())->get();
+    echo json_encode($query);
 }
 
+function add()
+{
+    $title = $_POST['title'];
+    $userCi = $_POST['userCi'];
+    $messageContent = $_POST['message'];
 
+    $query = (new consults())->add($title, $userCi, $messageContent);
+    echo json_encode($query);
+}
+
+function answerInquiry()
+{
+    $inquiryId = $_POST['inquiryId'];
+    $userCi = $_POST['userCi'];
+    $messageContent = $_POST['message'];
+
+    $query = (new consults())->answerInquiry($inquiryId, $messageContent, $userCi);
+    echo json_encode($query);
+}
+
+function submitInquiry()
+{
+    $inquiryId = $_POST['inquiryId'];
+
+    $query = (new consults())->submitInquiry($inquiryId);
+    echo json_encode($query);
+}
+
+function getPublicInquirys()
+{
+    $query = (new consults())->getPublicInquirys();
+    echo json_encode($query);
+}
+
+function getAnsweredInquirys()
+{
+    $query = (new consults())->getPublicInquirys();
+    echo json_encode($query);
+}
 ?>
