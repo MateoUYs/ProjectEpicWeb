@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . "../model/offerDAO.php";
+require_once __DIR__ . "/../dao/offerDAO.php";
 
 $funcion = $_GET['function'];
 
