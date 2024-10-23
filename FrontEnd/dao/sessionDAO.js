@@ -20,6 +20,7 @@ export default class SessionDAO{
         let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/sesionController.php?function=getSession";
         let queryResponse = await fetch(url);
         let query  = await queryResponse.json();
+    
         return query;
 
     }

@@ -1,6 +1,6 @@
 <?php header("Access-Control-Allow-Origin: *");
 
-
+require_once __DIR__ . "/configuration.php";
 require_once __DIR__ . "/../dao/sesionDAO.php";
 
 
@@ -38,7 +38,8 @@ function logIn()
 function getSession()
 {
     $result = (new SesionDAO)->getSession();
-    echo json_encode($result);
+  
+   echo json_encode($result);
 }
 
 function logOut()

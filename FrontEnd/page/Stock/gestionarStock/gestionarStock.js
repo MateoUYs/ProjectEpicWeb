@@ -38,7 +38,7 @@ async function showStock() {
 
 
         btn.className = "btnTd";
-        btn.innerHTML = `<img src="../../../assets/addStock.png">`;
+        btn.innerHTML = `<img src="../../../assets/addStock.png" alt="Agregar Stock">`;
         btn.onclick = () => {
             loadInfo(product, "Agregar");
         }
