@@ -140,10 +140,11 @@ nav {
   transform: scale(1.1);
 }
 
-.div1, .div2, .div3 {
+.div1{
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 img {
