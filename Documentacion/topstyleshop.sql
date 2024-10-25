@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2024 a las 16:18:37
+-- Tiempo de generación: 24-10-2024 a las 22:34:42
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -30,6 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `inquiry` (
   `inquiryId` int(11) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
+  `isPublic` tinyint(1) NOT NULL,
+  `isAnswered` tinyint(1) NOT NULL,
   `userCi` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -56,8 +58,8 @@ CREATE TABLE `offer` (
   `offerId` int(11) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
-  `endDate` date DEFAULT NULL,
-  `startDate` date DEFAULT NULL,
+  `endDate` datetime DEFAULT NULL,
+  `startDate` datetime DEFAULT NULL,
   `discount` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -194,6 +196,7 @@ CREATE TABLE `saleproduct` (
   `productId` int(11) NOT NULL,
   `saleId` int(11) NOT NULL,
   `quantity` int(11) DEFAULT NULL,
+  `totalPrice` int(11) NOT NULL,
   `size` varchar(10) DEFAULT NULL,
   `offerId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -210,7 +213,7 @@ CREATE TABLE `sales` (
   `saleStatus` varchar(255) DEFAULT NULL,
   `trackingNumber` varchar(25) DEFAULT NULL,
   `userCi` varchar(255) DEFAULT NULL,
-  `saleDate` date DEFAULT NULL
+  `saleDate` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -320,7 +323,7 @@ ALTER TABLE `productsize`
 -- Indices de la tabla `saleproduct`
 --
 ALTER TABLE `saleproduct`
-  ADD PRIMARY KEY (`saleProductId`,`productId`,`saleId`,`offerId`) USING BTREE,
+  ADD PRIMARY KEY (`saleProductId`) USING BTREE,
   ADD KEY `idCompra` (`saleId`),
   ADD KEY `idProducto` (`productId`),
   ADD KEY `idOferta` (`offerId`);
@@ -351,6 +354,46 @@ ALTER TABLE `userfavoriteproduct`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`userCi`),
   ADD UNIQUE KEY `email` (`email`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `inquiry`
+--
+ALTER TABLE `inquiry`
+  MODIFY `inquiryId` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `message`
+--
+ALTER TABLE `message`
+  MODIFY `messageId` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `offer`
+--
+ALTER TABLE `offer`
+  MODIFY `offerId` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `product`
+--
+ALTER TABLE `product`
+  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT de la tabla `saleproduct`
+--
+ALTER TABLE `saleproduct`
+  MODIFY `saleProductId` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `sales`
+--
+ALTER TABLE `sales`
+  MODIFY `saleId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
