@@ -1,6 +1,6 @@
 <?php
 // Se incluye el archivo que contiene la definición de la clase 'favorites' y su método 'getFavoritesModel'
-require_once __DIR__ . "../model/favoriteDAO.php";
+require_once __DIR__ . "/../model/favoriteDAO.php";
 
 // Se obtiene el valor del parámetro 'function' de la solicitud GET
 $funcion = $_GET['function'];
