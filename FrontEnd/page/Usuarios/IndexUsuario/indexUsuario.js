@@ -4,6 +4,7 @@ let cartAbierto = false;
 
 window.onload  = async () => {
     showProduct();
+    addEvents();
     agregarEventoMenu();
     agregarEventoCart();
 };
@@ -24,6 +25,18 @@ function agregarEventoMenu() {
         }
     };
 }
+
+function addEvents() {
+    const imgButtons = document.querySelectorAll("#productContainer img");
+
+    imgButtons.forEach(imgBtn => {
+        imgBtn.onclick = () => {
+            const productId = imgBtn.getAttribute("data-product-id");
+            window.location.href = `verDetalleProducto.html?id=${productId}`;
+        };
+    });
+}
+
 
 function agregarEventoCart() {
     const cartBoton = document.querySelector("#cart");
@@ -71,20 +84,20 @@ function cerrarCarrito() {
 }
 
 
-async function showProduct() {
-    let query = await new ProductDAO().getProducts();
-    let products = query.data;
-    let tbodyElement = document.querySelector("#productContainer");
-    products.forEach(product => {
-
-        tbodyElement.innerHTML
-        let div = document.createElement('div');
-        div.innerHTML = `
-         <img src="../../../../backEnd/imgs/${product.productId}.${product.extension}"></img>
+      
+      async function showProduct() {
+        let query = await new ProductDAO().getProducts();
+        let products = query.data;
+        let tbodyElement = document.querySelector("#productContainer");
+        products.forEach(product => {
+            let div = document.createElement('div');
+            div.innerHTML = `
+                <img src="../../../../backEnd/imgs/${product.productId}.${product.extension}" data-product-id="${product.productId}"></img>
             `;
-        tbodyElement.appendChild(div);
-      });
+            tbodyElement.appendChild(div);
+        });
+    }
 
-}
+
 
 
