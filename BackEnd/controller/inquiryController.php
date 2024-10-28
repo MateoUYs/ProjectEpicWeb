@@ -33,7 +33,7 @@ switch ($funcion) {
 // Función para obtener consultas desde la base de datos y devolverlas en formato JSON
 function get()
 {
-    $query = (new consults())->get();
+    $query = (new inquirysDAO())->get();
     echo json_encode($query);
 }
 
@@ -43,7 +43,7 @@ function add()
     $userCi = $_POST['userCi'];
     $messageContent = $_POST['message'];
 
-    $query = (new consults())->add($title, $userCi, $messageContent);
+    $query = (new inquirysDAO())->add($title, $userCi, $messageContent);
     echo json_encode($query);
 }
 
@@ -53,27 +53,27 @@ function answerInquiry()
     $userCi = $_POST['userCi'];
     $messageContent = $_POST['message'];
 
-    $query = (new consults())->answerInquiry($inquiryId, $messageContent, $userCi);
+    $query = (new inquirysDAO())->answerInquiry($inquiryId, $messageContent, $userCi);
     echo json_encode($query);
 }
 
-function submitInquiry()
+function submitInquiry(): void
 {
     $inquiryId = $_POST['inquiryId'];
 
-    $query = (new consults())->submitInquiry($inquiryId);
+    $query = (new inquirysDAO())->submitInquiry($inquiryId);
     echo json_encode($query);
 }
 
 function getPublicInquirys()
 {
-    $query = (new consults())->getPublicInquirys();
+    $query = (new inquirysDAO())->getPublicInquirys();
     echo json_encode($query);
 }
 
 function getAnsweredInquirys()
 {
-    $query = (new consults())->getPublicInquirys();
+    $query = (new inquirysDAO())->getPublicInquirys();
     echo json_encode($query);
 }
 ?>

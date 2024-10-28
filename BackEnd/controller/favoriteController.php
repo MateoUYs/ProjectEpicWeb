@@ -8,8 +8,8 @@ $funcion = $_GET['function'];
 // Se usa un switch para manejar diferentes valores del parámetro 'function'
 switch ($funcion) {
     // Si el valor de 'function' es 'obtener', se llama a la función 'getFavorites'
-    case 'obtener':
-        getFavorites();
+    case 'get':
+        get();
         break;
     // Si el valor de 'function' no es reconocido, se devuelve un mensaje de error en formato JSON
     default:
@@ -18,9 +18,9 @@ switch ($funcion) {
 }
 
 // Función para obtener favoritos desde la base de datos y devolverlos en formato JSON
-function getFavorites(){
+function get(){
     // Se crea una instancia de la clase 'favorites' y se llama al método 'getFavoritesModel' para obtener los favoritos
-    $result = (new favorites())->getFavoritesModel();
+    $result = (new favoritesDAO())->get();
     // Se codifica el resultado en formato JSON y se imprime
     echo json_encode($result);
 }
