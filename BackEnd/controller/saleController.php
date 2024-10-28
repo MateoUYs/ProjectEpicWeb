@@ -9,7 +9,19 @@ $funcion = $_GET['function'];
 // Evaluar la función solicitada
 switch ($funcion) {
     case 'add':
-        add(); // Llamar a la función getBuys() si 'function' es 'obtener'
+        add(); 
+        break;
+    case 'getAll':
+        getAll();
+        break;
+    case 'getUserSales':
+        getUserSales();
+        break;
+    case 'getLastSales':
+        getLastSales();
+        break;
+    case 'updateStatus':
+        updateStatus();
         break;
     default:
         echo json_encode(['error' => 'Función no reconocida']); // Responder con un error si la función no es reconocida
@@ -18,15 +30,44 @@ switch ($funcion) {
 
 // Función para obtener compras
 function add(){
-    // $title = $_POST['title'];
-    // $description = $_POST['description'];
-    // $endDate = $_POST['endDate'];
-    // $startDate = $_POST['startDate'];
-    // $discount = $_POST['discount'];
-    // $products = $_POST['products'];
+    $paymentMethod = ['paymentMethod'];
+    $shippingMethod = ['shippingMethod'];
+    $quantity = ['quantity'];
+    $userCi = ['userCi'];
+    $saleDate = ['saleDate'];
+    $products = ['products'];
+    $size = ['size'];
+    $offerId = ['offerId'];
 
-    // $query = (new saleDAO())->add($title, $description, $endDate, $startDate, $discount, $products);
-    // echo json_encode($query); // Convertir el resultado a JSON y enviarlo como respuesta
+    $query = (new saleDAO())->add($paymentMethod, $shippingMethod, $quantity, $userCi, $saleDate, $products, $size, $offerId);
+    echo json_encode($query);
+}   
+
+function getAll(){
+    $query = (new saleDAO())->getAll();
+    echo json_encode($query);
+}
+
+function getUserSales(){
+    $userCi = ['userCi'];
+
+    $query = (new saleDAO())->getUserSales($userCi);
+    echo json_encode($query);
+}
+
+function getLastSales(){
+    $yesterdayDate = ['yesterdayDate'];
+
+    $query = (new saleDAO())->getLastSales($yesterdayDate);
+    echo json_encode($query);
+}
+
+function updateStatus(){
+    $saleId = ['saleId'];
+    $saleStatus = ['saleStatus'];
+
+    $query = (new saleDAO())->updateStatus($saleId, $saleStatus);
+    echo json_encode($query);
 }
 
 ?>

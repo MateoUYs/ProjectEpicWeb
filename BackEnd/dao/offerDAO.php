@@ -29,8 +29,8 @@ class offerDAO
     {
         $connection = connection();
         $sql = "SELECT * FROM offer";
-        $rersult = $connection->query($sql);
-        $offers = $rersult->fetch_all(MYSQLI_ASSOC);
+        $result = $connection->query($sql);
+        $offers = $result->fetch_all(MYSQLI_ASSOC);
         $productOffers = [];
         foreach ($offers as $offer) {
             $offer["product"] = $this->getProductOffer($offer["offerId"])->data;

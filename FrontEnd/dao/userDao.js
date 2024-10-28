@@ -1,7 +1,9 @@
+import origin from "./origin";
+
 export default class UserDAO{
 
     async addUser(ci, email, username, password, phoneNumber){
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/userController.php?function=addUser";
+        let url = origin + "/BackEnd/controller/userController.php?function=addUser";
         let formData = new FormData();
         formData.append("ci",ci);
         formData.append("userName",username);
@@ -20,14 +22,14 @@ export default class UserDAO{
     }
 
     async getUsers(){
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/userController.php?function=getUsers";
+        let url = origin + "/BackEnd/controller/userController.php?function=getUsers";
         let queryResponse = await fetch(url);
         let query  = await queryResponse.json();
         return query;
     }
 
     async modifyUser(ci, email, username, password, phoneNumber){
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/userController.php?function=modifyUser";
+        let url = origin + "/BackEnd/controller/userController.php?function=modifyUser";
         let formData = new FormData();
         formData.append("ci", ci);
         formData.append("userNamer", username);
@@ -46,7 +48,7 @@ export default class UserDAO{
     }
 
     async deleteUser(ci){
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/userController.php?function=deleteUser";
+        let url = origin + "/BackEnd/controller/userController.php?function=deleteUser";
         let formData = new FormData();
         formData.append("ci",ci);
         let config = {
@@ -59,7 +61,7 @@ export default class UserDAO{
     }
 
     async verifyUser(email, verifyCode){
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/userController.php?function=verifyUser";
+        let url = origin + "/BackEnd/controller/userController.php?function=verifyUser";
         let formData = new FormData();
         formData.append("email",email);
         formData.append("code",verifyCode);

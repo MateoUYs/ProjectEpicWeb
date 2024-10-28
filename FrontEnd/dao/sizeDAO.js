@@ -1,13 +1,15 @@
+import origin from './origin.js'
+
 export default class SizeDAO{
     async getSizes(){
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/sizeController.php?function=getSize";
+        let url = origin + "/BackEnd/controller/sizeController.php?function=getSize";
         let queryResponse = await fetch(url);
         let query = await queryResponse.json();
         return query;
     }
 
     async addSize(size){
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/sizeController.php?function=addSize";
+        let url = origin + "/BackEnd/controller/sizeController.php?function=addSize";
         let formData = new FormData();
         formData.append("size", size);
 
@@ -22,7 +24,7 @@ export default class SizeDAO{
     }
 
     async deleteSize(size){
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/sizeController.php?function=deleteSize";
+        let url = origin + "/BackEnd/controller/sizeController.php?function=deleteSize";
         let formData = new FormData();
         formData.append("size", size);
 

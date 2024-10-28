@@ -1,8 +1,10 @@
+import origin from './origin.js'
+
 export default class SessionDAO{
 
 
     async logIn(email,password) {
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/sesionController.php?function=logIn";
+        let url = origin + "/BackEnd/controller/sesionController.php?function=logIn";
         let formData = new FormData();
         formData.append("email",email);
         formData.append("password",password);
@@ -17,7 +19,7 @@ export default class SessionDAO{
     }
 
     async getSession() {
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/sesionController.php?function=getSession";
+        let url = origin + "/BackEnd/controller/sesionController.php?function=getSession";
         let queryResponse = await fetch(url);
         let query  = await queryResponse.json();
     
@@ -26,7 +28,7 @@ export default class SessionDAO{
     }
 
     async logOut() {
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/sesionController.php?function=logOut";
+        let url = origin + "/BackEnd/controller/sesionController.php?function=logOut";
         let respuestaConsulta = await fetch(url);
         let respuesta  = await respuestaConsulta.json();
         return respuesta;

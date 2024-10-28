@@ -1,6 +1,9 @@
+import origin from './origin.js';
+
+
 export default class ProductoDao {
     async getProducts() {
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=getProducts";
+        let url = origin + "/BackEnd/controller/productController.php?function=getProducts";
         let queryResponse = await fetch(url);
         let query = await queryResponse.json();
         return query;
@@ -8,7 +11,7 @@ export default class ProductoDao {
 
     async addProducts(price, description, image, name, color, sizes) {
         console.log(sizes);
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=addProduct";
+        let url = origin + "/BackEnd/controller/productController.php?function=addProduct";
         let formData = new FormData();
         formData.append("price",price);
         formData.append("description",description);
@@ -30,7 +33,7 @@ export default class ProductoDao {
 
     // Función para eliminar un producto
     async deleteProduct(idProducto) {
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=deleteProduct";
+        let url = origin + "/BackEnd/controller/productController.php?function=deleteProduct";
         let formData = new FormData();
         formData.append("productId",idProducto);
        
@@ -45,7 +48,7 @@ export default class ProductoDao {
 
     // Función para modificar un producto
     async modifyProduct(productId, price, description, image, name, color, sizes, oldSizes) {
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=modifyProduct";
+        let url = origin + "/BackEnd/controller/productController.php?function=modifyProduct";
         let formData = new FormData();
         formData.append("productId",productId);
         formData.append("price",price);
@@ -75,7 +78,7 @@ export default class ProductoDao {
 
     // Función para obtener detalles de un producto específico
     async getProductDetails(productId) {
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=getProductDetails";
+        let url = origin + "/BackEnd/controller/productController.php?function=getProductDetails";
         let formData = new FormData();
         formData.append("productId",productId);
        
@@ -90,14 +93,14 @@ export default class ProductoDao {
     }
 
     async getStock() {
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=getStock";
+        let url = origin + "/BackEnd/controller/productController.php?function=getStock";
         let queryResponse = await fetch(url);
         let query  = await queryResponse.json();
         return query;
     }
 
     async addStock(productId, stock){
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=addStock";
+        let url = origin + "/BackEnd/controller/productController.php?function=addStock";
         let formData = new FormData();
         formData.append("productId",productId);
         formData.append("stock",stock);
@@ -113,7 +116,7 @@ export default class ProductoDao {
     }
 
     async updateStock(productId, stock){
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=updateStock";
+        let url = origin + "/BackEnd/controller/productController.php?function=updateStock";
         let formData = new FormData();
         formData.append("productId",productId);
         formData.append("stock",stock);
@@ -129,7 +132,7 @@ export default class ProductoDao {
     }
 
     async getProductSize(productId){
-        let url = "http://localhost/ProjectEpicWeb/BackEnd/controller/productController.php?function=getProductSize";
+        let url = origin + "/BackEnd/controller/productController.php?function=getProductSize";
         let formData = new FormData();
         formData.append("productId",productId);
        
