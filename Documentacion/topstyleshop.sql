@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-10-2024 a las 22:34:42
+-- Tiempo de generación: 28-10-2024 a las 23:32:12
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -210,6 +210,8 @@ CREATE TABLE `saleproduct` (
 CREATE TABLE `sales` (
   `saleId` int(11) NOT NULL,
   `isPaid` tinyint(1) DEFAULT NULL,
+  `paymentMethod` varchar(25) NOT NULL,
+  `shippingMethod` varchar(20) NOT NULL,
   `saleStatus` varchar(255) DEFAULT NULL,
   `trackingNumber` varchar(25) DEFAULT NULL,
   `userCi` varchar(255) DEFAULT NULL,
