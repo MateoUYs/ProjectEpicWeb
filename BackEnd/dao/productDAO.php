@@ -121,7 +121,7 @@ class productsDAO
         $connection = connection();
         $sql = "SELECT * FROM `product` WHERE `productId` = '$productId'";
         $result = $connection->query($sql);
-        $productos = $result->fetch_all(MYSQLI_ASSOC);
+        $productos = $result->fetch_assoc();
         $query = new query(true, "Producto obtenido correctamente", $productos);
 
         return $query;

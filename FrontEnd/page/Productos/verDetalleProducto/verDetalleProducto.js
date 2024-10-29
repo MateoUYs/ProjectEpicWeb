@@ -1,17 +1,28 @@
 import ProductDAO from "../../../dao/productDao.js";
 
 window.onload = async () => {
-    showProduct();
-    showImageProduct();
+   
+    let id = new URLSearchParams(window.location.search).get("id");
+    let product = await getProductById(id);
+    showProduct(product);
+    showImageProduct(product);
+
+    console.log(id);
+
 }
 
-async function showProduct() {
-    let query = await new ProductDAO().getProducts();
-    let products = query.data;
+async function getProductById(id) {
+    let query = await new ProductDAO().getProductDetails(id);
+    console.log("aa",query);
+    let product = query.data;
+    return product;
+
+}
+
+function showProduct(product) {
+    console.log("el producto es", product);
     let tbodyElement = document.querySelector("#infoProduct");
-    products.forEach(product => {
-        tbodyElement.innerHTML
-        let div = document.createElement('div');
+    let content = document.createElement('div');
         content.innerHTML = `
         <div>${product.name}</div>
         <div>${product.description}</div>
@@ -19,14 +30,10 @@ async function showProduct() {
         <div>${product.stock}</div>
             `;
         tbodyElement.appendChild(content);
-      });
-
 }
 
 
-async function showImageProduct() {
-    let query = await new ProductDAO().getProducts();
-    let products = query.data;
+async function showImageProduct(products) {
     let tbodyElement = document.querySelector("#imageProduct");
     products.forEach(product => {
         tbodyElement.innerHTML

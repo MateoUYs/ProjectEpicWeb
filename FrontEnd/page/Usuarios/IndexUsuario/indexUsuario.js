@@ -95,10 +95,18 @@ function cerrarCarrito() {
             div.innerHTML = `
                 <img src="../../../../backEnd/imgs/${product.productId}.${product.extension}" data-product-id="${product.productId}"></img>
             `;
+            div.onclick = ()=>{
+                activarVerDetalle(product.productId);
+            }
             tbodyElement.appendChild(div);
         });
     }
 
+
+    function activarVerDetalle(id){
+       window.location.href = `../../Productos/verDetalleProducto/verDetalleProducto.html?id=${id}`;
+
+    }
 
 
 
