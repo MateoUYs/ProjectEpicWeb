@@ -1,6 +1,6 @@
 <?php
 // Incluir el archivo buysDAO.php desde el directorio actual
-require_once __DIR__ . "/../model/saleDAO.php";
+require_once __DIR__ . "/../dao/saleDAO.php";
 
 
 // Obtener el parámetro 'function' desde la URL
