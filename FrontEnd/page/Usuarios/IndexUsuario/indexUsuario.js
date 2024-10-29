@@ -32,6 +32,7 @@ function addEvents() {
     imgButtons.forEach(imgBtn => {
         imgBtn.onclick = () => {
             let productId = imgBtn.getAttribute("data-product-id");
+            localStorage.setItem("selectedProductId", productId);
             window.location.href = `verDetalleProducto.html?id=${productId}`;
         };
     });
