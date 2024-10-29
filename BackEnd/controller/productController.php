@@ -91,6 +91,7 @@ function modifyProduct()
 function getProductDetails()
 {
     $productId = $_POST["productId"];
+    
     $result = (new productsDAO())->getProductDetails($productId);
     echo json_encode($result);
 }

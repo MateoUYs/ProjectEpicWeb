@@ -8,7 +8,7 @@ class saleDAO
 {
     // Método para agregar la compra desde la base de datos
     function add($paymentMethod, $shippingMethod, $quantity, $userCi, $saleDate, $products, $size, $offerId)
-    {
+    { //Agregar direccion, dentro de products pasa el productId, quantity, talle, precio y offerId
         $isPaid = ($paymentMethod == "Por crédito/débito") ? 1 : 0;
         $saleStatus = ($shippingMethod == "Retiro en local") ? "En Espera en el local" : "En Espera de despachar el envío";
 
