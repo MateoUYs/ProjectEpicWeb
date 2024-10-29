@@ -27,11 +27,11 @@ function agregarEventoMenu() {
 }
 
 function addEvents() {
-    const imgButtons = document.querySelectorAll("#productContainer img");
+    let imgButtons = document.querySelectorAll("#productContainer img");
 
     imgButtons.forEach(imgBtn => {
         imgBtn.onclick = () => {
-            const productId = imgBtn.getAttribute("data-product-id");
+            let productId = imgBtn.getAttribute("data-product-id");
             window.location.href = `verDetalleProducto.html?id=${productId}`;
         };
     });
