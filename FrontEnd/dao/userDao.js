@@ -1,9 +1,9 @@
-import origin from "./origin";
+import origin from "../config/origin.js";
 
 export default class UserDAO{
 
     async addUser(ci, email, username, password, phoneNumber){
-        let url = origin + "/BackEnd/controller/userController.php?function=addUser";
+        let url = origin + "/BackEnd/controller/userController.php?function=add";
         let formData = new FormData();
         formData.append("ci",ci);
         formData.append("userName",username);
@@ -22,14 +22,14 @@ export default class UserDAO{
     }
 
     async getUsers(){
-        let url = origin + "/BackEnd/controller/userController.php?function=getUsers";
+        let url = origin + "/BackEnd/controller/userController.php?function=get";
         let queryResponse = await fetch(url);
         let query  = await queryResponse.json();
         return query;
     }
 
     async modifyUser(ci, email, username, password, phoneNumber){
-        let url = origin + "/BackEnd/controller/userController.php?function=modifyUser";
+        let url = origin + "/BackEnd/controller/userController.php?function=modify";
         let formData = new FormData();
         formData.append("ci", ci);
         formData.append("userNamer", username);
@@ -48,7 +48,7 @@ export default class UserDAO{
     }
 
     async deleteUser(ci){
-        let url = origin + "/BackEnd/controller/userController.php?function=deleteUser";
+        let url = origin + "/BackEnd/controller/userController.php?function=delete";
         let formData = new FormData();
         formData.append("ci",ci);
         let config = {
@@ -61,7 +61,7 @@ export default class UserDAO{
     }
 
     async verifyUser(email, verifyCode){
-        let url = origin + "/BackEnd/controller/userController.php?function=verifyUser";
+        let url = origin + "/BackEnd/controller/userController.php?function=verify";
         let formData = new FormData();
         formData.append("email",email);
         formData.append("code",verifyCode);

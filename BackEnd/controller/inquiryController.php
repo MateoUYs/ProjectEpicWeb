@@ -1,9 +1,9 @@
 <?php
 // Se incluye el archivo que contiene la definición de la clase 'consults' y su método 'getConsultsModel'
-require_once __DIR__ . "/../dao/consultDAO.php";
+require_once __DIR__ . "/../dao/inquiryDAO.php";
 
 // Se obtiene el valor del parámetro 'function' de la solicitud GET
-$funcion = $_GET['function'];
+$funcion = isset($_GET['function']) ? $_GET['function'] : '';
 
 // Se usa un switch para manejar diferentes valores del parámetro 'function'
 switch ($funcion) {
@@ -13,10 +13,10 @@ switch ($funcion) {
     case 'add':
         add();
         break;
-    case 'answerInquiry':
+    case 'answer':
         answerInquiry();
         break;
-    case 'submitInquiry':
+    case 'submit':
         submitInquiry();
         break;
     case 'getPublicInquirys':
@@ -73,7 +73,7 @@ function getPublicInquirys()
 
 function getAnsweredInquirys()
 {
-    $query = (new inquirysDAO())->getPublicInquirys();
+    $query = (new inquirysDAO())->getAnsweredInquirys();
     echo json_encode($query);
 }
 ?>

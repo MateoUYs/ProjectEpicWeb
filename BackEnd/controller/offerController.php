@@ -2,7 +2,7 @@
 
 require_once __DIR__ . "/../dao/offerDAO.php";
 
-$funcion = $_GET['function'];
+$funcion = isset($_GET['function']) ? $_GET['function'] : '';
 
 switch ($funcion) {
 
@@ -40,7 +40,7 @@ function add()
 function get()
 {
     $query = (new offerDAO())->get();
-    echo json_encode($query);
+    echo json_encode($query);   
 }
 
 function delete(){

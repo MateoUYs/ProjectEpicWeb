@@ -9,19 +9,19 @@ $funcion = isset($_GET['function']) ? $_GET['function'] : '';
 // Realiza una acción diferente dependiendo del valor de '$funcion'
 switch ($funcion) {
     // Si el valor de '$funcion' es 'x', se llama a la función x()
-    case 'getUsers':
+    case 'get':
         getUsers();
         break;
-    case 'addUser':
+    case 'add':
         addUser();
         break;
-    case 'deleteUser':
+    case 'delete':
         deleteUser();
         break;
-    case 'modifyUser':
+    case 'modify':
         modifyUser();
         break;
-    case 'verifyUser':
+    case 'verify':
         verifyUser();
         break;
     default:
