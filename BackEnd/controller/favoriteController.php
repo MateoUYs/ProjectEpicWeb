@@ -3,7 +3,7 @@
 require_once __DIR__ . "/../dao/favoriteDAO.php";
 
 // Se obtiene el valor del parámetro 'function' de la solicitud GET
-$funcion = $_GET['function'];
+$funcion = isset($_GET['function']) ? $_GET['function'] : '';
 
 // Se usa un switch para manejar diferentes valores del parámetro 'function'
 switch ($funcion) {
