@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "/../controller/configuration.php";
+require_once __DIR__ . "/../config/configuration.php";
 // Se incluye el archivo que contiene la definición de la clase 'products' y su método 'getProductsModel'
 require_once __DIR__ . "/../dao/productDAO.php";
 

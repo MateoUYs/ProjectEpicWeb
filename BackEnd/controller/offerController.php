@@ -40,7 +40,7 @@ function add()
 function get()
 {
     $query = (new offerDAO())->get();
-    echo json_encode($query);
+    echo json_encode($query);   
 }
 
 function delete(){

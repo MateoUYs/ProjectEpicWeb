@@ -11,7 +11,12 @@ switch ($funcion) {
     case 'get':
         get();
         break;
-    // Si el valor de 'function' no es reconocido, se devuelve un mensaje de error en formato JSON
+    case 'add':
+        add();
+        break;
+    case 'delete':
+        delete();
+        break;
     default:
         echo json_encode(['error' => 'Función no reconocida']);
         break;
@@ -19,9 +24,25 @@ switch ($funcion) {
 
 // Función para obtener favoritos desde la base de datos y devolverlos en formato JSON
 function get(){
-    // Se crea una instancia de la clase 'favorites' y se llama al método 'getFavoritesModel' para obtener los favoritos
-    $result = (new favoritesDAO())->get();
-    // Se codifica el resultado en formato JSON y se imprime
-    echo json_encode($result);
+    $userCi = ['userCi'];
+
+    $query = (new favoritesDAO())->getUserFavorites($userCi);
+    echo json_encode($query);
+}
+
+function add(){
+    $userCi = ['userCi'];
+    $productsIds = ['productsIds'];
+
+    $query = (new favoritesDAO())->addUserFavorites($userCi, $productsIds);
+    echo json_encode($query);
+}
+
+function delete(){
+    $userCi = ['userCi'];
+    $productId = ['productId'];
+
+    $query = (new favoritesDAO())->deleteUserFavorite($userCi, $productId);
+    echo json_encode($query);
 }
 ?>
