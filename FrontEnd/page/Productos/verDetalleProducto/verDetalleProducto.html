@@ -19,7 +19,7 @@
     </div>
     <div class="navRight">
       <div class="carrito">
-        <img src="../../../assets/carrito.svg" alt="Not Found">
+        <img src="../../../assets/carrito.svg" alt="Not Found" id="showCart">
       </div>
        <div class="registroUser">Registrarse</div>
        <div class="inicioSesion">Iniciar Sesion</div>
@@ -36,7 +36,14 @@
         <div class="productDer" id="infoProduct">
           
           <button class="btnComprar">Comprar</button>
-          <button class="btnCarrito">Agregar al carrito</button>
+          <input type="number" class="inputCantidad" id="inputCantidad" value="1">
+          <select name="" id="talle">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select>
+          <button class="btnCarrito" id="btnAddProductCart">Agregar al carrito</button>
         </div>
       </div>
     </div>
@@ -70,5 +77,12 @@
         <p>Todos los derechos reservados © 2024 <b>TopStyle</b></p>
     </div>
 </footer>
+<div class="cartModal modalEnable" id="cartModal">
+  <div class="ProductList" id="ProductList">
+
+
+  </div>
+
+</div>
 </body>
 </html>

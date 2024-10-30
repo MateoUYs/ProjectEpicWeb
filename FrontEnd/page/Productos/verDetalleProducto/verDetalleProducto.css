@@ -3,6 +3,8 @@ body {
   background-image: url(/FrontEnd/assets/background.jpg);
   margin: 0;
   font-family: 'SoDo Sans SemiBold', Courier, monospace;
+  width: 100%;
+  overflow: hidden;
 }
 
 .navBar {
@@ -82,6 +84,47 @@ body {
   background-color: rgba(0, 0, 0, 0.06);
   transition: .3s;
 }
+
+.cartModal{
+  width: 30rem;
+  height: 30rem;
+  position: absolute;
+  
+  z-index: 10;
+  background-color: white;
+  transition: all .3s;
+  right: 0;
+  top: 100px;
+  transform-origin: top right;
+
+}
+
+.ProductList{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+
+}
+
+.ProductList > div{
+  display: flex;
+  width: 100%;
+  height: 2rem;
+  
+  border-bottom: 1px solid black;
+}
+
+.modalEnable{
+  transform: scale(1);
+}
+
+.modalDisable{
+  transform: scale(0);
+
+}
+
 
 /* Responsive Navbar */
 @media (max-width: 768px) {
