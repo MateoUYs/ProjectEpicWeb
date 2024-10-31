@@ -15,7 +15,7 @@ function addEvents() {
         let email = formElement.email.value;
         let userName = formElement.userName.value;
         let password = formElement.password.value;
-        // let phone = formElement.phoneNumber.value;
+        let phone = formElement.phoneNumber.value;
 
         addUser(ci, email, userName, password, phone);
     };
