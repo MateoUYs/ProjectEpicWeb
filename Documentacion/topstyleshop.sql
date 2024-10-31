@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-10-2024 a las 23:32:12
+-- Tiempo de generación: 31-10-2024 a las 17:37:14
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -198,7 +198,7 @@ CREATE TABLE `saleproduct` (
   `quantity` int(11) DEFAULT NULL,
   `totalPrice` int(11) NOT NULL,
   `size` varchar(10) DEFAULT NULL,
-  `offerId` int(11) NOT NULL
+  `discount` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -212,6 +212,7 @@ CREATE TABLE `sales` (
   `isPaid` tinyint(1) DEFAULT NULL,
   `paymentMethod` varchar(25) NOT NULL,
   `shippingMethod` varchar(20) NOT NULL,
+  `shippingAddress` varchar(255) NOT NULL,
   `saleStatus` varchar(255) DEFAULT NULL,
   `trackingNumber` varchar(25) DEFAULT NULL,
   `userCi` varchar(255) DEFAULT NULL,
@@ -327,8 +328,7 @@ ALTER TABLE `productsize`
 ALTER TABLE `saleproduct`
   ADD PRIMARY KEY (`saleProductId`) USING BTREE,
   ADD KEY `idCompra` (`saleId`),
-  ADD KEY `idProducto` (`productId`),
-  ADD KEY `idOferta` (`offerId`);
+  ADD KEY `idProducto` (`productId`);
 
 --
 -- Indices de la tabla `sales`
@@ -433,8 +433,7 @@ ALTER TABLE `productsize`
 --
 ALTER TABLE `saleproduct`
   ADD CONSTRAINT `saleproduct_ibfk_1` FOREIGN KEY (`saleId`) REFERENCES `sales` (`saleId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `saleproduct_ibfk_2` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `saleproduct_ibfk_3` FOREIGN KEY (`offerId`) REFERENCES `offer` (`offerId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `saleproduct_ibfk_2` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `sales`
