@@ -32,9 +32,9 @@ function addEventaddProductCart(){
             productId: productDetail.productId,
             quantity: parseInt(quantity),
             name:  productDetail.name,
-            talle: talle,
+            size: talle,
             price: productDetail.price,
-            offer:0
+            discount:0
         }
         new CarritoDAo().agregarProductoCarrito(productCart);
         showCart(new CarritoDAo().obtenerCarrito());

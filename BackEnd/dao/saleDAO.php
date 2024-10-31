@@ -1,24 +1,28 @@
 <?php
 // Se incluye el archivo que contiene la función de conexión a la base de datos
 require_once __DIR__ . "/../controller/connection.php";
+require_once __DIR__ . "/sesionDAO.php";
 require_once __DIR__ . "/query.php";
 
 // Definición de la clase 'sales'
 class saleDAO
 {
     // Método para agregar la compra desde la base de datos
-    function add($paymentMethod, $shippingMethod, $quantity, $userCi, $saleDate, $products, $size, $offerId)
-    { //Agregar direccion, dentro de products pasa el productId, quantity, talle, precio y offerId
+    function add($shippingAddress, $paymentMethod, $shippingMethod, $saleDate, $products)
+    {
+        $session = new SesionDAO()->getSession()->data;
+        $userCi = $session['userCi'];
+        $shippingAddress != null ? "'$shippingAddress'" : null;
         $isPaid = ($paymentMethod == "Por crédito/débito") ? 1 : 0;
         $saleStatus = ($shippingMethod == "Retiro en local") ? "En Espera en el local" : "En Espera de despachar el envío";
 
-        $sql = "INSERT INTO `sales`(`isPaid`, `paymentMethod`, `shippingMethod`, `saleStatus`, `userCi`, `saleDate`) VALUES ('$isPaid', '$paymentMethod', '$shippingMethod', '$saleStatus', '$userCi', '$saleDate')";
+        $sql = "INSERT INTO `sales`(`isPaid`, `paymentMethod`, `shippingMethod`, `shippingAddres`,`saleStatus`, `userCi`, `saleDate`) VALUES ('$isPaid', '$paymentMethod', '$shippingMethod', $shippingAddress,'$saleStatus', '$userCi', '$saleDate')";
         $connection = connection();
         try {
             $connection->query($sql);
             $saleId = $connection->insert_id;
             foreach ($products as $product) {
-                $this->addSaleProduct($saleId, $product, $quantity, $size, $offerId);
+                $this->addSaleProduct($saleId, $product);
             }
             $query = new query(true, "Venta agregada correctamente", null);
         } catch (Exception $e) {
@@ -28,7 +32,8 @@ class saleDAO
         return $query;
     }
 
-    function getAll(){
+    function getAll()
+    {
         $connection = connection();
         $sql = "SELECT * FROM `sales`";
         $rersult = $connection->query($sql);
@@ -42,7 +47,8 @@ class saleDAO
         return $query;
     }
 
-    function getUserSales($userCi){
+    function getUserSales($userCi)
+    {
         $connection = connection();
         $sql = "SELECT * FROM `sales` WHERE `userCi`='$userCi'";
         $rersult = $connection->query($sql);
@@ -56,7 +62,8 @@ class saleDAO
         return $query;
     }
 
-    function getLastSales($yesterdayDate){
+    function getLastSales($yesterdayDate)
+    {
         $connection = connection();
         $sql = "SELECT * FROM `sales` WHERE `saleDate`>='$yesterdayDate'";
         $rersult = $connection->query($sql);
@@ -84,35 +91,28 @@ class saleDAO
         return $query;
     }
 
-    function addSaleProduct($saleId, $product, $quantity, $size, $offerId)
+    function addSaleProduct($saleId, $product)
     {
+        $discount = $product['discount'];
+        $discount != null ? "'$discount'" : null;
         $productId = $product['productId'];
-        $totalPrice = $product['price'] * $quantity;
-        if (isset($offerId)) {
-            $sql = "INSERT INTO `saleproduct`(`productId`, `saleId`, `quantity`, `totalPrice`, `size`, `offerId`) VALUES ('$productId','$saleId','$quantity','$totalPrice','$size','$offerId')";
-            $connection = connection();
-            try {
-                $connection->query($sql);
-                $query = new query(true, "Venta y producto agregado correctamente", null);
-            } catch (Exception $e) {
-                $query = new query(false, "No se pudo agregar la venta y el producto", null);
-            }
-            return $query;
-        } else {
-            $sql = "INSERT INTO `saleproduct`(`productId`, `saleId`, `quantity`, `totalPrice`, `size`) VALUES ('$productId','$saleId','$quantity','$totalPrice','$size')";
-            $connection = connection();
-            try {
-                $connection->query($sql);
-                $query = new query(true, "Venta y producto agregado correctamente", null);
-            } catch (Exception $e) {
-                $query = new query(false, "No se pudo agregar la venta y el producto", null);
-            }
+        $totalPrice = $product['price'] * $product['quantity'];
+        $size = $product['size'];
+        $quantity = $product['quantity'];
 
-            return $query;
+        $sql = "INSERT INTO `saleproduct`(`productId`, `saleId`, `quantity`, `totalPrice`, `size`, `discount`) VALUES ('$productId','$saleId','$quantity','$totalPrice','$size', $discount)";
+        $connection = connection();
+        try {
+            $connection->query($sql);
+            $query = new query(true, "Venta y producto agregado correctamente", null);
+        } catch (Exception $e) {
+            $query = new query(false, "No se pudo agregar la venta y el producto", null);
         }
+        return $query;
     }
 
-    function getAllSaleProducts($saleId){
+    function getAllSaleProducts($saleId)
+    {
         $connection = connection();
         $sql = "SELECT * FROM `saleproduct`  WHERE `saleId`='$saleId'";
         $result = $connection->query($sql);

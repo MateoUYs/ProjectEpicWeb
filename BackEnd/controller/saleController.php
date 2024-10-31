@@ -30,15 +30,15 @@ switch ($funcion) {
 
 // Función para obtener compras
 function add(){
-    $direccion = $_POST['direccion'];
-    $metodoPago = $_POST['metodoPago'];
-    $metodoEnvio = $_POST['metodoEnvio'];
-    $fechaVenta = $_POST['fechaVenta'];
+    $shippingAddress = $_POST['shippingAddress'];
+    $paymentMethod = $_POST['paymentMethod'];
+    $shippingMethod = $_POST['shippingMethod'];
+    $saleDate = $_POST['saleDate'];
     $products = json_encode($_POST['products']);
 
 
-    // $query = (new saleDAO())->add($paymentMethod, $shippingMethod, $quantity, $userCi, $saleDate, $products, $size, $offerId);
-    // echo json_encode($query);
+    $query = (new saleDAO())->add($shippingAddress, $paymentMethod, $shippingMethod, $saleDate, $products);
+    echo json_encode($query);
 }   
 
 function getAll(){
@@ -47,22 +47,22 @@ function getAll(){
 }
 
 function getUserSales(){
-    $userCi = ['userCi'];
+    $userCi = $_POST['userCi'];
 
     $query = (new saleDAO())->getUserSales($userCi);
     echo json_encode($query);
 }
 
 function getLastSales(){
-    $yesterdayDate = ['yesterdayDate'];
+    $yesterdayDate = $_POST['yesterdayDate'];
 
     $query = (new saleDAO())->getLastSales($yesterdayDate);
     echo json_encode($query);
 }
 
 function updateStatus(){
-    $saleId = ['saleId'];
-    $saleStatus = ['saleStatus'];
+    $saleId = $_POST['saleId'];
+    $saleStatus = $_POST['saleStatus'];
 
     $query = (new saleDAO())->updateStatus($saleId, $saleStatus);
     echo json_encode($query);
