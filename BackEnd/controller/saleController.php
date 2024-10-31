@@ -30,17 +30,15 @@ switch ($funcion) {
 
 // Función para obtener compras
 function add(){
-    $paymentMethod = ['paymentMethod'];
-    $shippingMethod = ['shippingMethod'];
-    $quantity = ['quantity'];
-    $userCi = ['userCi'];
-    $saleDate = ['saleDate'];
-    $products = ['products'];
-    $size = ['size'];
-    $offerId = ['offerId'];
+    $direccion = $_POST['direccion'];
+    $metodoPago = $_POST['metodoPago'];
+    $metodoEnvio = $_POST['metodoEnvio'];
+    $fechaVenta = $_POST['fechaVenta'];
+    $products = json_encode($_POST['products']);
 
-    $query = (new saleDAO())->add($paymentMethod, $shippingMethod, $quantity, $userCi, $saleDate, $products, $size, $offerId);
-    echo json_encode($query);
+
+    // $query = (new saleDAO())->add($paymentMethod, $shippingMethod, $quantity, $userCi, $saleDate, $products, $size, $offerId);
+    // echo json_encode($query);
 }   
 
 function getAll(){

@@ -55,6 +55,11 @@ function addEventShowCart(){
             cart.classList.add("modalEnable");
         }
     }
+
+    let btnComprar = document.querySelector("#confirmarCompra");
+    btnComprar.onclick = () => {
+        window.location.href = "../../Carrito/confirmarCompra/confirmarCompra.html";
+    }
 }
 
 function getCart(){

@@ -106,15 +106,33 @@ export default class CarritoDAo {
 
     }
 
-    confirmarCompra(direccion, metodoEnvio, metodoPago, fechaVenta) {
+    async confirmarCompra(direccion, metodoEnvio, metodoPago) {
+        if(metodoEnvio == "Retiro en el local"){
+            direccion = null;
+        }
         let products = this.obtenerCarrito();
         let venta = {
             direccion: direccion,
             metodoEnvio: metodoEnvio,
             metodoPago: metodoPago,
-            fechaVenta: fechaVenta,
+            fechaVenta: new Date().toLocaleString(),
             products: products
         }
+
+        let formData = new FormData();
+        formData.append("direccion", direccion);
+        formData.append("metodoEnvio", metodoEnvio);
+        formData.append("metodoPago", metodoPago);
+        formData.append("fechaVenta", new Date().toLocaleString());
+        formData.append("products", JSON.stringify(products));
+        let config = {
+            method: "POST",
+            body: formData
+        }
+        console.log(products);
+       // let response = await fetch("http://localhost:3000/ventas", config);
+       // let data = await response.json();
+     //   return data;
 
     }
 }
