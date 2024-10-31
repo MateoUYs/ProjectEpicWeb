@@ -20,7 +20,7 @@ export default class CarritoDAo {
         let carrito = this.obtenerCarrito();
         let nuevoCarrito = carrito.filter(producto => producto.productId != idProducto && producto.talle != talle);
         this.guardarCarrito(nuevoCarrito);
-        // Implementación pendiente
+        
     }
 
 
@@ -41,7 +41,7 @@ export default class CarritoDAo {
         });
         this.guardarCarrito(nuevoCarrito);
 
-        // Implementación pendiente
+       
     }
 
     aumentarCantidadCarrito(idProducto,talle) {
