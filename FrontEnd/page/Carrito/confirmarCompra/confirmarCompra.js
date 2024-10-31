@@ -34,7 +34,7 @@ function addEvent(){
 async function confirmarCompra(metodoEnvio,metodoPago,direccion){
     let carritoDAO = new CarritoDAo();
     let respuesta = await carritoDAO.confirmarCompra(direccion,metodoEnvio,metodoPago);
-    console.log(respuesta.menssage);
+    console.log(respuesta.message);
 
 
 }

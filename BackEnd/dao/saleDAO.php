@@ -10,14 +10,15 @@ class saleDAO
     // Método para agregar la compra desde la base de datos
     function add($shippingAddress, $paymentMethod, $shippingMethod, $saleDate, $products)
     {
-        $session = new SesionDAO()->getSession()->data;
+        $session = (new SesionDAO())->getSession()->data;
         $userCi = $session['userCi'];
         $shippingAddress != null ? "'$shippingAddress'" : null;
-        $isPaid = ($paymentMethod == "Por crédito/débito") ? 1 : 0;
-        $saleStatus = ($shippingMethod == "Retiro en local") ? "En Espera en el local" : "En Espera de despachar el envío";
+        $isPaid = ($paymentMethod == "Tarjeta") ? 1 : 0;
+        $saleStatus = ($shippingMethod == "Retiro") ? "En Espera en el local" : "En Espera de despachar el envío";
 
-        $sql = "INSERT INTO `sales`(`isPaid`, `paymentMethod`, `shippingMethod`, `shippingAddres`,`saleStatus`, `userCi`, `saleDate`) VALUES ('$isPaid', '$paymentMethod', '$shippingMethod', $shippingAddress,'$saleStatus', '$userCi', '$saleDate')";
+        $sql = "INSERT INTO `sales`(`isPaid`, `paymentMethod`, `shippingMethod`, `shippingAddress`,`saleStatus`, `userCi`, `saleDate`) VALUES ('$isPaid', '$paymentMethod', '$shippingMethod', $shippingAddress,'$saleStatus', '$userCi', '$saleDate')";
         $connection = connection();
+        error_log(print_r($products,true));
         try {
             $connection->query($sql);
             $saleId = $connection->insert_id;
@@ -26,6 +27,7 @@ class saleDAO
             }
             $query = new query(true, "Venta agregada correctamente", null);
         } catch (Exception $e) {
+            error_log($e);
             $query = new query(false, "No se pudo agregar la venta", null);
         }
 

@@ -1,6 +1,7 @@
 <?php
 // Incluir el archivo buysDAO.php desde el directorio actual
 require_once __DIR__ . "/../dao/saleDAO.php";
+require_once __DIR__ . "/../config/configuration.php";
 
 
 // Obtener el parámetro 'function' desde la URL
@@ -34,7 +35,7 @@ function add(){
     $paymentMethod = $_POST['paymentMethod'];
     $shippingMethod = $_POST['shippingMethod'];
     $saleDate = $_POST['saleDate'];
-    $products = json_encode($_POST['products']);
+    $products = json_decode($_POST['products'],true);
 
 
     $query = (new saleDAO())->add($shippingAddress, $paymentMethod, $shippingMethod, $saleDate, $products);

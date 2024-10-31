@@ -1,3 +1,5 @@
+import Origin from '../config/origin.js';
+
 export default class CarritoDAo {
     constructor() {
 
@@ -107,7 +109,7 @@ export default class CarritoDAo {
     }
 
     async confirmarCompra(direccion, metodoEnvio, metodoPago) {
-        if(metodoEnvio == "Retiro en el local"){
+        if(metodoEnvio == "Retiro"){
             direccion = null;
         }
         let products = this.obtenerCarrito();
@@ -119,20 +121,19 @@ export default class CarritoDAo {
             products: products
         }
 
+        let url = Origin + "/BackEnd/controller/saleController.php?function=add";
         let formData = new FormData();
-        formData.append("direccion", direccion);
-        formData.append("metodoEnvio", metodoEnvio);
-        formData.append("metodoPago", metodoPago);
-        formData.append("fechaVenta", new Date().toLocaleString());
+        formData.append("shippingAddress", direccion);
+        formData.append("shippingMethod", metodoEnvio);
+        formData.append("paymentMethod", metodoPago);
+        formData.append("saleDate", new Date().toLocaleString());
         formData.append("products", JSON.stringify(products));
         let config = {
             method: "POST",
             body: formData
         }
-        console.log(products);
-       // let response = await fetch("http://localhost:3000/ventas", config);
-       // let data = await response.json();
-     //   return data;
-
+       let response = await fetch(url, config);
+       let data = await response.json();
+       return data;
     }
 }
