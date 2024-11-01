@@ -13,7 +13,7 @@ class statsDAO
         $queryResponse = $connection->query($sql);
         $bestSellings = $queryResponse->fetch_all(MYSQLI_ASSOC);
 
-        $query = new query(true, "Productos mas vendidos obtenidos con éxito", $bestSellings);
+        $query = new query(true, "Productos mas vendidos obtenidos con exito", $bestSellings);
         return $query;
     }
 
@@ -23,7 +23,7 @@ class statsDAO
         $queryResponse = $connection->query($sql);
         $leastSold = $queryResponse->fetch_all(MYSQLI_ASSOC);
 
-        $query = new query(true, "Productos menos vendidos obtenidos con éxito", $leastSold);
+        $query = new query(true, "Productos menos vendidos obtenidos con exito", $leastSold);
         return $query;
     }
 
@@ -33,7 +33,7 @@ class statsDAO
         $queryResponse = $connection->query($sql);
         $mostSaved = $queryResponse->fetch_all(MYSQLI_ASSOC);
 
-        $query = new query(true, "Productos mas guardados como favoritos obtenidos con éxito", $mostSaved);
+        $query = new query(true, "Productos mas guardados como favoritos obtenidos con exito", $mostSaved);
         return $query;
     }
 }
