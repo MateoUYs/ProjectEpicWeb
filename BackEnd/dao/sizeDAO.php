@@ -1,6 +1,6 @@
 <?php
 // Se incluye el archivo que contiene la función de conexión a la base de datos y el modelo de query
-require_once __DIR__ . "/../controller/connection.php";
+require_once __DIR__ . "/../config/connection.php";
 require_once __DIR__ . "/query.php";
 
 // Definición de la clase 'size'

@@ -1,6 +1,6 @@
 <?php
 // Se incluye el archivo que contiene la función de conexión a la base de datos y el modelo query
-require_once __DIR__ . "/../controller/connection.php";
+require_once __DIR__ . "/../config/connection.php";
 require_once __DIR__ . "/query.php";
 
 // Definición de la clase 'product'
@@ -11,8 +11,8 @@ class productsDAO
     {
         $connection = connection();
         $sql = "SELECT * FROM product";
-        $rersult = $connection->query($sql);
-        $productos = $rersult->fetch_all(MYSQLI_ASSOC);
+        $result = $connection->query($sql);
+        $productos = $result->fetch_all(MYSQLI_ASSOC);
         $productosSize = [];
         foreach ($productos as $producto) {
             $producto["size"] = $this->getProductSize($producto["productId"])->data;

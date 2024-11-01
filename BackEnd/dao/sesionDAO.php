@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require_once __DIR__ . "/../controller/connection.php";
+require_once __DIR__ . "/../config/connection.php";
 require_once __DIR__ . "/query.php";
 
 

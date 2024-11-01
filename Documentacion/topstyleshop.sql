@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-10-2024 a las 17:40:52
+-- Tiempo de generación: 01-11-2024 a las 03:22:36
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Versión de PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -119,6 +119,23 @@ CREATE TABLE `productoffer` (
 -- --------------------------------------------------------
 
 --
+-- Estructura Stand-in para la vista `productsalesquantity`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `productsalesquantity` (
+`saleQuantity` bigint(21)
+,`productId` int(11)
+,`price` int(11)
+,`stock` int(11)
+,`description` varchar(255)
+,`extension` varchar(255)
+,`name` varchar(255)
+,`color` varchar(255)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `productsize`
 --
 
@@ -201,6 +218,70 @@ CREATE TABLE `saleproduct` (
   `discount` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `saleproduct`
+--
+
+INSERT INTO `saleproduct` (`saleProductId`, `productId`, `saleId`, `quantity`, `totalPrice`, `size`, `discount`) VALUES
+(1, 1, 1, 2, 2400, 'XXL', 21),
+(2, 2, 1, 1, 100, 'M', 0),
+(3, 3, 2, 3, 450, 'M', 5),
+(4, 4, 2, 1, 75, 'L', 22),
+(5, 5, 3, 2, 240, 'M', 0),
+(6, 6, 3, 1, 80, 'L', 0),
+(7, 7, 4, 4, 360, 'M', 0),
+(8, 8, 5, 1, 110, 'XXL', 0),
+(9, 9, 6, 2, 400, 'M', 0),
+(10, 9, 7, 3, 180, 'M', 0),
+(11, 11, 8, 1, 130, 'L', 0),
+(12, 12, 9, 2, 110, 'M', 0),
+(13, 13, 10, 1, 140, 'L', 0),
+(14, 14, 11, 3, 285, 'M', 0),
+(15, 15, 12, 4, 340, 'XXL', 0),
+(16, 16, 13, 1, 150, 'XL', 0),
+(17, 17, 14, 2, 140, 'M', 0),
+(18, 18, 15, 3, 315, 'L', 0),
+(19, 1, 1, 1, 1200, 'XXL', 21),
+(20, 2, 2, 2, 200, 'M', 0),
+(21, 3, 3, 1, 150, 'M', 5),
+(22, 4, 4, 3, 225, 'L', 22),
+(23, 5, 5, 2, 240, 'M', 0),
+(24, 6, 6, 1, 80, 'L', 0),
+(25, 7, 7, 4, 360, 'M', 0),
+(26, 8, 8, 1, 110, 'XXL', 0),
+(27, 9, 9, 2, 400, 'M', 0),
+(28, 10, 10, 3, 180, 'M', 0),
+(29, 8, 11, 1, 130, 'L', 0),
+(30, 12, 12, 2, 110, 'M', 0),
+(31, 13, 13, 1, 140, 'L', 0),
+(32, 14, 14, 3, 285, 'M', 0),
+(33, 15, 15, 4, 340, 'XXL', 0),
+(34, 16, 1, 1, 150, 'XL', 0),
+(35, 17, 2, 2, 140, 'M', 0),
+(36, 18, 3, 3, 315, 'L', 0),
+(37, 19, 4, 1, 175, 'XXL', 0),
+(38, 20, 5, 2, 100, 'M', 0),
+(39, 1, 6, 3, 3600, 'XXL', 21),
+(40, 2, 7, 4, 400, 'M', 0),
+(41, 3, 8, 1, 150, 'M', 5),
+(42, 4, 9, 2, 150, 'L', 22),
+(43, 5, 10, 3, 360, 'M', 0),
+(44, 6, 11, 1, 80, 'L', 0),
+(45, 7, 12, 4, 360, 'M', 0),
+(46, 8, 13, 1, 110, 'XXL', 0),
+(47, 9, 14, 2, 400, 'M', 0),
+(48, 10, 15, 3, 180, 'M', 0),
+(49, 11, 1, 1, 130, 'L', 0),
+(50, 12, 2, 2, 110, 'M', 0),
+(51, 13, 3, 1, 140, 'L', 0),
+(52, 14, 4, 3, 285, 'M', 0),
+(53, 15, 5, 4, 340, 'XXL', 0),
+(54, 16, 6, 1, 150, 'XL', 0),
+(55, 17, 7, 2, 140, 'M', 0),
+(56, 18, 8, 3, 315, 'L', 0),
+(57, 19, 9, 1, 175, 'XXL', 0),
+(58, 20, 10, 2, 100, 'M', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -218,6 +299,44 @@ CREATE TABLE `sales` (
   `userCi` varchar(255) DEFAULT NULL,
   `saleDate` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `sales`
+--
+
+INSERT INTO `sales` (`saleId`, `isPaid`, `paymentMethod`, `shippingMethod`, `shippingAddress`, `saleStatus`, `trackingNumber`, `userCi`, `saleDate`) VALUES
+(1, 1, 'Credit Card', 'Standard', '123 Calle Principal', 'Shipped', 'TRK123456', '23456789', '2024-10-20 00:00:00'),
+(2, 0, 'PayPal', 'Express', '123 Calle Principal', 'Processing', 'TRK123457', '23456789', '2024-10-21 00:00:00'),
+(3, 1, 'Debit Card', 'Standard', '456 Avenida Central', 'Delivered', 'TRK223456', '34567890', '2024-10-22 00:00:00'),
+(4, 1, 'Credit Card', 'Standard', '456 Avenida Central', 'Shipped', 'TRK223457', '34567890', '2024-10-23 00:00:00'),
+(5, 0, 'Cash on Delivery', 'Standard', '789 Calle Secundaria', 'Pending', 'TRK548725', '45678901', '2024-10-24 00:00:00'),
+(6, 1, 'Credit Card', 'Express', '1010 Camino Real', 'Delivered', 'TRK323456', '56789012', '2024-10-25 00:00:00'),
+(7, 1, 'PayPal', 'Standard', '1010 Camino Real', 'Shipped', 'TRK323457', '56789012', '2024-10-26 00:00:00'),
+(8, 0, 'Credit Card', 'Standard', '1010 Camino Real', 'Processing', 'TRK323458', '56789012', '2024-10-27 00:00:00'),
+(9, 1, 'Credit Card', 'Standard', '1111 Calle Nueva', 'Delivered', 'TRK423456', '67890123', '2024-10-28 00:00:00'),
+(10, 0, 'Debit Card', 'Express', '2222 Calle Vieja', 'Shipped', 'TRK523456', '78901234', '2024-10-29 00:00:00'),
+(11, 1, 'Credit Card', 'Standard', '2222 Calle Vieja', 'Processing', 'TRK523457', '78901234', '2024-10-30 00:00:00'),
+(12, 1, 'PayPal', 'Express', '3333 Camino Verde', 'Delivered', 'TRK623456', '89012345', '2024-10-31 00:00:00'),
+(13, 0, 'Debit Card', 'Standard', '4444 Avenida Azul', 'Pending', 'TRK123456', '90123456', '2024-10-31 00:00:00'),
+(14, 1, 'Credit Card', 'Standard', '4444 Avenida Azul', 'Shipped', 'TRK723457', '90123456', '2024-11-01 00:00:00'),
+(15, 1, 'Cash on Delivery', 'Express', '5555 Calle Rojo', 'Delivered', 'TRK823456', '12345678', '2024-11-02 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `savedproducts`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `savedproducts` (
+`productId` int(11)
+,`price` int(11)
+,`stock` int(11)
+,`description` varchar(255)
+,`extension` varchar(255)
+,`name` varchar(255)
+,`color` varchar(255)
+,`timesFavorited` bigint(21)
+);
 
 -- --------------------------------------------------------
 
@@ -251,6 +370,35 @@ CREATE TABLE `userfavoriteproduct` (
   `productId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `userfavoriteproduct`
+--
+
+INSERT INTO `userfavoriteproduct` (`userCi`, `productId`) VALUES
+('34567890', 1),
+('55558115', 1),
+('78901234', 2),
+('89012345', 2),
+('78901234', 4),
+('89012345', 4),
+('12345678', 7),
+('12345678', 9),
+('23456789', 9),
+('34567890', 9),
+('23456789', 10),
+('45678901', 10),
+('56789012', 10),
+('23456789', 12),
+('89012345', 12),
+('45678901', 13),
+('34567890', 14),
+('12345678', 16),
+('90123456', 16),
+('67890123', 17),
+('45678901', 18),
+('90123456', 19),
+('34567890', 20);
+
 -- --------------------------------------------------------
 
 --
@@ -274,8 +422,34 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`userCi`, `email`, `isAdmin`, `isVerified`, `userName`, `password`, `phone`, `verificationCode`) VALUES
 ('1', 'projectepicweb@gmail.com', 1, 1, 'Admin', '$2y$10$7w.qkpLc0Kg0wKr/x7HubuzXrTHUTW4GnWVzjEIKVtP8fA/pSBkkq', '093540768', '66dd3cd263a75'),
+('12345678', 'fernando.ramos@example.com', 0, 1, 'fernandoramos', '$2y$10$EONCiAT5z3biEOtNdxTFGOgfY1cUPsY9w3Mo/UKJK0zwJxiY.XEmW', '0989012345', '6724292ec87c7'),
+('23456789', 'martin.perez@example.com', 0, 1, 'martinperez', '$2y$10$UvwgPb5QUfR2p9ZiSbLcK.oqemGIt45JF0ZQbTP2RtfJE2nOu3gwy', '0981234567', '67242637a4f97'),
+('34567890', 'sofia.gomez@example.com', 0, 1, 'sofiagomez', '$2y$10$C/yAsB2//IClJMak40uDt.V7/4agHhBvOqG6plSM3GPRCkjALNd9a', '0982345678', '672426840008e'),
+('45678901', 'juan.fernandez@example.com', 0, 1, 'juanfernandez', '$2y$10$XgPq3eiPnMqv8ZgpKzOnWeQGU2eNbRBkG/WCZnVWbn9J3fFmeSRHS', '0983456789', '672426a711b88'),
 ('55558115', 'bas.gdmc@gmail.com', 0, 1, 'Lautaro', '$2y$10$6NhtHZZkV18mI9I2.hEmVeXuwW.a37hhY7YmwJTIcjqtxQbfErmTi', '097385962', '66dd3cfe0c04a'),
-('556', 'a@a', 0, 0, 'Lautaro', '$2y$10$rzhh6swpnq90hXojUy1KBO0Zfa0OqNWFKBeH5HkMhv0z62JoLxWvG', '097', '66dd3d20f3f58');
+('56789012', 'carla.rodriguez@example.com', 0, 1, 'carlarodriguez', '$2y$10$s54PFmbNanF6JxmVq6dyze36PMDm5uvioSBJhRaZu5yJKpREM/ctC', '0984567890', '672426d70e20f'),
+('67890123', 'luis.martinez@example.com', 0, 1, 'luismartinez', '$2y$10$p3mBTeNoI6FWNHpn8Ze5buAmdAIXOIomq8X7lGW6y.Lig60KyyM4O', '0985678901', '672426f76e46b'),
+('78901234', 'maria.lopez@example.com', 0, 1, 'marialopez', '$2y$10$0WzodsQY/2HCbVeK1m33C.ZdCj.iI7bS8m3TzrRDiX4sQDzu/kkui', '0986789012', '672428c91a5f5'),
+('89012345', 'pablo.sanchez@example.com', 0, 1, 'pablosanchez', '$2y$10$gzuj08iDZ8mt3sHh0EUbB.oWImxC3AfrpxC8g9Vz3r1ZlDA9M.NMq', '0987890123', '672428ec7abd6'),
+('90123456', 'laura.garcia@example.com', 0, 1, 'lauragarcia', '$2y$10$/FmZvh1f/8yEyACuBuqHru5diS4t/JtBS0Vky1rw.WAvCrBt8KnEm', '0988901234', '6724291118e2c');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `productsalesquantity`
+--
+DROP TABLE IF EXISTS `productsalesquantity`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `productsalesquantity`  AS SELECT count(`sp`.`productId`) AS `saleQuantity`, `p`.`productId` AS `productId`, `p`.`price` AS `price`, `p`.`stock` AS `stock`, `p`.`description` AS `description`, `p`.`extension` AS `extension`, `p`.`name` AS `name`, `p`.`color` AS `color` FROM (`saleproduct` `sp` join `product` `p` on(`p`.`productId` = `sp`.`productId`)) GROUP BY `p`.`productId` ORDER BY count(`sp`.`productId`) DESC ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `savedproducts`
+--
+DROP TABLE IF EXISTS `savedproducts`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `savedproducts`  AS SELECT `p`.`productId` AS `productId`, `p`.`price` AS `price`, `p`.`stock` AS `stock`, `p`.`description` AS `description`, `p`.`extension` AS `extension`, `p`.`name` AS `name`, `p`.`color` AS `color`, count(`ufp`.`productId`) AS `timesFavorited` FROM (`userfavoriteproduct` `ufp` join `product` `p` on(`p`.`productId` = `ufp`.`productId`)) GROUP BY `p`.`productId` ORDER BY count(`ufp`.`productId`) DESC ;
 
 --
 -- Índices para tablas volcadas
@@ -389,13 +563,13 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT de la tabla `saleproduct`
 --
 ALTER TABLE `saleproduct`
-  MODIFY `saleProductId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `saleProductId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT de la tabla `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `saleId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `saleId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Restricciones para tablas volcadas
