@@ -1,117 +1,144 @@
-.subTitle{
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 25px;
-    color: #333;
+.subTitle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 25px;
+  color: #333;
+}
+
+.content {
+  background-color: rgba(255, 255, 255, 0.829);
+  height: max-content;
+  width: 90%;
+  border-radius: 50px;
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 60px; */
+  margin-bottom: 5%;
+}
+
+.indexContent {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10%;
+  width: 100%;
+  height: 90%;
+}
+
+.start {
+  background-color: rgba(255, 255, 255, 0.829);
+  height: 700px;
+  width: 90%;
+  border-radius: 50px;
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100% - 70px);
+  margin-top: 20px;
+}
+
+#addBtn {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  box-sizing: border-box;
+  padding-top: 13px;
+  display: flex;
+  width: 64px;
+  height: 64px;
+  box-sizing: content-box;
+  margin-right: 10%;
+  margin-bottom: 2%;
+}
+
+.title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px;
+  margin: 0;
+  color: #333;
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: 2%;
+}
+
+.addBtn {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.addBtn img {
+  width: 100%;
+  height: 100%;
+}
+
+.inputSearchContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+.searchInput {
+  margin-bottom: 10px;
+  width: 75%;
+  padding: 10px 10px 10px 32px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.searchInput:focus {
+  border-color: #333;
+  outline: none;
+}
+
+.inputSearchContainer img{
+  position: absolute;
+  left: 13%;
+  top: 38%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+}
+
+@media screen and (max-width: 600px) {
+  .start {
+    padding-top: 20%;
+    background-color: rgba(255, 255, 255, 0.753);
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
   }
-  
-  .content {
-    background-color: rgba(255, 255, 255, 0.829);
-    height: max-content;
-    width: 90%;
-    border-radius: 50px;
-    box-sizing: content-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* gap: 60px; */
-    margin-bottom: 5%;
+
+  main {
+    width: 100%;
+    height: 100vh;
+    margin-top: 0;
+    z-index: 1;
   }
 
   .indexContent {
     display: flex;
-    justify-content: space-evenly;
-    gap: 10%;
-    width: 100%;
-    height: 90%;
-  }
-
-  .start {
-    background-color: rgba(255, 255, 255, 0.829);
-    height: 700px;
-    width: 90%;
-    border-radius: 50px;
-    box-sizing: content-box;
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
+    justify-items: center;
+    z-index: 1;
   }
-  
-  main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: calc(100% - 70px);
-    margin-top: 20px;
-  }
-  
-  #addBtn {
-    background-color: rgba(0, 0, 0, 0);
-    border: 0;
-    box-sizing: border-box;
-    padding-top: 13px;
-  }
-  
-  .title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 36px;
-    margin: 0;
-    color: #333;
-    display: flex;
-    align-items: center;
-    position: relative;
-    left: 2%;
-  }
-  
-  .addBtn {
-    display: flex;
+
+  .content {
     width: 100%;
-  }
-  
-  #addBtn {
-    display: flex;
-    width: 64px;
-    height: 64px;
-    box-sizing: content-box;
-    position: relative;
-    left: 81%;
-    top: 20%;
-  }
-  
-  .addBtn img {
-    width: 100%;
-    height: 100%;
+    height: max-content;
+    border-radius: 0;
   }
 
-  @media screen and (max-width: 600px) {
-    .start{
-      padding-top: 20%;
-      background-color: rgba(255, 255, 255, 0.753);
-      width: 100%;
-      height: 100vh;
-      border-radius: 0;
-    }
-
-    main{
-      width: 100%;
-      height: 100vh;
-      margin-top: 0;
-      z-index: 1;
-    }
-
-    .indexContent{
-      display: flex;
-      flex-direction: column;
-      justify-items: center;
-      z-index: 1;
-    }
-
-    .content{
-      width: 100%;
-      height: max-content;
-      border-radius: 0;
-    }
-    
-  }
-  
+}

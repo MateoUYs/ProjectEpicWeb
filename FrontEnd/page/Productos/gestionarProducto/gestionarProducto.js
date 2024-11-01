@@ -4,8 +4,13 @@ import SizeDAO from "../../../dao/sizeDAO.js";
 
 let id = null;
 let oldSizes = [];
+let filter = "";
+let allProducts = [];
 
 window.onload = async () => {
+    let queryResponse = await new ProductDAO().getProducts();
+    allProducts = queryResponse.data;
+    console.log(allProducts);
     let query = await new SessionDAO().getSession();
     if (query.status) {
         if (query.data.isAdmin == 0) {
@@ -14,14 +19,12 @@ window.onload = async () => {
     } else {
         window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
     }
-    showProducts();
+    showProducts(allProducts);
     addEvents();
     insertSize();
 }
 
-async function showProducts() {
-    let query = await new ProductDAO().getProducts();
-    let products = query.data;
+async function showProducts(products) {
     let tbodyElement = document.querySelector("#productData");
     let divAlert = document.querySelector("#alertDiv");
     let pAlertTitle = document.querySelector("#alertTitle");
@@ -29,7 +32,6 @@ async function showProducts() {
     let frmAlert = divAlert.querySelector("form");
     tbodyElement.innerHTML = "";
     products.forEach((product) => {
-        console.log(JSON.stringify(product));
         let tr = document.createElement("tr");
         let sizeText = "";
         product.size.forEach((size, index) => {
@@ -105,6 +107,7 @@ function addEvents() {
     let menuBtn = document.querySelector("#menuBtn");
     let navDiv = document.querySelector("#navDiv");
     let nav = document.querySelector("nav");
+    let searchInput = document.querySelector("#searchInput");
 
 
     addBtn.onclick = () => {
@@ -211,6 +214,12 @@ function addEvents() {
             menuBtn.src = "../../../assets/closeIcon.png";
         }
     }
+
+    searchInput.onkeyup = () =>{
+        filter = searchInput.value;
+        console.log(filter);
+        searchProducts(filter);
+    }
 }
 
 async function insertSize() {
@@ -250,7 +259,7 @@ async function addProduct(precio, descripcion, imagen, nombre, color, size) {
             frmProduct.reset();
             imgPreview.src = "../../../assets/noImage.png";
             message.innerHTML = "";
-            showProducts();
+            showProducts(allProducts);
         }, 500);
     } else {
         if (message.classList.contains("confirmation")) {
@@ -308,7 +317,7 @@ async function modifyProduct(idProduct, precio, descripcion, imagen, nombre, col
             imgPreview.src = "../../../assets/noImage.png";
             message.innerHTML = "";
             oldSizes = "";
-            showProducts();
+            showProducts(allProducts);
         }, 500);
     } else {
         if (message.classList.contains("confirmation")) {
@@ -329,7 +338,7 @@ async function deleteProduct(idProducto) {
             confirmationAlert.classList.add("confirmation");
         }
         confirmationAlert.innerHTML = "Producto Eliminado con éxito";
-        showProducts();
+        showProducts(allProducts);
     } else {
         if (confirmationAlert.classList.contains("confirmation")) {
             confirmationAlert.classList.add("error");
@@ -348,4 +357,9 @@ async function setProductSize(sizes) {
             input.checked = true;
         }
     });
+}
+
+function searchProducts(){
+    let filteredProducts = allProducts.filter(product => (product.productId + product.name+"").includes(filter));
+    showProducts(filteredProducts);
 }
