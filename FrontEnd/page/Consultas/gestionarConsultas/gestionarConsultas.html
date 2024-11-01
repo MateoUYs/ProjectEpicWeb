@@ -5,7 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gestión Consultas</title>
-  <link rel="stylesheet" href="gestionarConsultas.css" />
+  <link rel="stylesheet" href="../../../styles/adminNav.css">
+  <link rel="stylesheet" href="../../../styles/body.css">
+  <link rel="stylesheet" href="../../../styles/consult.css">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
@@ -13,20 +15,28 @@
   <script type="module" src="gestionarConsultas.css"></script>
 </head>
 <body>
-  <nav>
-    <a href="../../Usuarios/indexAdmin/indexAdmin.html">Inicio</a>
-    <a href="../../Productos/gestionarProducto/gestionarProducto.html">Gestionar Productos</a>
-    <a href="../../Stock/gestionarStock/gestionarStock.html">Gestionar Stock</a>
-    <a href="../../Talle/gestionarTalle/gestionarTalle.html">Gestionar Talles</a>
-    <a href="../../Ofertas/gestionarOfertas/gestionarOfertas.html">Gestionar Ofertas</a>
-    <a href="../../Compras/gestionarCompras/gestionarCompras.html">Gestionar Compras</a>
-    <a href="../../Estadisticas/verEstadisticas/verEstadisticas.html">Ver Estadísticas</a>
-    <button class="consulta" id="btnConsulta">
+  <img class="hide" src="../../../assets/closeIcon.png" id="menuBtn">
+  <div class="activatedDiv" id="navDiv"></div>
+  <nav class="activatedNav">
+    <button type="button" class="pageLogo" id="homeBtn">
+      <img src="../../../assets/logoPageAdmin.png">
+    </button>
+    <div class="navContainer">
+      <a href="../../Usuarios/indexAdmin/indexAdmin.html" id="startBtn">Inicio</a>
+      <a href="../../Productos/gestionarProducto/gestionarProducto.html">Productos</a>
+      <a href="../../Stock/gestionarStock/gestionarStock.html">Stock</a>
+      <a href="../../Talle/gestionarTalle/gestionarTalle.html">Talles</a>
+      <a href="../../Ofertas/gestionarOfertas/gestionarOfertas.html">Ofertas</a>
+      <a href="../../Compras/gestionarCompras/gestionarCompras.html">Compras</a>
+      <a href="../../Estadisticas/verEstadisticas/verEstadisticas.html">Ver Estadísticas</a>
+    </div>
+    <div class="actions">
+      <button type="button" class="inquiry" id="inquiryBtn">
       <img src="../../../assets/consultaIcon.png">
       <p id="countConsults" class="empty">0</p>
-    </button>
-    <button class="logOut" id="btnLogOut"><img src="../../../assets/logOut.png"></button>
-    
+      </button>
+    <button type="button" class="logOut" id="btnLogOut"><img src="../../../assets/logOut.png"></button>
+    </div>
   </nav>
   <main>
     <div id="listaConsultas" class="desactivado"></div>

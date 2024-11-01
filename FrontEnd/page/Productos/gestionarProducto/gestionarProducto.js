@@ -83,6 +83,7 @@ async function showProducts() {
 }
 
 function addEvents() {
+    let body = document.querySelector("body");
     let addBtn = document.querySelector("#addBtn");
     let divFrm = document.querySelector("#productFrm");
     let cancelarBtn = document.querySelector("#cancelBtn");
@@ -109,6 +110,7 @@ function addEvents() {
     addBtn.onclick = () => {
         divFrm.classList.remove("frmDeactivated");
         divFrm.classList.add("frmActivated");
+        body.classList.add("modalOpen");
         pTitle.innerHTML = "Agregando Producto";
         frmProduct.submit.value = "Agregar";
     }
@@ -116,6 +118,7 @@ function addEvents() {
     cancelarBtn.onclick = () => {
         divFrm.classList.add("frmDeactivated");
         divFrm.classList.remove("frmActivated");
+        body.classList.remove("modalOpen");
         frmProduct.reset();
         imgPreview.src = "../../../assets/noImage.png";
         message.innerHTML = "";
