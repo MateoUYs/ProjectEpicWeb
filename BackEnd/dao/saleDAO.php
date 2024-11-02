@@ -37,7 +37,7 @@ class saleDAO
     function getAll()
     {
         $connection = connection();
-        $sql = "SELECT * FROM `sales`";
+        $sql = "SELECT sales.saleId, sales.paymentMethod, sales.shippingMethod, CASE WHEN sales.shippingAddress IS NULL THEN 'No aplica' ELSE sales.shippingAddress END AS shippingAddress, sales.saleStatus, CASE WHEN sales.trackingNumber IS NULL THEN 'No aplica' ELSE sales.trackingNumber END AS trackingNumber, sales.userCi, sales.saleDate, users.userName, CASE WHEN sales.isPaid = 1 THEN 'Pago' WHEN sales.isPaid = 0 THEN 'Pago Pendiente' END AS paymentStatus FROM sales INNER JOIN users ON sales.userCi = users.userCi";
         $rersult = $connection->query($sql);
         $sales = $rersult->fetch_all(MYSQLI_ASSOC);
         $productSales = [];
@@ -49,8 +49,10 @@ class saleDAO
         return $query;
     }
 
-    function getUserSales($userCi)
+    function getUserSales()
     {
+        $session = (new SesionDAO())->getSession()->data;
+        $userCi = $session['userCi'];
         $connection = connection();
         $sql = "SELECT * FROM `sales` WHERE `userCi`='$userCi'";
         $rersult = $connection->query($sql);
@@ -76,6 +78,19 @@ class saleDAO
             $productSales[] = $sale;
         }
         $query = new query(true, "Ultimas ventas y sus productos obtenidas", $productSales);
+        return $query;
+    }
+
+    function addTrackingNumber($saleId, $trackingNumber){
+        $sql = "UPDATE `sales` SET `trackingNumber`='$trackingNumber' WHERE `saleId`='$saleId'";
+        $connection = connection();
+        try {
+            $connection->query($sql);
+            $query = new query(true, "Numero de rastreo agregado correctamente", null);
+        } catch (Exception $e) {
+            $query = new query(false, "No se pudo agregar el numero de rastreo de venta", null);
+        }
+
         return $query;
     }
 
@@ -116,7 +131,7 @@ class saleDAO
     function getAllSaleProducts($saleId)
     {
         $connection = connection();
-        $sql = "SELECT * FROM `saleproduct`  WHERE `saleId`='$saleId'";
+        $sql = "SELECT product.productId, product.name, product.extension, saleProduct.quantity, saleProduct.saleProductId, saleProduct.totalPrice, saleProduct.size, CASE WHEN saleProduct.discount > 0 THEN saleProduct.discount ELSE 'No aplica' END AS discount FROM saleProduct INNER JOIN product ON saleProduct.productId = product.productId WHERE saleProduct.saleId = '$saleId'";
         $result = $connection->query($sql);
         $saleProducts = $result->fetch_all(MYSQLI_ASSOC);
         $query = new query(true, "Productos y ventas obtenidas", $saleProducts);

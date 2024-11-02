@@ -5,6 +5,10 @@
   <link rel="stylesheet" href="verDetalleProducto.css">
   <script src="verDetalleProducto.js" type="module"></script>
   <link rel="stylesheet" href="../../../styles/footerMain.css">
+  <link rel="stylesheet" href="../../../styles/body.css">
+  <link rel="stylesheet" href="../../../styles/cart.css">
+  <link rel="stylesheet" href="../../../styles/alertFrm.css">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://db.onlinewebfonts.com/c/d7e8a95865396cddca89b00080d2cba6?family=SoDo+Sans+SemiBold" rel="stylesheet">
   <title>Producto</title>
@@ -25,7 +29,17 @@
        <div class="inicioSesion">Iniciar Sesion</div>
     </div>
   </div>
-
+  <div class="alertFrm alertDeactivated" id="alertDiv">
+    <form action="">
+      <p class="subTitle" id="alertTitle"></p>
+      <label for="" id="question"></label>
+      <p id="confirmationAlert" class="confirmation"></p>
+      <div class="btns">
+        <input type="submit" class="alertBtn" id="alertBtn" name="submit" value=""></input>
+        <input type="button" class="alertCancelBtn" id="btnCancelAlert" name="cancelar" value="Cancelar"></input>
+      </div>
+    </form>
+  </div>
 
   <div class="container">
     <div class="productoContainer">

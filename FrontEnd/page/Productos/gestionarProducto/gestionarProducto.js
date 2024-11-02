@@ -10,7 +10,6 @@ let allProducts = [];
 window.onload = async () => {
     let queryResponse = await new ProductDAO().getProducts();
     allProducts = queryResponse.data;
-    console.log(allProducts);
     let query = await new SessionDAO().getSession();
     if (query.status) {
         if (query.data.isAdmin == 0) {

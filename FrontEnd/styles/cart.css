@@ -1,0 +1,67 @@
+.cartModal{
+    width: 30rem;
+    height: 30rem;
+    position: absolute;
+    z-index: 10;
+    background-color: white;
+    transition: all .3s;
+    right: 0;
+    top: 115px;
+    transform-origin: top right;
+  }
+  
+  .ProductList{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+  .ProductList > div{
+    display: flex;
+    width: 100%;
+    height: 3rem;
+    border-bottom: 1px solid black;
+    justify-content: space-between;
+  }
+  
+  .ProductList > div > p{
+    margin: 0;
+    padding-top: 0.5rem;
+  }
+
+  .modalEnable{
+    transform: scale(1);
+  }
+  
+  .modalDisable{
+    transform: scale(0);
+  }
+
+  .imgProductCart{
+    height: 100%;
+  }
+
+  .divQuantity{
+    display: flex;
+    height: 80%;
+    border: 1px solid black;
+    border-radius: 2%;
+    justify-content: space-evenly;
+    width: 12%;
+  }
+
+  .divQuantity button{
+    height: 80%;
+    margin-top: 3px;
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid black;
+    border-radius: 2%;
+    width: 25%;
+  }
+
+  .divQuantity p{
+    margin: 0;
+    padding-top: 0.5rem;
+  }

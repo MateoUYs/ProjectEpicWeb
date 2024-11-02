@@ -24,6 +24,9 @@ switch ($funcion) {
     case 'updateStatus':
         updateStatus();
         break;
+    case 'addTrackingNumber':
+        addTrackingNumber();
+        break;
     default:
         echo json_encode(['error' => 'Función no reconocida']); // Responder con un error si la función no es reconocida
         break;
@@ -48,9 +51,8 @@ function getAll(){
 }
 
 function getUserSales(){
-    $userCi = $_POST['userCi'];
 
-    $query = (new saleDAO())->getUserSales($userCi);
+    $query = (new saleDAO())->getUserSales();
     echo json_encode($query);
 }
 
@@ -66,6 +68,14 @@ function updateStatus(){
     $saleStatus = $_POST['saleStatus'];
 
     $query = (new saleDAO())->updateStatus($saleId, $saleStatus);
+    echo json_encode($query);
+}
+
+function addTrackingNumber(){
+    $saleId = $_POST['saleId'];
+    $trackingNumber = $_POST['trackingNumber'];
+
+    $query = (new saleDAO())->addTrackingNumber($saleId, $trackingNumber);
     echo json_encode($query);
 }
 

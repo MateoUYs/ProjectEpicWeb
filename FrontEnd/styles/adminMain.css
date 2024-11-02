@@ -1,8 +1,3 @@
-.subTitle {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 25px;
-  color: #333;
-}
 
 .content {
   background-color: rgba(255, 255, 255, 0.829);
@@ -13,7 +8,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* gap: 60px; */
   margin-bottom: 5%;
 }
 
@@ -59,24 +53,13 @@ main {
   margin-bottom: 2%;
 }
 
-.title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 36px;
-  margin: 0;
-  color: #333;
-  display: flex;
-  align-items: center;
-  position: relative;
-  left: 2%;
-}
-
-.addBtn {
+.topContainer {
   display: flex;
   width: 100%;
   justify-content: space-between;
 }
 
-.addBtn img {
+.topContainer img {
   width: 100%;
   height: 100%;
 }

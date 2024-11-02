@@ -1,11 +1,10 @@
 import CarritoDAo from "../../../dao/carritoDao.js";
 import ProductDAO from "../../../dao/productDao.js";
 
-let estadoCarrito = "carritoOculto";
 let productDetail;
 
 window.onload = async () => {
-    let cartProduct  =  new CarritoDAo().obtenerCarrito();
+    let cartProduct = new CarritoDAo().obtenerCarrito();
     showCart(cartProduct);
     let id = new URLSearchParams(window.location.search).get("id");
     let product = await getProductById(id);
@@ -13,28 +12,29 @@ window.onload = async () => {
 
     addEventShowCart();
     addEventaddProductCart();
-   
 
-        showProduct(product);
- //   showImageProduct(product);
+
+    showProduct(product);
+    //   showImageProduct(product);
 
 
     console.log(id);
 
 }
 
-function addEventaddProductCart(){
+function addEventaddProductCart() {
     let btnAddProductCart = document.querySelector("#btnAddProductCart");
     btnAddProductCart.onclick = () => {
         let quantity = document.querySelector("#inputCantidad").value;
         let talle = document.querySelector("#talle").value;
-        let productCart ={
+        let productCart = {
             productId: productDetail.productId,
             quantity: parseInt(quantity),
-            name:  productDetail.name,
+            name: productDetail.name,
             size: talle,
             price: productDetail.price,
-            discount:0
+            discount: 0,
+            extension: productDetail.extension
         }
         new CarritoDAo().agregarProductoCarrito(productCart);
         showCart(new CarritoDAo().obtenerCarrito());
@@ -43,14 +43,14 @@ function addEventaddProductCart(){
 
 }
 
-function addEventShowCart(){
+function addEventShowCart() {
     let btnCart = document.querySelector("#showCart");
     let cart = document.querySelector("#cartModal");
     btnCart.onclick = () => {
-        if(cart.classList.contains("modalEnable")){
+        if (cart.classList.contains("modalEnable")) {
             cart.classList.remove("modalEnable");
             cart.classList.add("modalDisable");
-        }else{
+        } else {
             cart.classList.remove("modalDisable");
             cart.classList.add("modalEnable");
         }
@@ -62,70 +62,80 @@ function addEventShowCart(){
     }
 }
 
-function getCart(){
- return carrito;
-}
-
-function showCart(cartProduct){
+function showCart(cartProduct) {
     let tbodyElement = document.querySelector("#ProductList");
+    let divAlert = document.querySelector("#alertDiv");
+    let pAlertTitle = document.querySelector("#alertTitle");
+    let alertQuestion = document.querySelector("#question");
+    let frmAlert = divAlert.querySelector("form");
     console.log("el carrito es", cartProduct);
     tbodyElement.innerHTML = "";
     cartProduct.forEach(product => {
         let content = document.createElement('div');
-        content.innerHTML = `
-        
-        <div>${product.name}</div>
+        console.log(product.extension);
+        content.innerHTML += `
+        <img src="../../../../BackEnd/imgs/${product.productId}.${product.extension}" class="imgProductCart">
+        <p>${product.name}</p>
+        <p>${product.size}</p>
         `;
+        let divQuantity = document.createElement('div');
+        divQuantity.className = "divQuantity";
         let btnAdd = document.createElement('button');
         btnAdd.innerHTML = "+";
-        btnAdd.onclick = () => aumentarCantidad(product.productId,product.talle);
-        content.appendChild(btnAdd);
-        let quantity = document.createElement('div');
+        btnAdd.onclick = () => aumentarCantidad(product.productId, product.talle);
+        divQuantity.appendChild(btnAdd);
+        let quantity = document.createElement('p');
         quantity.innerHTML = product.quantity;
-        content.appendChild(quantity);
+        divQuantity.appendChild(quantity);
         let btnSubstract = document.createElement('button');
         btnSubstract.innerHTML = "-";
-        btnSubstract.onclick = () => disminuirCantidad(product.productId,product.talle);
-        content.appendChild(btnSubstract);
+        btnSubstract.onclick = () => disminuirCantidad(product.productId, product.talle);
+        divQuantity.appendChild(btnSubstract);
+        content.appendChild(divQuantity);
         tbodyElement.appendChild(content);
+        let btnDelete = document.createElement('img');
+        btnDelete.src = "../../../assets/deleteIcon.png";
+        btnDelete.onclick = () =>{
+            divAlert.classList.add("alertActivated");
+            divAlert.classList.remove("alertDeactivated");
+            pAlertTitle.innerHTML = "Eliminar Producto del carrito";
+            alertQuestion.innerHTML = "¿Estás seguro de que deseas eliminar el producto del carrito?";
+            frmAlert.submit.value = "Eliminar Producto";
+            frmAlert.setAttribute("dataProductId", product.productId);
+        } 
+        content.appendChild(btnDelete);
     });
 
 }
-function aumentarCantidad(id,talle){
-    console.log("aumentar", id);
-    console.log("talle", talle);
-    new CarritoDAo().aumentarCantidadCarrito(id,talle);
+function aumentarCantidad(id, talle) {
+    new CarritoDAo().aumentarCantidadCarrito(id, talle);
     let cart = new CarritoDAo().obtenerCarrito();
     showCart(cart);
 
 }
-function disminuirCantidad(id,talle){
-    console.log("aumentar", id);
-    console.log("talle", talle);
-    new CarritoDAo().disminuirCantidadCarrito(id,talle);
+function disminuirCantidad(id, talle) {
+    new CarritoDAo().disminuirCantidadCarrito(id, talle);
     let cart = new CarritoDAo().obtenerCarrito();
     showCart(cart);
 }
 
 async function getProductById(id) {
     let query = await new ProductDAO().getProductDetails(id);
-    console.log("aa",query);
     let product = query.data;
     return product;
 
 }
 
 function showProduct(product) {
-    console.log("el producto es", product);
     let tbodyElement = document.querySelector("#infoProduct");
     let content = document.createElement('div');
-        content.innerHTML = `
+    content.innerHTML = `
         <div>${product.name}</div>
         <div>${product.description}</div>
         <div>${product.price}</div>
         <div>${product.stock}</div>
             `;
-        tbodyElement.appendChild(content);
+    tbodyElement.appendChild(content);
 
 }
 
@@ -145,4 +155,3 @@ function showProduct(product) {
 
 
 
-    
