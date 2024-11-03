@@ -68,7 +68,10 @@ function showCart(cartProduct) {
     let pAlertTitle = document.querySelector("#alertTitle");
     let alertQuestion = document.querySelector("#question");
     let frmAlert = divAlert.querySelector("form");
+    let pTotalPrice = document.querySelector("#totalPrice");
+    let totalPrice = 0;
     console.log("el carrito es", cartProduct);
+    pTotalPrice.innerHTML = "Precio Total:  ";
     tbodyElement.innerHTML = "";
     cartProduct.forEach(product => {
         let content = document.createElement('div');
@@ -76,7 +79,8 @@ function showCart(cartProduct) {
         content.innerHTML += `
         <img src="../../../../BackEnd/imgs/${product.productId}.${product.extension}" class="imgProductCart">
         <p>${product.name}</p>
-        <p>${product.size}</p>
+        <p>Talle: ${product.size}</p>
+        <p>Precio: ${product.price}</p>
         `;
         let divQuantity = document.createElement('div');
         divQuantity.className = "divQuantity";
@@ -104,8 +108,9 @@ function showCart(cartProduct) {
             frmAlert.setAttribute("dataProductId", product.productId);
         } 
         content.appendChild(btnDelete);
+        totalPrice = totalPrice + product.price * product.quantity;
     });
-
+    pTotalPrice.innerHTML += "$" + totalPrice;
 }
 function aumentarCantidad(id, talle) {
     new CarritoDAo().aumentarCantidadCarrito(id, talle);

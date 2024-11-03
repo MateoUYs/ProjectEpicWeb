@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gestión Producto</title>
+  <title>Gestión Talles</title>
   <link rel="stylesheet" href="../../../styles/body.css" />
   <link rel="stylesheet" href="../../../styles/adminNav.css">
   <link rel="stylesheet" href="../../../styles/consult.css">
@@ -14,16 +14,13 @@
   <link rel="stylesheet" href="../../../styles/adminMain.css">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap"
-    rel="stylesheet" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet" />
   <script type="module" src="gestionarTalle.js"></script>
 </head>
 
 <body>
-  <!-- <img class="hide" src="../../../assets/closeIcon.png"> -->
+  <img class="hide" src="../../../assets/closeIcon.png" id="menuBtn">
   <div class="activatedDiv"></div>
   <nav class="activatedNav">
     <button type="button" class="pageLogo" id="homeBtn">
@@ -33,9 +30,9 @@
       <a href="../../Usuarios/indexAdmin/indexAdmin.html" id="startBtn">Inicio</a>
       <a href="../../Productos/gestionarProducto/gestionarProducto.html">Productos</a>
       <a href="../../Stock/gestionarStock/gestionarStock.html">Stock</a>
-      <a href="gestionarTalle.html">Talles</a>
+      <a href="../../Talle/gestionarTalle/gestionarTalle.html">Talles</a>
       <a href="../../Ofertas/gestionarOfertas/gestionarOfertas.html">Ofertas</a>
-      <a href="../../Compras/gestionarCompras/gestionarCompras.html">Compras</a>
+      <a href="../../Ventas/gestionarVentas/gestionarVentas.html">Ventas</a>
       <a href="../../Estadisticas/verEstadisticas/verEstadisticas.html">Ver Estadísticas</a>
     </div>
     <div class="actions">
@@ -69,7 +66,7 @@
   </div>
   <main>
     <div class="content">
-      <div class="addBtn">
+      <div class="topContainer">
         <p class="title">Talles:</p>
         <button id="addBtn">
           <img src="../../../assets/addIcon.png">

@@ -43,17 +43,8 @@ async function showSales(sales) {
         `;
         let td = document.createElement("td");
         let div = document.createElement("div");
-        let btn = document.createElement("button");
         td.appendChild(div);
-        div.appendChild(btn);
         tr.appendChild(td);
-
-
-        btn.className = "btnTd";
-        btn.innerHTML = `<img class="modifyImg" src="../../../assets/modifyIcon.png">`;
-        btn.onclick = () => {
-            loadInputs(product);
-        }
 
         let btn2 = document.createElement("button");
         btn2.innerHTML = `<img src="../../../assets/view.png">`;
@@ -206,3 +197,29 @@ async function showSales(sales) {
 //         searchProducts(filter);
 //     }
 // }
+
+function loadInputs(sale) {
+    let divFrm = document.querySelector("#saleFrm");
+    let frmSale = divFrm.querySelector("form");
+    let body = document.querySelector("body");
+    divFrm.classList.remove("frmDeactivated");
+    divFrm.classList.add("frmActivated");
+    body.classList.add("modalOpen");
+
+    frmSale.saleId.value = sale.saleId;
+    frmSale.paymentMethod.value = sale.paymentMethod;
+    Array.from(frmSale.paymentStatus.options).forEach((option, index) => {
+        if (option.text == sale.paymentStatus) {
+            frmSale.paymentStatus.selectedIndex = index;
+        }
+    });
+    Array.from(frmSale.saleStatus.options).forEach((option, index) => {
+        if (option.text == sale.paymentStatus) {
+            frmSale.saleStatus.selectedIndex = index;
+        }
+    });
+    frmSale.shippingMethod.value = sale.shippingMethod;
+    frmSale.shippingAddress.value = sale.shippingAddress;
+    frmSale.userName.value = sale.userName;
+    frmSale.saleDate.value = sale.saleDate;
+}

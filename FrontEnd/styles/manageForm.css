@@ -1,176 +1,194 @@
 .frmDeactivated {
-    display: none !important;
-    opacity: 0;
-  }
-  
-  .frmActivated {
-    display: flex !important;
-    opacity: 1;
-  }
-  
-  .containerFrm {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-color: #0000008a;
-    z-index: 1;
-    top: 0;
-    transition: all .4s;
-  }
-  
-  .containerFrm form {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    width: 50%;
-    height: max-content;
-    padding: 1%;
-    justify-content: center;
-    align-items: center;
-    gap: 2%;
-    border-radius: 5%;
-  }
+  display: none !important;
+  opacity: 0;
+}
 
-  .formInput {
-    margin-bottom: 10px;
-    width: 75%;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box;
-  }
-  
-  .formInput:focus {
-    border-color: #333;
-    outline: none;
-  }
-  
-  .formBtn {
-    margin-bottom: 10px;
-    width: 75%;
-    padding: 15px;
-    border: white 1px solid;
-    border-radius: 5px;
-    background-color: #4CAF50;
-    color: white;
-    font-size: 18px;
-    font-family: 'Kanit', sans-serif;
-    cursor: pointer;
-    transition: 0.3s ease;
-  }
-  
-  .formBtn:hover {
-    background-color: white;
-    color: #4CAF50;
-    border: #4CAF50 1px solid;
-  }
-  
-  #imagenInput{
-   display: none;
-  }
-  
-  #imgPreview{
-    width: 150px;
-    height: 150px;
-    margin-bottom: 10px;
-  }
-  
-  .formFile {
-    margin-bottom: 10px;
-    width: 72%;
-    padding: 15px;
-    border: white 1px solid;
-    border-radius: 5px;
-    background-color: #4CAF50;
-    color: white;
-    font-size: 18px;
-    font-family: 'Kanit', sans-serif;
-    cursor: pointer;
-    transition: 0.3s ease;
-  }
-  
-  .formFile:hover {
-    background-color: white;
-    color: #4CAF50;
-    border: #4CAF50 1px solid;
-  }
+.frmActivated {
+  display: flex !important;
+  opacity: 1;
+}
 
-  .cancelBtn {
-    display: flex;
-    margin-bottom: 10px;
-    width: 75%;
-    padding: 15px;
-    justify-content: center;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    background-color: #f81b0b;
-    color: white;
-    border: #f81b0b 1px solid;
-    font-size: 18px;
-    font-family: 'Kanit', sans-serif;
-    cursor: pointer;
-    transition: 0.3s ease;
-  }
-  
-  .cancelBtn:hover{
-    background-color: white;
-    color: #f81b0b;
-  }
-  
-  .formColor{
-    width: 75%;
-    height: 45px;
-    border: 1px solid #ccc;
-    background-color: white;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
+.containerFrm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #0000008a;
+  z-index: 1;
+  top: 0;
+  transition: all .4s;
+}
 
-  #inputSize{
-    width: 75%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-items: center;
-    margin-bottom: 10px;
-  }
+.containerFrm form {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 50%;
+  height: max-content;
+  padding: 1%;
+  justify-content: center;
+  align-items: center;
+  gap: 2%;
+  border-radius: 5%;
+}
 
-  .check{
-    width: 75%;
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    gap: 5%;
-    margin-bottom: 1%;
-  }
+.containerFrm>form>label {
+  display: block;
+  text-align: left;
+  width: 75%;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  color: #505050;;
+}
 
-  .inputCheck{
-    width: 20%;
-    cursor: pointer;
-  }
+.formInput {
+  margin-bottom: 10px;
+  width: 75%;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
 
-  .checkText{
-    width: 70%;
-    font-size: 16px;
-  }
+.formInput:focus {
+  border-color: #333;
+  outline: none;
+}
 
-  #message{
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 15px;
-  }
+.formBtn {
+  margin-bottom: 10px;
+  width: 75%;
+  padding: 15px;
+  border: white 1px solid;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 18px;
+  font-family: 'Kanit', sans-serif;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
 
-  .confirmation{
-    color: #4CAF50;
-  }
-  
-  .error{
-    color: #f81b0b;
-  }
-  
+.formBtn:hover {
+  background-color: white;
+  color: #4CAF50;
+  border: #4CAF50 1px solid;
+}
+
+#imagenInput {
+  display: none;
+}
+
+#imgPreview {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 10px;
+}
+
+.formFile {
+  margin-bottom: 10px;
+  width: 72%;
+  padding: 15px;
+  border: white 1px solid;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 18px;
+  font-family: 'Kanit', sans-serif;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.formFile:hover {
+  background-color: white;
+  color: #4CAF50;
+  border: #4CAF50 1px solid;
+}
+
+.cancelBtn {
+  display: flex;
+  margin-bottom: 10px;
+  width: 75%;
+  padding: 15px;
+  justify-content: center;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  background-color: #f81b0b;
+  color: white;
+  border: #f81b0b 1px solid;
+  font-size: 18px;
+  font-family: 'Kanit', sans-serif;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.cancelBtn:hover {
+  background-color: white;
+  color: #f81b0b;
+}
+
+.formColor {
+  width: 75%;
+  height: 45px;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+#inputSize {
+  width: 75%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.check {
+  width: 75%;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  gap: 5%;
+  margin-bottom: 1%;
+}
+
+.inputCheck {
+  width: 20%;
+  cursor: pointer;
+}
+
+.checkText {
+  width: 70%;
+  font-size: 16px;
+}
+
+#message {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 15px;
+}
+
+.confirmation {
+  color: #4CAF50;
+}
+
+.error {
+  color: #f81b0b;
+}
+
+.formSelect {
+  margin-bottom: 10px;
+  width: 75%;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}

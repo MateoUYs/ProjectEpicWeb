@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gestión Compras</title>
-  <link rel="stylesheet" href="gestionarCompras.css" />
+  <link rel="stylesheet" href="gestionarVentas.css" />
   <link rel="stylesheet" href="../../../styles/body.css">
   <link rel="stylesheet" href="../../../styles/table.css">
   <link rel="stylesheet" href="../../../styles/adminNav.css">
@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet" />
-  <script type="module" src="gestionarCompras.js"></script>
+  <script type="module" src="gestionarVentas.js"></script>
 </head>
 <body>
   <img class="hide" src="../../../assets/closeIcon.png" id="menuBtn">
@@ -32,7 +32,7 @@
       <a href="../../Stock/gestionarStock/gestionarStock.html">Stock</a>
       <a href="../../Talle/gestionarTalle/gestionarTalle.html">Talles</a>
       <a href="../../Ofertas/gestionarOfertas/gestionarOfertas.html">Ofertas</a>
-      <a href="../../Compras/gestionarCompras/gestionarCompras.html">Compras</a>
+      <a href="../../Ventas/gestionarVentas/gestionarVentas.html">Ventas</a>
       <a href="../../Estadisticas/verEstadisticas/verEstadisticas.html">Ver Estadísticas</a>
     </div>
     <div class="actions">
@@ -54,30 +54,45 @@
       </div>
     </form>
   </div>
-  <div id="productFrm" class="containerFrm frmDeactivated">
+  <div id="saleFrm" class="containerFrm frmDeactivated">
     <form action="">
-      <p class="subTitle" id="title"></p>
-      <input type="text" name="name" placeholder="Nombre del Producto" class="formInput" required>
-      <input type="text" name="description" placeholder="Descripción del Producto" class="formInput" required />
-      <input type="text" name="price" placeholder="Precio" class="formInput" required>
-      <input type="color" name="color" placeholder="Color" class="formColor" required />
-      <div id="inputSize">
-      </div>
-      <label for="imagenInput" class="formFile">Seleccionar Imágen: </label>
-      <input type="file" name="image" id="imagenInput" class="form-file">
-      <img src="../../../assets/noImage.png" id="imgPreview" alt="">
+      <p class="subTitle" id="title">Detalles de la Venta:</p>
+      <label for="saleId">Sale Id:</label>
+      <input type="text" name="saleId" class="formInput" readonly>
+      <label for="paymentMethod">Método de Pago:</label>
+      <input type="text" name="paymentMethod" class="formInput" readonly>
+      <label for="paymentStatus">Estado del Pago:</label>
+      <select name="paymentStatus" class="formSelect">
+        <option value="Pago">Pago</option>
+        <option value="Pago Pendiente">Pago Pendiente</option>
+      </select>
+      <label for="saleStatus">Estado de la Venta:</label>
+      <select name="saleStatus" class="formSelect">
+        <option value="En espera en el local">En espera en el local</option>
+        <option value="En espera de despachar el envío">En espera de despachar el envío</option>
+        <option value="Entregado">Entregado</option>
+      </select>
+      <label for="shippingMethod">Método de Envío:</label>
+      <input type="text" name="shippingMethod" class="formInput" readonly>
+      <label for="shippingAddress">Dirección:</label>
+      <input type="text" name="shippingAddress" class="formInput" readonly>
+      <label for="userName">Nombre De Usuario:</label>
+      <input type="text" name="userName" class="formInput" readonly>
+      <label for="saleDate">Fecha de Venta:</label>
+      <input type="text" name="saleDate" class="formInput" readonly>
+      <div class="ProductList" id="ProductList"></div>
       <p id="message" class="confirmation"></p>
-      <input type="submit" class="formBtn" id="btn" name="submit" value=""></input>
+      <input type="submit" class="formBtn" id="btn" name="submit" value="Actualizar Detalles de la Venta"></input>
       <input type="button" class="cancelBtn" id="cancelBtn" name="cancel" value="Cancelar"></input>
     </form>
   </div>
   <main>
     <div class="content">
       <div class="topContainer">
-        <p class="title">Compras:</p>
+        <p class="title" id="salesTitle">Ventas:</p>
       </div>
       <div class="inputSearchContainer">
-        <input type="text" class="searchInput" name="search" id="searchInput" placeholder="Buscar Compras">
+        <input type="text" class="searchInput" name="search" id="searchInput" placeholder="Buscar Ventas">
         <img src="../../../assets/searchIcon.png">
       </div>
       

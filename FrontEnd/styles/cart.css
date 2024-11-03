@@ -1,67 +1,123 @@
-.cartModal{
-    width: 30rem;
-    height: 30rem;
-    position: absolute;
-    z-index: 10;
-    background-color: white;
-    transition: all .3s;
-    right: 0;
-    top: 115px;
-    transform-origin: top right;
-  }
-  
-  .ProductList{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-  }
-  
-  .ProductList > div{
-    display: flex;
-    width: 100%;
-    height: 3rem;
-    border-bottom: 1px solid black;
-    justify-content: space-between;
-  }
-  
-  .ProductList > div > p{
-    margin: 0;
-    padding-top: 0.5rem;
-  }
+.cartModal {
+  width: 30rem;
+  height: 30rem;
+  position: absolute;
+  z-index: 10;
+  background-color: #ffffff;
+  transition: all .3s;
+  right: 0;
+  top: 115px;
+  transform-origin: top right;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 1%;
+}
 
-  .modalEnable{
-    transform: scale(1);
-  }
-  
-  .modalDisable{
-    transform: scale(0);
-  }
+.ProductList {
+  display: flex;
+  flex-direction: column;
+  width: 99%;
+  height: 90%;
+  overflow-y: auto;
+}
 
-  .imgProductCart{
-    height: 100%;
-  }
+.ProductList>div {
+  display: flex;
+  width: 95%;
+  height: 3rem;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  justify-content: space-between;
+  margin-bottom: 1%;
+}
 
-  .divQuantity{
-    display: flex;
-    height: 80%;
-    border: 1px solid black;
-    border-radius: 2%;
-    justify-content: space-evenly;
-    width: 12%;
-  }
+.ProductList>div>p {
+  margin: 0;
+  padding-top: 0.5rem;
+}
 
-  .divQuantity button{
-    height: 80%;
-    margin-top: 3px;
-    background-color: rgba(255, 255, 255, 0);
-    border: 1px solid black;
-    border-radius: 2%;
-    width: 25%;
-  }
+.modalEnable {
+  transform: scale(1);
+}
 
-  .divQuantity p{
-    margin: 0;
-    padding-top: 0.5rem;
-  }
+.modalDisable {
+  transform: scale(0);
+}
+
+.imgProductCart {
+  height: 100%;
+}
+
+.divQuantity {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  width: 15%;
+  max-width: 12rem;
+}
+
+.divQuantity button {
+  width: 25%;
+  height: 2.5rem;
+  border: none;
+  background-color: #ffffff;
+  color: #333;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 0;
+}
+
+.divQuantity button:hover {
+  color: #585858;
+}
+
+
+.divQuantity p {
+  margin: 0;
+  width: 50%;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.ProductList>div>img {
+  width: 10%;
+  height: 90%;
+  margin-top: 0.5%;
+  margin-left: 0.5%;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  height: 10%;
+}
+
+.price {
+  margin: 0;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+#confirmarCompra {
+  margin-bottom: 10px;
+  width: 40%;
+  border: white 1px solid;
+  border-radius: 5px;
+  background-color: #000000;
+  color: white;
+  font-size: 18px;
+  font-family: 'Kanit', sans-serif;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#confirmarCompra:hover {
+  background-color: white;
+  color: #000000;
+  border: #000000 1px solid;
+}

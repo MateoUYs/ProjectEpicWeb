@@ -156,13 +156,6 @@
   }
 }
 
-.container {
-  background-color: rgba(0, 0, 0, 0.486);
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-}
-
 .productoContainer {
   width: 100%;
   max-width: 1200px;

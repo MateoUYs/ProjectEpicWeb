@@ -71,6 +71,10 @@ main {
   position: relative;
 }
 
+#salesTitle{
+  margin-top: 1%;
+}
+
 .searchInput {
   margin-bottom: 10px;
   width: 75%;
