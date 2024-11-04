@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gestión Compras</title>
+  <title>Gestión Ventas</title>
   <link rel="stylesheet" href="gestionarVentas.css" />
   <link rel="stylesheet" href="../../../styles/body.css">
   <link rel="stylesheet" href="../../../styles/table.css">
@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="../../../styles/consult.css">
   <link rel="stylesheet" href="../../../styles/alertFrm.css">
   <link rel="stylesheet" href="../../../styles/manageForm.css">
+  <link rel="stylesheet" href="../../../styles/productView.css">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
@@ -57,28 +58,21 @@
   <div id="saleFrm" class="containerFrm frmDeactivated">
     <form action="">
       <p class="subTitle" id="title">Detalles de la Venta:</p>
-      <label for="saleId">Sale Id:</label>
       <input type="text" name="saleId" class="formInput" readonly>
-      <label for="paymentMethod">Método de Pago:</label>
       <input type="text" name="paymentMethod" class="formInput" readonly>
-      <label for="paymentStatus">Estado del Pago:</label>
       <select name="paymentStatus" class="formSelect">
         <option value="Pago">Pago</option>
         <option value="Pago Pendiente">Pago Pendiente</option>
       </select>
-      <label for="saleStatus">Estado de la Venta:</label>
       <select name="saleStatus" class="formSelect">
         <option value="En espera en el local">En espera en el local</option>
         <option value="En espera de despachar el envío">En espera de despachar el envío</option>
         <option value="Entregado">Entregado</option>
       </select>
-      <label for="shippingMethod">Método de Envío:</label>
       <input type="text" name="shippingMethod" class="formInput" readonly>
-      <label for="shippingAddress">Dirección:</label>
       <input type="text" name="shippingAddress" class="formInput" readonly>
-      <label for="userName">Nombre De Usuario:</label>
+      <input type="text" name="trackingNumber" class="formInput">
       <input type="text" name="userName" class="formInput" readonly>
-      <label for="saleDate">Fecha de Venta:</label>
       <input type="text" name="saleDate" class="formInput" readonly>
       <div class="ProductList" id="ProductList"></div>
       <p id="message" class="confirmation"></p>
@@ -105,6 +99,7 @@
             <th>Estado Venta</th>
             <th>Método de Envío</th>
             <th>Dirección</th>
+            <th>Número de Rastreo</th>
             <th>Nombre de Usuario</th>
             <th>Fecha de Venta</th>
             <th>Acciones</th>

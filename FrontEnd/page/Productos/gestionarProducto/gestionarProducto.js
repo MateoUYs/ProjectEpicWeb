@@ -29,6 +29,8 @@ async function showProducts(products) {
     let pAlertTitle = document.querySelector("#alertTitle");
     let alertQuestion = document.querySelector("#question");
     let frmAlert = divAlert.querySelector("form");
+    let body = document.querySelector("body");
+
     tbodyElement.innerHTML = "";
     products.forEach((product) => {
         let tr = document.createElement("tr");
@@ -71,6 +73,7 @@ async function showProducts(products) {
         btn2.onclick = () => {
             divAlert.classList.add("alertActivated");
             divAlert.classList.remove("alertDeactivated");
+            body.classList.add("modalOpen");
             pAlertTitle.innerHTML = "Eliminar Producto";
             alertQuestion.innerHTML = "¿Estás seguro de que deseas eliminar el producto? Si eliminas el producto, no se podrá deshacer los cambios";
             frmAlert.submit.value = "Eliminar Producto";
@@ -149,6 +152,7 @@ function addEvents() {
     btnLogOut.onclick = () => {
         divAlert.classList.add("alertActivated");
         divAlert.classList.remove("alertDeactivated");
+        body.classList.add("modalOpen");
         pAlertTitle.innerHTML = "Cerrar Sesión";
         alertQuestion.innerHTML = "¿Estás seguro de que deseas cerrar sesión? Si cierras sesión, serás redirigido al Inicio de Sesión";
         frmAlert.submit.value = "Cerrar Sesión";
@@ -195,6 +199,7 @@ function addEvents() {
     alertCancel.onclick = () => {
         divAlert.classList.add("alertDeactivated");
         divAlert.classList.remove("alertActivated");
+        body.classList.remove("modalOpen");
         alertQuestion.innerHTML = "";
         pAlertTitle.innerHTML = "";
         frmAlert.submit.value = "";
@@ -280,8 +285,9 @@ function loadInputs(product) {
     let frmProduct = document.querySelector("#productFrm form");
     let imgPreview = document.querySelector("#imgPreview");
     let pTitle = document.querySelector("#title");
+    let body = document.querySelector("body");
 
-
+    body.classList.add("modalOpen");
     divFrm.classList.remove("frmDeactivated");
     divFrm.classList.add("frmActivated");
 

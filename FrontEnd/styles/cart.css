@@ -10,6 +10,7 @@
   transform-origin: top right;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   padding: 1%;
+  border-bottom-left-radius: 2rem;
 }
 
 .ProductList {
@@ -45,6 +46,10 @@
 
 .imgProductCart {
   height: 100%;
+  width: 10%;
+  height: 90%;
+  margin-top: 0.5%;
+  margin-left: 0.5%;
 }
 
 .divQuantity {
@@ -81,13 +86,6 @@
   text-align: center;
   font-size: 1.1rem;
   color: #333;
-}
-
-.ProductList>div>img {
-  width: 10%;
-  height: 90%;
-  margin-top: 0.5%;
-  margin-left: 0.5%;
 }
 
 .details {

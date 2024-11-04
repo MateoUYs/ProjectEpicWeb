@@ -21,11 +21,8 @@ switch ($funcion) {
     case 'getLastSales':
         getLastSales();
         break;
-    case 'updateStatus':
-        updateStatus();
-        break;
-    case 'addTrackingNumber':
-        addTrackingNumber();
+    case 'updateSale':
+        updateSale();
         break;
     default:
         echo json_encode(['error' => 'Función no reconocida']); // Responder con un error si la función no es reconocida
@@ -63,19 +60,18 @@ function getLastSales(){
     echo json_encode($query);
 }
 
-function updateStatus(){
+function updateSale(){
     $saleId = $_POST['saleId'];
+    $isPaid = $_POST['isPaid'];
+    $shippingAddress = $_POST['shippingAddress'];
     $saleStatus = $_POST['saleStatus'];
-
-    $query = (new saleDAO())->updateStatus($saleId, $saleStatus);
-    echo json_encode($query);
-}
-
-function addTrackingNumber(){
-    $saleId = $_POST['saleId'];
+    $paymentMethod = $_POST['paymentMethod'];
+    $shippingMethod = $_POST['shippingMethod'];
+    $saleDate = $_POST['saleDate'];
     $trackingNumber = $_POST['trackingNumber'];
+    $userCi = $_POST['userCi'];
 
-    $query = (new saleDAO())->addTrackingNumber($saleId, $trackingNumber);
+    $query = (new saleDAO())->updateSale($saleId, $isPaid, $shippingAddress, $saleStatus ,$paymentMethod, $shippingMethod, $saleDate, $trackingNumber, $userCi);
     echo json_encode($query);
 }
 

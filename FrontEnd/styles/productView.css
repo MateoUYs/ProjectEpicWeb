@@ -1,0 +1,36 @@
+.ProductList {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    height: max-content;
+    max-height: 40%;
+    overflow-y: auto;
+}
+
+.ProductList>div {
+    display: flex;
+    width: 95%;
+    height: 3rem;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    justify-content: space-between;
+    margin-bottom: 1%;
+}
+
+.ProductList>div>p {
+    margin: 0;
+    padding-top: 0.5rem;
+}
+
+.imgProductCart {
+    height: 100%;
+    width: 10%;
+    height: 90%;
+    margin-top: 0.5%;
+    margin-left: 0.5%;
+}
+
+.quantity {
+    padding-right: 1%;
+}
+

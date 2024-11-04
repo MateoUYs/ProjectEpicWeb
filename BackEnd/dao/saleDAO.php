@@ -37,7 +37,7 @@ class saleDAO
     function getAll()
     {
         $connection = connection();
-        $sql = "SELECT sales.saleId, sales.paymentMethod, sales.shippingMethod, CASE WHEN sales.shippingAddress IS NULL THEN 'No aplica' ELSE sales.shippingAddress END AS shippingAddress, sales.saleStatus, CASE WHEN sales.trackingNumber IS NULL THEN 'No aplica' ELSE sales.trackingNumber END AS trackingNumber, sales.userCi, sales.saleDate, users.userName, CASE WHEN sales.isPaid = 1 THEN 'Pago' WHEN sales.isPaid = 0 THEN 'Pago Pendiente' END AS paymentStatus FROM sales INNER JOIN users ON sales.userCi = users.userCi";
+        $sql = "SELECT users.userCi, sales.saleId, sales.paymentMethod, sales.shippingMethod, CASE WHEN sales.shippingAddress IS NULL THEN 'No aplica' ELSE sales.shippingAddress END AS shippingAddress, sales.saleStatus, CASE WHEN sales.trackingNumber IS NULL THEN 'No aplica' ELSE sales.trackingNumber END AS trackingNumber, sales.userCi, sales.saleDate, users.userName, CASE WHEN sales.isPaid = 1 THEN 'Pago' WHEN sales.isPaid = 0 THEN 'Pago Pendiente' END AS paymentStatus FROM sales INNER JOIN users ON sales.userCi = users.userCi";
         $rersult = $connection->query($sql);
         $sales = $rersult->fetch_all(MYSQLI_ASSOC);
         $productSales = [];
@@ -81,28 +81,17 @@ class saleDAO
         return $query;
     }
 
-    function addTrackingNumber($saleId, $trackingNumber){
-        $sql = "UPDATE `sales` SET `trackingNumber`='$trackingNumber' WHERE `saleId`='$saleId'";
+    function updateSale($saleId, $isPaid, $shippingAddress, $saleStatus ,$paymentMethod, $shippingMethod, $saleDate, $trackingNumber, $userCi){
+        $shippingAddress != null ? "'$shippingAddress'" : null;
+        $trackingNumber != null ? "'$trackingNumber'" : null;
+        $sql = "UPDATE `sales` SET `isPaid`='$isPaid',`paymentMethod`='$paymentMethod',`shippingMethod`='$shippingMethod',`shippingAddress`=$shippingAddress,`saleStatus`='$saleStatus',`trackingNumber`=$trackingNumber,`userCi`='$userCi',`saleDate`='$saleDate' WHERE `saleId`='$saleId'";
+        echo $sql;
         $connection = connection();
         try {
             $connection->query($sql);
             $query = new query(true, "Numero de rastreo agregado correctamente", null);
         } catch (Exception $e) {
             $query = new query(false, "No se pudo agregar el numero de rastreo de venta", null);
-        }
-
-        return $query;
-    }
-
-    function updateStatus($saleId, $saleStatus)
-    {
-        $sql = "UPDATE `sales` SET `saleStatus`='$saleStatus' WHERE `saleId`='$saleId'";
-        $connection = connection();
-        try {
-            $connection->query($sql);
-            $query = new query(true, "Estado de venta actualizado correctamente", null);
-        } catch (Exception $e) {
-            $query = new query(false, "No se pudo actualizar el estado de venta", null);
         }
 
         return $query;

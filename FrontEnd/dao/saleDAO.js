@@ -41,26 +41,18 @@ export default class SaleDAO {
         return query;
     }
 
-   async updateStatus(saleId, saleStatus){
-    let url = origin + "/BackEnd/controller/saleController.php?function=updateStatus";
+   async updateSale(saleId, isPaid, shippingAddress, saleStatus ,paymentMethod, shippingMethod, saleDate, trackingNumber, userCi){
+    let url = origin + "/BackEnd/controller/saleController.php?function=updateSale";
     let formData = new FormData();
     formData.append("saleId", saleId);
+    formData.append("isPaid", isPaid);
+    formData.append("shippingAddress", shippingAddress);
     formData.append("saleStatus", saleStatus);
-    let config = {
-        method: "POST",
-        body: formData
-    }
-
-    let queryResponse = await fetch(url, config);
-    let query = await queryResponse.json();
-    return query;
-   }
-
-   async addTrackingNumber(saleId, trackingNumber){
-    let url = origin + "/BackEnd/controller/saleController.php?function=addTrackingNumber";
-    let formData = new FormData();
-    formData.append("saleId", saleId);
+    formData.append("paymentMethod", paymentMethod);
+    formData.append("shippingMethod", shippingMethod);
+    formData.append("saleDate", saleDate);
     formData.append("trackingNumber", trackingNumber);
+    formData.append("userCi", userCi);
     let config = {
         method: "POST",
         body: formData
@@ -70,6 +62,5 @@ export default class SaleDAO {
     let query = await queryResponse.json();
     return query;
    }
-
 
 }
