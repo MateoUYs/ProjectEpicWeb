@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-11-2024 a las 03:22:36
+-- Tiempo de generación: 04-11-2024 a las 23:50:21
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -223,7 +223,7 @@ CREATE TABLE `saleproduct` (
 --
 
 INSERT INTO `saleproduct` (`saleProductId`, `productId`, `saleId`, `quantity`, `totalPrice`, `size`, `discount`) VALUES
-(1, 1, 1, 2, 2400, 'XXL', 21),
+(1, 1, 1, 3, 2400, 'XXL', 21),
 (2, 2, 1, 1, 100, 'M', 0),
 (3, 3, 2, 3, 450, 'M', 5),
 (4, 4, 2, 1, 75, 'L', 22),
@@ -241,7 +241,6 @@ INSERT INTO `saleproduct` (`saleProductId`, `productId`, `saleId`, `quantity`, `
 (16, 16, 13, 1, 150, 'XL', 0),
 (17, 17, 14, 2, 140, 'M', 0),
 (18, 18, 15, 3, 315, 'L', 0),
-(19, 1, 1, 1, 1200, 'XXL', 21),
 (20, 2, 2, 2, 200, 'M', 0),
 (21, 3, 3, 1, 150, 'M', 5),
 (22, 4, 4, 3, 225, 'L', 22),
@@ -293,7 +292,7 @@ CREATE TABLE `sales` (
   `isPaid` tinyint(1) DEFAULT NULL,
   `paymentMethod` varchar(25) NOT NULL,
   `shippingMethod` varchar(20) NOT NULL,
-  `shippingAddress` varchar(255) NOT NULL,
+  `shippingAddress` varchar(255) DEFAULT NULL,
   `saleStatus` varchar(255) DEFAULT NULL,
   `trackingNumber` varchar(25) DEFAULT NULL,
   `userCi` varchar(255) DEFAULT NULL,
@@ -305,21 +304,21 @@ CREATE TABLE `sales` (
 --
 
 INSERT INTO `sales` (`saleId`, `isPaid`, `paymentMethod`, `shippingMethod`, `shippingAddress`, `saleStatus`, `trackingNumber`, `userCi`, `saleDate`) VALUES
-(1, 1, 'Credit Card', 'Standard', '123 Calle Principal', 'Shipped', 'TRK123456', '23456789', '2024-10-20 00:00:00'),
-(2, 0, 'PayPal', 'Express', '123 Calle Principal', 'Processing', 'TRK123457', '23456789', '2024-10-21 00:00:00'),
-(3, 1, 'Debit Card', 'Standard', '456 Avenida Central', 'Delivered', 'TRK223456', '34567890', '2024-10-22 00:00:00'),
-(4, 1, 'Credit Card', 'Standard', '456 Avenida Central', 'Shipped', 'TRK223457', '34567890', '2024-10-23 00:00:00'),
-(5, 0, 'Cash on Delivery', 'Standard', '789 Calle Secundaria', 'Pending', 'TRK548725', '45678901', '2024-10-24 00:00:00'),
-(6, 1, 'Credit Card', 'Express', '1010 Camino Real', 'Delivered', 'TRK323456', '56789012', '2024-10-25 00:00:00'),
-(7, 1, 'PayPal', 'Standard', '1010 Camino Real', 'Shipped', 'TRK323457', '56789012', '2024-10-26 00:00:00'),
-(8, 0, 'Credit Card', 'Standard', '1010 Camino Real', 'Processing', 'TRK323458', '56789012', '2024-10-27 00:00:00'),
-(9, 1, 'Credit Card', 'Standard', '1111 Calle Nueva', 'Delivered', 'TRK423456', '67890123', '2024-10-28 00:00:00'),
-(10, 0, 'Debit Card', 'Express', '2222 Calle Vieja', 'Shipped', 'TRK523456', '78901234', '2024-10-29 00:00:00'),
-(11, 1, 'Credit Card', 'Standard', '2222 Calle Vieja', 'Processing', 'TRK523457', '78901234', '2024-10-30 00:00:00'),
-(12, 1, 'PayPal', 'Express', '3333 Camino Verde', 'Delivered', 'TRK623456', '89012345', '2024-10-31 00:00:00'),
-(13, 0, 'Debit Card', 'Standard', '4444 Avenida Azul', 'Pending', 'TRK123456', '90123456', '2024-10-31 00:00:00'),
-(14, 1, 'Credit Card', 'Standard', '4444 Avenida Azul', 'Shipped', 'TRK723457', '90123456', '2024-11-01 00:00:00'),
-(15, 1, 'Cash on Delivery', 'Express', '5555 Calle Rojo', 'Delivered', 'TRK823456', '12345678', '2024-11-02 00:00:00');
+(1, 1, 'Tarjeta', 'Retiro', NULL, 'Entregado', NULL, '23456789', '2024-10-20 00:00:00'),
+(2, 0, 'Efectivo', 'Envio', '123 Calle Principal', 'En espera de despachar el envío', 'TRK123457', '23456789', '2024-10-21 00:00:00'),
+(3, 1, 'Tarjeta', 'Retiro', NULL, 'En espera en el local', NULL, '34567890', '2024-10-22 00:00:00'),
+(4, 1, 'Tarjeta', 'Envio', '456 Avenida Central', 'En espera de despachar el envío', 'TRK223457', '34567890', '2024-10-23 00:00:00'),
+(5, 0, 'Efectivo', 'Retiro', NULL, 'En espera en el local', NULL, '45678901', '2024-10-24 00:00:00'),
+(6, 1, 'Tarjeta', 'Envio', '1010 Camino Real', 'Entregado', 'TRK323456', '56789012', '2024-10-25 00:00:00'),
+(7, 1, 'Efectivo', 'Retiro', NULL, 'En espera en el local', NULL, '56789012', '2024-10-26 00:00:00'),
+(8, 0, 'Tarjeta', 'Envio', '1010 Camino Real', 'En espera de despachar el envío', 'TRK323458', '56789012', '2024-10-27 00:00:00'),
+(9, 1, 'Tarjeta', 'Retiro', NULL, 'En espera en el local', NULL, '67890123', '2024-10-28 00:00:00'),
+(10, 0, 'Tarjeta', 'Envio', '2222 Calle Vieja', 'En espera de despachar el envío', 'TRK523456', '78901234', '2024-10-29 00:00:00'),
+(11, 1, 'Tarjeta', 'Envio', '2222 Calle Vieja', 'En espera de despachar el envío', 'TRK523457', '78901234', '2024-10-30 00:00:00'),
+(12, 1, 'Efectivo', 'Envio', '3333 Camino Verde', 'Entregado', 'TRK623456', '89012345', '2024-10-31 00:00:00'),
+(13, 0, 'Tarjeta', 'Envio', '4444 Avenida Azul', 'En espera de despachar el envío', 'TRK123456', '90123456', '2024-10-31 00:00:00'),
+(14, 1, 'Tarjeta', 'Envio', '4444 Avenida Azul', 'En espera de despachar el envío', 'TRK723457', '90123456', '2024-11-01 00:00:00'),
+(15, 1, 'Efectivo', 'Envio', '5555 Calle Rojo', 'Entregado', 'TRK823456', '12345678', '2024-11-02 00:00:00');
 
 -- --------------------------------------------------------
 
