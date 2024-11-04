@@ -10,6 +10,7 @@
   <script type="module" src="indexUsuario.js"></script>
   <link rel="stylesheet" href="indexUsuario.css" />
   <link rel="stylesheet" href="../../../styles/userNav.css">
+  <link rel="stylesheet" href="../../../styles/body.css">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
@@ -20,28 +21,21 @@
 </head>
 
 <body>
-  <div class="topbar">
-    <nav>
-      <div>
-          <div id="panelMenu" class="panelMenuDesactivado">
-            <div class="dentroMenu" id="listaCatalogo">
-              <a href="../iniciarSesion/iniciarSesion.html">Catálogo</a>
-              <a href="#">Ofertas</a>
-              <a href="#">Acerca de</a>
-              <a href="#">Contacto</a>
-            </div> 
-          </div>
-
-
-          <button class="logos" id="menu"><img src="../../../assets/menu.png"></button>
-          <button class="logos" id="cart"><img src="../../../assets/carrito.png"></button>
-          <button class="logos" id="login" href="../iniciarSesion/iniciarSesion.html"><img src="../../../assets/usuario.png"></button>
-          
-          
-          <h2>Top Style</h2>
-          <img class="imgNav" src="../../../assets/logoPageAdmin.png">
+  <div class="navBar">
+    <div class="navLeft">
+      <img src="../../../assets/logoPageAdmin.svg" alt="Not Found">
+      <div>Catalogo</div>
+      <div>Acerca De</div>
+      <div>Contacto</div>
+    </div>
+    <div class="navRight">
+      <div class="carrito">
+        <img src="../../../assets/carrito.svg" alt="Not Found" id="showCart">
       </div>
-
+       <div class="registroUser">Registrarse</div>
+       <div class="inicioSesion">Iniciar Sesion</div>
+    </div>
+  </div>
       <div class="cart">     
         <div id="panelCart" class="panelCartDesactivado">
           <div class="dentroCart" id="listaCart">
@@ -52,7 +46,7 @@
     </div>
     </nav>
   </div>
-
+  <div class="backContrast"></div>
 
   <header>
     <div class="topper">
@@ -90,7 +84,7 @@
         
 
         <div class="box__footer">
-            <h2>Redes Sociales</h2>
+            <!-- <h2>Redes Sociales</h2> -->
             
             <a href="#"> <i class="facebook"><img src="../../../assets/facebook.png"></i></a>
             <a href="#"><i class="twitter"><img src="../../../assets/twitter.png"></i></a>

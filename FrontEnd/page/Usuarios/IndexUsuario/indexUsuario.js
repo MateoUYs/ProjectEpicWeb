@@ -93,7 +93,7 @@ function cerrarCarrito() {
         products.forEach(product => {
             let div = document.createElement('div');
             div.innerHTML = `
-                <img src="../../../../backEnd/imgs/${product.productId}.${product.extension}" data-product-id="${product.productId}"></img>
+                <img src="../../../../backEnd/imgs/${product.productId}.${product.extension}" class="imgProduct" data-product-id="${product.productId}"></img>
             `;
             div.onclick = ()=>{
                 activarVerDetalle(product.productId);
