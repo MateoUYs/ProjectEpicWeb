@@ -5,6 +5,7 @@ import ProductDAO from "../../../dao/productDAO.js";
 let id = null;
 let filter = "";
 let allOfers = [];
+let oldProducts = [];
 let allProducts = [];
 
 window.onload = async () => {
@@ -152,14 +153,13 @@ function addEvents() {
         let endDate = frmOffer.endDate.value;
         let discount = frmOffer.discount.value;
         let products = Array.from(document.querySelectorAll("#products input[type='checkbox']:checked")).map(checkbox => checkbox.value);
-        console.log(products);
 
 
         if (frmOffer.submit.value == "Agregar") {
             add(title, description, startDate, endDate, discount, products);
 
         } else if (frmOffer.submit.value == "Modificar") {
-            modify(offerId, title, description, endDate, startDate, discount, products);
+            modify(offerId, title, description, endDate, startDate, discount, products, oldProducts);
         }
 
     }
@@ -237,13 +237,15 @@ async function add(title, description, startDate, endDate, discount, products) {
             message.classList.remove("error");
             message.classList.add("confirmation");
         }
+        let queryOffers = await new OfferDAO().getOffers();
+        let offers = queryOffers.data;
         message.innerHTML = "Oferta Agregada con éxito";
         setTimeout(async () => {
             divFrm.classList.add("frmDeactivated");
             divFrm.classList.remove("frmActivated");
             frmOffer.reset();
             message.innerHTML = "";
-            showOffers(allOfers);
+            showOffers(offers);
         }, 500);
     } else {
         if (message.classList.contains("confirmation")) {
@@ -254,37 +256,45 @@ async function add(title, description, startDate, endDate, discount, products) {
     }
 }
 
-function loadInputs(product) {
-    let productId = product.productId;
-    let price = product.price;
-    let description = product.description;
-    let image = product.extension;
-    let name = product.name;
-    let color = product.color;
-    let divFrm = document.querySelector("#productFrm");
-    let frmProduct = document.querySelector("#productFrm form");
-    let imgPreview = document.querySelector("#imgPreview");
+function loadInputs(offer) {
+    let divFrm = document.querySelector("#offerFrm");
+    let frmOffer = document.querySelector("#offerFrm form");
     let pTitle = document.querySelector("#title");
     let body = document.querySelector("body");
+    let startDate = offer.startDate.split(" ")[0];
+    let endDate = offer.endDate.split(" ")[0];
 
     body.classList.add("modalOpen");
     divFrm.classList.remove("frmDeactivated");
     divFrm.classList.add("frmActivated");
 
-    pTitle.innerHTML = "Modificando Producto";
-    frmProduct.submit.value = "Modificar";
-    frmProduct.price.value = price;
-    frmProduct.description.value = description;
-    imgPreview.src = `../../../../BackEnd/imgs/${productId}.${image}`;
-    frmProduct.name.value = name;
-    frmProduct.color.value = color;
-    id = productId;
-    console.log(product.size);
-    setProductSize(product.size);
+    pTitle.innerHTML = "Modificando Oferta";
+    frmOffer.submit.value = "Modificar";
+    frmOffer.title.value = offer.title;
+    frmOffer.description.value = offer.description;
+    frmOffer.startDate.value = startDate;
+    frmOffer.endDate.value = endDate;
+    frmOffer.discount.value = offer.discount;
+
+    selectProducts(offer.product);
 }
 
-async function modify(offerId, title, description, endDate, startDate, discount, products) {
-    let query = await new OfferDAO().modifyOffer(offerId, title, description, endDate, startDate, discount, products);
+function selectProducts(products){
+    let productId = products.productId;
+    let checkProducts = document.querySelectorAll("#products input[type='checkbox']");
+    console.log(products);
+    console.log(checkProducts);
+    checkProducts.forEach(check => {
+        if (products.some(p => p.productId == check.value)) {
+            let productId = check.value;
+            oldProducts += {"oldProduct": productId };
+            check.checked = true;
+        }
+    });
+}
+
+async function modify(offerId, title, description, endDate, startDate, discount, products, oldProducts) {
+    let query = await new OfferDAO().modifyOffer(offerId, title, description, endDate, startDate, discount, products, oldProducts);
     let frmOffer = document.querySelector("#offerFrm form");
     let divFrm = document.querySelector("#offerFrm");
     let message = document.querySelector("#message");
@@ -294,13 +304,15 @@ async function modify(offerId, title, description, endDate, startDate, discount,
             message.classList.remove("error");
             message.classList.add("confirmation");
         }
+        let queryOffers = await new OfferDAO().getOffers();
+        let offers = queryOffers.data;
         message.innerHTML = "Oferta Modificada con éxito";
         setTimeout(async () => {
             divFrm.classList.add("frmDeactivated");
             divFrm.classList.remove("frmActivated");
             frmOffer.reset();
             message.innerHTML = "";
-            showOffers(allOfers);
+            showOffers(offers);
         }, 500);
     } else {
         if (message.classList.contains("confirmation")) {
@@ -320,8 +332,10 @@ async function deleteOffer(offerId) {
             confirmationAlert.classList.remove("error");
             confirmationAlert.classList.add("confirmation");
         }
+        let queryOffers = await new OfferDAO().getOffers();
+        let offers = queryOffers.data;
         confirmationAlert.innerHTML = "Oferta Eliminada con éxito";
-        showOffers(allOfers);
+        showOffers(offers);
     } else {
         if (confirmationAlert.classList.contains("confirmation")) {
             confirmationAlert.classList.add("error");

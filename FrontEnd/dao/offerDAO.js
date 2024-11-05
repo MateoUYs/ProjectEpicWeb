@@ -17,16 +17,17 @@ export default class OfferDAO {
         formData.append("endDate", endDate);
         formData.append("startDate", startDate);
         formData.append("discount", discount);
-        formData.append("products", products);
-        console.log(products);
+        products.forEach(product => {
+            formData.append("products[]", product);
+        });
+        
         let config = {
             method: "POST",
             body: formData
         }
 
         let queryResponse = await fetch(url, config);
-        let query = await queryResponse.text();
-        console.log(query);
+        let query = await queryResponse.json();
         return query;
 
     }
@@ -44,7 +45,7 @@ export default class OfferDAO {
         return query;
     }
 
-    async modifyOffer(offerId, title, description, endDate, startDate, discount, products) {
+    async modifyOffer(offerId, title, description, endDate, startDate, discount, products, oldProducts) {
         let url = origin + "/BackEnd/controller/offerController.php?function=modify";
         let formData = new FormData();
         formData.append("offerId", offerId);
@@ -53,7 +54,13 @@ export default class OfferDAO {
         formData.append("endDate", endDate);
         formData.append("startDate", startDate);
         formData.append("discount", discount);
-        formData.append("products", products);
+        products.forEach(product => {
+            formData.append("products[]", product);
+        });
+        console.log(oldProducts);
+        oldProducts.forEach(oldProduct => {
+            formData.append("oldProducts[]", oldProduct);
+        });
         let config = {
             method: "POST",
             body: formData
