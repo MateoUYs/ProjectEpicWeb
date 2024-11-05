@@ -9,6 +9,7 @@ class offerDAO
     // Método para obtener todas las ofertas desde la base de datos
     function add($title, $description, $endDate, $startDate, $discount, $products)
     {
+        error_log(print_r($products,true));
         $sql = "INSERT INTO `offer`(`title`, `description`, `endDate`, `startDate`, `discount`) VALUES ('$title','$description','$endDate','$startDate','$discount')";
         $connection = connection();
         try {

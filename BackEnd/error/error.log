@@ -1,0 +1,2 @@
+[05-Nov-2024 01:22:18 Europe/Berlin] 1,2,3
+[05-Nov-2024 01:22:18 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, string given in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\offerDAO.php on line 18

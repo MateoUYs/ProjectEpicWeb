@@ -8,14 +8,21 @@
   <link rel="stylesheet" href="gestionarOfertas.css" />
   <link rel="stylesheet" href="../../../styles/body.css">
   <link rel="stylesheet" href="../../../styles/table.css">
+  <link rel="stylesheet" href="../../../styles/adminMain.css">
+  <link rel="stylesheet" href="../../../styles/manageForm.css">
+  <link rel="stylesheet" href="../../../styles/alertFrm.css">
   <link rel="stylesheet" href="../../../styles/adminNav.css">
   <link rel="stylesheet" href="../../../styles/consult.css">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+    rel="stylesheet" />
   <script type="module" src="gestionarOfertas.js"></script>
 </head>
+
 <body>
   <img class="hide" src="../../../assets/closeIcon.png" id="menuBtn">
   <div class="activatedDiv" id="navDiv"></div>
@@ -34,58 +41,72 @@
     </div>
     <div class="actions">
       <button type="button" class="inquiry" id="inquiryBtn">
-      <img src="../../../assets/consultaIcon.png">
-      <p id="countConsults" class="empty">0</p>
+        <img src="../../../assets/consultaIcon.png">
+        <p id="countConsults" class="empty">0</p>
       </button>
-    <button type="button" class="logOut" id="btnLogOut"><img src="../../../assets/logOut.png"></button>
+      <button type="button" class="logOut" id="btnLogOut"><img src="../../../assets/logOut.png"></button>
     </div>
   </nav>
-    <main>
-      <div id="listaConsultas" class="desactivado"></div>
-      <section class="gestionarOfertas">
-        <h1>Gestionar Ofertas</h1>
-        <form id="formOferta" class="formOferta">
-          <div class="formGroup">
-        <label for="nombreOferta">Nombre de la Oferta:</label>
-        <input type="text" id="nombreOferta" name="nombreOferta" required>
-          </div>
-          <div class="formGroup">
-        <label for="descripcionOferta">Descripción:</label>
-        <textarea id="descripcionOferta" name="descripcionOferta" required></textarea>
-          </div>
-          <div class="formGroup">
-        <label for="descuentoOferta">Descuento (%):</label>
-        <input type="number" id="descuentoOferta" name="descuentoOferta" min="0" max="100" required>
-          </div>
-          <div class="formGroup">
-        <label for="fechaInicio">Fecha de Inicio:</label>
-        <input type="date" id="fechaInicio" name="fechaInicio" required>
-          </div>
-          <div class="formGroup">
-        <label for="fechaFin">Fecha de Fin:</label>
-        <input type="date" id="fechaFin" name="fechaFin" required>
-          </div>
-          <button type="submit" class="btn">Guardar Oferta</button>
-        </form>
+  <div class="alertFrm alertDeactivated" id="alertDiv">
+    <form action="">
+      <p class="subTitle" id="alertTitle"></p>
+      <label for="" id="question"></label>
+      <p id="confirmationAlert" class="confirmation"></p>
+      <div class="btns">
+        <input type="submit" class="formBtn" id="alertBtn" name="submit" value=""></input>
+        <input type="button" class="cancelBtn" id="btnCancelAlert" name="cancelar" value="Cancelar"></input>
+      </div>
+    </form>
+  </div>
+  <div id="offerFrm" class="containerFrm frmDeactivated">
+    <form action="">
+      <p class="subTitle" id="title"></p>
+      <input type="text" name="title" placeholder="Título de la Oferta" class="formInput" required>
+      <input type="text" name="description" placeholder="Descripción de la oferta" class="formInput" required />
+      <label for="startDate">Fecha de Inicio:</label>
+      <input type="date" name="startDate" class="formInput" required>
+      <label for="endDate">Fecha de Finalización:</label>
+      <input type="date" name="endDate" class="formInput" required>
+      <input type="number" name="discount" placeholder="Descuento de la oferta" class="formInput" required />
+      <label for="products">Selecciona los productos:</label>
+      <div id="products"></div>
+      <p id="message" class="confirmation"></p>
+      <input type="submit" class="formBtn" id="btn" name="submit" value=""></input>
+      <input type="button" class="cancelBtn" id="cancelBtn" name="cancel" value="Cancelar"></input>
+    </form>
+  </div>
+  <main>
+    <div class="content">
+      <div class="topContainer">
+        <p class="title">Ofertas:</p>
+        <button id="addBtn">
+          <img src="../../../assets/addIcon.png">
+        </button>
+      </div>
+      <div class="inputSearchContainer">
+        <input type="text" class="searchInput" name="search" id="searchInput" placeholder="Buscar Oferta">
+        <img src="../../../assets/searchIcon.png">
+      </div>
 
-        <h2>Ofertas Actuales</h2>
-        <table class="tablaOfertas">
-          <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Descripción</th>
-          <th>Descuento</th>
-          <th>Fecha de Inicio</th>
-          <th>Fecha de Fin</th>
-          <th>Acciones</th>
-        </tr>
-          </thead>
-          <tbody id="listaOfertas">
-        <!-- Aquí se cargarán las ofertas dinámicamente -->
-          </tbody>
-        </table>
-      </section>
-    </main>
+      <table>
+        <thead>
+          <tr>
+            <th>ID Oferta</th>
+            <th>Título</th>
+            <th>Descripción</th>
+            <th>Fecha de Inicio</th>
+            <th>Fecha de Finalización</th>
+            <th>Descuento</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="offerData">
+
+        </tbody>
+      </table>
+    </div>
+    <div id="inquiryList" class="deactivated"></div>
+  </main>
 </body>
 
-</html> 
+</html>

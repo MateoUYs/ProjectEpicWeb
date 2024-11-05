@@ -1,4 +1,4 @@
-import origin from "../config/origin";
+import origin from "../config/origin.js";
 
 export default class OfferDAO {
 
@@ -18,13 +18,15 @@ export default class OfferDAO {
         formData.append("startDate", startDate);
         formData.append("discount", discount);
         formData.append("products", products);
+        console.log(products);
         let config = {
             method: "POST",
             body: formData
         }
 
         let queryResponse = await fetch(url, config);
-        let query = await queryResponse.json();
+        let query = await queryResponse.text();
+        console.log(query);
         return query;
 
     }

@@ -41,7 +41,6 @@
   display: block;
   text-align: left;
   width: 75%;
-  font-family: 'Bebas Neue', sans-serif;
   font-size: 1.1rem;
   color: #505050;;
 }
@@ -193,4 +192,10 @@
   border-radius: 5px;
   font-size: 16px;
   box-sizing: border-box;
+}
+
+#products{
+  width: 75%;
+  max-height: 30%;
+  overflow-y: auto;
 }
