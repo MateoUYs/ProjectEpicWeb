@@ -284,16 +284,19 @@ function selectProducts(products){
     let checkProducts = document.querySelectorAll("#products input[type='checkbox']");
     console.log(products);
     console.log(checkProducts);
+    oldProducts = [];
     checkProducts.forEach(check => {
         if (products.some(p => p.productId == check.value)) {
             let productId = check.value;
-            oldProducts += {"oldProduct": productId };
+            oldProducts.push({"oldProduct": productId });
             check.checked = true;
         }
     });
 }
 
-async function modify(offerId, title, description, endDate, startDate, discount, products, oldProducts) {
+async function modify(offerId, title, description, endDate, startDate, discount, products) {
+    console.log("productos", oldProducts);
+    console.log("productos nuevos", products);
     let query = await new OfferDAO().modifyOffer(offerId, title, description, endDate, startDate, discount, products, oldProducts);
     let frmOffer = document.querySelector("#offerFrm form");
     let divFrm = document.querySelector("#offerFrm");
