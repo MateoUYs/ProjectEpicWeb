@@ -87,16 +87,9 @@ class productsDAO
             $connection = connection();
             try {
                 $connection->query($sql);
+                $this->deleteProductSize($productId);
                 foreach ($sizes as $size) {
-                    if ($oldSizes != "") {
-                        foreach ($oldSizes as $oldSize) {
-                            if ($size == $oldSizes) {
-                                $this->updateProductSize($size, $productId, $oldSize);
-                            }
-                        }
-                    }else{
-                        $this->setProductSize($size, $productId);
-                    }
+                    $this->setProductSize($size, $productId);
                 }
                 $query = new query(true, "Producto modificado", null);
             } catch (Exception $e) {
