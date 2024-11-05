@@ -2473,3 +2473,123 @@ Stack trace:
 
 )
 
+[05-Nov-2024 18:26:20 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php:14
+Stack trace:
+#0 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(49): productsDAO->getProducts()
+#1 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(13): getProducts()
+#2 {main}
+  thrown in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php on line 14
+[05-Nov-2024 18:27:19 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php:14
+Stack trace:
+#0 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(49): productsDAO->getProducts()
+#1 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(13): getProducts()
+#2 {main}
+  thrown in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php on line 14
+[05-Nov-2024 18:27:19 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php:14
+Stack trace:
+#0 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(49): productsDAO->getProducts()
+#1 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(13): getProducts()
+#2 {main}
+  thrown in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php on line 14
+[05-Nov-2024 18:27:20 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php:14
+Stack trace:
+#0 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(49): productsDAO->getProducts()
+#1 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(13): getProducts()
+#2 {main}
+  thrown in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php on line 14
+[05-Nov-2024 18:27:20 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php:14
+Stack trace:
+#0 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(49): productsDAO->getProducts()
+#1 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(13): getProducts()
+#2 {main}
+  thrown in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php on line 14
+[05-Nov-2024 18:27:20 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php:14
+Stack trace:
+#0 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(49): productsDAO->getProducts()
+#1 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(13): getProducts()
+#2 {main}
+  thrown in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php on line 14
+[05-Nov-2024 18:27:21 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php:14
+Stack trace:
+#0 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(49): productsDAO->getProducts()
+#1 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(13): getProducts()
+#2 {main}
+  thrown in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php on line 14
+[05-Nov-2024 18:27:21 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php:14
+Stack trace:
+#0 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(49): productsDAO->getProducts()
+#1 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(13): getProducts()
+#2 {main}
+  thrown in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php on line 14
+[05-Nov-2024 18:27:22 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php:14
+Stack trace:
+#0 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(49): productsDAO->getProducts()
+#1 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(13): getProducts()
+#2 {main}
+  thrown in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php on line 14
+[05-Nov-2024 18:27:22 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php:14
+Stack trace:
+#0 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(49): productsDAO->getProducts()
+#1 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(13): getProducts()
+#2 {main}
+  thrown in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php on line 14
+[05-Nov-2024 18:27:22 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php:14
+Stack trace:
+#0 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(49): productsDAO->getProducts()
+#1 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(13): getProducts()
+#2 {main}
+  thrown in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php on line 14
+[05-Nov-2024 18:27:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php:14
+Stack trace:
+#0 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(49): productsDAO->getProducts()
+#1 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(13): getProducts()
+#2 {main}
+  thrown in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php on line 14
+[05-Nov-2024 18:27:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php:14
+Stack trace:
+#0 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(49): productsDAO->getProducts()
+#1 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(13): getProducts()
+#2 {main}
+  thrown in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php on line 14
+[05-Nov-2024 18:27:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php:14
+Stack trace:
+#0 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(49): productsDAO->getProducts()
+#1 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(13): getProducts()
+#2 {main}
+  thrown in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php on line 14
+[05-Nov-2024 18:27:24 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php:14
+Stack trace:
+#0 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(49): productsDAO->getProducts()
+#1 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(13): getProducts()
+#2 {main}
+  thrown in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php on line 14
+[05-Nov-2024 18:27:24 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php:14
+Stack trace:
+#0 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(49): productsDAO->getProducts()
+#1 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(13): getProducts()
+#2 {main}
+  thrown in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php on line 14
+[05-Nov-2024 18:27:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php:14
+Stack trace:
+#0 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(49): productsDAO->getProducts()
+#1 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(13): getProducts()
+#2 {main}
+  thrown in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php on line 14
+[05-Nov-2024 18:27:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php:14
+Stack trace:
+#0 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(49): productsDAO->getProducts()
+#1 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(13): getProducts()
+#2 {main}
+  thrown in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php on line 14
+[05-Nov-2024 18:27:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php:14
+Stack trace:
+#0 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(49): productsDAO->getProducts()
+#1 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(13): getProducts()
+#2 {main}
+  thrown in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php on line 14
+[05-Nov-2024 18:27:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php:14
+Stack trace:
+#0 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(49): productsDAO->getProducts()
+#1 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\productController.php(13): getProducts()
+#2 {main}
+  thrown in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\productDAO.php on line 14

@@ -4,31 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script type="module" src="verProducto.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="verProducto.css" />
+    <link rel="stylesheet" href="../../../styles/userNav.css">
+    <link rel="stylesheet" href="../../../styles/body.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap"
       rel="stylesheet" />
       <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     
 </head>
 <body>
-    <nav> 
-        <ul>
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Catalogo</a>
-              <ul>
-                  <li><a href="#">Hoodies</a></li>
-                  <li><a href="#">Pantalones</a></li>
-                  <li><a href="#">Remeras</a></li>
-                  <li><a href="#">Varios</a></li>
-                  <li><a href="#">Abrigos</a></li>
-              </ul>
-          </li>
-          <li><a href="#">Ofertas</a></li>
-          <li><a href="#">Acerca de</a></li>
-          <li><a href="#">Contacto</a></li>
-      </ul>
-      
-      </nav>
+    <nav>
+        <div class="navBar">
+          <div class="navLeft">
+            <img src="../../../assets/logoPageAdmin.svg" alt="Not Found">
+            <div>Catalogo</div>
+            <div>Acerca De</div>
+            <div>Contacto</div>
+          </div>
+          <div class="navRight">
+            <div class="carrito">
+              <img src="../../../assets/carrito.svg" alt="Not Found" id="showCart">
+            </div>
+             <div class="registroUser">Registrarse</div>
+             <div class="inicioSesion">Iniciar Sesion</div>
+          </div>
+        </div>
+            <div class="cart">     
+              <div id="panelCart" class="panelCartDesactivado">
+                <div class="dentroCart" id="listaCart">
+                 
+                </div> 
+                <button class="form-btn" id="btn">Comprar</button> 
+              </div>
+          </div>
+          </nav>
+        </div>
+        <div class="backContrast"></div>
+
+    <main>
+        <div class="prendas" id="productContainer">
+            
+        </div>
+      </main>
 </body>
 </html>
