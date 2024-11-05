@@ -58,9 +58,8 @@ function modify(){
     $startDate = $_POST['startDate'];
     $discount = $_POST['discount'];
     $products = $_POST['products'];
-    $oldProducts = $_POST['products'];
 
-    $query = (new offerDAO())->modify($offerId, $title, $description, $endDate, $startDate, $discount, $products, $oldProducts);
+    $query = (new offerDAO())->modify($offerId, $title, $description, $endDate, $startDate, $discount, $products);
     echo json_encode($query);
 }
 

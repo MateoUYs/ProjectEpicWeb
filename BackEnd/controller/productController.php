@@ -82,8 +82,8 @@ function modifyProduct()
     $name = $_POST["name"];
     $color = $_POST["color"];
     $sizeType = $_POST["size"];
-    $oldSizes = $_POST["oldSizes"];
-    $result = (new productsDAO())->modifyProducts($productId, $price, $description, $image, $name, $color, $sizeType, $oldSizes);
+
+    $result = (new productsDAO())->modifyProducts($productId, $price, $description, $image, $name, $color, $sizeType);
     echo json_encode($result);
 }
 

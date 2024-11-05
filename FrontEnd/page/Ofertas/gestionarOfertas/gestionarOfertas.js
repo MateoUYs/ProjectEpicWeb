@@ -5,7 +5,6 @@ import ProductDAO from "../../../dao/productDAO.js";
 let id = null;
 let filter = "";
 let allOfers = [];
-let oldProducts = [];
 let allProducts = [];
 
 window.onload = async () => {
@@ -153,13 +152,13 @@ function addEvents() {
         let endDate = frmOffer.endDate.value;
         let discount = frmOffer.discount.value;
         let products = Array.from(document.querySelectorAll("#products input[type='checkbox']:checked")).map(checkbox => checkbox.value);
-
+        console.log(products);
 
         if (frmOffer.submit.value == "Agregar") {
             add(title, description, startDate, endDate, discount, products);
 
         } else if (frmOffer.submit.value == "Modificar") {
-            modify(offerId, title, description, endDate, startDate, discount, products, oldProducts);
+            modify(offerId, title, description, endDate, startDate, discount, products);
         }
 
     }
@@ -280,24 +279,16 @@ function loadInputs(offer) {
 }
 
 function selectProducts(products){
-    let productId = products.productId;
     let checkProducts = document.querySelectorAll("#products input[type='checkbox']");
-    console.log(products);
-    console.log(checkProducts);
-    oldProducts = [];
     checkProducts.forEach(check => {
         if (products.some(p => p.productId == check.value)) {
-            let productId = check.value;
-            oldProducts.push({"oldProduct": productId });
             check.checked = true;
         }
     });
 }
 
 async function modify(offerId, title, description, endDate, startDate, discount, products) {
-    console.log("productos", oldProducts);
-    console.log("productos nuevos", products);
-    let query = await new OfferDAO().modifyOffer(offerId, title, description, endDate, startDate, discount, products, oldProducts);
+    let query = await new OfferDAO().modifyOffer(offerId, title, description, endDate, startDate, discount, products);
     let frmOffer = document.querySelector("#offerFrm form");
     let divFrm = document.querySelector("#offerFrm");
     let message = document.querySelector("#message");

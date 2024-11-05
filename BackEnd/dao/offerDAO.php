@@ -9,7 +9,7 @@ class offerDAO
     // Método para obtener todas las ofertas desde la base de datos
     function add($title, $description, $endDate, $startDate, $discount, $products)
     {
-        error_log(print_r($products,true));
+        error_log(print_r($products, true));
         $sql = "INSERT INTO `offer`(`title`, `description`, `endDate`, `startDate`, `discount`) VALUES ('$title','$description','$endDate','$startDate','$discount')";
         $connection = connection();
         try {
@@ -56,22 +56,15 @@ class offerDAO
         return $query;
     }
 
-    function modify($offerId, $title, $description, $endDate, $startDate, $discount, $products, $oldProducts)
+    function modify($offerId, $title, $description, $endDate, $startDate, $discount, $products)
     {
         $sql = "UPDATE `offer` SET `title`='$title',`description`='$description',`endDate`='$endDate',`startDate`='$startDate',`discount`='$discount' WHERE `offerId`='$offerId' ";
         $connection = connection();
         try {
             $connection->query($sql);
+            $this->deleteProductOffer($offerId);
             foreach ($products as $product) {
-                if ($oldProducts != "") {
-                    foreach ($oldProducts as $oldProduct) {
-                        if ($product == $oldProduct) {
-                            $this->modifyProductOffer($product, $offerId, $oldProduct);
-                        }
-                    }
-                } else {
-                    $this->modifyProductOffer($product, $offerId, $oldProduct);
-                }
+                $this->addProductOffer($offerId, $product);
             }
             $query = new query(true, "Oferta modificada", null);
         } catch (Exception $e) {
@@ -118,17 +111,6 @@ class offerDAO
         return $query;
     }
 
-    function modifyProductOffer($product, $offerId, $oldProduct)
-    {
-        $sql = "UPDATE `productoffer` SET `productId`='$product' WHERE `offerId`='$offerId' AND  `productId`='$oldProduct'";
-        $connection = connection();
-        try {
-            $connection->query($sql);
-            $query = new query(true, "Oferta y productos modificados", null);
-        } catch (Exception $e) {
-            $query = new query(false, "No se pudo modificar la oferta y los productos", null);
-        }
-        return $query;
-    }
+
 }
 ?>

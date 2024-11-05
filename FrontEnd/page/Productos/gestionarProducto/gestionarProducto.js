@@ -3,7 +3,6 @@ import ProductDAO from "../../../dao/productDAO.js";
 import SizeDAO from "../../../dao/sizeDAO.js";
 
 let id = null;
-let oldSizes = [];
 let filter = "";
 let allProducts = [];
 
@@ -357,8 +356,6 @@ async function setProductSize(sizes) {
     let frmProduct = document.querySelector("#productFrm form");
     Array.from(frmProduct.querySelectorAll("input[name='size']")).forEach((input) => {
         if (sizes.some(sp => sp.sizeType == input.value)) {
-            let size = input.value;
-            oldSizes += { "oldSize": size };
             input.checked = true;
         }
     });

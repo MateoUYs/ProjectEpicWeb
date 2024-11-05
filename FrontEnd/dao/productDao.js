@@ -47,7 +47,7 @@ export default class ProductoDao {
     }
 
     // Función para modificar un producto
-    async modifyProduct(productId, price, description, image, name, color, sizes, oldSizes) {
+    async modifyProduct(productId, price, description, image, name, color, sizes) {
         let url = origin + "/BackEnd/controller/productController.php?function=modifyProduct";
         let formData = new FormData();
         formData.append("productId",productId);
@@ -59,13 +59,6 @@ export default class ProductoDao {
         sizes.forEach(size => {
             formData.append("size[]", size);
         });
-        if (oldSizes) {
-            oldSizes.forEach(oldSize => {
-                formData.append("oldSizes[]", oldSize);
-            });
-        } else {
-            formData.append("oldSizes", "");
-        }
 
         let config = {
             method:"POST",
