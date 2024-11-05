@@ -16,10 +16,14 @@
   <link rel="stylesheet" href="../../../styles/productView.css">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+    rel="stylesheet" />
   <script type="module" src="gestionarVentas.js"></script>
 </head>
+
 <body>
   <img class="hide" src="../../../assets/closeIcon.png" id="menuBtn">
   <div class="activatedDiv" id="navDiv"></div>
@@ -38,10 +42,10 @@
     </div>
     <div class="actions">
       <button type="button" class="inquiry" id="inquiryBtn">
-      <img src="../../../assets/consultaIcon.png">
-      <p id="countConsults" class="empty">0</p>
+        <img src="../../../assets/consultaIcon.png">
+        <p id="countConsults" class="empty">0</p>
       </button>
-    <button type="button" class="logOut" id="btnLogOut"><img src="../../../assets/logOut.png"></button>
+      <button type="button" class="logOut" id="btnLogOut"><img src="../../../assets/logOut.png"></button>
     </div>
   </nav>
   <div class="alertFrm alertDeactivated" id="alertDiv">
@@ -57,27 +61,29 @@
   </div>
   <div id="saleFrm" class="containerFrm frmDeactivated">
     <form action="">
-      <p class="subTitle" id="title">Detalles de la Venta:</p>
-      <input type="text" name="saleId" class="formInput" readonly>
-      <input type="text" name="paymentMethod" class="formInput" readonly>
-      <select name="paymentStatus" class="formSelect">
-        <option value="Pago">Pago</option>
-        <option value="Pago Pendiente">Pago Pendiente</option>
-      </select>
-      <select name="saleStatus" class="formSelect">
-        <option value="En espera en el local">En espera en el local</option>
-        <option value="En espera de despachar el envío">En espera de despachar el envío</option>
-        <option value="Entregado">Entregado</option>
-      </select>
-      <input type="text" name="shippingMethod" class="formInput" readonly>
-      <input type="text" name="shippingAddress" class="formInput" readonly>
-      <input type="text" name="trackingNumber" class="formInput">
-      <input type="text" name="userName" class="formInput" readonly>
-      <input type="text" name="saleDate" class="formInput" readonly>
-      <div class="ProductList" id="ProductList"></div>
-      <p id="message" class="confirmation"></p>
-      <input type="submit" class="formBtn" id="btn" name="submit" value="Actualizar Detalles de la Venta"></input>
-      <input type="button" class="cancelBtn" id="cancelBtn" name="cancel" value="Cancelar"></input>
+      <div>
+        <p class="subTitle" id="title">Detalles de la Venta:</p>
+        <input type="text" name="saleId" class="formInput" readonly>
+        <input type="text" name="paymentMethod" class="formInput" readonly>
+        <select name="paymentStatus" class="formSelect">
+          <option value="Pago">Pago</option>
+          <option value="Pago Pendiente">Pago Pendiente</option>
+        </select>
+        <select name="saleStatus" class="formSelect">
+          <option value="En espera en el local">En espera en el local</option>
+          <option value="En espera de despachar el envío">En espera de despachar el envío</option>
+          <option value="Entregado">Entregado</option>
+        </select>
+        <input type="text" name="shippingMethod" class="formInput" readonly>
+        <input type="text" name="shippingAddress" class="formInput" readonly>
+        <input type="text" name="trackingNumber" class="formInput">
+        <input type="text" name="userName" class="formInput" readonly>
+        <input type="text" name="saleDate" class="formInput" readonly>
+        <div class="ProductList" id="ProductList"></div>
+        <p id="message" class="confirmation"></p>
+        <input type="submit" class="formBtn" id="btn" name="submit" value="Actualizar Detalles de la Venta"></input>
+        <input type="button" class="cancelBtn" id="cancelBtn" name="cancel" value="Cancelar"></input>
+      </div>
     </form>
   </div>
   <main>
@@ -89,7 +95,7 @@
         <input type="text" class="searchInput" name="search" id="searchInput" placeholder="Buscar Ventas">
         <img src="../../../assets/searchIcon.png">
       </div>
-      
+
       <table>
         <thead>
           <tr>
@@ -114,4 +120,4 @@
   </main>
 </body>
 
-</html> 
+</html>

@@ -40,13 +40,13 @@
     </div>
     <div class="actions">
       <button type="button" class="inquiry" id="inquiryBtn">
-      <img src="../../../assets/consultaIcon.png">
-      <p id="countConsults" class="empty">0</p>
+        <img src="../../../assets/consultaIcon.png">
+        <p id="countConsults" class="empty">0</p>
       </button>
-    <button type="button" class="logOut" id="btnLogOut"><img src="../../../assets/logOut.png"></button>
+      <button type="button" class="logOut" id="btnLogOut"><img src="../../../assets/logOut.png"></button>
     </div>
   </nav>
-  
+
   <div class="alertFrm alertDeactivated" id="alertDiv">
     <form action="">
       <p class="subTitle" id="alertTitle"></p>
@@ -60,19 +60,21 @@
   </div>
   <div id="productFrm" class="containerFrm frmDeactivated">
     <form action="">
-      <p class="subTitle" id="title"></p>
-      <input type="text" name="name" placeholder="Nombre del Producto" class="formInput" required>
-      <input type="text" name="description" placeholder="Descripción del Producto" class="formInput" required />
-      <input type="text" name="price" placeholder="Precio" class="formInput" required>
-      <input type="color" name="color" placeholder="Color" class="formColor" required />
-      <div id="inputSize">
+      <div>
+        <p class="subTitle" id="title"></p>
+        <input type="text" name="name" placeholder="Nombre del Producto" class="formInput" required>
+        <input type="text" name="description" placeholder="Descripción del Producto" class="formInput" required />
+        <input type="text" name="price" placeholder="Precio" class="formInput" required>
+        <input type="color" name="color" placeholder="Color" class="formColor" required />
+        <div id="inputSize">
+        </div>
+        <label for="imagenInput" class="formFile">Seleccionar Imágen: </label>
+        <input type="file" name="image" id="imagenInput" class="form-file">
+        <img src="../../../assets/noImage.png" id="imgPreview" alt="">
+        <p id="message" class="confirmation"></p>
+        <input type="submit" class="formBtn" id="btn" name="submit" value=""></input>
+        <input type="button" class="cancelBtn" id="cancelBtn" name="cancel" value="Cancelar"></input>
       </div>
-      <label for="imagenInput" class="formFile">Seleccionar Imágen: </label>
-      <input type="file" name="image" id="imagenInput" class="form-file">
-      <img src="../../../assets/noImage.png" id="imgPreview" alt="">
-      <p id="message" class="confirmation"></p>
-      <input type="submit" class="formBtn" id="btn" name="submit" value=""></input>
-      <input type="button" class="cancelBtn" id="cancelBtn" name="cancel" value="Cancelar"></input>
     </form>
   </div>
   <main>
@@ -87,7 +89,7 @@
         <input type="text" class="searchInput" name="search" id="searchInput" placeholder="Buscar Producto">
         <img src="../../../assets/searchIcon.png">
       </div>
-      
+
       <table>
         <thead>
           <tr>
