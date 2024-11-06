@@ -10,20 +10,18 @@ window.onload = async () => {
     let product = await getProductById(id);
     productDetail = product;
 
-    addEventShowCart();
-    addEventaddProductCart();
-
-
+    addEvents();
     showProduct(product);
     //   showImageProduct(product);
-
-
     console.log(id);
-
 }
 
-function addEventaddProductCart() {
+async function addEvents() {
     let btnAddProductCart = document.querySelector("#btnAddProductCart");
+    let btnCart = document.querySelector("#showCart");
+    let cart = document.querySelector("#cartModal");
+    let btnComprar = document.querySelector("#confirmarCompra");
+
     btnAddProductCart.onclick = () => {
         let quantity = document.querySelector("#inputCantidad").value;
         let talle = document.querySelector("#talle").value;
@@ -38,14 +36,9 @@ function addEventaddProductCart() {
         }
         new CarritoDAO().agregarProductoCarrito(productCart);
         showCart(new CarritoDAO().obtenerCarrito());
-
     }
 
-}
 
-function addEventShowCart() {
-    let btnCart = document.querySelector("#showCart");
-    let cart = document.querySelector("#cartModal");
     btnCart.onclick = () => {
         if (cart.classList.contains("modalEnable")) {
             cart.classList.remove("modalEnable");
@@ -56,7 +49,7 @@ function addEventShowCart() {
         }
     }
 
-    let btnComprar = document.querySelector("#confirmarCompra");
+    
     btnComprar.onclick = () => {
         window.location.href = "../../Carrito/confirmarCompra/confirmarCompra.html";
     }
@@ -70,7 +63,6 @@ function showCart(cartProduct) {
     let frmAlert = divAlert.querySelector("form");
     let pTotalPrice = document.querySelector("#totalPrice");
     let totalPrice = 0;
-    console.log("el carrito es", cartProduct);
     pTotalPrice.innerHTML = "Precio Total:  ";
     tbodyElement.innerHTML = "";
     cartProduct.forEach(product => {
@@ -99,14 +91,14 @@ function showCart(cartProduct) {
         tbodyElement.appendChild(content);
         let btnDelete = document.createElement('img');
         btnDelete.src = "../../../assets/deleteIcon.png";
-        btnDelete.onclick = () =>{
+        btnDelete.onclick = () => {
             divAlert.classList.add("alertActivated");
             divAlert.classList.remove("alertDeactivated");
             pAlertTitle.innerHTML = "Eliminar Producto del carrito";
             alertQuestion.innerHTML = "¿Estás seguro de que deseas eliminar el producto del carrito?";
             frmAlert.submit.value = "Eliminar Producto";
             frmAlert.setAttribute("dataProductId", product.productId);
-        } 
+        }
         content.appendChild(btnDelete);
         totalPrice = totalPrice + product.price * product.quantity;
     });

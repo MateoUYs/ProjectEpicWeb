@@ -8,6 +8,7 @@
   box-shadow: -1px 5px 5px 0px rgba(143, 142, 142, 0.7);
   -webkit-box-shadow: -1px 5px 5px 0px rgba(143, 142, 142, 0.7);
   -moz-box-shadow: -1px 5px 5px 0px rgba(143, 142, 142, 0.7);
+  height: 7.2rem;
 }
 
 .navLeft img {
@@ -30,14 +31,21 @@
 
 
 
-.navLeft, 
+.navLeft,
 .navRight {
   display: flex;
   align-items: center;
+  height: 100%;
+  width: 40%;
 }
 
-.navLeft > *, 
-.navRight > * {
+.navRight {
+  display: flex;
+  justify-content: end;
+  gap: 5%;
+}
+
+.navLeft>* {
   margin: 10px;
 }
 
@@ -48,16 +56,17 @@
 }
 
 .carrito img {
-  width: 40px;
+  width: 25%;
   margin-right: 10px;
 }
 
-.registroUser, 
+.registroUser,
 .inicioSesion {
   font-weight: 500;
   border: 1px solid #000;
   border-radius: 40px;
   padding: 5px 20px;
+  display: none;
 }
 
 .registroUser {
@@ -74,4 +83,25 @@
 .inicioSesion:hover {
   background-color: rgba(0, 0, 0, 0.06);
   transition: .3s;
+}
+
+.userLogged {
+  display: block !important;
+}
+
+.userUnlogged {
+  display: block !important;
+}
+
+.userBtn {
+  width: 8%;
+  height: 60%;
+  margin-right: 2%;
+  display: none;
+}
+
+.cartBtn {
+  width: 7%;
+  height: 100%;
+  margin-right: 2%;
 }

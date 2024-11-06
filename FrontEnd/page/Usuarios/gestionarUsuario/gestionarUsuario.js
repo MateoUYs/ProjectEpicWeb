@@ -10,10 +10,10 @@ async function loadData() {
     let formElement = document.querySelector("#frmUserSettings");
     let query = await new SessionDAO().getSession();
 
-    if (query.estado) {
-        formElement.email.value = query.datos.email;
-        formElement.username.value = query.datos.usuario;
-        formElement.phoneNumber.value = query.datos.phone;
+    if (query.status) {
+        formElement.email.value = query.data.email;
+        formElement.username.value = query.data.usuario;
+        formElement.phoneNumber.value = query.data.phone;
     } else {
         window.location.href = "../iniciarSesion/iniciarSesion.html";
     }
@@ -28,7 +28,7 @@ function addEvents() {
         e.preventDefault();
         let query = await new SessionDAO().getSession();
 
-        let ci = query.datos.ci;
+        let ci = query.data.ci;
         let email = formElement.email.value;
         let username = formElement.username.value;
         let password = formElement.password.value;
