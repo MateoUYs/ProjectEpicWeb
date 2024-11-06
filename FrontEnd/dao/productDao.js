@@ -1,7 +1,7 @@
 import origin from '../config/origin.js';
 
 
-export default class ProductoDao {
+export default class ProductoDAO {
     async getProducts() {
         let url = origin + "/BackEnd/controller/productController.php?function=getProducts";
         let queryResponse = await fetch(url);

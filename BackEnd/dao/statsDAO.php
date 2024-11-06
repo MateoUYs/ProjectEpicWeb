@@ -9,7 +9,7 @@ class statsDAO
 
     function getBestSellings(){
         $connection = connection();
-        $sql = "SELECT * FROM productsalesquantity WHERE saleQuantity = (SELECT MAX(saleQuantity) FROM productsalesquantity)";
+        $sql = "SELECT * FROM productSalesQuantity LIMIT 10";
         $queryResponse = $connection->query($sql);
         $bestSellings = $queryResponse->fetch_all(MYSQLI_ASSOC);
 
@@ -19,7 +19,7 @@ class statsDAO
 
     function getLeastSold(){
         $connection = connection();
-        $sql = "SELECT * FROM productsalesquantity WHERE saleQuantity = (SELECT MIN(saleQuantity) FROM productsalesquantity)";
+        $sql = "SELECT * FROM productSalesQuantity ORDER BY saleQuantity ASC LIMIT 10";
         $queryResponse = $connection->query($sql);
         $leastSold = $queryResponse->fetch_all(MYSQLI_ASSOC);
 
@@ -29,7 +29,7 @@ class statsDAO
 
     function getMostSaved(){
         $connection = connection();
-        $sql = "SELECT * FROM savedproducts WHERE timesFavorited = (SELECT MAX(timesFavorited) FROM savedproducts)";
+        $sql = "SELECT * FROM savedproducts LIMIT 10";
         $queryResponse = $connection->query($sql);
         $mostSaved = $queryResponse->fetch_all(MYSQLI_ASSOC);
 

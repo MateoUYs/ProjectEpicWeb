@@ -9,7 +9,6 @@ let allSales = [];
 window.onload = async () => {
     let queryResponse = await new SaleDAO().getAll();
     allSales = queryResponse.data;
-    console.log(allSales);
     let query = await new SessionDAO().getSession();
     if (query.status) {
         if (query.data.isAdmin == 0) {
@@ -218,6 +217,8 @@ async function updateSale(saleId, isPaid, shippingAddress, saleStatus, paymentMe
             message.classList.add("confirmation");
         }
         message.innerHTML = "Venta Modificada con éxito";
+        let querySales = await new SaleDAO().getAll();
+        let sales = querySales.data;
         setTimeout(async () => {
             divFrm.classList.add("frmDeactivated");
             divFrm.classList.remove("frmActivated");
@@ -225,7 +226,7 @@ async function updateSale(saleId, isPaid, shippingAddress, saleStatus, paymentMe
             saleFrm.reset();
             message.innerHTML = "";
             oldSizes = "";
-            showProducts(allProducts);
+            showSales(sales);
         }, 500);
     } else {
         if (message.classList.contains("confirmation")) {
@@ -234,4 +235,9 @@ async function updateSale(saleId, isPaid, shippingAddress, saleStatus, paymentMe
         }
         message.innerHTML = `Error al modificar el producto ${query.mensaje}`;
     }
+}
+
+function searchSales(){
+    let filteredSales = allSales.filter(sale => (sale.saleId + sale.paymentMethod + sale.userName +"").includes(filter));
+    showSales(filteredSales);
 }

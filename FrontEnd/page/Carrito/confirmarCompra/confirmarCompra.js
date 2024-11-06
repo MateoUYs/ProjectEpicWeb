@@ -1,4 +1,4 @@
-import CarritoDAo from "../../../dao/carritoDao.js";
+import CarritoDAO from "../../../dao/carritoDAO.js";
 
 window.onload =()=>{
     addEvent();
@@ -32,8 +32,8 @@ function addEvent(){
 }
 
 async function confirmarCompra(metodoEnvio,metodoPago,direccion){
-    let carritoDAO = new CarritoDAo();
-    let respuesta = await carritoDAO.confirmarCompra(direccion,metodoEnvio,metodoPago);
+    let carritoDAO = new CarritoDAO();
+    let respuesta = await CarritoDAO.confirmarCompra(direccion,metodoEnvio,metodoPago);
     console.log(respuesta.message);
 
 

@@ -8,6 +8,10 @@
   <link rel="stylesheet" href="verEstadisticas.css" />
   <link rel="stylesheet" href="../../../styles/body.css">
   <link rel="stylesheet" href="../../../styles/adminNav.css">
+  <link rel="stylesheet" href="../../../styles/adminMain.css">
+  <link rel="stylesheet" href="../../../styles/manageForm.css">
+  <link rel="stylesheet" href="../../../styles/alertFrm.css">
+  <link rel="stylesheet" href="../../../styles/table.css">
   <link rel="stylesheet" href="../../../styles/consult.css">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,21 +43,38 @@
     <button type="button" class="logOut" id="btnLogOut"><img src="../../../assets/logOut.png"></button>
     </div>
   </nav>
+  <div class="alertFrm alertDeactivated" id="alertDiv">
+    <form action="">
+      <p class="subTitle" id="alertTitle"></p>
+      <label for="" id="question"></label>
+      <p id="confirmationAlert" class="confirmation"></p>
+      <div class="btns">
+        <input type="submit" class="formBtn" id="alertBtn" name="submit" value=""></input>
+        <input type="button" class="cancelBtn" id="btnCancelAlert" name="cancelar" value="Cancelar"></input>
+      </div>
+    </form>
+  </div>
+
   <main>
-    <section class="estadisticas">
-      <h1>Productos Más Vendidos</h1>
+    <div class="content">
+      <div class="topContainer">
+        <p class="title" id="productsTitle">Estadísticas:</p>
+      </div>
+      <div class="inputSelectView">
+        <select id="selectView" class="formSelect">
+          <option value="bestSales">Productos más vendidos</option>
+          <option value="lessSales">Productos menos vendidos</option>
+          <option value="bestFavorites">Productos más guardados como favoritos</option>
+        </select>
+      </div>
       <table>
-        <thead>
-          <tr>
-            <th>Producto</th>
-            <th>Cantidad Vendida</th>
-          </tr>
+        <thead id="columnData">
         </thead>
-        <tbody id="productosMasVendidos">
-          <!-- Aquí se insertarán las filas de productos más vendidos dinámicamente -->
+        <tbody id="productData">
         </tbody>
       </table>
-    </section>
+    </div>
+    <div id="inquiryList" class="deactivated"></div>
   </main>
 </body>
 

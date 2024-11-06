@@ -53,6 +53,7 @@ export default class SaleDAO {
     formData.append("saleDate", saleDate);
     formData.append("trackingNumber", trackingNumber);
     formData.append("userCi", userCi);
+    
     let config = {
         method: "POST",
         body: formData

@@ -249,12 +249,15 @@ async function addProduct(precio, descripcion, imagen, nombre, color, size) {
     let frmProduct = document.querySelector("#productFrm form");
     let divFrm = document.querySelector("#productFrm");
     let message = document.querySelector("#message");
+    let body = document.querySelector("body");
 
     if (query.status) {
         if (message.classList.contains("error")) {
             message.classList.remove("error");
             message.classList.add("confirmation");
         }
+        let queryProducts = await new ProductDAO().getProducts();
+        let products = queryProducts.data;
         message.innerHTML = "Producto Agregado con éxito";
         setTimeout(async () => {
             divFrm.classList.add("frmDeactivated");
@@ -262,7 +265,8 @@ async function addProduct(precio, descripcion, imagen, nombre, color, size) {
             frmProduct.reset();
             imgPreview.src = "../../../assets/noImage.png";
             message.innerHTML = "";
-            showProducts(allProducts);
+            showProducts(products);
+            body.classList.remove("modalOpen");
         }, 500);
     } else {
         if (message.classList.contains("confirmation")) {
@@ -298,7 +302,6 @@ function loadInputs(product) {
     frmProduct.name.value = name;
     frmProduct.color.value = color;
     id = productId;
-    console.log(product.size);
     setProductSize(product.size);
 }
 
@@ -307,6 +310,7 @@ async function modifyProduct(idProduct, precio, descripcion, imagen, nombre, col
     let frmProduct = document.querySelector("#productFrm form");
     let divFrm = document.querySelector("#productFrm");
     let message = document.querySelector("#message");
+    let body = document.querySelector("body");
 
     if (query.status) {
         if (message.classList.contains("error")) {
@@ -314,14 +318,16 @@ async function modifyProduct(idProduct, precio, descripcion, imagen, nombre, col
             message.classList.add("confirmation");
         }
         message.innerHTML = "Producto Modificado con éxito";
+        let queryProducts = await new ProductDAO().getProducts();
+        let products = queryProducts.data;
         setTimeout(async () => {
             divFrm.classList.add("frmDeactivated");
             divFrm.classList.remove("frmActivated");
             frmProduct.reset();
             imgPreview.src = "../../../assets/noImage.png";
             message.innerHTML = "";
-            oldSizes = "";
-            showProducts(allProducts);
+            body.classList.remove("modalOpen");
+            showProducts(products);
         }, 500);
     } else {
         if (message.classList.contains("confirmation")) {
@@ -335,14 +341,18 @@ async function modifyProduct(idProduct, precio, descripcion, imagen, nombre, col
 async function deleteProduct(idProducto) {
     let query = await new ProductDAO().deleteProduct(idProducto);
     let confirmationAlert = document.querySelector("#confirmationAlert");
+    let body = document.querySelector("body");
 
     if (query.status) {
         if (confirmationAlert.classList.contains("error")) {
             confirmationAlert.classList.remove("error");
             confirmationAlert.classList.add("confirmation");
         }
+        let queryProducts = await new ProductDAO().getProducts();
+        let products = queryProducts.data;
         confirmationAlert.innerHTML = "Producto Eliminado con éxito";
-        showProducts(allProducts);
+        body.classList.remove("modalOpen");
+        showProducts(products);
     } else {
         if (confirmationAlert.classList.contains("confirmation")) {
             confirmationAlert.classList.add("error");

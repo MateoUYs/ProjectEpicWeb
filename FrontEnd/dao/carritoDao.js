@@ -1,6 +1,6 @@
 import Origin from '../config/origin.js';
 
-export default class CarritoDAo {
+export default class CarritoDAO {
     constructor() {
 
     }

@@ -1,10 +1,10 @@
-import CarritoDAo from "../../../dao/carritoDao.js";
-import ProductDAO from "../../../dao/productDao.js";
+import CarritoDAO from "../../../dao/carritoDAO.js";
+import ProductDAO from "../../../dao/productDAO.js";
 
 let productDetail;
 
 window.onload = async () => {
-    let cartProduct = new CarritoDAo().obtenerCarrito();
+    let cartProduct = new CarritoDAO().obtenerCarrito();
     showCart(cartProduct);
     let id = new URLSearchParams(window.location.search).get("id");
     let product = await getProductById(id);
@@ -36,8 +36,8 @@ function addEventaddProductCart() {
             discount: 0,
             extension: productDetail.extension
         }
-        new CarritoDAo().agregarProductoCarrito(productCart);
-        showCart(new CarritoDAo().obtenerCarrito());
+        new CarritoDAO().agregarProductoCarrito(productCart);
+        showCart(new CarritoDAO().obtenerCarrito());
 
     }
 
@@ -113,14 +113,14 @@ function showCart(cartProduct) {
     pTotalPrice.innerHTML += "$" + totalPrice;
 }
 function aumentarCantidad(id, talle) {
-    new CarritoDAo().aumentarCantidadCarrito(id, talle);
-    let cart = new CarritoDAo().obtenerCarrito();
+    new CarritoDAO().aumentarCantidadCarrito(id, talle);
+    let cart = new CarritoDAO().obtenerCarrito();
     showCart(cart);
 
 }
 function disminuirCantidad(id, talle) {
-    new CarritoDAo().disminuirCantidadCarrito(id, talle);
-    let cart = new CarritoDAo().obtenerCarrito();
+    new CarritoDAO().disminuirCantidadCarrito(id, talle);
+    let cart = new CarritoDAO().obtenerCarrito();
     showCart(cart);
 }
 
