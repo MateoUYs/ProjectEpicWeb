@@ -62,10 +62,9 @@ function addEvents() {
     let cancelarBtn = document.querySelector("#cancelBtn");
     let frmStock = document.querySelector("#frmStock form");
     let consultationBtn = document.querySelector("#inquiryBtn");
-    let listConsultation = document.querySelector("#listaConsultas");
+    let listConsultation = document.querySelector("#inquiryList");
     let homeBtn = document.querySelector("#homeBtn");
     let btnLogOut = document.querySelector("#btnLogOut");
-    let pTitle = document.querySelector("#title");
     let divAlert = document.querySelector("#alertDiv");
     let pAlertTitle = document.querySelector("#alertTitle");
     let alertQuestion = document.querySelector("#question");
