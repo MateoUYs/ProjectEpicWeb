@@ -226,7 +226,7 @@ async function logOut() {
 }
 
 async function add(title, description, startDate, endDate, discount, products) {
-    let query = await new OfferDAO().addOffer(title, description, startDate, endDate, discount, products);
+    let query = await new OfferDAO().addOffer(title, description, endDate, startDate, discount, products);
     let frmOffer = document.querySelector("#offerFrm form");
     let divFrm = document.querySelector("#offerFrm");
     let message = document.querySelector("#message");
