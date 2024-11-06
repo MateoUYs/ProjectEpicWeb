@@ -1,8 +1,9 @@
 import ProductDAO from "../../../dao/productDao.js";
+import statsDAO from '../../../dao/statsDAO.js';
 let menuAbierto = false;
 let cartAbierto = false;
 
-window.onload  = async () => {
+window.onload = async () => {
     showProduct();
     addEvents();
     agregarEventoMenu();
@@ -14,7 +15,7 @@ function agregarEventoMenu() {
     const panelElemento = document.querySelector("#panelMenu");
 
     menuBoton.onclick = () => {
-        if (cartAbierto) { 
+        if (cartAbierto) {
             cerrarCarrito();
         }
 
@@ -44,7 +45,7 @@ function agregarEventoCart() {
     const panelElemento = document.querySelector("#panelCart");
 
     cartBoton.onclick = () => {
-        if (menuAbierto) { 
+        if (menuAbierto) {
             cerrarMenu();
         }
 
@@ -85,28 +86,32 @@ function cerrarCarrito() {
 }
 
 
-      
-      async function showProduct() {
-        let query = await new ProductDAO().getProducts();
-        let products = query.data;
-        let tbodyElement = document.querySelector("#productContainer");
-        products.forEach(product => {
-            let div = document.createElement('div');
-            div.innerHTML = `
+
+async function showProduct() {
+    let query = await new statsDAO().getBestSellings();
+    let products = query.data;
+    let tbodyElement = document.querySelector("#productContainer");
+    products.forEach(product => {
+        let div = document.createElement('div');
+        div.innerHTML = `
                 <img src="../../../../backEnd/imgs/${product.productId}.${product.extension}" class="imgProduct" data-product-id="${product.productId}"></img>
+                <p class="price">${product.price}</p>
+                <div class="info">
+                    <p >${product.name}</p>
+               </div>
             `;
-            div.onclick = ()=>{
-                activarVerDetalle(product.productId);
-            }
-            tbodyElement.appendChild(div);
-        });
-    }
+        div.onclick = () => {
+            activarVerDetalle(product.productId);
+        }
+        tbodyElement.appendChild(div);
+    });
+}
 
 
-    function activarVerDetalle(id){
-       window.location.href = `../../Productos/verDetalleProducto/verDetalleProducto.html?id=${id}`;
+function activarVerDetalle(id) {
+    window.location.href = `../../Productos/verDetalleProducto/verDetalleProducto.html?id=${id}`;
 
-    }
+}
 
 
 
