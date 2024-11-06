@@ -5,9 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="confirmarCompra.css">
+    <link rel="stylesheet" href="../../../styles/body.css">
+    <link rel="stylesheet" href="../../../styles/cart.css">
+    <link rel="stylesheet" href="../../../styles/userNav.css">
+    <link rel="stylesheet" href="../../../styles/alertFrm.css">
     <script type="module" src="confirmarCompra.js"></script>
 </head>
 <body>
+    <nav>
+        <div class="navBar">
+          <div class="navLeft">
+            <img src="../../../assets/logoPageAdmin.svg" alt="Not Found">
+            <div>Catalogo</div>
+            <div>Acerca De</div>
+            <div>Contacto</div>
+          </div>
+          <div class="navRight">
+            <div class="carrito">
+              <img src="../../../assets/carrito.svg" alt="Not Found" id="showCart">
+            </div>
+             <div class="registroUser">Registrarse</div>
+             <div class="inicioSesion">Iniciar Sesion</div>
+          </div>
+        </div>
+          </nav>
+        </div>
+        <div class="alertFrm alertDeactivated" id="alertDiv">
+            <form action="">
+              <p class="subTitle" id="alertTitle"></p>
+              <label for="" id="question"></label>
+              <p id="confirmationAlert" class="confirmation"></p>
+              <div class="btns">
+                <input type="submit" class="alertBtn" id="alertBtn" name="submit" value=""></input>
+                <input type="button" class="alertCancelBtn" id="btnCancelAlert" name="cancelar" value="Cancelar"></input>
+              </div>
+            </form>
+          </div>
+        <div class="backContrast"></div>
+
     <form action="" id="confirmarCompra"  class="tipoEnvio">
         <label for="">Metodo Envio</label>
         <select name="" id="metodoEnvio" name="metodoEnvio">
@@ -23,6 +58,15 @@
         </select>
         <button type="submit">Confirmar Compra</button>
     </form>
-    
+    <div class="cartModal modalDisable" id="cartModal">
+        <div class="ProductList" id="ProductList">
+      
+      
+        </div>
+        <div class="details">
+          <p id="totalPrice" class="price"></p>
+          <button id="confirmarCompra" class="confirmBtn">Confirmar compra</button>
+        </div>
+      </div>
 </body>
 </html>

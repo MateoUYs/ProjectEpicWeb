@@ -36,6 +36,12 @@
   padding-top: 0.5rem;
 }
 
+.ProductList>div>img {
+  margin-top: 1%;
+  width: 10%;
+  height: 80%;
+}
+
 .modalEnable {
   transform: scale(1);
 }
@@ -101,7 +107,7 @@
   color: #333;
 }
 
-#confirmarCompra {
+.confirmBtn {
   margin-bottom: 10px;
   width: 40%;
   border: white 1px solid;
