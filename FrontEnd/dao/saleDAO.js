@@ -61,6 +61,7 @@ export default class SaleDAO {
 
     let queryResponse = await fetch(url, config);
     let query = await queryResponse.json();
+    
     return query;
    }
 

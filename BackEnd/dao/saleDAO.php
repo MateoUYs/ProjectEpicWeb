@@ -85,13 +85,12 @@ class saleDAO
         $shippingAddress != null ? "'$shippingAddress'" : null;
         $trackingNumber != null ? "'$trackingNumber'" : null;
         $sql = "UPDATE `sales` SET `isPaid`='$isPaid',`paymentMethod`='$paymentMethod',`shippingMethod`='$shippingMethod',`shippingAddress`=$shippingAddress,`saleStatus`='$saleStatus',`trackingNumber`=$trackingNumber,`userCi`='$userCi',`saleDate`='$saleDate' WHERE `saleId`='$saleId'";
-        echo $sql;
         $connection = connection();
         try {
             $connection->query($sql);
-            $query = new query(true, "Numero de rastreo agregado correctamente", null);
+            $query = new query(true, "Venta actualizada correctamente", null);
         } catch (Exception $e) {
-            $query = new query(false, "No se pudo agregar el numero de rastreo de venta", null);
+            $query = new query(false, "No se pudo actualizar la venta", null);
         }
 
         return $query;

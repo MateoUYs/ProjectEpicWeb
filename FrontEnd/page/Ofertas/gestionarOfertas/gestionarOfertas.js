@@ -155,7 +155,7 @@ function addEvents() {
         console.log(products);
 
         if (frmOffer.submit.value == "Agregar") {
-            add(title, description, startDate, endDate, discount, products);
+            add(title, description, endDate, startDate, discount, products);
 
         } else if (frmOffer.submit.value == "Modificar") {
             modify(offerId, title, description, endDate, startDate, discount, products);
@@ -225,7 +225,7 @@ async function logOut() {
     window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
 }
 
-async function add(title, description, startDate, endDate, discount, products) {
+async function add(title, description, endDate, startDate, discount, products) {
     let query = await new OfferDAO().addOffer(title, description, endDate, startDate, discount, products);
     let frmOffer = document.querySelector("#offerFrm form");
     let divFrm = document.querySelector("#offerFrm");

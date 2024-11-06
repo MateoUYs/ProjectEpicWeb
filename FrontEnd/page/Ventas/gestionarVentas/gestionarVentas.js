@@ -225,7 +225,6 @@ async function updateSale(saleId, isPaid, shippingAddress, saleStatus, paymentMe
             body.classList.remove("modalOpen");
             saleFrm.reset();
             message.innerHTML = "";
-            oldSizes = "";
             showSales(sales);
         }, 500);
     } else {
