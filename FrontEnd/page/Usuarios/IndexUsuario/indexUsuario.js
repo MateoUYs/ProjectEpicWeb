@@ -115,7 +115,7 @@ async function showProduct() {
         let div = document.createElement('div');
         div.innerHTML = `
                 <img src="../../../../backEnd/imgs/${product.productId}.${product.extension}" class="imgProduct" data-product-id="${product.productId}"></img>
-                <p class="price">${product.price}</p>
+                <p class="price">$${product.price}</p>
                 <div class="info">
                     <p >${product.name}</p>
                </div>
