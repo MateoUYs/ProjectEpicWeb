@@ -7,7 +7,7 @@
   overflow: hidden;
 } */
 
-.navBar {
+/* .navBar {
   background-color: white;
   padding: 20px;
   font-size: 14px;
@@ -83,7 +83,7 @@
 .inicioSesion:hover {
   background-color: rgba(0, 0, 0, 0.06);
   transition: .3s;
-}
+} */
 
 /* .cartModal{
   width: 30rem;
@@ -226,6 +226,10 @@
 .btnCarrito:hover {
   background-color: #f5f5f5;
   transition: .3s;
+}
+
+.productDetails{
+  width: 100%;
 }
 
 /* Responsive Producto  */

@@ -1,5 +1,6 @@
 import CarritoDAO from "../../../dao/carritoDAO.js";
 import ProductDAO from "../../../dao/productDAO.js";
+import sessionDAO from '../../../dao/sessionDAO.js'
 
 let productDetail;
 
@@ -10,9 +11,29 @@ window.onload = async () => {
     let product = await getProductById(id);
     productDetail = product;
 
+    let query = await new sessionDAO().getSession();
+    let registerBtn = document.querySelector("#registerBtn");
+    let logInBtn = document.querySelector("#logInBtn");
+    let manageUserBtn = document.querySelector("#manageUserBtn");
+    let logOutBtn = document.querySelector("#logOutBtn");
+
+    if (query.status) {
+        registerBtn.classList.remove("userUnlogged");
+        logInBtn.classList.remove("userUnlogged");
+        manageUserBtn.classList.add("userLogged");
+        logOutBtn.classList.add("userLogged");
+
+    } else {
+        registerBtn.classList.add("userUnlogged");
+        logInBtn.classList.add("userUnlogged");
+        manageUserBtn.classList.remove("userLogged");
+        logOutBtn.classList.remove("userLogged");
+    }
+
     addEvents();
+    console.log(product);
     showProduct(product);
-    //   showImageProduct(product);
+    showImageProduct(product);
     console.log(id);
 }
 
@@ -20,7 +41,18 @@ async function addEvents() {
     let btnAddProductCart = document.querySelector("#btnAddProductCart");
     let btnCart = document.querySelector("#showCart");
     let cart = document.querySelector("#cartModal");
+    let registerBtn = document.querySelector("#registerBtn");
+    let logInBtn = document.querySelector("#logInBtn");
+    let manageUserBtn = document.querySelector("#manageUserBtn");
+    let logOutBtn = document.querySelector("#logOutBtn");
+    let divAlert = document.querySelector("#alertDiv");
+    let pAlertTitle = document.querySelector("#alertTitle");
+    let alertQuestion = document.querySelector("#question");
+    let frmAlert = divAlert.querySelector("form");
+    let alertCancel = document.querySelector("#btnCancelAlert");
+    let body = document.querySelector("body");
     let btnComprar = document.querySelector("#confirmarCompra");
+    let homeBtn = document.querySelector("#homeBtn");
 
     btnAddProductCart.onclick = () => {
         let quantity = document.querySelector("#inputCantidad").value;
@@ -49,9 +81,53 @@ async function addEvents() {
         }
     }
 
-    
+
     btnComprar.onclick = () => {
         window.location.href = "../../Carrito/confirmarCompra/confirmarCompra.html";
+    }
+
+    registerBtn.onclick = () =>{
+        window.location.href = "../../Usuarios/registrarse/registrarse.html";
+    }
+
+    logInBtn.onclick = () =>{
+        window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
+    }
+
+    manageUserBtn.onclick = () =>{
+        window.location.href = ".../../Usuarios/gestionarUsuario/gestionarUsuario.html";
+    }
+
+    logOutBtn.onclick = () =>{
+        divAlert.classList.add("alertActivated");
+        divAlert.classList.remove("alertDeactivated");
+        body.classList.add("modalOpen");
+        pAlertTitle.innerHTML = "Cerrar Sesión";
+        alertQuestion.innerHTML = "¿Estás seguro de que deseas cerrar sesión?";
+        frmAlert.submit.value = "Cerrar Sesión";
+    }
+
+    alertCancel.onclick = () => {
+        divAlert.classList.add("alertDeactivated");
+        divAlert.classList.remove("alertActivated");
+        body.classList.remove("modalOpen");
+        alertQuestion.innerHTML = "";
+        pAlertTitle.innerHTML = "";
+        frmAlert.submit.value = "";
+    }
+
+    frmAlert.onsubmit = (e) => {
+        e.preventDefault();
+        if (frmAlert.submit.value == "Cerrar Sesión") {
+            setTimeout(async () => {
+                confirmationAlert.innerHTML = "";
+                logOut();
+            }, 3000);
+        }
+    }
+
+    homeBtn.onclick = () =>{
+        window.location.href = "../../Usuarios/IndexUsuario/indexUsuario.html";
     }
 }
 
@@ -124,31 +200,39 @@ async function getProductById(id) {
 }
 
 function showProduct(product) {
-    let tbodyElement = document.querySelector("#infoProduct");
+    let tbodyElement = document.querySelector(".productDetails");
+    let selectSize = document.querySelector("#talle");
     let content = document.createElement('div');
     content.innerHTML = `
         <div>${product.name}</div>
-        <div>${product.description}</div>
-        <div>${product.price}</div>
-        <div>${product.stock}</div>
+        <div>Descripción: ${product.description}</div>
+        <div>Precio: $${product.price}</div>
+        <div>Stock Disponible: ${product.stock}</div>
             `;
     tbodyElement.appendChild(content);
+
+    product.size.forEach(talle => {
+        let option = document.createElement("option");
+        option.value = talle.sizeType;
+        option.innerHTML = talle.sizeType;
+        selectSize.appendChild(option);
+    });
 
 }
 
 
-// async function showImageProduct(product) {
-//     let tbodyElement = document.querySelector("#imageProduct");
+async function showImageProduct(product) {
+    let tbodyElement = document.querySelector("#imageProduct");
 
-//         tbodyElement.innerHTML
-//         let div = document.createElement('div');
-//         contentImage.innerHTML = `
-//       <img src="../../../../backEnd/imgs/${product.productId}.${product.extension}">
-//             `;
-//         tbodyElement.appendChild(contentImage);
+    console.log(`${product.productId}.${product.extension}`);
+    tbodyElement.innerHTML = "";
+    tbodyElement.innerHTML += `
+      <img src="../../../../backEnd/imgs/${product.productId}.${product.extension}">
+            `;
 
-// }
+}
 
-
-
-
+async function logOut() {
+    await new sessionDAO().logOut();
+    window.location.href = "../../Usuarios/indexUsuario/indexUsuario.html";
+}

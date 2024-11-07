@@ -1,7 +1,0 @@
-[07-Nov-2024 17:28:54 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'topstyleshop.productsalesquantity' doesn't exist in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\statsDAO.php:13
-Stack trace:
-#0 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\statsDAO.php(13): mysqli->query('SELECT * FROM p...')
-#1 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\statsController.php(25): statsDAO->getBestSellings()
-#2 C:\xampp\htdocs\ProjectEpicWeb\BackEnd\controller\statsController.php(11): getBestSellings()
-#3 {main}
-  thrown in C:\xampp\htdocs\ProjectEpicWeb\BackEnd\dao\statsDAO.php on line 13

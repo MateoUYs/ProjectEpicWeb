@@ -106,7 +106,8 @@ export default class CarritoDAO {
             body: formData
         }
        let response = await fetch(url, config);
-       let data = await response.json();
+       let data = await response.text();
+       console.log(data);
        return data;
     }
 }
