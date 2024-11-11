@@ -12,13 +12,13 @@ class saleDAO
     {
         $session = (new SesionDAO())->getSession()->data;
         $userCi = $session['userCi'];
-        $shippingAddress != null ? "'$shippingAddress'" : null;
+       $address = ($shippingAddress != null) ? "'$shippingAddress'" : null;
         $isPaid = ($paymentMethod == "Tarjeta") ? 1 : 0;
         $saleStatus = ($shippingMethod == "Retiro") ? "En Espera en el local" : "En Espera de despachar el envío";
 
-        $sql = "INSERT INTO `sales`(`isPaid`, `paymentMethod`, `shippingMethod`, `shippingAddress`,`saleStatus`, `userCi`, `saleDate`) VALUES ('$isPaid', '$paymentMethod', '$shippingMethod', $shippingAddress,'$saleStatus', '$userCi', '$saleDate')";
+        $sql = "INSERT INTO `sales`(`isPaid`, `paymentMethod`, `shippingMethod`, `shippingAddress`,`saleStatus`, `userCi`, `saleDate`) VALUES ('$isPaid', '$paymentMethod', '$shippingMethod', $address,'$saleStatus', '$userCi', '$saleDate')";
         $connection = connection();
-        error_log(print_r($products,true));
+        error_log(print_r($sql,true));
         try {
             $connection->query($sql);
             $saleId = $connection->insert_id;

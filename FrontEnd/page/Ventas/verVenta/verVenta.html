@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="title" content="TopStyle Indumentaria" />
+  <meta name="description" content="Top Style es una tienda de indumentaria moderna y a la moda para hombres y mujeres. Descubre las últimas tendencias en ropa, accesorios y más. Estilo y calidad al mejor precio." />
+  <title>Top Style Indumentaria</title>
+  <script type="module" src="verVenta.js"></script>
+  <link rel="stylesheet" href="../../../styles/userNav.css">
+  <link rel="stylesheet" href="../../../styles/body.css">
+  <link rel="stylesheet" href="../../../styles/cart.css">
+  <link rel="stylesheet" href="../../../styles/alertFrm.css">
+  <link rel="stylesheet" href="../../../styles/manageForm.css">
+  <link rel="stylesheet" href="../../../styles/footerMain.css">
+  <link rel="stylesheet" href="../../../styles/table.css">
+  <link rel="stylesheet" href="verVenta.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+
+<body>
+  <nav>
+    <div class="navBar">
+      <div class="navLeft">
+        <img src="../../../assets/logoPageAdmin.svg" alt="Not Found">
+        <div>Catalogo</div>
+        <div>Acerca De</div>
+        <div>Contacto</div>
+      </div>
+      <div class="navRight">
+        <img src="../../../assets/carrito.svg" id="showCart" class="cartBtn">
+        <div class="registroUser" id="registerBtn">Registrarse</div>
+        <div class="inicioSesion" id="logInBtn">Iniciar Sesion</div>
+        <img src="../../../assets/user.png" class="userBtn" id="manageUserBtn">
+        <img src="../../../assets/logOut.png" class="userBtn" id="logOutBtn">
+      </div>
+    </div>
+  </nav>
+  </div>
+  <div class="alertFrm alertDeactivated" id="alertDiv">
+    <form action="">
+      <p class="subTitle" id="alertTitle"></p>
+      <label for="" id="question"></label>
+      <p id="confirmationAlert" class="confirmation"></p>
+      <div class="btns">
+        <input type="submit" class="formBtn" id="alertBtn" name="submit" value=""></input>
+        <input type="button" class="cancelBtn" id="btnCancelAlert" name="cancelar" value="Cancelar"></input>
+      </div>
+    </form>
+  </div>
+  <div class="backContrast"></div>
+
+  <main>
+    <table>
+        <thead>
+          <tr>
+            <th>ID Venta</th>
+            <th>Método de Pago</th>
+            <th>Está Pago</th>
+            <th>Estado Venta</th>
+            <th>Método de Envío</th>
+            <th>Dirección</th>
+            <th>Número de Rastreo</th>
+            <th>Nombre de Usuario</th>
+            <th>Fecha de Venta</th>
+            <th>Precio Total</th>
+          </tr>
+        </thead>
+        <tbody id="saleData">
+
+        </tbody>
+      </table>
+  </main>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+
+
+  <footer>
+
+    <div class="container__footer">
+      <div class="box__footer">
+        <div class="logo">
+          <img src="../../../assets/logoPageAdmin.png" alt="">
+        </div>
+        <div class="terms">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas impedit cum cumque velit libero officiis
+            quam doloremque reprehenderit quae corporis! Delectus architecto officia praesentium atque laudantium, nam
+            deleniti sapiente deserunt.</p>
+        </div>
+      </div>
+
+
+      <div class="box__footer">
+        <!-- <h2>Redes Sociales</h2> -->
+
+        <a href="#"> <i class="facebook"><img src="../../../assets/facebook.png"></i></a>
+        <a href="#"><i class="twitter"><img src="../../../assets/twitter.png"></i></a>
+        <a href="#"><i class="linkedin"><img src="../../../assets/linkedin.png"></i></a>
+        <a href="#"><i class="instagram"><img src="../../../assets/instagram.png"></i></a>
+      </div>
+
+    </div>
+
+    <div class="box__copyright">
+      <hr>
+      <p>Todos los derechos reservados © 2024 <b>TopStyle</b></p>
+    </div>
+  </footer>
+  <div class="cartModal modalDisable" id="cartModal">
+    <div class="ProductList" id="ProductList">
+
+
+    </div>
+    <div class="details">
+      <p id="totalPrice" class="price"></p>
+      <button id="confirmarCompra" class="confirmBtn">Confirmar compra</button>
+    </div>
+  </div>
+</body>
+
+</html>

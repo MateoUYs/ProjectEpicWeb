@@ -27,13 +27,12 @@ function addEvent(){
    
     metodoEnvio.onchange = () => {
         let valor = metodoEnvio.value;
-        if(valor == "envio"){
+        console.log(valor);
+        if(valor == "Envio"){
             confirmarCompraElement.classList.add("tipoEnvio");
         }else{
             confirmarCompraElement.classList.remove("tipoEnvio");
-
-        }
-        
+        }   
     }
 
 
