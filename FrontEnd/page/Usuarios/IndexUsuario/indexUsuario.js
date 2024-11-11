@@ -41,6 +41,7 @@ function addEvents() {
     let frmAlert = divAlert.querySelector("form");
     let alertCancel = document.querySelector("#btnCancelAlert");
     let body = document.querySelector("body");
+    let homeBtn = document.querySelector("#homeBtn");
 
     imgButtons.forEach(imgBtn => {
         imgBtn.onclick = () => {
@@ -75,6 +76,10 @@ function addEvents() {
 
     manageUserBtn.onclick = () =>{
         window.location.href = "../gestionarUsuario/gestionarUsuario.html";
+    }
+
+    homeBtn.onclick = () =>{
+        window.location.href = "../../Usuarios/IndexUsuario/indexUsuario.html";
     }
 
     logOutBtn.onclick = () =>{

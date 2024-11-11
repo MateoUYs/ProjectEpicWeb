@@ -54,7 +54,7 @@ class saleDAO
         $session = (new SesionDAO())->getSession()->data;
         $userCi = $session['userCi'];
         $connection = connection();
-        $sql = "SELECT * FROM `sales` WHERE `userCi`='$userCi'";
+        $sql = "SELECT users.userCi, sales.saleId, sales.paymentMethod, sales.shippingMethod, CASE WHEN sales.shippingAddress IS NULL THEN 'No aplica' ELSE sales.shippingAddress END AS shippingAddress, sales.saleStatus, CASE WHEN sales.trackingNumber IS NULL THEN 'No aplica' ELSE sales.trackingNumber END AS trackingNumber, sales.userCi,  sales.saleDate, users.userName, CASE WHEN sales.isPaid = 1 THEN 'Pago' WHEN sales.isPaid = 0 THEN 'Pago Pendiente' END AS paymentStatus FROM sales INNER JOIN users ON sales.userCi = users.userCi WHERE sales.userCi='$userCi'";
         $rersult = $connection->query($sql);
         $sales = $rersult->fetch_all(MYSQLI_ASSOC);
         $productSales = [];
