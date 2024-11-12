@@ -85,11 +85,13 @@
   background-color: rgba(0, 0, 0, 0.7);
   border-color: rgba(0, 0, 0, 0.06);
   transition: .3s;
+  cursor: pointer;
 }
 
 .inicioSesion:hover {
   background-color: rgba(0, 0, 0, 0.06);
   transition: .3s;
+  cursor: pointer;
 }
 
 .userLogged {

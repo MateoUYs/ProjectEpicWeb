@@ -43,7 +43,7 @@ async function addEvents() {
     let cart = document.querySelector("#cartModal");
     let registerBtn = document.querySelector("#registerBtn");
     let logInBtn = document.querySelector("#logInBtn");
-    let manageUserBtn = document.querySelector("#manageUserBtn");
+    let userBtn = document.querySelector("#userBtn");
     let logOutBtn = document.querySelector("#logOutBtn");
     let divAlert = document.querySelector("#alertDiv");
     let pAlertTitle = document.querySelector("#alertTitle");
@@ -53,6 +53,8 @@ async function addEvents() {
     let body = document.querySelector("body");
     let btnComprar = document.querySelector("#confirmarCompra");
     let homeBtn = document.querySelector("#homeBtn");
+    let contactBtn = document.querySelector("#inquiryBtn");
+
 
     btnAddProductCart.onclick = () => {
         let quantity = document.querySelector("#inputCantidad").value;
@@ -82,8 +84,24 @@ async function addEvents() {
     }
 
 
-    btnComprar.onclick = () => {
-        window.location.href = "../../Carrito/confirmarCompra/confirmarCompra.html";
+    btnComprar.onclick = async() => {
+        let query = await new sessionDAO().getSession();
+        
+        if(query.status){
+            window.location.href = "../../Carrito/confirmarCompra/confirmarCompra.html";
+        }else{
+            window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
+        }
+    }
+
+    contactBtn.onclick = async() =>{
+        let query = await new sessionDAO().getSession();
+        
+        if(query.status){
+            window.location.href = "../../Consultas/realizarConsulta/realizarConsulta.html";
+        }else{
+            window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
+        }
     }
 
     registerBtn.onclick = () =>{
@@ -94,8 +112,14 @@ async function addEvents() {
         window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
     }
 
-    manageUserBtn.onclick = () =>{
-        window.location.href = ".../../Usuarios/gestionarUsuario/gestionarUsuario.html";
+    userBtn.onclick = () => {
+        if(userModal.classList.contains("modalDisable")){
+            userModal.classList.add("modalEnable");
+            userModal.classList.remove("modalDisable");
+        }else{
+            userModal.classList.remove("modalEnable");
+            userModal.classList.add("modalDisable");
+        }
     }
 
     logOutBtn.onclick = () =>{

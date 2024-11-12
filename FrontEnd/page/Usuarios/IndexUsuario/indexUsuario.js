@@ -14,7 +14,7 @@ window.onload = async () => {
         logInBtn.classList.remove("userUnlogged");
         userBtn.classList.add("userLogged");
         logOutBtn.classList.add("userLogged");
-        
+
     } else {
         registerBtn.classList.add("userUnlogged");
         logInBtn.classList.add("userUnlogged");
@@ -44,6 +44,8 @@ function addEvents() {
     let homeBtn = document.querySelector("#homeBtn");
     let viewProductsBtn = document.querySelector("#productsBtn");
     let userModal = document.querySelector("#userModal");
+    let contactBtn = document.querySelector("#inquiryBtn");
+
 
     imgButtons.forEach(imgBtn => {
         imgBtn.onclick = () => {
@@ -63,37 +65,53 @@ function addEvents() {
         }
     }
 
-    viewProductsBtn.onclick = () =>{
+    viewProductsBtn.onclick = () => {
         window.location.href = "../../Productos/verProducto/verProducto.html";
     }
 
-    btnComprar.onclick = () => {
-        window.location.href = "../../Carrito/confirmarCompra/confirmarCompra.html";
+    btnComprar.onclick = async () => {
+        let query = await new sessionDAO().getSession();
+
+        if (query.status) {
+            window.location.href = "../../Carrito/confirmarCompra/confirmarCompra.html";
+        } else {
+            window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
+        }
     }
 
-    registerBtn.onclick = () =>{
-        window.location.href = "../registrarse/registrarse.html";
+    contactBtn.onclick = async () => {
+        let query = await new sessionDAO().getSession();
+
+        if (query.status) {
+            window.location.href = "../../Consultas/realizarConsulta/realizarConsulta.html";
+        } else {
+            window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
+        }
     }
 
-    logInBtn.onclick = () =>{
-        window.location.href = "../iniciarSesion/iniciarSesion.html";
+    registerBtn.onclick = () => {
+        window.location.href = "../../Usuarios/registrarse/registrarse.html";
     }
 
-    userBtn.onclick = () =>{
-        if(userModal.classList.contains("modalDisable")){
+    logInBtn.onclick = () => {
+        window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
+    }
+
+    userBtn.onclick = () => {
+        if (userModal.classList.contains("modalDisable")) {
             userModal.classList.add("modalEnable");
             userModal.classList.remove("modalDisable");
-        }else{
+        } else {
             userModal.classList.remove("modalEnable");
             userModal.classList.add("modalDisable");
         }
     }
 
-    homeBtn.onclick = () =>{
+    homeBtn.onclick = () => {
         window.location.href = "../../Usuarios/IndexUsuario/indexUsuario.html";
     }
 
-    logOutBtn.onclick = () =>{
+    logOutBtn.onclick = () => {
         divAlert.classList.add("alertActivated");
         divAlert.classList.remove("alertDeactivated");
         body.classList.add("modalOpen");

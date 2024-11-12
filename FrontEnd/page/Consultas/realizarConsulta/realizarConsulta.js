@@ -1,19 +1,14 @@
-import ProductDAO from "../../../dao/productDao.js";
+import CarritoDAO from "../../../dao/carritoDAO.js";
 import sessionDAO from '../../../dao/sessionDAO.js'
 
-let allProducts = [];
-let filter = [];
-
-window.onload = async () => {
-    let query = await new ProductDAO().getProducts();
-    allProducts = query.data;
-    let queryUser = await new sessionDAO().getSession();
+window.onload = async() =>{
+    let query = await new sessionDAO().getSession();
     let registerBtn = document.querySelector("#registerBtn");
     let logInBtn = document.querySelector("#logInBtn");
     let userBtn = document.querySelector("#userBtn");
     let logOutBtn = document.querySelector("#logOutBtn");
 
-    if (queryUser.status) {
+    if (query.status) {
         registerBtn.classList.remove("userUnlogged");
         logInBtn.classList.remove("userUnlogged");
         userBtn.classList.add("userLogged");
@@ -25,13 +20,10 @@ window.onload = async () => {
         userBtn.classList.remove("userLogged");
         logOutBtn.classList.remove("userLogged");
     }
+    addEvent();
+}
 
-    showProduct(allProducts);
-    addEvents();
-};
-
-function addEvents() {
-    let imgButtons = document.querySelectorAll("#productContainer img");
+function addEvent(){
     let btnCart = document.querySelector("#showCart");
     let cart = document.querySelector("#cartModal");
     let btnComprar = document.querySelector("#confirmarCompra");
@@ -46,16 +38,9 @@ function addEvents() {
     let alertCancel = document.querySelector("#btnCancelAlert");
     let body = document.querySelector("body");
     let homeBtn = document.querySelector("#homeBtn");
-    let searchInput = document.querySelector("#searchInput");
+    let viewProductsBtn = document.querySelector("#productsBtn");
+    let userModal = document.querySelector("#userModal");
     let contactBtn = document.querySelector("#inquiryBtn");
-
-    imgButtons.forEach(imgBtn => {
-        imgBtn.onclick = () => {
-            let productId = imgBtn.getAttribute("data-product-id");
-            localStorage.setItem("selectedProductId", productId);
-            window.location.href = `../../Productos/verDetalleProducto/verDetalleProducto.html?id=${productId}`;
-        };
-    });
 
     btnCart.onclick = () => {
         if (cart.classList.contains("modalEnable")) {
@@ -67,6 +52,9 @@ function addEvents() {
         }
     }
 
+    viewProductsBtn.onclick = () =>{
+        window.location.href = "../../Productos/verProducto/verProducto.html";
+    }
 
     btnComprar.onclick = async() => {
         let query = await new sessionDAO().getSession();
@@ -96,7 +84,7 @@ function addEvents() {
         window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
     }
 
-    userBtn.onclick = () => {
+    userBtn.onclick = () =>{
         if(userModal.classList.contains("modalDisable")){
             userModal.classList.add("modalEnable");
             userModal.classList.remove("modalDisable");
@@ -137,37 +125,11 @@ function addEvents() {
             }, 3000);
         }
     }
-
-    searchInput.onkeyup = () =>{
-        filter = searchInput.value;
-        console.log(filter);
-        searchProducts(filter);
-    }
 }
 
+async function confirmarCompra(metodoEnvio,metodoPago,direccion){
+    let respuesta = await new CarritoDAO().confirmarCompra(direccion,metodoEnvio,metodoPago);
+    console.log(respuesta.message);
 
-async function showProduct(products) {
-    let containerElement = document.querySelector("#productContainer");
-    containerElement.innerHTML = "";
-    products.forEach(product => {
-        let div = document.createElement('div');
-        div.innerHTML = `
-                <img src="../../../../backEnd/imgs/${product.productId}.${product.extension}" class="imgProduct" data-product-id="${product.productId}"></img>
-                <p class="price">$${product.price}</p>
-                <div class="info">
-                    <p >${product.name}</p>
-               </div>
-            `;
-        div.onclick = () => {
-            activarVerDetalle(product.productId);
-        }
-        containerElement.appendChild(div);
-    });
+
 }
-
-function searchProducts(){
-    let filteredProducts = allProducts.filter(product => (product.productId + product.name+"").includes(filter));
-    showProduct(filteredProducts);
-}
-
-

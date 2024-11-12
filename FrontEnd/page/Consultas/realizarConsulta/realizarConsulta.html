@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Style Indumentaria</title>
+    <link rel="stylesheet" href="realizarConsulta.css">
+    <link rel="stylesheet" href="../../../styles/body.css">
+    <link rel="stylesheet" href="../../../styles/cart.css">
+    <link rel="stylesheet" href="../../../styles/userNav.css">
+    <link rel="stylesheet" href="../../../styles/alertFrm.css">
+    <script type="module" src="realizarConsulta.js"></script>
+</head>
+<body>
+  <nav>
+    <div class="navBar">
+      <div class="navLeft">
+        <img src="../../../assets/logoPageAdmin.svg" alt="Not Found" id="homeBtn">
+        <div id="productsBtn">Catalogo</div>
+        <div id="offerBtn">Ofertas</div>
+        <div id="inquiryBtn">Contáctanos</div>
+      </div>
+      <div class="navRight">
+        <img src="../../../assets/carrito.svg" id="showCart" class="cartBtn">
+        <div class="registroUser" id="registerBtn">Registrarse</div>
+        <div class="inicioSesion" id="logInBtn">Iniciar Sesion</div>
+        <img src="../../../assets/user.png" class="userBtn" id="userBtn">
+      </div>
+    </div>
+  </nav>
+  <div class="userModal modalDisable" id="userModal">
+    <div id="manageUser">Modificar Cuenta</div>
+    <div id="viewSales">Ver Compras</div>
+    <img src="../../../assets/logOut.png" class="logOutBtn" id="logOutBtn">
+  </div>
+        </div>
+        <div class="alertFrm alertDeactivated" id="alertDiv">
+            <form action="">
+              <p class="subTitle" id="alertTitle"></p>
+              <label for="" id="question"></label>
+              <p id="confirmationAlert" class="confirmation"></p>
+              <div class="btns">
+                <input type="submit" class="alertBtn" id="alertBtn" name="submit" value=""></input>
+                <input type="button" class="alertCancelBtn" id="btnCancelAlert" name="cancelar" value="Cancelar"></input>
+              </div>
+            </form>
+          </div>
+        <div class="backContrast"></div>
+
+    <form action="" id="confirmarCompra"  class="tipoEnvio">
+        <label for="">Metodo Envio</label>
+        <select name="" id="metodoEnvio" name="metodoEnvio">
+            <option value="Envio">Envio a Domicilio</option>
+            <option value="Retiro">Retiro en Sucursal</option>
+        </select>
+        <label class="direccion" for="">Direccion</label>
+        <input class="direccion" type="text" id="direccion" name="direccion">
+        <label for="">Metodo de Pago</label>
+        <select name="" id="metodoPago" name="metodoPago">
+            <option value="efectivo">Efectivo</option>
+            <option value="tarjeta">Tarjeta</option>
+        </select>
+        <button type="submit">Confirmar Compra</button>
+    </form>
+    <div class="cartModal modalDisable" id="cartModal">
+        <div class="ProductList" id="ProductList">
+      
+      
+        </div>
+        <div class="details">
+          <p id="totalPrice" class="price"></p>
+          <button id="confirmarCompra" class="confirmBtn">Confirmar compra</button>
+        </div>
+      </div>
+</body>
+</html>

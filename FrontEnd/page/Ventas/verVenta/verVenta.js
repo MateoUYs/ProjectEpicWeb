@@ -87,6 +87,7 @@ function addEvents() {
     let cancelarBtn = document.querySelector("#cancelBtn");
     let divFrm = document.querySelector("#saleFrm");
     let frmSale = divFrm.querySelector("form");
+    let contactBtn = document.querySelector("#inquiryBtn");
 
 
     btnCart.onclick = () => {
@@ -100,8 +101,24 @@ function addEvents() {
     }
 
 
-    btnComprar.onclick = () => {
-        window.location.href = "../../Carrito/confirmarCompra/confirmarCompra.html";
+    btnComprar.onclick = async() => {
+        let query = await new sessionDAO().getSession();
+        
+        if(query.status){
+            window.location.href = "../../Carrito/confirmarCompra/confirmarCompra.html";
+        }else{
+            window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
+        }
+    }
+
+    contactBtn.onclick = async() =>{
+        let query = await new sessionDAO().getSession();
+        
+        if(query.status){
+            window.location.href = "../../Consultas/realizarConsulta/realizarConsulta.html";
+        }else{
+            window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
+        }
     }
 
     registerBtn.onclick = () => {
@@ -112,8 +129,14 @@ function addEvents() {
         window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
     }
 
-    manageUserBtn.onclick = () => {
-        window.location.href = "../../Usuarios/gestionarUsuario/gestionarUsuario.html";
+    userBtn.onclick = () => {
+        if(userModal.classList.contains("modalDisable")){
+            userModal.classList.add("modalEnable");
+            userModal.classList.remove("modalDisable");
+        }else{
+            userModal.classList.remove("modalEnable");
+            userModal.classList.add("modalDisable");
+        }
     }
 
     homeBtn.onclick = () => {
