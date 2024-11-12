@@ -15,11 +15,21 @@ function addEvents() {
         let email = formElement.email.value;
         let userName = formElement.userName.value;
         let password = formElement.password.value;
+        let confirmPassword = formElement.confirmPassword.value;
         let phone = formElement.phoneNumber.value;
 
-        addUser(ci, email, userName, password, phone);
+
+        if (password === confirmPassword) {
+            addUser(ci, email, userName, password, phone);
+        }else{
+            alert(`Las contraseñas no coinciden`);
+        }
+        
     };
 }
+
+
+
 
 async function addUser(ci, email, userName, password, phone) {
     let query = await new UserDAO().addUser(ci, email, userName, password, phone);
