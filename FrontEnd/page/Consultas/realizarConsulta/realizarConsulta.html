@@ -49,16 +49,13 @@
   <div class="consultaContainer">
     <h2>Enviar una Consulta</h2>
     <form id="consultaForm" class="consultaForm">
-      <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+      <label for="title">Titulo</label>
+      <input type="text" id="title" name="title" placeholder="Titulo de la consulta" required>
 
-      <label for="consulta">Consulta</label>
-      <input type="text" id="consulta" name="consulta" placeholder="Asunto de tu consulta" required>
+      <label for="message">Mensaje</label>
+      <textarea id="message" name="message" placeholder="Escribe el mensaje que deseas hacer" required></textarea>
 
-      <label for="descripcion">Descripción</label>
-      <textarea id="descripcion" name="descripcion" placeholder="Escribe los detalles de tu consulta aquí..." required></textarea>
-
-      <button type="submit" class="sendButton">Mandar Consulta</button>
+      <input type="submit" class="sendButton" value="Mandar Consulta"></input>
     </form>
   </div>
 

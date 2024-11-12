@@ -1,6 +1,7 @@
 <?php
 // Se incluye el archivo que contiene la función de conexión a la base de datos
 require_once __DIR__ . "/../config/connection.php";
+require_once __DIR__ . '/sesionDAO.php';
 require_once __DIR__ . "/query.php";
 
 // Definición de la clase 'consults'
@@ -23,8 +24,10 @@ class inquirysDAO
         return $query;
     }
 
-    function add($title, $userCi, $messageContent)
+    function add($title, $messageContent)
     {
+        $session = (new SesionDAO())->getSession()->data;
+        $userCi = $session['userCi'];
         $sql = "INSERT INTO `inquiry`(`title`, `isPublic`, `isAnswered`, `userCi`) VALUES ('$title',0,0,'$userCi')";
         $connection = connection();
         try {
@@ -38,13 +41,13 @@ class inquirysDAO
         return $query;
     }
 
-    function answerInquiry($inquiryId, $messageContent, $userCi)
+    function answerInquiry($inquiryId, $messageContent)
     {
         $sql = "UPDATE `inquiry` SET `isAnswered`= 1 WHERE `inquiryId`='$inquiryId'";
         $connection = connection();
         try {
             $connection->query($sql);
-            $this->addMessage($messageContent, $inquiryId, $userCi);
+            $this->addMessage($messageContent, $inquiryId);
             $query = new query(true, "Consulta respondida", null);
         } catch (Exception $e) {
             $query = new query(false, "No se pudo responder la consulta", null);
@@ -101,9 +104,9 @@ class inquirysDAO
     }
 
 
-    function addMessage($content, $inquiryId, $userCi)
+    function addMessage($content, $inquiryId)
     {
-        $sql = "INSERT INTO `message`(`content`, `inquiryId`, `userCI`) VALUES ('$content','$inquiryId','$userCi')";
+        $sql = "INSERT INTO `message`(`content`, `inquiryId`, `userCI`) VALUES ('$content','$inquiryId')";
         $connection = connection();
         try {
             $connection->query($sql);

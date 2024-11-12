@@ -40,20 +40,18 @@ function get()
 function add()
 {
     $title = $_POST['title'];
-    $userCi = $_POST['userCi'];
     $messageContent = $_POST['message'];
 
-    $query = (new inquirysDAO())->add($title, $userCi, $messageContent);
+    $query = (new inquirysDAO())->add($title, $messageContent);
     echo json_encode($query);
 }
 
 function answerInquiry()
 {
     $inquiryId = $_POST['inquiryId'];
-    $userCi = $_POST['userCi'];
     $messageContent = $_POST['message'];
 
-    $query = (new inquirysDAO())->answerInquiry($inquiryId, $messageContent, $userCi);
+    $query = (new inquirysDAO())->answerInquiry($inquiryId, $messageContent);
     echo json_encode($query);
 }
 

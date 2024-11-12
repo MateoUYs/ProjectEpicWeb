@@ -41,6 +41,15 @@ function addEvent(){
     let viewProductsBtn = document.querySelector("#productsBtn");
     let userModal = document.querySelector("#userModal");
     let contactBtn = document.querySelector("#inquiryBtn");
+    let formSumbit = document.querySelector("#consultaForm");
+
+
+    formSumbit.onsubmit = (e) => {
+        e.preventDefault();
+        let title = formElement.title.value;
+        let message = formSumbit.message.value;
+    }
+
 
     btnCart.onclick = () => {
         if (cart.classList.contains("modalEnable")) {
@@ -127,9 +136,10 @@ function addEvent(){
     }
 }
 
-async function confirmarCompra(metodoEnvio,metodoPago,direccion){
+async function addInquiry(title, message){
     let respuesta = await new CarritoDAO().confirmarCompra(direccion,metodoEnvio,metodoPago);
     console.log(respuesta.message);
 
 
 }
+
