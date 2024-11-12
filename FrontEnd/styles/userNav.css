@@ -110,8 +110,8 @@
 }
 
 .cartBtn {
-  width: 7%;
-  height: 100%;
+  width: 2rem;
+  height: 2rem;
   margin-right: 2%;
 }
 
@@ -156,8 +156,15 @@
   cursor: pointer;
 }
 
+html {
+  font-size: 17px; /* Esto significa que 1rem = 16px */
+}
+
 /* Estilos específicos para pantallas de 1366x768 */
 @media (max-width: 1366px) and (max-height: 768px) {
+  html {
+    font-size: 10px; /* Esto significa que 1rem = 16px */
+  }
   .userBtn {
     width: 2.5rem; /* Ajuste de tamaño */
     height: 2.5rem;
@@ -193,4 +200,6 @@
     width: 2rem;
     height: 2rem;
   }
+
+
 }
