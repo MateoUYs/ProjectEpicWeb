@@ -26,6 +26,7 @@ window.onload = async() =>{
 function addEvent(){
     let metodoEnvio = document.querySelector("#metodoEnvio");
     let confirmarCompraElement = document.querySelector("#confirmarCompra");
+    let homeBtn = document.querySelector("#homeBtn");
    
     metodoEnvio.onchange = () => {
         let valor = metodoEnvio.value;
@@ -46,6 +47,10 @@ function addEvent(){
         confirmarCompra(metodoEnvio,metodoPago,direccion);
 
         
+    }
+
+    homeBtn.onclick = () =>{
+        window.location.href = "../../Usuarios/IndexUsuario/indexUsuario.html";
     }
 }
 

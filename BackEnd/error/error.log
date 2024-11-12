@@ -1,0 +1,883 @@
+[12-Nov-2024 17:43:56 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [productId] => 1
+            [price] => 1200
+            [stock] => 50
+            [description] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [name] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [productId] => 2
+            [price] => 100
+            [stock] => 20
+            [description] => Camisa casual
+            [extension] => jpg
+            [name] => Camisa Azul
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [productId] => 3
+            [price] => 150
+            [stock] => 15
+            [description] => Pantalón de vestir
+            [extension] => jpg
+            [name] => Pantalón Negro
+            [color] => black
+        )
+
+    [3] => Array
+        (
+            [productId] => 4
+            [price] => 75
+            [stock] => 30
+            [description] => Camiseta deportiva
+            [extension] => jpg
+            [name] => Camiseta Roja
+            [color] => red
+        )
+
+    [4] => Array
+        (
+            [productId] => 5
+            [price] => 120
+            [stock] => 25
+            [description] => Chaqueta impermeable
+            [extension] => jpg
+            [name] => Chaqueta Verde
+            [color] => green
+        )
+
+    [5] => Array
+        (
+            [productId] => 6
+            [price] => 80
+            [stock] => 40
+            [description] => Sombrero de lana
+            [extension] => jpg
+            [name] => Sombrero Gris
+            [color] => gray
+        )
+
+    [6] => Array
+        (
+            [productId] => 7
+            [price] => 90
+            [stock] => 35
+            [description] => Bufanda de algodón
+            [extension] => jpg
+            [name] => Bufanda Blanca
+            [color] => white
+        )
+
+    [7] => Array
+        (
+            [productId] => 8
+            [price] => 110
+            [stock] => 10
+            [description] => Zapatos de cuero
+            [extension] => jpg
+            [name] => Zapatos Marrones
+            [color] => brown
+        )
+
+    [8] => Array
+        (
+            [productId] => 9
+            [price] => 200
+            [stock] => 5
+            [description] => Abrigo de invierno
+            [extension] => jpg
+            [name] => Abrigo Negro
+            [color] => black
+        )
+
+    [9] => Array
+        (
+            [productId] => 10
+            [price] => 60
+            [stock] => 50
+            [description] => Guantes térmicos
+            [extension] => jpg
+            [name] => Guantes Grises
+            [color] => gray
+        )
+
+    [10] => Array
+        (
+            [productId] => 11
+            [price] => 130
+            [stock] => 18
+            [description] => Gafas de sol
+            [extension] => jpg
+            [name] => Gafas Negras
+            [color] => black
+        )
+
+    [11] => Array
+        (
+            [productId] => 12
+            [price] => 55
+            [stock] => 28
+            [description] => Cinturón de cuero
+            [extension] => jpg
+            [name] => Cinturón Marrón
+            [color] => brown
+        )
+
+    [12] => Array
+        (
+            [productId] => 13
+            [price] => 140
+            [stock] => 12
+            [description] => Chaqueta de cuero
+            [extension] => jpg
+            [name] => Chaqueta Negra
+            [color] => black
+        )
+
+    [13] => Array
+        (
+            [productId] => 14
+            [price] => 95
+            [stock] => 22
+            [description] => Camisa formal
+            [extension] => jpg
+            [name] => Camisa Blanca
+            [color] => white
+        )
+
+    [14] => Array
+        (
+            [productId] => 15
+            [price] => 85
+            [stock] => 40
+            [description] => Corbata de seda
+            [extension] => jpg
+            [name] => Corbata Roja
+            [color] => red
+        )
+
+    [15] => Array
+        (
+            [productId] => 16
+            [price] => 150
+            [stock] => 10
+            [description] => Botas de montaña
+            [extension] => jpg
+            [name] => Botas Marrones
+            [color] => brown
+        )
+
+    [16] => Array
+        (
+            [productId] => 17
+            [price] => 70
+            [stock] => 38
+            [description] => Chaleco de lana
+            [extension] => jpg
+            [name] => Chaleco Gris
+            [color] => gray
+        )
+
+    [17] => Array
+        (
+            [productId] => 18
+            [price] => 105
+            [stock] => 25
+            [description] => Jersey de punto
+            [extension] => jpg
+            [name] => Jersey Azul
+            [color] => blue
+        )
+
+    [18] => Array
+        (
+            [productId] => 19
+            [price] => 175
+            [stock] => 8
+            [description] => Chaqueta de plumas
+            [extension] => jpg
+            [name] => Chaqueta Gris
+            [color] => gray
+        )
+
+    [19] => Array
+        (
+            [productId] => 20
+            [price] => 50
+            [stock] => 55
+            [description] => Calcetines térmicos
+            [extension] => jpg
+            [name] => Calcetines Negros
+            [color] => black
+        )
+
+)
+
+[12-Nov-2024 17:57:31 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [productId] => 1
+            [price] => 1200
+            [stock] => 50
+            [description] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [name] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [productId] => 2
+            [price] => 100
+            [stock] => 20
+            [description] => Camisa casual
+            [extension] => jpg
+            [name] => Camisa Azul
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [productId] => 3
+            [price] => 150
+            [stock] => 15
+            [description] => Pantalón de vestir
+            [extension] => jpg
+            [name] => Pantalón Negro
+            [color] => black
+        )
+
+    [3] => Array
+        (
+            [productId] => 4
+            [price] => 75
+            [stock] => 30
+            [description] => Camiseta deportiva
+            [extension] => jpg
+            [name] => Camiseta Roja
+            [color] => red
+        )
+
+    [4] => Array
+        (
+            [productId] => 5
+            [price] => 120
+            [stock] => 25
+            [description] => Chaqueta impermeable
+            [extension] => jpg
+            [name] => Chaqueta Verde
+            [color] => green
+        )
+
+    [5] => Array
+        (
+            [productId] => 6
+            [price] => 80
+            [stock] => 40
+            [description] => Sombrero de lana
+            [extension] => jpg
+            [name] => Sombrero Gris
+            [color] => gray
+        )
+
+    [6] => Array
+        (
+            [productId] => 7
+            [price] => 90
+            [stock] => 35
+            [description] => Bufanda de algodón
+            [extension] => jpg
+            [name] => Bufanda Blanca
+            [color] => white
+        )
+
+    [7] => Array
+        (
+            [productId] => 8
+            [price] => 110
+            [stock] => 10
+            [description] => Zapatos de cuero
+            [extension] => jpg
+            [name] => Zapatos Marrones
+            [color] => brown
+        )
+
+    [8] => Array
+        (
+            [productId] => 9
+            [price] => 200
+            [stock] => 5
+            [description] => Abrigo de invierno
+            [extension] => jpg
+            [name] => Abrigo Negro
+            [color] => black
+        )
+
+    [9] => Array
+        (
+            [productId] => 10
+            [price] => 60
+            [stock] => 50
+            [description] => Guantes térmicos
+            [extension] => jpg
+            [name] => Guantes Grises
+            [color] => gray
+        )
+
+    [10] => Array
+        (
+            [productId] => 11
+            [price] => 130
+            [stock] => 18
+            [description] => Gafas de sol
+            [extension] => jpg
+            [name] => Gafas Negras
+            [color] => black
+        )
+
+    [11] => Array
+        (
+            [productId] => 12
+            [price] => 55
+            [stock] => 28
+            [description] => Cinturón de cuero
+            [extension] => jpg
+            [name] => Cinturón Marrón
+            [color] => brown
+        )
+
+    [12] => Array
+        (
+            [productId] => 13
+            [price] => 140
+            [stock] => 12
+            [description] => Chaqueta de cuero
+            [extension] => jpg
+            [name] => Chaqueta Negra
+            [color] => black
+        )
+
+    [13] => Array
+        (
+            [productId] => 14
+            [price] => 95
+            [stock] => 22
+            [description] => Camisa formal
+            [extension] => jpg
+            [name] => Camisa Blanca
+            [color] => white
+        )
+
+    [14] => Array
+        (
+            [productId] => 15
+            [price] => 85
+            [stock] => 40
+            [description] => Corbata de seda
+            [extension] => jpg
+            [name] => Corbata Roja
+            [color] => red
+        )
+
+    [15] => Array
+        (
+            [productId] => 16
+            [price] => 150
+            [stock] => 10
+            [description] => Botas de montaña
+            [extension] => jpg
+            [name] => Botas Marrones
+            [color] => brown
+        )
+
+    [16] => Array
+        (
+            [productId] => 17
+            [price] => 70
+            [stock] => 38
+            [description] => Chaleco de lana
+            [extension] => jpg
+            [name] => Chaleco Gris
+            [color] => gray
+        )
+
+    [17] => Array
+        (
+            [productId] => 18
+            [price] => 105
+            [stock] => 25
+            [description] => Jersey de punto
+            [extension] => jpg
+            [name] => Jersey Azul
+            [color] => blue
+        )
+
+    [18] => Array
+        (
+            [productId] => 19
+            [price] => 175
+            [stock] => 8
+            [description] => Chaqueta de plumas
+            [extension] => jpg
+            [name] => Chaqueta Gris
+            [color] => gray
+        )
+
+    [19] => Array
+        (
+            [productId] => 20
+            [price] => 50
+            [stock] => 55
+            [description] => Calcetines térmicos
+            [extension] => jpg
+            [name] => Calcetines Negros
+            [color] => black
+        )
+
+)
+
+[12-Nov-2024 17:58:38 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [productId] => 1
+            [price] => 1200
+            [stock] => 50
+            [description] => Remera Oversize Black Washed - Spider
+            [extension] => png
+            [name] => Remera Washed - Spider
+            [color] => #000000
+        )
+
+    [1] => Array
+        (
+            [productId] => 2
+            [price] => 100
+            [stock] => 20
+            [description] => Camisa casual
+            [extension] => jpg
+            [name] => Camisa Azul
+            [color] => #000000
+        )
+
+    [2] => Array
+        (
+            [productId] => 3
+            [price] => 150
+            [stock] => 15
+            [description] => Pantalón de vestir
+            [extension] => jpg
+            [name] => Pantalón Negro
+            [color] => black
+        )
+
+    [3] => Array
+        (
+            [productId] => 4
+            [price] => 75
+            [stock] => 30
+            [description] => Camiseta deportiva
+            [extension] => jpg
+            [name] => Camiseta Roja
+            [color] => red
+        )
+
+    [4] => Array
+        (
+            [productId] => 5
+            [price] => 120
+            [stock] => 25
+            [description] => Chaqueta impermeable
+            [extension] => jpg
+            [name] => Chaqueta Verde
+            [color] => green
+        )
+
+    [5] => Array
+        (
+            [productId] => 6
+            [price] => 80
+            [stock] => 40
+            [description] => Sombrero de lana
+            [extension] => jpg
+            [name] => Sombrero Gris
+            [color] => gray
+        )
+
+    [6] => Array
+        (
+            [productId] => 7
+            [price] => 90
+            [stock] => 35
+            [description] => Bufanda de algodón
+            [extension] => jpg
+            [name] => Bufanda Blanca
+            [color] => white
+        )
+
+    [7] => Array
+        (
+            [productId] => 8
+            [price] => 110
+            [stock] => 10
+            [description] => Zapatos de cuero
+            [extension] => jpg
+            [name] => Zapatos Marrones
+            [color] => brown
+        )
+
+    [8] => Array
+        (
+            [productId] => 9
+            [price] => 200
+            [stock] => 5
+            [description] => Abrigo de invierno
+            [extension] => jpg
+            [name] => Abrigo Negro
+            [color] => black
+        )
+
+    [9] => Array
+        (
+            [productId] => 10
+            [price] => 60
+            [stock] => 50
+            [description] => Guantes térmicos
+            [extension] => jpg
+            [name] => Guantes Grises
+            [color] => gray
+        )
+
+    [10] => Array
+        (
+            [productId] => 11
+            [price] => 130
+            [stock] => 18
+            [description] => Gafas de sol
+            [extension] => jpg
+            [name] => Gafas Negras
+            [color] => black
+        )
+
+    [11] => Array
+        (
+            [productId] => 12
+            [price] => 55
+            [stock] => 28
+            [description] => Cinturón de cuero
+            [extension] => jpg
+            [name] => Cinturón Marrón
+            [color] => brown
+        )
+
+    [12] => Array
+        (
+            [productId] => 13
+            [price] => 140
+            [stock] => 12
+            [description] => Chaqueta de cuero
+            [extension] => jpg
+            [name] => Chaqueta Negra
+            [color] => black
+        )
+
+    [13] => Array
+        (
+            [productId] => 14
+            [price] => 95
+            [stock] => 22
+            [description] => Camisa formal
+            [extension] => jpg
+            [name] => Camisa Blanca
+            [color] => white
+        )
+
+    [14] => Array
+        (
+            [productId] => 15
+            [price] => 85
+            [stock] => 40
+            [description] => Corbata de seda
+            [extension] => jpg
+            [name] => Corbata Roja
+            [color] => red
+        )
+
+    [15] => Array
+        (
+            [productId] => 16
+            [price] => 150
+            [stock] => 10
+            [description] => Botas de montaña
+            [extension] => jpg
+            [name] => Botas Marrones
+            [color] => brown
+        )
+
+    [16] => Array
+        (
+            [productId] => 17
+            [price] => 70
+            [stock] => 38
+            [description] => Chaleco de lana
+            [extension] => jpg
+            [name] => Chaleco Gris
+            [color] => gray
+        )
+
+    [17] => Array
+        (
+            [productId] => 18
+            [price] => 105
+            [stock] => 25
+            [description] => Jersey de punto
+            [extension] => jpg
+            [name] => Jersey Azul
+            [color] => blue
+        )
+
+    [18] => Array
+        (
+            [productId] => 19
+            [price] => 175
+            [stock] => 8
+            [description] => Chaqueta de plumas
+            [extension] => jpg
+            [name] => Chaqueta Gris
+            [color] => gray
+        )
+
+    [19] => Array
+        (
+            [productId] => 20
+            [price] => 50
+            [stock] => 55
+            [description] => Calcetines térmicos
+            [extension] => jpg
+            [name] => Calcetines Negros
+            [color] => black
+        )
+
+)
+
+[12-Nov-2024 17:58:45 Europe/Berlin] Array
+(
+    [productId] => 9
+    [price] => 200
+    [stock] => 5
+    [description] => Abrigo de invierno
+    [extension] => jpg
+    [name] => Abrigo Negro
+    [color] => black
+    [size] => Array
+        (
+            [0] => Array
+                (
+                    [sizeType] => L
+                )
+
+            [1] => Array
+                (
+                    [sizeType] => M
+                )
+
+            [2] => Array
+                (
+                    [sizeType] => S
+                )
+
+            [3] => Array
+                (
+                    [sizeType] => XL
+                )
+
+        )
+
+)
+
+[12-Nov-2024 17:59:03 Europe/Berlin] INSERT INTO `sales`(`isPaid`, `paymentMethod`, `shippingMethod`, `shippingAddress`,`saleStatus`, `userCi`, `saleDate`) VALUES ('0', 'efectivo', 'Envio', 'fdssd','En Espera de despachar el envío', '55558115', '12/11/2024, 1:59:03 p. m.')
+[12-Nov-2024 18:14:37 Europe/Berlin] Array
+(
+    [productId] => 9
+    [price] => 200
+    [stock] => 5
+    [description] => Abrigo de invierno
+    [extension] => jpg
+    [name] => Abrigo Negro
+    [color] => black
+    [size] => Array
+        (
+            [0] => Array
+                (
+                    [sizeType] => L
+                )
+
+            [1] => Array
+                (
+                    [sizeType] => M
+                )
+
+            [2] => Array
+                (
+                    [sizeType] => S
+                )
+
+            [3] => Array
+                (
+                    [sizeType] => XL
+                )
+
+        )
+
+)
+
+[12-Nov-2024 18:14:51 Europe/Berlin] Array
+(
+    [productId] => 9
+    [price] => 200
+    [stock] => 5
+    [description] => Abrigo de invierno
+    [extension] => jpg
+    [name] => Abrigo Negro
+    [color] => black
+    [size] => Array
+        (
+            [0] => Array
+                (
+                    [sizeType] => L
+                )
+
+            [1] => Array
+                (
+                    [sizeType] => M
+                )
+
+            [2] => Array
+                (
+                    [sizeType] => S
+                )
+
+            [3] => Array
+                (
+                    [sizeType] => XL
+                )
+
+        )
+
+)
+
+[12-Nov-2024 18:15:12 Europe/Berlin] Array
+(
+    [productId] => 9
+    [price] => 200
+    [stock] => 5
+    [description] => Abrigo de invierno
+    [extension] => jpg
+    [name] => Abrigo Negro
+    [color] => black
+    [size] => Array
+        (
+            [0] => Array
+                (
+                    [sizeType] => L
+                )
+
+            [1] => Array
+                (
+                    [sizeType] => M
+                )
+
+            [2] => Array
+                (
+                    [sizeType] => S
+                )
+
+            [3] => Array
+                (
+                    [sizeType] => XL
+                )
+
+        )
+
+)
+
+[12-Nov-2024 18:20:48 Europe/Berlin] Array
+(
+    [productId] => 9
+    [price] => 200
+    [stock] => 5
+    [description] => Abrigo de invierno
+    [extension] => jpg
+    [name] => Abrigo Negro
+    [color] => black
+    [size] => Array
+        (
+            [0] => Array
+                (
+                    [sizeType] => L
+                )
+
+            [1] => Array
+                (
+                    [sizeType] => M
+                )
+
+            [2] => Array
+                (
+                    [sizeType] => S
+                )
+
+            [3] => Array
+                (
+                    [sizeType] => XL
+                )
+
+        )
+
+)
+
+[12-Nov-2024 18:20:55 Europe/Berlin] Array
+(
+    [productId] => 9
+    [price] => 200
+    [stock] => 5
+    [description] => Abrigo de invierno
+    [extension] => jpg
+    [name] => Abrigo Negro
+    [color] => black
+    [size] => Array
+        (
+            [0] => Array
+                (
+                    [sizeType] => L
+                )
+
+            [1] => Array
+                (
+                    [sizeType] => M
+                )
+
+            [2] => Array
+                (
+                    [sizeType] => S
+                )
+
+            [3] => Array
+                (
+                    [sizeType] => XL
+                )
+
+        )
+
+)
+

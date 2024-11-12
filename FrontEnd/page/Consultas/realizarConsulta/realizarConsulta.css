@@ -1,0 +1,60 @@
+/* Estilo general */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.consultaContainer {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.consultaContainer h2 {
+    text-align: center;
+    color: #333;
+}
+
+.consultaForm label {
+    display: block;
+    margin-bottom: 8px;
+    color: #666;
+    font-weight: bold;
+}
+
+.consultaForm input[type="text"],
+.consultaForm textarea {
+    width: 100%;
+    padding: 10px; /* Agrega espacio dentro de los campos */
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+}
+
+.consultaForm textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.sendButton {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sendButton:hover {
+    background-color: #0056b3;
+}

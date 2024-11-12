@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Style Indumentaria</title>
+    <title>Top Style Indumentaria - Consulta</title>
     <link rel="stylesheet" href="realizarConsulta.css">
     <link rel="stylesheet" href="../../../styles/body.css">
-    <link rel="stylesheet" href="../../../styles/cart.css">
     <link rel="stylesheet" href="../../../styles/userNav.css">
     <link rel="stylesheet" href="../../../styles/alertFrm.css">
+    <link rel="stylesheet" href="../../../styles/cart.css">
     <script type="module" src="realizarConsulta.js"></script>
 </head>
 <body>
@@ -16,14 +16,14 @@
     <div class="navBar">
       <div class="navLeft">
         <img src="../../../assets/logoPageAdmin.svg" alt="Not Found" id="homeBtn">
-        <div id="productsBtn">Catalogo</div>
+        <div id="productsBtn">Catálogo</div>
         <div id="offerBtn">Ofertas</div>
         <div id="inquiryBtn">Contáctanos</div>
       </div>
       <div class="navRight">
         <img src="../../../assets/carrito.svg" id="showCart" class="cartBtn">
         <div class="registroUser" id="registerBtn">Registrarse</div>
-        <div class="inicioSesion" id="logInBtn">Iniciar Sesion</div>
+        <div class="inicioSesion" id="logInBtn">Iniciar Sesión</div>
         <img src="../../../assets/user.png" class="userBtn" id="userBtn">
       </div>
     </div>
@@ -32,45 +32,45 @@
     <div id="manageUser">Modificar Cuenta</div>
     <div id="viewSales">Ver Compras</div>
     <img src="../../../assets/logOut.png" class="logOutBtn" id="logOutBtn">
-  </div>
-        </div>
-        <div class="alertFrm alertDeactivated" id="alertDiv">
-            <form action="">
-              <p class="subTitle" id="alertTitle"></p>
-              <label for="" id="question"></label>
-              <p id="confirmationAlert" class="confirmation"></p>
-              <div class="btns">
-                <input type="submit" class="alertBtn" id="alertBtn" name="submit" value=""></input>
-                <input type="button" class="alertCancelBtn" id="btnCancelAlert" name="cancelar" value="Cancelar"></input>
-              </div>
-            </form>
-          </div>
-        <div class="backContrast"></div>
 
-    <form action="" id="confirmarCompra"  class="tipoEnvio">
-        <label for="">Metodo Envio</label>
-        <select name="" id="metodoEnvio" name="metodoEnvio">
-            <option value="Envio">Envio a Domicilio</option>
-            <option value="Retiro">Retiro en Sucursal</option>
-        </select>
-        <label class="direccion" for="">Direccion</label>
-        <input class="direccion" type="text" id="direccion" name="direccion">
-        <label for="">Metodo de Pago</label>
-        <select name="" id="metodoPago" name="metodoPago">
-            <option value="efectivo">Efectivo</option>
-            <option value="tarjeta">Tarjeta</option>
-        </select>
-        <button type="submit">Confirmar Compra</button>
-    </form>
-    <div class="cartModal modalDisable" id="cartModal">
-        <div class="ProductList" id="ProductList">
-      
-      
-        </div>
-        <div class="details">
-          <p id="totalPrice" class="price"></p>
-          <button id="confirmarCompra" class="confirmBtn">Confirmar compra</button>
-        </div>
+  </div>
+  <div class="alertFrm alertDeactivated" id="alertDiv">
+    <form action="">
+      <p class="subTitle" id="alertTitle"></p>
+      <label for="" id="question"></label>
+      <p id="confirmationAlert" class="confirmation"></p>
+      <div class="btns">
+        <input type="submit" class="formBtn" id="alertBtn" name="submit" value=""></input>
+        <input type="button" class="cancelBtn" id="btnCancelAlert" name="cancelar" value="Cancelar"></input>
       </div>
+    </form>
+  </div>
+  <div class="backContrast"></div>
+  <div class="consultaContainer">
+    <h2>Enviar una Consulta</h2>
+    <form id="consultaForm" class="consultaForm">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+
+      <label for="consulta">Consulta</label>
+      <input type="text" id="consulta" name="consulta" placeholder="Asunto de tu consulta" required>
+
+      <label for="descripcion">Descripción</label>
+      <textarea id="descripcion" name="descripcion" placeholder="Escribe los detalles de tu consulta aquí..." required></textarea>
+
+      <button type="submit" class="sendButton">Mandar Consulta</button>
+    </form>
+  </div>
+
+  <div class="cartModal modalDisable" id="cartModal">
+    <div class="ProductList" id="ProductList">
+
+
+    </div>
+    <div class="details">
+      <p id="totalPrice" class="price"></p>
+      <button id="confirmarCompra" class="confirmBtn">Confirmar compra</button>
+    </div>
+  </div>
 </body>
 </html>
