@@ -1,4 +1,4 @@
-import CarritoDAO from "../../../dao/carritoDAO.js";
+import InquiryDAO from "../../../dao/InquiryDAO.js";
 import sessionDAO from '../../../dao/sessionDAO.js'
 
 window.onload = async() =>{
@@ -42,12 +42,15 @@ function addEvent(){
     let userModal = document.querySelector("#userModal");
     let contactBtn = document.querySelector("#inquiryBtn");
     let formSumbit = document.querySelector("#consultaForm");
+    console.log(formSumbit);
 
 
     formSumbit.onsubmit = (e) => {
         e.preventDefault();
-        let title = formElement.title.value;
+        let title = formSumbit.title.value;
         let message = formSumbit.message.value;
+
+        addInquiry(title, message);
     }
 
 
@@ -137,9 +140,9 @@ function addEvent(){
 }
 
 async function addInquiry(title, message){
-    let respuesta = await new CarritoDAO().confirmarCompra(direccion,metodoEnvio,metodoPago);
+    let respuesta = await new InquiryDAO().addInquiry(title, message);
+    console.log(respuesta);
     console.log(respuesta.message);
-
 
 }
 

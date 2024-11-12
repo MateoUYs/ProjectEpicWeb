@@ -11,7 +11,7 @@ class inquirysDAO
     function get()
     {
         $connection = connection();
-        $sql = "SELECT * FROM `inquiry`";
+        $sql = "SELECT inquiry.*, users.userName FROM inquiry INNER JOIN users ON inquiry.userCi = users.userCi";
         $firstQuery = $connection->query($sql);
         $inquirys = $firstQuery->fetch_all(MYSQLI_ASSOC);
         $inquiryMessages = [];
@@ -104,9 +104,9 @@ class inquirysDAO
     }
 
 
-    function addMessage($content, $inquiryId)
+    function addMessage($content, $inquiryId, $userCi)
     {
-        $sql = "INSERT INTO `message`(`content`, `inquiryId`, `userCI`) VALUES ('$content','$inquiryId')";
+        $sql = "INSERT INTO `message`(`content`, `inquiryId`, `userCI`) VALUES ('$content','$inquiryId', '$userCi')";
         $connection = connection();
         try {
             $connection->query($sql);
