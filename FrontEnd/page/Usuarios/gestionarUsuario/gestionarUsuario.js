@@ -1,7 +1,25 @@
-import SessionDAO from "../../../dao/sessionDAO.js";
+import sessionDAO from "../../../dao/sessionDAO.js";
 import UserDAO from "../../../dao/userDao.js";
 
-window.onload = () => {
+window.onload = async() => {
+    let query = await new sessionDAO().getSession();
+    let registerBtn = document.querySelector("#registerBtn");
+    let logInBtn = document.querySelector("#logInBtn");
+    let userBtn = document.querySelector("#userBtn");
+    let logOutBtn = document.querySelector("#logOutBtn");
+
+    if (query.status) {
+        registerBtn.classList.remove("userUnlogged");
+        logInBtn.classList.remove("userUnlogged");
+        userBtn.classList.add("userLogged");
+        logOutBtn.classList.add("userLogged");
+        
+    } else {
+        registerBtn.classList.add("userUnlogged");
+        logInBtn.classList.add("userUnlogged");
+        userBtn.classList.remove("userLogged");
+        logOutBtn.classList.remove("userLogged");
+    }
     loadData();
     addEvents();
 }

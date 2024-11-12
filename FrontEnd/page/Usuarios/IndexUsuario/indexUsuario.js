@@ -1,4 +1,4 @@
-import ProductDAO from "../../../dao/productDAO.js";
+import ProductoDAO from '../../../dao/productDao.js';
 import statsDAO from '../../../dao/statsDAO.js';
 import sessionDAO from '../../../dao/sessionDAO.js';
 
@@ -6,19 +6,19 @@ window.onload = async () => {
     let query = await new sessionDAO().getSession();
     let registerBtn = document.querySelector("#registerBtn");
     let logInBtn = document.querySelector("#logInBtn");
-    let manageUserBtn = document.querySelector("#manageUserBtn");
+    let userBtn = document.querySelector("#userBtn");
     let logOutBtn = document.querySelector("#logOutBtn");
 
     if (query.status) {
         registerBtn.classList.remove("userUnlogged");
         logInBtn.classList.remove("userUnlogged");
-        manageUserBtn.classList.add("userLogged");
+        userBtn.classList.add("userLogged");
         logOutBtn.classList.add("userLogged");
         
     } else {
         registerBtn.classList.add("userUnlogged");
         logInBtn.classList.add("userUnlogged");
-        manageUserBtn.classList.remove("userLogged");
+        userBtn.classList.remove("userLogged");
         logOutBtn.classList.remove("userLogged");
     }
     showProduct();
@@ -33,7 +33,7 @@ function addEvents() {
     let btnComprar = document.querySelector("#confirmarCompra");
     let registerBtn = document.querySelector("#registerBtn");
     let logInBtn = document.querySelector("#logInBtn");
-    let manageUserBtn = document.querySelector("#manageUserBtn");
+    let userBtn = document.querySelector("#userBtn");
     let logOutBtn = document.querySelector("#logOutBtn");
     let divAlert = document.querySelector("#alertDiv");
     let pAlertTitle = document.querySelector("#alertTitle");
@@ -42,6 +42,8 @@ function addEvents() {
     let alertCancel = document.querySelector("#btnCancelAlert");
     let body = document.querySelector("body");
     let homeBtn = document.querySelector("#homeBtn");
+    let viewProductsBtn = document.querySelector("#productsBtn");
+    let userModal = document.querySelector("#userModal");
 
     imgButtons.forEach(imgBtn => {
         imgBtn.onclick = () => {
@@ -61,6 +63,9 @@ function addEvents() {
         }
     }
 
+    viewProductsBtn.onclick = () =>{
+        window.location.href = "../../Productos/verProducto/verProducto.html";
+    }
 
     btnComprar.onclick = () => {
         window.location.href = "../../Carrito/confirmarCompra/confirmarCompra.html";
@@ -74,8 +79,14 @@ function addEvents() {
         window.location.href = "../iniciarSesion/iniciarSesion.html";
     }
 
-    manageUserBtn.onclick = () =>{
-        window.location.href = "../gestionarUsuario/gestionarUsuario.html";
+    userBtn.onclick = () =>{
+        if(userModal.classList.contains("modalDisable")){
+            userModal.classList.add("modalEnable");
+            userModal.classList.remove("modalDisable");
+        }else{
+            userModal.classList.remove("modalEnable");
+            userModal.classList.add("modalDisable");
+        }
     }
 
     homeBtn.onclick = () =>{
@@ -141,4 +152,6 @@ async function logOut() {
     await new sessionDAO().logOut();
     window.location.href = "../indexUsuario/indexUsuario.html";
 }
+
+
 

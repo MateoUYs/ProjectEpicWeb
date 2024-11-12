@@ -30,20 +30,24 @@
   <nav>
     <div class="navBar">
       <div class="navLeft">
-        <img src="../../../assets/logoPageAdmin.svg" alt="Not Found">
-        <div>Catalogo</div>
-        <div>Acerca De</div>
-        <div>Contacto</div>
+        <img src="../../../assets/logoPageAdmin.svg" alt="Not Found" id="homeBtn">
+        <div id="productsBtn">Catalogo</div>
+        <div id="offerBtn">Ofertas</div>
+        <div id="inquiryBtn">Contáctanos</div>
       </div>
       <div class="navRight">
         <img src="../../../assets/carrito.svg" id="showCart" class="cartBtn">
         <div class="registroUser" id="registerBtn">Registrarse</div>
         <div class="inicioSesion" id="logInBtn">Iniciar Sesion</div>
-        <img src="../../../assets/user.png" class="userBtn" id="manageUserBtn">
-        <img src="../../../assets/logOut.png" class="userBtn" id="logOutBtn">
+        <img src="../../../assets/user.png" class="userBtn" id="userBtn">
       </div>
     </div>
   </nav>
+  <div class="userModal modalDisable" id="userModal">
+    <div id="manageUser">Modificar Cuenta</div>
+    <div id="viewSales">Ver Compras</div>
+    <img src="../../../assets/logOut.png" class="logOutBtn" id="logOutBtn">
+  </div>
   </div>
   <div class="alertFrm alertDeactivated" id="alertDiv">
     <form action="">
@@ -60,11 +64,7 @@
 
   <header>
     <div class="topper">
-      <h1 class="topper1">Tu tienda de ropa</h1>
-      <p class="topper2">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto quo voluptatum ab nostrum, ad nihil doloribus
-        repellendus magni unde? Pariatur accusamus tenetur culpa quisquam hic voluptate ullam magni adipisci eligendi.
-      </p>
+      <h1 class="topper1">Top Style Indumentaria</h1>
     </div>
   </header>
 

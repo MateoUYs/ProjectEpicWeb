@@ -1,6 +1,6 @@
 import CarritoDAO from "../../../dao/carritoDAO.js";
-import ProductDAO from "../../../dao/productDAO.js";
-import sessionDAO from '../../../dao/sessionDAO.js'
+import ProductDAO from "../../../dao/productDao.js";
+import sessionDAO from '../../../dao/sessionDAO.js';
 
 let productDetail;
 
@@ -14,19 +14,19 @@ window.onload = async () => {
     let query = await new sessionDAO().getSession();
     let registerBtn = document.querySelector("#registerBtn");
     let logInBtn = document.querySelector("#logInBtn");
-    let manageUserBtn = document.querySelector("#manageUserBtn");
+    let userBtn = document.querySelector("#userBtn");
     let logOutBtn = document.querySelector("#logOutBtn");
 
     if (query.status) {
         registerBtn.classList.remove("userUnlogged");
         logInBtn.classList.remove("userUnlogged");
-        manageUserBtn.classList.add("userLogged");
+        userBtn.classList.add("userLogged");
         logOutBtn.classList.add("userLogged");
-
+        
     } else {
         registerBtn.classList.add("userUnlogged");
         logInBtn.classList.add("userUnlogged");
-        manageUserBtn.classList.remove("userLogged");
+        userBtn.classList.remove("userLogged");
         logOutBtn.classList.remove("userLogged");
     }
 

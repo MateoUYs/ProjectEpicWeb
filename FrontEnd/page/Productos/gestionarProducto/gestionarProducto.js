@@ -1,5 +1,5 @@
 import SessionDAO from "../../../dao/sessionDAO.js";
-import ProductDAO from "../../../dao/productDAO.js";
+import ProductDAO from "../../../dao/productDao.js";
 import SizeDAO from "../../../dao/sizeDAO.js";
 
 let id = null;

@@ -2,22 +2,24 @@ import CarritoDAO from "../../../dao/carritoDAO.js";
 import sessionDAO from '../../../dao/sessionDAO.js'
 
 window.onload = async() =>{
+    let query = await new sessionDAO().getSession();
     let registerBtn = document.querySelector("#registerBtn");
     let logInBtn = document.querySelector("#logInBtn");
-    let manageUserBtn = document.querySelector("#manageUserBtn");
+    let userBtn = document.querySelector("#userBtn");
     let logOutBtn = document.querySelector("#logOutBtn");
-    let query = await new sessionDAO().getSession();
 
     if (query.status) {
         registerBtn.classList.remove("userUnlogged");
         logInBtn.classList.remove("userUnlogged");
-        manageUserBtn.classList.add("userLogged");
+        userBtn.classList.add("userLogged");
         logOutBtn.classList.add("userLogged");
-
+        
     } else {
-        window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html"
+        registerBtn.classList.add("userUnlogged");
+        logInBtn.classList.add("userUnlogged");
+        userBtn.classList.remove("userLogged");
+        logOutBtn.classList.remove("userLogged");
     }
-
     addEvent();
 }
 

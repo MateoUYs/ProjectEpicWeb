@@ -30,11 +30,11 @@
   cursor: pointer;
 }
 
-.navLeft img:hover{
+.navLeft img:hover {
   cursor: pointer;
 }
 
-.navRight img:hover{
+.navRight img:hover {
   cursor: pointer;
 }
 
@@ -111,4 +111,45 @@
   width: 7%;
   height: 100%;
   margin-right: 2%;
+}
+
+.userModal {
+  width: 15rem;
+  height: 10rem;
+  position: absolute;
+  z-index: 10;
+  background-color: #ffffff;
+  transition: all .3s;
+  right: 0;
+  top: 115px;
+  transform-origin: top right;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 1%;
+  border-bottom-left-radius: 2rem;
+}
+
+.userModal>div{
+  height: 2rem;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.userModal>div:hover{
+  background-color: #333;
+  color: rgb(248, 248, 248);
+  transition: .3s;
+  cursor: pointer;
+}
+
+.logOutBtn {
+  position: absolute;
+  top: 64%;
+  left: 74%;
+  width: 20%;
+}
+
+.logOutBtn:hover{
+  cursor: pointer;
 }
