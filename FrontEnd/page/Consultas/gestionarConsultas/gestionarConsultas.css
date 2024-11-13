@@ -23,3 +23,124 @@
 .show{
     transform: scale(1);
 }
+
+/* Estilos generales del modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    background-color: rgba(0, 0, 0, 0.75); /* Fondo oscuro con más opacidad */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
+    transform: scale(0);
+    opacity: 0;
+}
+
+/* Muestra el modal */
+.show {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Contenedor principal del mensaje */
+.modal .mensajeContent {
+    width: 80%;
+    max-width: 500px;
+    max-height: 80%;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px; /* Espaciado interior general */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    overflow-y: auto;
+}
+
+/* Títulos y textos */
+.mensajeContent p:first-child {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#tituloContainer {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.mensajeContent p:nth-child(3) {
+    font-weight: bold;
+    color: #444;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/* Área de texto */
+#contenidoMensajeContainer {
+    margin-bottom: 10px; /* Añade espacio entre el contenido y el textarea */
+}
+
+#contenidoMensaje {
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+/* Celda de acciones */
+#actionsTd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos del botón dentro de la tabla */
+.btnTd {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    transition: transform 0.2s ease;
+}
+
+.btnTd img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Efecto hover para el botón */
+.btnTd:hover {
+    transform: scale(1.3); /* Agranda ligeramente el botón al pasar el mouse */
+}
+
+/* Centrado del botón dentro de la celda */
+table td:last-child {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.btnContestar{
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.btnContestar:hover{
+    background-color: #357ABD;
+}
