@@ -17,7 +17,8 @@ window.onload = async () => {
     }
     showInquiry(allInquiry);
     addEventModal();
-    
+    sumbitQuestion();
+    sumbitPublicQuestion();
 }
 
 
@@ -67,7 +68,7 @@ function addEventModal(){
     modal.onclick = (e) => {
         if (e.target === modal) {
           
-            showModal(false);
+            showModal(false); 
         }
     }
 }
@@ -78,4 +79,32 @@ function showModal(status){
     }else{
         modal.classList.remove("show");
     }
+}
+
+function sumbitQuestion(){
+ let btnContestar = document.querySelector("#btnContestar");
+ let messageArea = document.querySelector("#contenidoMensaje");
+ btnContestar.onclick = () => {
+   let messageContent = messageArea.value;
+   reponderPreguntaInquiry(inquirySelected, messageContent);
+ }
+}   
+
+async function reponderPreguntaInquiry(inquiry, messageContent){
+  let inquiryId = inquiry.inquiryId;
+  let query = await new InquiryDAO().answerInquiry(inquiryId, messageContent);
+
+}
+
+function sumbitPublicQuestion(){
+    let btnPublicar = document.querySelector("#btnPublicar");
+    btnPublicar.onclick = () =>{
+        publicarInquiry(inquirySelected);
+    }
+}
+
+async function publicarInquiry(inquiry){
+    let inquiryId = inquiry.inquiryId;
+    let query = await new InquiryDAO().sumbitInquiry(inquiryId);
+    console.log(query.status);
 }

@@ -23,7 +23,7 @@ export default class InquiryDAO{
         return query;
     }
 
-    async answerInquiry(){
+    async answerInquiry(inquiryId, messageContent){
         let url = origin + "/BackEnd/controller/inquiryController.php?function=answer";
         let formData = new FormData();
         formData.append("inquiryId",inquiryId);
@@ -38,7 +38,7 @@ export default class InquiryDAO{
 
     }
 
-    async sumbitInquiry(){
+    async sumbitInquiry(inquiryId){
         let url = origin + "/BackEnd/controller/inquiryController.php?function=submit";
         let formData = new FormData();
         formData.append("inquiryId",inquiryId);

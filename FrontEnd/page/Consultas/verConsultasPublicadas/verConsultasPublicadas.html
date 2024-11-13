@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión Consultas</title>
+  <link rel="stylesheet" href="../../../styles/body.css">
+  <link rel="stylesheet" href="../../../styles/table.css">
+  <link rel="stylesheet" href="../../../styles/userNav.css">
+  <link rel="stylesheet" href="../../../styles/adminMain.css">
+  <link rel="stylesheet" href="../../../styles/consult.css">
+  <link rel="stylesheet" href="../../../styles/alertFrm.css">
+  <link rel="stylesheet" href="../../../styles/cart.css">
+  <link rel="stylesheet" href="../../../styles/manageForm.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet" />
+  <script type="module" src="verConsultasPublicadas.js"></script>
+  <link rel="stylesheet" href="verConsultasPublicadas.css">
+</head>
+<body>
+
+    <nav>
+        <div class="navBar">
+          <div class="navLeft">
+            <img src="../../../assets/logoPageAdmin.svg" alt="Not Found" id="homeBtn">
+            <div id="productsBtn">Catálogo</div>
+            <div id="offerBtn">Ofertas</div>
+            <div id="inquiryBtn">Contáctanos</div>
+          </div>
+          <div class="navRight">
+            <img src="../../../assets/carrito.svg" id="showCart" class="cartBtn">
+            <div class="registroUser" id="registerBtn">Registrarse</div>
+            <div class="inicioSesion" id="logInBtn">Iniciar Sesión</div>
+            <img src="../../../assets/user.png" class="userBtn" id="userBtn">
+          </div>
+        </div>
+      </nav>
+     
+ 
+  <main>
+    <div class="content">
+      <div class="topContainer">
+        <p class="title" id="consultTitle">Consultas</p>
+      </div>
+
+      <div class="inputSearchContainer">
+        <input type="text" class="searchInput" name="search" id="searchInput" placeholder="Buscar Consultas">
+        <img src="../../../assets/searchIcon.png">
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Titulo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="inquiryData">
+
+        </tbody>
+      </table>
+    </div>
+    <div id="inquiryList" class="deactivated"></div>    
+  </main>
+
+  <div class="modal" id="modal">
+    <div class="mensajeContent">
+      <div>
+        <p>Titulo</p>
+        <p id="tituloContainer"></p>
+      </div>
+      
+      <p>Mensajes:</p>
+      <div id="contenidoMensajeContainer"></div>
+      <textarea id="contenidoMensaje">
+
+      </textarea>
+    </div>
+
+  </div>
+</body>
+
+</html> 

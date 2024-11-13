@@ -43,11 +43,13 @@ class inquirysDAO
 
     function answerInquiry($inquiryId, $messageContent)
     {
+        $session = (new SesionDAO())->getSession()->data;
+        $userCi = $session['userCi'];
         $sql = "UPDATE `inquiry` SET `isAnswered`= 1 WHERE `inquiryId`='$inquiryId'";
         $connection = connection();
         try {
             $connection->query($sql);
-            $this->addMessage($messageContent, $inquiryId);
+            $this->addMessage($messageContent, $inquiryId, $userCi);
             $query = new query(true, "Consulta respondida", null);
         } catch (Exception $e) {
             $query = new query(false, "No se pudo responder la consulta", null);
