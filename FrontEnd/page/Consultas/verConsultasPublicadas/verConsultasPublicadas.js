@@ -9,7 +9,7 @@ window.onload = async () => {
     let allInquiry = queryResponse.data;
     showInquiry(allInquiry);
     addEventModal();
-   /* getPublicInquiry();*/
+
 }
 
 
@@ -48,23 +48,11 @@ function loadMenssage(){
     message.innerHTML = "";
     title.innerHTML = inquirySelected.title;
     inquirySelected.message.forEach((msj)=>{
-        message.innerHTML += `<p>${msj.content}</p>`;
+        message.innerHTML += `<p>Pregunta usuario:</p><p>${msj.userDescription}</p>`;
+        message.innerHTML += `<p>Respuesta Administrador:</p><p>${msj.adminResponse}</p>`;
     });
 }
 
-/*
-function loadMenssage(){
-    let message = document.querySelector("#contenidoMensajeAdmin")
-    message.innerHTML = "";
-    inquirySelected.message.forEach((msj)=>{
-        message.innerHTML += `<p>Respuesta del administrador: ${msj.content}</p>`;
-    });
-}
-
-async function getPublicInquiry(inquiry){
-    let query = await new InquiryDAO().getPublicInquirys;
-    console.log(query);
-}*/
 
 function addEventModal(){
     let modal = document.querySelector("#modal");
@@ -83,3 +71,5 @@ function showModal(status){
         modal.classList.remove("show");
     }
 }
+
+
