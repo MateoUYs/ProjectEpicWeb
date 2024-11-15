@@ -48,7 +48,7 @@ function loadMenssage(){
     message.innerHTML = "";
     title.innerHTML = inquirySelected.title;
     inquirySelected.message.forEach((msj)=>{
-        message.innerHTML += `<p>${msj.content}</p>`;
+        message.innerHTML += `<p>Pregunta usuario:</p><p>${msj.content}</p>`;
     });
 }
 
