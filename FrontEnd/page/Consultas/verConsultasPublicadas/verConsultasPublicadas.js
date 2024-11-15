@@ -9,7 +9,7 @@ window.onload = async () => {
     let allInquiry = queryResponse.data;
     showInquiry(allInquiry);
     addEventModal();
-   /* getPublicInquiry();*/
+
 }
 
 
@@ -52,19 +52,6 @@ function loadMenssage(){
     });
 }
 
-/*
-function loadMenssage(){
-    let message = document.querySelector("#contenidoMensajeAdmin")
-    message.innerHTML = "";
-    inquirySelected.message.forEach((msj)=>{
-        message.innerHTML += `<p>Respuesta del administrador: ${msj.content}</p>`;
-    });
-}
-
-async function getPublicInquiry(inquiry){
-    let query = await new InquiryDAO().getPublicInquirys;
-    console.log(query);
-}*/
 
 function addEventModal(){
     let modal = document.querySelector("#modal");
@@ -83,3 +70,5 @@ function showModal(status){
         modal.classList.remove("show");
     }
 }
+
+
