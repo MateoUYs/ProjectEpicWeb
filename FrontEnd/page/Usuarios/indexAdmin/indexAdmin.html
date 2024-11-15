@@ -10,21 +10,21 @@
   <link rel="stylesheet" href="../../../styles/adminNav.css">
   <link rel="stylesheet" href="../../../styles/consult.css">
   <link rel="stylesheet" href="../../../styles/adminMain.css">
+  <link rel="stylesheet" href="../../../styles/alertFrm.css">
+  <link rel="stylesheet" href="../../../styles/manageForm.css">
+  <link rel="stylesheet" href="../../../styles/table.css">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap"
-    rel="stylesheet" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet" />
   <script type="module" src="indexAdmin.js"></script>
 </head>
 
 <body>
   <img class="hide" src="../../../assets/closeIcon.png" id="menuBtn">
-  <div class="activatedDiv"></div>
+  <div class="activatedDiv" id="navDiv"></div>
   <nav class="activatedNav">
-    <button class="pageLogo">
+    <button type="button" class="pageLogo" id="homeBtn">
       <img src="../../../assets/logoPageAdmin.png">
     </button>
     <div class="navContainer">
@@ -37,25 +37,49 @@
       <a href="../../Estadisticas/verEstadisticas/verEstadisticas.html">Ver Estadísticas</a>
     </div>
     <div class="actions">
-      <button class="inquiry" id="btnInquiry">
+      <button type="button" class="inquiry" id="inquiryBtn">
         <img src="../../../assets/consultaIcon.png">
-        <p id="consultCount" class="empty">0</p>
+        <p id="countConsults" class="empty">0</p>
       </button>
-      <button class="logOut" id="btnLogOut"><img src="../../../assets/logOut.png"></button>
+      <button type="button" class="logOut" id="btnLogOut"><img src="../../../assets/logOut.png"></button>
     </div>
   </nav>
+  <div class="alertFrm alertDeactivated" id="alertDiv">
+    <form action="">
+      <p class="subTitle" id="alertTitle"></p>
+      <label for="" id="question"></label>
+      <p id="confirmationAlert" class="confirmation"></p>
+      <div class="btns">
+        <input type="submit" class="formBtn" id="alertBtn" name="submit" value=""></input>
+        <input type="button" class="cancelBtn" id="btnCancelAlert" name="cancelar" value="Cancelar"></input>
+      </div>
+    </form>
+  </div>
   <main>
     <div class="start">
       <p class="title">Bienvenido Administrador</p>
-      <div class="separator"></div>
       <div class="indexContent">
         <div class="recentPurchases">
-          <p class="subTitle">Compras Recientes:</p>
-          <div class="separator"></div>
-        </div>
-        <div class="statsPreview">
-          <p class="subTitle">Vista Previa de las Estadísticas:</p>
-          <div class="separator"></div>
+          <p class="subTitle">Ventas Recientes:</p>
+          <table>
+            <thead>
+              <tr>
+                <th>ID Venta</th>
+                <th>Método de Pago</th>
+                <th>Está Pago</th>
+                <th>Estado Venta</th>
+                <th>Método de Envío</th>
+                <th>Dirección</th>
+                <th>Número de Rastreo</th>
+                <th>Nombre de Usuario</th>
+                <th>Fecha de Venta</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="saleData">
+    
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

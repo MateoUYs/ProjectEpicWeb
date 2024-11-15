@@ -17,6 +17,11 @@ window.onload = async () => {
     } else {
         window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
     }
+    if (localStorage.getItem("saleSelected") !== null) {
+        let selectedSale = JSON.parse(localStorage.getItem("saleSelected"));
+        loadInputs(selectedSale);
+        localStorage.removeItem("saleSelected");
+    }
     showSales(allSales);
     addEvents();
 }

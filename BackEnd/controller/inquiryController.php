@@ -25,6 +25,9 @@ switch ($funcion) {
     case 'getAnsweredInquirys':
         getAnsweredInquirys();
         break;
+    case 'getNewInquirys':
+        getNewInquirys();
+        break;    
     default:
         echo json_encode(['error' => 'Función no reconocida']);
         break;
@@ -72,6 +75,11 @@ function getPublicInquirys()
 function getAnsweredInquirys()
 {
     $query = (new inquirysDAO())->getAnsweredInquirys();
+    echo json_encode($query);
+}
+
+function getNewInquirys(){
+    $query = (new inquirysDAO())->getNewInquirys();
     echo json_encode($query);
 }
 ?>

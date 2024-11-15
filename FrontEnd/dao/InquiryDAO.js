@@ -64,4 +64,11 @@ export default class InquiryDAO{
         let query = await queryResponse.json();
         return query;
     }
+
+    async getNewInquirys(){
+        let url = origin + "/BackEnd/controller/inquiryController.php?function=getNewInquirys";
+        let queryResponse = await fetch(url);
+        let query = await queryResponse.json();
+        return query;
+    }
 }
