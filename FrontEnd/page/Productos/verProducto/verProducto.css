@@ -2,3 +2,12 @@
   background-color: white;
   padding: 1%;
  }
+
+ #productContainer{
+    display: grid;
+    height: 65rem;
+    padding: 20px;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(5, 1fr);
+    box-sizing: border-box;
+ }

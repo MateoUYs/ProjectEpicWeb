@@ -24,6 +24,21 @@ class inquirysDAO
         return $query;
     }
 
+    function getNewInquirys(){
+        $connection = connection();
+        $sql = "SELECT inquiry.*, users.userName FROM inquiry INNER JOIN users ON inquiry.userCi = users.userCi WHERE inquiry.isAnswered = 0";
+        $firstQuery = $connection->query($sql);
+        $inquirys = $firstQuery->fetch_all(MYSQLI_ASSOC);
+        $inquiryMessages = [];
+        foreach ($inquirys as $inquiry) {
+            $inquiry["message"] = $this->getMessage($inquiry["inquiryId"])->data;
+            $inquiryMessages[] = $inquiry;
+        }
+        $query = new query(true, "Consultas y sus mensajes obtenidos con exito", $inquiryMessages);
+
+        return $query;
+    }
+
     function add($title, $messageContent)
     {
         $session = (new SesionDAO())->getSession()->data;
