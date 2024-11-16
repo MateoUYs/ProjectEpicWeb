@@ -2,14 +2,33 @@ import SessionDAO from "../../../dao/sessionDAO.js";
 import InquiryDAO from "../../../dao/InquiryDAO.js";
 
 let inquirySelected = null;
+let allInquiry = [];
+let filter = null;
 
 window.onload = async () => {
     let queryResponse = await new InquiryDAO().getInquiry();
-    console.log(queryResponse);
-    let allInquiry = queryResponse.data;
+    allInquiry = queryResponse.data;
+    let query = await new SessionDAO().getSession();
+    let registerBtn = document.querySelector("#registerBtn");
+    let logInBtn = document.querySelector("#logInBtn");
+    let userBtn = document.querySelector("#userBtn");
+    let logOutBtn = document.querySelector("#logOutBtn");
+
+    if (query.status) {
+        registerBtn.classList.remove("userUnlogged");
+        logInBtn.classList.remove("userUnlogged");
+        userBtn.classList.add("userLogged");
+        logOutBtn.classList.add("userLogged");
+
+    } else {
+        registerBtn.classList.add("userUnlogged");
+        logInBtn.classList.add("userUnlogged");
+        userBtn.classList.remove("userLogged");
+        logOutBtn.classList.remove("userLogged");
+    }
     showInquiry(allInquiry);
     addEventModal();
-
+    addFilterEvent();
 }
 
 
@@ -57,7 +76,6 @@ function addEventModal(){
     let modal = document.querySelector("#modal");
     modal.onclick = (e) => {
         if (e.target === modal) {
-          
             showModal(false); 
         }
     }
@@ -70,5 +88,19 @@ function showModal(status){
         modal.classList.remove("show");
     }
 }
+
+function addFilterEvent(){
+    let searchInput = document.querySelector("#searchInput");
+
+    searchInput.onkeyup = () =>{
+        filter = searchInput.value;
+        searchInquirys(filter);
+    }
+}
+
+function searchInquirys(filter){
+    let filteredInquirys = allProducts.filter(inquiry => (inquiry.title+"").includes(filter));
+    showInquiry(filteredInquirys);
+}   
 
 

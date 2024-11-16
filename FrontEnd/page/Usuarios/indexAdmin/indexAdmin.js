@@ -19,7 +19,11 @@ window.onload = async () => {
     } else {
         window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
     }
+    console.log(newInquirys);
+
     if(newInquirys === 0){
+       showInquiryMessage(); 
+    }else{
         showInquirys(newInquirys);
     }
     if (allSales.length === 0) {
@@ -75,8 +79,28 @@ function showMessage(){
     recentPurchases.appendChild(pMessage);
 }
 
+function showInquiryMessage(){
+    let inquiryList = document.querySelector("#inquiryList");
+    let notify = document.querySelector("#countConsults");
+    let pMessage = document.createElement("p");
+    inquiryList.innerHTML = "";
+    pMessage.innerHTML = "No hay consultas sin responder"
+    pMessage.className = "message";
+    inquiryList.appendChild(pMessage);
+    let manageBtn = document.createElement("button");
+    manageBtn.className = "manageBtn";
+    manageBtn.onclick = () =>{
+        window.location.href = "../../Consultas/gestionarConsultas/gestionarConsultas.html";
+    }
+    inquiryList.appendChild(manageBtn);
+    notify.innerHTML = 0;
+    notify.classList.add("empty");
+    notify.classList.remove("notify");
+}
+
 function showInquirys(newInquirys){
     let inquiryList = document.querySelector("#inquiryList");
+    let notify = document.querySelector("#countConsults");
     inquiryList.innerHTML = "";
     newInquirys.forEach((inquiry) => {
         let div = document.createElement("div");
@@ -88,7 +112,15 @@ function showInquirys(newInquirys){
         `;
         inquiryList.appendChild(div);
     });
-    
+    let manageBtn = document.createElement("button");
+    manageBtn.className = "manageBtn";
+    manageBtn.onclick = () =>{
+        window.location.href = "../../Consultas/gestionarConsultas/gestionarConsultas.html";
+    }
+    inquiryList.appendChild(manageBtn);
+    notify.innerHTML = newInquirys.length;
+    notify.classList.remove("empty");
+    notify.classList.add("notify");
 }
 
 function addEvents() {

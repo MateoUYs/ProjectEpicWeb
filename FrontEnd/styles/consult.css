@@ -49,3 +49,9 @@
   border: 1px solid black;
   border-radius: 100%;
 }
+
+.message{
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 25px;
+  color: #727272;
+}
