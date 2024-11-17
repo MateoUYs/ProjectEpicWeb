@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Style Indumentaria</title>
+  <script type="module" src="verOferta.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="verOferta.css" />
+  <link rel="stylesheet" href="../../../styles/userNav.css">
+  <link rel="stylesheet" href="../../../styles/body.css">
+  <link rel="stylesheet" href="../../../styles/cart.css">
+  <link rel="stylesheet" href="../../../styles/footerMain.css">
+  <link rel="stylesheet" href="../../../styles/productView.css">
+  <link rel="stylesheet" href="../../../styles/alertFrm.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <nav>
+    <div class="navBar">
+      <div class="navLeft">
+        <img src="../../../assets/logoPageAdmin.svg" alt="Not Found" id="homeBtn">
+        <div id="productsBtn">Catalogo</div>
+        <div id="offerBtn">Ofertas</div>
+        <div id="inquiryBtn">Contáctanos</div>
+      </div>
+      <div class="navRight">
+        <img src="../../../assets/carrito.svg" id="showCart" class="cartBtn">
+        <div class="registroUser" id="registerBtn">Registrarse</div>
+        <div class="inicioSesion" id="logInBtn">Iniciar Sesion</div>
+        <img src="../../../assets/user.png" class="userBtn" id="userBtn">
+      </div>
+    </div>
+  </nav>
+  <div class="userModal modalDisable" id="userModal">
+    <div id="manageUser">Modificar Cuenta</div>
+    <div id="viewSales">Ver Compras</div>
+    <img src="../../../assets/logOut.png" class="logOutBtn" id="logOutBtn">
+  </div>
+  </div>
+  <div class="alertFrm alertDeactivated" id="alertDiv">
+    <form action="">
+      <p class="subTitle" id="alertTitle"></p>
+      <label for="" id="question"></label>
+      <p id="confirmationAlert" class="confirmation"></p>
+      <div class="btns">
+        <input type="submit" class="alertBtn" id="alertBtn" name="submit" value=""></input>
+        <input type="button" class="alertCancelBtn" id="btnCancelAlert" name="cancelar" value="Cancelar"></input>
+      </div>
+    </form>
+  </div>
+  <div class="backContrast"></div>
+  <main>
+   <div class="inputSearchContainer">
+        <input type="text" class="searchInput" name="search" id="searchInput" placeholder="Buscar Producto">
+        <img src="../../../assets/searchIcon.png">
+      </div>
+    <div class="prendas" id="productContainer">
+      
+    </div>
+  </main>
+  <div class="cartModal modalDisable" id="cartModal">
+    <div class="ProductList" id="ProductList">
+
+
+    </div>
+    <div class="details">
+      <p id="totalPrice" class="price"></p>
+      <button id="confirmarCompra" class="confirmBtn">Confirmar compra</button>
+    </div>
+  </div>
+
+  <footer>
+
+    <div class="container__footer">
+      <div class="box__footer">
+        <div class="logo">
+          <img src="../../../assets/logoPageAdmin.png" alt="">
+        </div>
+        <div class="terms">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas impedit cum cumque velit libero officiis
+            quam doloremque reprehenderit quae corporis! Delectus architecto officia praesentium atque laudantium, nam
+            deleniti sapiente deserunt.</p>
+        </div>
+      </div>
+
+
+      <div class="box__footer">
+        <!-- <h2>Redes Sociales</h2> -->
+
+        <a href="#"> <i class="facebook"><img src="../../../assets/facebook.png"></i></a>
+        <a href="#"><i class="twitter"><img src="../../../assets/twitter.png"></i></a>
+        <a href="#"><i class="linkedin"><img src="../../../assets/linkedin.png"></i></a>
+        <a href="#"><i class="instagram"><img src="../../../assets/instagram.png"></i></a>
+      </div>
+
+    </div>
+
+    <div class="box__copyright">
+      <hr>
+      <p>Todos los derechos reservados © 2024 <b>TopStyle</b></p>
+    </div>
+  </footer>
+</body>
+</html>

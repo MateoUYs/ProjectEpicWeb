@@ -68,4 +68,19 @@ export default class OfferDAO {
         return query;
     }
 
+    async getActivatedOffer(){
+        let url = origin + "/BackEnd/controller/offerController.php?function=getActivatedOffer";
+        let formData = new FormData();
+        let actualDate = new Date().toISOString().slice(0, 19).replace('T', ' ');
+        formData.append("actualDate", actualDate);
+
+        let config = {
+            method: "POST",
+            body: formData
+        }
+
+        let queryResponse = await fetch(url, config);
+        let query = await queryResponse.json();
+        return query;
+    }
 }

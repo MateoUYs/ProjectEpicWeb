@@ -18,6 +18,9 @@ switch ($funcion) {
     case 'modify':
         modify();
         break;
+    case 'getActivatedOffer':
+        getActivatedOffer();
+        break;    
     default:
         echo json_encode(['error' => 'Función no reconocida']);
         break;
@@ -60,6 +63,13 @@ function modify(){
     $products = $_POST['products'];
 
     $query = (new offerDAO())->modify($offerId, $title, $description, $endDate, $startDate, $discount, $products);
+    echo json_encode($query);
+}
+
+function getActivatedOffer(){
+    $actualDate = $_POST['actualDate'];
+
+    $query = (new offerDAO())->getActivatedOffer($actualDate);
     echo json_encode($query);
 }
 

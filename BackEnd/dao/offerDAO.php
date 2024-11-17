@@ -41,6 +41,20 @@ class offerDAO
         return $query;
     }
 
+    function getActivatedOffer($actualDate){
+        $connection = connection();
+        $sql = "SELECT * FROM `offer` WHERE '$actualDate' BETWEEN `startDate` AND `endDate`";
+        $result = $connection->query($sql);
+        $offers = $result->fetch_all(MYSQLI_ASSOC);
+        $productOffers = [];
+        foreach ($offers as $offer) {
+            $offer["product"] = $this->getProductOffer($offer["offerId"])->data;
+            $productOffers[] = $offer;
+        }
+        $query = new query(true, "Ofertas y productos obtenidos", $productOffers);
+        return $query;
+    }
+
     function delete($offerId)
     {
         $sql = "DELETE FROM `offer` WHERE `offerId` = '$offerId'";

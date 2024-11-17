@@ -1,6 +1,7 @@
 import SessionDAO from "../../../dao/sessionDAO.js";
-import ProductDAO from "../../../dao/productDao.js";
+import ProductDAO from "../../../dao/productDAO.js";
 import SizeDAO from "../../../dao/sizeDAO.js";
+import InquiryDAO from "../../../dao/InquiryDAO.js";
 
 let id = null;
 let filter = "";
@@ -17,9 +18,71 @@ window.onload = async () => {
     } else {
         window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
     }
+    let inquiryResponse = await new InquiryDAO().getNewInquirys();
+    let newInquirys = inquiryResponse.data;
+    if (newInquirys.length === 0) {
+        showInquiryMessage();
+    } else {
+        showInquirysList(newInquirys);
+    }
     showProducts(allProducts);
     addEvents();
     insertSize();
+}
+
+function showInquiryMessage() {
+    let inquiryList = document.querySelector("#inquiryList");
+    let notify = document.querySelector("#countConsults");
+    let pMessage = document.createElement("p");
+    inquiryList.innerHTML = "";
+    pMessage.innerHTML = "No hay consultas sin responder"
+    pMessage.className = "message";
+    inquiryList.appendChild(pMessage);
+    let manageBtn = document.createElement("button");
+    manageBtn.className = "manageBtn";
+    manageBtn.onclick = () => {
+        window.location.href = "../../Consultas/gestionarConsultas/gestionarConsultas.html";
+    }
+    manageBtn.innerHTML = "Gestionar Consultas";
+    inquiryList.appendChild(manageBtn);
+    notify.innerHTML = 0;
+    console.log(notify.classList);
+    if (notify.classList.contains("notify")) {
+        notify.classList.add("empty");
+        notify.classList.remove("notify");
+    }
+}
+
+function showInquirysList(newInquirys) {
+    let inquiryList = document.querySelector("#inquiryList");
+    let notify = document.querySelector("#countConsults");
+    inquiryList.innerHTML = "";
+    newInquirys.forEach((inquiry) => {
+        let div = document.createElement("div");
+        div.className = "newInquiry";
+        div.innerHTML += `
+            <p>${inquiry.title}</p>
+            <p>${inquiry.userName}</p>
+        `;
+        let img = document.createElement("img");
+        img.src = "../../../assets/view.png";
+        img.onclick = () => {
+            window.location.href = "../../Consultas/gestionarConsultas/gestionarConsultas.html";
+            localStorage.setItem("inquirySelected", JSON.stringify(inquiry));
+        }
+        div.appendChild(img);
+        inquiryList.appendChild(div);
+    });
+    let manageBtn = document.createElement("button");
+    manageBtn.className = "manageBtn";
+    manageBtn.innerHTML = "Gestionar Consultas";
+    manageBtn.onclick = () => {
+        window.location.href = "../../Consultas/gestionarConsultas/gestionarConsultas.html";
+    }
+    inquiryList.appendChild(manageBtn);
+    notify.innerHTML = newInquirys.length;
+    notify.classList.remove("empty");
+    notify.classList.add("notify");
 }
 
 async function showProducts(products) {

@@ -1,4 +1,3 @@
-import ProductoDAO from '../../../dao/productDao.js';
 import statsDAO from '../../../dao/statsDAO.js';
 import sessionDAO from '../../../dao/sessionDAO.js';
 
@@ -45,6 +44,8 @@ function addEvents() {
     let viewProductsBtn = document.querySelector("#productsBtn");
     let userModal = document.querySelector("#userModal");
     let contactBtn = document.querySelector("#inquiryBtn");
+    let manageUser = document.querySelector("#manageUser");
+    let viewSales = document.querySelector("#viewSales");
 
 
     imgButtons.forEach(imgBtn => {
@@ -63,6 +64,14 @@ function addEvents() {
             cart.classList.remove("modalDisable");
             cart.classList.add("modalEnable");
         }
+    }
+
+    manageUser.onclick = () => {
+        window.location.href = "../../Usuarios/gestionarUsuario/gestionarUsuario.html";
+    }
+
+    viewSales.onclick = () => {
+        window.location.href = "../../Ventas/verVenta/verVenta.html";
     }
 
     viewProductsBtn.onclick = () => {

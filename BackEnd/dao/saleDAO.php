@@ -3,6 +3,7 @@
 require_once __DIR__ . "/../config/connection.php";
 require_once __DIR__ . "/sesionDAO.php";
 require_once __DIR__ . "/query.php";
+require_once __DIR__ . '/productDAO.php';
 
 // Definición de la clase 'sales'
 class saleDAO
@@ -12,7 +13,7 @@ class saleDAO
     {
         $session = (new SesionDAO())->getSession()->data;
         $userCi = $session['userCi'];
-       $address = ($shippingAddress != null) ? "'$shippingAddress'" : null;
+        $address = ($shippingAddress != null) ? "'$shippingAddress'" : null;
         $isPaid = ($paymentMethod == "Tarjeta") ? 1 : 0;
         $saleStatus = ($shippingMethod == "Retiro") ? "En Espera en el local" : "En Espera de despachar el envío";
 
@@ -104,7 +105,9 @@ class saleDAO
         $totalPrice = $product['price'] * $product['quantity'];
         $size = $product['size'];
         $quantity = $product['quantity'];
-
+        
+        $productsDAO = new productsDAO();
+        $productsDAO->subtractStock($productId, $quantity);
         $sql = "INSERT INTO `saleproduct`(`productId`, `saleId`, `quantity`, `totalPrice`, `size`, `discount`) VALUES ('$productId','$saleId','$quantity','$totalPrice','$size', $discount)";
         $connection = connection();
         try {

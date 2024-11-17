@@ -4,22 +4,25 @@ import sessionDAO from '../../../dao/sessionDAO.js'
 let allSales = [];
 
 window.onload = async () => {
-    let registerBtn = document.querySelector("#registerBtn");
-    let logInBtn = document.querySelector("#logInBtn");
-    let manageUserBtn = document.querySelector("#manageUserBtn");
-    let logOutBtn = document.querySelector("#logOutBtn");
-    let query = await new sessionDAO().getSession();
     let queryResponse = await new saleDao().getUserSales();
     allSales = queryResponse.data;
+    let query = await new sessionDAO().getSession();
+    let registerBtn = document.querySelector("#registerBtn");
+    let logInBtn = document.querySelector("#logInBtn");
+    let userBtn = document.querySelector("#userBtn");
+    let logOutBtn = document.querySelector("#logOutBtn");
 
     if (query.status) {
         registerBtn.classList.remove("userUnlogged");
         logInBtn.classList.remove("userUnlogged");
-        manageUserBtn.classList.add("userLogged");
+        userBtn.classList.add("userLogged");
         logOutBtn.classList.add("userLogged");
 
     } else {
-        window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html"
+        registerBtn.classList.add("userUnlogged");
+        logInBtn.classList.add("userUnlogged");
+        userBtn.classList.remove("userLogged");
+        logOutBtn.classList.remove("userLogged");
     }
 
     console.log(allSales);
@@ -75,7 +78,7 @@ function addEvents() {
     let btnComprar = document.querySelector("#confirmarCompra");
     let registerBtn = document.querySelector("#registerBtn");
     let logInBtn = document.querySelector("#logInBtn");
-    let manageUserBtn = document.querySelector("#manageUserBtn");
+    let userBtn = document.querySelector("#userBtn");
     let logOutBtn = document.querySelector("#logOutBtn");
     let divAlert = document.querySelector("#alertDiv");
     let pAlertTitle = document.querySelector("#alertTitle");

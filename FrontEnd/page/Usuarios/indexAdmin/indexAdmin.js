@@ -9,8 +9,7 @@ let allSales = [];
 window.onload = async () => {
     let queryResponse = await new SaleDAO().getLastSales();
     allSales = queryResponse.data;
-    let inquiryResponse = await new inquiryDAO().getNewInquirys();
-    let newInquirys = inquiryResponse.data;
+    
     let query = await new SessionDAO().getSession();
     if (query.status) {
         if (query.data.isAdmin == 0) {
@@ -19,13 +18,15 @@ window.onload = async () => {
     } else {
         window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
     }
-    console.log(newInquirys);
-
-    if(newInquirys === 0){
-       showInquiryMessage(); 
-    }else{
+    
+    let inquiryResponse = await new inquiryDAO().getNewInquirys();
+    let newInquirys = inquiryResponse.data;
+    if (newInquirys.length === 0) {
+        showInquiryMessage();
+    } else {
         showInquirys(newInquirys);
     }
+
     if (allSales.length === 0) {
         showMessage();
     } else {
@@ -71,7 +72,7 @@ function showSales(sales) {
     });
 }
 
-function showMessage(){
+function showMessage() {
     let recentPurchases = document.querySelector(".recentPurchases");
     let pMessage = document.createElement("p");
     pMessage.innerHTML = "No hay ventas Recientes"
@@ -79,7 +80,7 @@ function showMessage(){
     recentPurchases.appendChild(pMessage);
 }
 
-function showInquiryMessage(){
+function showInquiryMessage() {
     let inquiryList = document.querySelector("#inquiryList");
     let notify = document.querySelector("#countConsults");
     let pMessage = document.createElement("p");
@@ -89,16 +90,20 @@ function showInquiryMessage(){
     inquiryList.appendChild(pMessage);
     let manageBtn = document.createElement("button");
     manageBtn.className = "manageBtn";
-    manageBtn.onclick = () =>{
+    manageBtn.onclick = () => {
         window.location.href = "../../Consultas/gestionarConsultas/gestionarConsultas.html";
     }
+    manageBtn.innerHTML = "Gestionar Consultas";
     inquiryList.appendChild(manageBtn);
     notify.innerHTML = 0;
-    notify.classList.add("empty");
-    notify.classList.remove("notify");
+    console.log(notify.classList);
+    if(notify.classList.contains("notify")){
+        notify.classList.add("empty");
+        notify.classList.remove("notify");
+    }
 }
 
-function showInquirys(newInquirys){
+function showInquirys(newInquirys) {
     let inquiryList = document.querySelector("#inquiryList");
     let notify = document.querySelector("#countConsults");
     inquiryList.innerHTML = "";
@@ -108,13 +113,20 @@ function showInquirys(newInquirys){
         div.innerHTML += `
             <p>${inquiry.title}</p>
             <p>${inquiry.userName}</p>
-            <img src="../../../assets/view.png">
         `;
+        let img = document.createElement("img");
+        img.src = "../../../assets/view.png";
+        img.onclick = () => {
+            window.location.href = "../../Consultas/gestionarConsultas/gestionarConsultas.html";
+            localStorage.setItem("inquirySelected", JSON.stringify(inquiry));
+        }
+        div.appendChild(img);
         inquiryList.appendChild(div);
     });
     let manageBtn = document.createElement("button");
     manageBtn.className = "manageBtn";
-    manageBtn.onclick = () =>{
+    manageBtn.innerHTML = "Gestionar Consultas";
+    manageBtn.onclick = () => {
         window.location.href = "../../Consultas/gestionarConsultas/gestionarConsultas.html";
     }
     inquiryList.appendChild(manageBtn);
@@ -138,7 +150,6 @@ function addEvents() {
     let menuBtn = document.querySelector("#menuBtn");
     let navDiv = document.querySelector("#navDiv");
     let nav = document.querySelector("nav");
-
 
     consultationBtn.onclick = () => {
         if (listConsultation.classList.contains("deactivated")) {

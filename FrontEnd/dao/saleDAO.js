@@ -48,7 +48,6 @@ export default class SaleDAO {
         
         let formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 
-        console.log(yesterdayDate);
         formData.append("yesterdayDate", formattedDate);
         let config = {
             method: "POST",

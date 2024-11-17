@@ -200,5 +200,16 @@ class productsDAO
         return $query;
     }
 
+    function subtractStock($productId, $quantity){
+        $sql = "UPDATE `product` SET `stock` = `stock` - '$quantity' WHERE `productId` = '$productId'";
+        $connection = connection();
+        try {
+            $connection->query($sql);
+            $query = new query(true, "Stock Agregado", null);
+        } catch (Exception $e) {
+            $query = new query(false, "No se pudo agregar el stock al producto", null);
+        }
+        return $query;
+    }
 }
 ?>
