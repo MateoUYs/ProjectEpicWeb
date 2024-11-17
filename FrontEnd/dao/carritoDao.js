@@ -99,7 +99,7 @@ export default class CarritoDAO {
         formData.append("shippingAddress", direccion);
         formData.append("shippingMethod", metodoEnvio);
         formData.append("paymentMethod", metodoPago);
-        formData.append("saleDate", new Date().toLocaleString());
+        formData.append("saleDate", new Date().toISOString().slice(0, 19).replace('T', ' '));
         formData.append("products", JSON.stringify(products));
         let config = {
             method: "POST",
