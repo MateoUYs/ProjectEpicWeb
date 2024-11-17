@@ -207,3 +207,8 @@ function addEvents() {
     }
 }
 
+async function logOut() {
+    await new SessionDAO().logOut();
+    window.location.href = "../indexUsuario/indexUsuario.html";
+}
+

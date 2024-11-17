@@ -106,8 +106,10 @@ class inquirysDAO
 
     function getAnsweredInquirys()
     {
+        $session = (new SesionDAO())->getSession()->data;
+        $userCi = $session['userCi'];
         $connection = connection();
-        $sql = "SELECT * FROM `inquiry` WHERE `isAnswered`= 1";
+        $sql = "SELECT * FROM `inquiry` WHERE `isAnswered`= 1 AND `userCi` = '$userCi'";
         $result = $connection->query($sql);
         $inquirys = $result->fetch_all(MYSQLI_ASSOC);
         $inquiryMessages = [];

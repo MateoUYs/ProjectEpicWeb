@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Style Indumentaria - Consulta</title>
-    <link rel="stylesheet" href="realizarConsulta.css">
-    <link rel="stylesheet" href="../../../styles/body.css">
-    <link rel="stylesheet" href="../../../styles/userNav.css">
-    <link rel="stylesheet" href="../../../styles/alertFrm.css">
-    <link rel="stylesheet" href="../../../styles/cart.css">
-    <script type="module" src="realizarConsulta.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Style Indumentaria - Consulta</title>
+  <link rel="stylesheet" href="realizarConsulta.css">
+  <link rel="stylesheet" href="../../../styles/body.css">
+  <link rel="stylesheet" href="../../../styles/table.css">
+  <link rel="stylesheet" href="../../../styles/userNav.css">
+  <link rel="stylesheet" href="../../../styles/adminMain.css">
+  <link rel="stylesheet" href="../../../styles/consult.css">
+  <link rel="stylesheet" href="../../../styles/alertFrm.css">
+  <link rel="stylesheet" href="../../../styles/cart.css">
+  <link rel="stylesheet" href="../../../styles/manageForm.css">
+  <script type="module" src="realizarConsulta.js"></script>
 </head>
+
 <body>
   <nav>
     <div class="navBar">
@@ -69,5 +75,61 @@
       <button id="confirmarCompra" class="confirmBtn">Confirmar compra</button>
     </div>
   </div>
+
+  <main>
+    <div class="content">
+      <div class="topContainer">
+        <p class="title" id="consultTitle">Consultas Públicas</p>
+      </div>
+
+      <div class="inputSearchContainer">
+        <input type="text" class="searchInput" name="search" id="searchInput" placeholder="Buscar Consultas">
+        <img src="../../../assets/searchIcon.png">
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Titulo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="inquiryData">
+
+        </tbody>
+      </table>
+
+
+      <div class="topContainer">
+        <p class="title" id="consultTitle">Tus Consultas Respondidas</p>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Titulo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="answeredInquirys">
+
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <div class="modal" id="modal">
+    <div class="mensajeContent">
+      <div>
+        <p>Titulo</p>
+        <p id="tituloContainer"></p>
+      </div>
+
+      <p>Mensajes:</p>
+      <div id="contenidoMensajeContainer"></div>
+
+    </div>
+
+  </div>
 </body>
+
 </html>
