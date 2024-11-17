@@ -2,6 +2,7 @@
 
 // Requiere el archivo userDAO.php que contiene la definición de la clase 'user' y sus métodos
 require_once __DIR__ . '/../dao/userDAO.php';
+require_once __DIR__ . '/../config/configuration.php';
 
 // Obtiene el parámetro 'function' de la URL
 $funcion = isset($_GET['function']) ? $_GET['function'] : '';
@@ -58,14 +59,13 @@ function deleteUser() {
 
 // Función para modificar un usuario
 function modifyUser() {
-    $ci = $_POST["ci"];
     $userName = $_POST["userName"];
     $password  = $_POST["password"];
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
     $correo  = $_POST["email"];
     $phone = $_POST["phone"]; 
 
-    $result = (new userDAO)->modifyUser($ci,$correo,$userName,$hashedPassword,$phone);
+    $result = (new userDAO)->modifyUser($correo,$userName,$hashedPassword,$phone);
     echo json_encode($result);    
 }
 

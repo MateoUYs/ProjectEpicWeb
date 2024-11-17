@@ -48,6 +48,11 @@ function addEvents() {
     let homeBtn = document.querySelector("#homeBtn");
     let searchInput = document.querySelector("#searchInput");
     let contactBtn = document.querySelector("#inquiryBtn");
+    let offerBtn = document.querySelector("#offerBtn");
+
+    offerBtn.onclick = () =>{
+        window.location.href = "../../Ofertas/verOferta/verOferta.html";
+    }
 
     imgButtons.forEach(imgBtn => {
         imgBtn.onclick = () => {

@@ -31,8 +31,7 @@ export default class UserDAO{
     async modifyUser(ci, email, username, password, phoneNumber){
         let url = origin + "/BackEnd/controller/userController.php?function=modify";
         let formData = new FormData();
-        formData.append("ci", ci);
-        formData.append("userNamer", username);
+        formData.append("userName", username);
         formData.append("password", password);
         formData.append("email", email);
         formData.append("phone", phoneNumber);

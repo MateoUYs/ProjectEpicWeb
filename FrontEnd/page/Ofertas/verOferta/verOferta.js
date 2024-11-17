@@ -1,12 +1,13 @@
 import ProductDAO from "../../../dao/productDao.js";
-import sessionDAO from '../../../dao/sessionDAO.js'
+import sessionDAO from '../../../dao/sessionDAO.js';
+import OfferDAO from "../../../dao/offerDAO.js";
 
-let allProducts = [];
+
+let allOffers = [];
 let filter = [];
 
 window.onload = async () => {
-    let query = await new ProductDAO().getProducts();
-    allProducts = query.data;
+    let query = await new OfferDAO().getActivatedOffer();
     let queryUser = await new sessionDAO().getSession();
     let registerBtn = document.querySelector("#registerBtn");
     let logInBtn = document.querySelector("#logInBtn");
@@ -18,7 +19,7 @@ window.onload = async () => {
         logInBtn.classList.remove("userUnlogged");
         userBtn.classList.add("userLogged");
         logOutBtn.classList.add("userLogged");
-        
+
     } else {
         registerBtn.classList.add("userUnlogged");
         logInBtn.classList.add("userUnlogged");
@@ -26,7 +27,13 @@ window.onload = async () => {
         logOutBtn.classList.remove("userLogged");
     }
 
-    showProduct(allProducts);
+    if (query.status) {
+        allOffers = query.data;
+        showOffer(allOffers);
+    }else{
+        showMessage();
+    }
+
     addEvents();
 };
 
@@ -49,6 +56,11 @@ function addEvents() {
     let searchInput = document.querySelector("#searchInput");
     let contactBtn = document.querySelector("#inquiryBtn");
     let viewProductsBtn = document.querySelector("#productsBtn");
+    let offerBtn = document.querySelector("#offerBtn");
+
+    offerBtn.onclick = () =>{
+        window.location.href = "../../Ofertas/verOferta/verOferta.html";
+    }
 
     imgButtons.forEach(imgBtn => {
         imgBtn.onclick = () => {
@@ -69,45 +81,45 @@ function addEvents() {
     }
 
 
-    btnComprar.onclick = async() => {
+    btnComprar.onclick = async () => {
         let query = await new sessionDAO().getSession();
-        
-        if(query.status){
+
+        if (query.status) {
             window.location.href = "../../Carrito/confirmarCompra/confirmarCompra.html";
-        }else{
+        } else {
             window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
         }
     }
 
-    contactBtn.onclick = async() =>{
+    contactBtn.onclick = async () => {
         let query = await new sessionDAO().getSession();
-        
-        if(query.status){
+
+        if (query.status) {
             window.location.href = "../../Consultas/realizarConsulta/realizarConsulta.html";
-        }else{
+        } else {
             window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
         }
     }
 
-    registerBtn.onclick = () =>{
+    registerBtn.onclick = () => {
         window.location.href = "../../Usuarios/registrarse/registrarse.html";
     }
 
-    logInBtn.onclick = () =>{
+    logInBtn.onclick = () => {
         window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
     }
 
     userBtn.onclick = () => {
-        if(userModal.classList.contains("modalDisable")){
+        if (userModal.classList.contains("modalDisable")) {
             userModal.classList.add("modalEnable");
             userModal.classList.remove("modalDisable");
-        }else{
+        } else {
             userModal.classList.remove("modalEnable");
             userModal.classList.add("modalDisable");
         }
     }
 
-    homeBtn.onclick = () =>{
+    homeBtn.onclick = () => {
         window.location.href = "../../Usuarios/IndexUsuario/indexUsuario.html";
     }
 
@@ -115,7 +127,7 @@ function addEvents() {
         window.location.href = "../../Productos/verProducto/verProducto.html";
     }
 
-    logOutBtn.onclick = () =>{
+    logOutBtn.onclick = () => {
         divAlert.classList.add("alertActivated");
         divAlert.classList.remove("alertDeactivated");
         body.classList.add("modalOpen");
@@ -143,14 +155,29 @@ function addEvents() {
         }
     }
 
-    searchInput.onkeyup = () =>{
+    searchInput.onkeyup = () => {
         filter = searchInput.value;
         searchProducts(filter);
     }
 }
 
+function showOffer(offer) {
+    let offerContainer = document.querySelector(".offerInfo");
+    offerContainer.innerHTML = "";
+    let pTitle = document.createElement("p");
+    pTitle.className = "title";
+    pTitle.innerHTML = offer.title;
+    offerContainer.appendChild(pTitle);
+    let pDescription = document.createElement("p");
+    pDescription.className = "subTitle";
+    pDescription.innerHTML = offer.description;
+    offerContainer.appendChild(pDescription);
+    let products = offer.product;
+    showProduct(products);
+}
 
-async function showProduct(products) {
+
+function showProduct(products) {
     let containerElement = document.querySelector("#productContainer");
     containerElement.innerHTML = "";
     products.forEach(product => {
@@ -169,8 +196,17 @@ async function showProduct(products) {
     });
 }
 
-function searchProducts(){
-    let filteredProducts = allProducts.filter(product => (product.productId + product.name+"").includes(filter));
+function showMessage(){
+    let message = document.querySelector(".message");
+    let pMessage = document.createElement("p");
+    pMessage.innerHTML = "No hay ofertas activas. Vuelve Pronto...";
+    message.appendChild(pMessage);
+    message.classList.add("modalEnable");
+    message.classList.remove("modalDisable");
+}
+
+function searchProducts() {
+    let filteredProducts = allProducts.filter(product => (product.productId + product.name + "").includes(filter));
     showProduct(filteredProducts);
 }
 

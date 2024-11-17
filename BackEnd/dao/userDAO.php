@@ -2,6 +2,7 @@
 // Requiere el archivo connection.php que contiene la función de conexión a la base de datos y el modelo de query
 require_once __DIR__ . "/../config/connection.php";
 require_once __DIR__ . "/query.php";
+require_once __DIR__ . "/sesionDAO.php";
 
 class userDAO
 {
@@ -81,9 +82,11 @@ El equipo de TopStyleShop';
     }
 
     // Función para modificar un usuario
-    function modifyUser($ci, $email, $userName, $password, $phoneNumber)
+    function modifyUser($email, $userName, $password, $phoneNumber)
     {
-        $sql = "UPDATE users SET email ='$email', userName = '$userName', `password` ='$password', phone ='$phoneNumber' WHERE ci = '$ci'";
+        $session = (new SesionDAO())->getSession()->data;
+        $userCi = $session['userCi'];
+        $sql = "UPDATE users SET email ='$email', userName = '$userName', `password` ='$password', phone ='$phoneNumber' WHERE `userCi` = '$userCi'";
         $connection = connection();
         try {
             $connection->query($sql);

@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../../../styles/userNav.css">
   <link rel="stylesheet" href="../../../styles/footerMain.css">
   <link rel="stylesheet" href="../../../styles/alertFrm.css">
+  <link rel="stylesheet" href="../../../styles/manageForm.css">
   <link rel="stylesheet" href="../../../styles/cart.css">
   <script type="module" src="gestionarUsuario.js"></script>
 </head>
@@ -36,6 +37,18 @@
     <div id="viewSales">Ver Compras</div>
     <img src="../../../assets/logOut.png" class="logOutBtn" id="logOutBtn">
   </div>
+  <div class="alertFrm alertDeactivated" id="alertDiv">
+    <form action="">
+      <p class="subTitle" id="alertTitle"></p>
+      <label for="" id="question"></label>
+      <p id="confirmationAlert" class="confirmation"></p>
+      <div class="btns">
+        <input type="submit" class="formBtn" id="alertBtn" name="submit" value=""></input>
+        <input type="button" class="cancelBtn" id="btnCancelAlert" name="cancelar" value="Cancelar"></input>
+      </div>
+    </form>
+  </div>
+  <div class="backContrast"></div>
   <main>
     <div class="container">
       <form action="" class="authForm" id="frmUserSettings">

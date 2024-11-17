@@ -72,6 +72,7 @@ export default class OfferDAO {
         let url = origin + "/BackEnd/controller/offerController.php?function=getActivatedOffer";
         let formData = new FormData();
         let actualDate = new Date().toISOString().slice(0, 19).replace('T', ' ');
+        console.log(actualDate);
         formData.append("actualDate", actualDate);
 
         let config = {

@@ -42,8 +42,11 @@ function addEvent(){
     let userModal = document.querySelector("#userModal");
     let contactBtn = document.querySelector("#inquiryBtn");
     let formSumbit = document.querySelector("#consultaForm");
-    console.log(formSumbit);
+    let offerBtn = document.querySelector("#offerBtn");
 
+    offerBtn.onclick = () =>{
+        window.location.href = "../../Ofertas/verOferta/verOferta.html";
+    }
 
     formSumbit.onsubmit = (e) => {
         e.preventDefault();

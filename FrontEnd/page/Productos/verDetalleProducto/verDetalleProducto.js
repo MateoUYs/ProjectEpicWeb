@@ -54,6 +54,11 @@ async function addEvents() {
     let btnComprar = document.querySelector("#confirmarCompra");
     let homeBtn = document.querySelector("#homeBtn");
     let contactBtn = document.querySelector("#inquiryBtn");
+    let offerBtn = document.querySelector("#offerBtn");
+
+    offerBtn.onclick = () =>{
+        window.location.href = "../../Ofertas/verOferta/verOferta.html";
+    }
 
 
     btnAddProductCart.onclick = () => {

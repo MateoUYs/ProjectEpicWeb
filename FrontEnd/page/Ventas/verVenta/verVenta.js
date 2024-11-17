@@ -91,6 +91,11 @@ function addEvents() {
     let divFrm = document.querySelector("#saleFrm");
     let frmSale = divFrm.querySelector("form");
     let contactBtn = document.querySelector("#inquiryBtn");
+    let offerBtn = document.querySelector("#offerBtn");
+
+    offerBtn.onclick = () =>{
+        window.location.href = "../../Ofertas/verOferta/verOferta.html";
+    }
 
 
     btnCart.onclick = () => {
@@ -223,4 +228,9 @@ function loadInputs(sale) {
            `;
         productsList.appendChild(divElement);
     });
+}
+
+async function logOut() {
+    await new sessionDAO().logOut();
+    window.location.href = "../../Usuarios/indexUsuario/indexUsuario.html";
 }

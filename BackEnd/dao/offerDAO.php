@@ -41,17 +41,18 @@ class offerDAO
         return $query;
     }
 
-    function getActivatedOffer($actualDate){
+    function getActivatedOffer($actualDate)
+    {
         $connection = connection();
         $sql = "SELECT * FROM `offer` WHERE '$actualDate' BETWEEN `startDate` AND `endDate`";
         $result = $connection->query($sql);
-        $offers = $result->fetch_all(MYSQLI_ASSOC);
-        $productOffers = [];
-        foreach ($offers as $offer) {
+        if ($result->num_rows > 0) {
+            $offer = $result->fetch_assoc();
             $offer["product"] = $this->getProductOffer($offer["offerId"])->data;
-            $productOffers[] = $offer;
+            $query = new query(true, "Ofertas y productos obtenidos", $offer);
+        } else {
+            $query = new query(false, "No se encontraron ofertas activadas", null);
         }
-        $query = new query(true, "Ofertas y productos obtenidos", $productOffers);
         return $query;
     }
 
@@ -104,7 +105,7 @@ class offerDAO
     function getProductOffer($offerId)
     {
         $connection = connection();
-        $sql = "SELECT * FROM `productoffer`  WHERE `offerId` = '$offerId'";
+        $sql = "SELECT *, product.name, product.extension, product.price FROM product INNER JOIN productoffer ON product.productId = productoffer.productId WHERE productoffer.offerId = '$offerId'";
         $result = $connection->query($sql);
         $productOffer = $result->fetch_all(MYSQLI_ASSOC);
         $query = new query(true, "Productos y ofertas obtenidas", $productOffer);

@@ -46,6 +46,11 @@ function addEvents() {
     let contactBtn = document.querySelector("#inquiryBtn");
     let manageUser = document.querySelector("#manageUser");
     let viewSales = document.querySelector("#viewSales");
+    let offerBtn = document.querySelector("#offerBtn");
+
+    offerBtn.onclick = () =>{
+        window.location.href = "../../Ofertas/verOferta/verOferta.html";
+    }
 
 
     imgButtons.forEach(imgBtn => {
