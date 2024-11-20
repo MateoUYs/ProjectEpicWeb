@@ -253,3 +253,8 @@ async function deleteSize(size){
         confirmationAlert.innerHTML = `Error al eliminar el talle, ${query.message}`;
     }
 }
+
+async function logOut() {
+    await new SessionDAO().logOut();
+    window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
+}

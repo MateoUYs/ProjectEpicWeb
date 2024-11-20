@@ -1,8 +1,9 @@
-import SessionDAO from "../../../dao/sessionDAO.js";
+import sessionDAO from "../../../dao/sessionDAO.js";
 import UserDAO from "../../../dao/userDao.js";
+import CarritoDAO from "../../../dao/carritoDao.js";
 
 window.onload = async() => {
-    let query = await new SessionDAO().getSession();
+    let query = await new sessionDAO().getSession();
     let registerBtn = document.querySelector("#registerBtn");
     let logInBtn = document.querySelector("#logInBtn");
     let userBtn = document.querySelector("#userBtn");
@@ -22,11 +23,12 @@ window.onload = async() => {
     }
     loadData();
     addEvents();
+    showCart();
 }
 
 async function loadData() {
     let formElement = document.querySelector("#frmUserSettings");
-    let query = await new SessionDAO().getSession();
+    let query = await new sessionDAO().getSession();
 
     if (query.status) {
         formElement.email.value = query.data.email;
@@ -160,7 +162,7 @@ function addEvents() {
 
     btnModify.onclick = async (e) => {
         e.preventDefault();
-        let query = await new SessionDAO().getSession();
+        let query = await new sessionDAO().getSession();
 
         let ci = query.data.ci;
         let email = formElement.email.value;
@@ -209,4 +211,65 @@ async function deleteUser(ci) {
 async function logOut() {
     await new sessionDAO().logOut();
     window.location.href = "../indexUsuario/indexUsuario.html";
+}
+
+function showCart(cartProduct) {
+    let tbodyElement = document.querySelector("#ProductList");
+    let divAlert = document.querySelector("#alertDiv");
+    let pAlertTitle = document.querySelector("#alertTitle");
+    let alertQuestion = document.querySelector("#question");
+    let frmAlert = divAlert.querySelector("form");
+    let pTotalPrice = document.querySelector("#totalPrice");
+    let totalPrice = 0;
+    pTotalPrice.innerHTML = "Precio Total:  ";
+    tbodyElement.innerHTML = "";
+    cartProduct.forEach(product => {
+        let content = document.createElement('div');
+        console.log(product.extension);
+        content.innerHTML += `
+        <img src="../../../../BackEnd/imgs/${product.productId}.${product.extension}" class="imgProductCart">
+        <p>${product.name}</p>
+        <p>Talle: ${product.size}</p>
+        <p>Precio: ${product.price}</p>
+        `;
+        let divQuantity = document.createElement('div');
+        divQuantity.className = "divQuantity";
+        let btnAdd = document.createElement('button');
+        btnAdd.innerHTML = "+";
+        btnAdd.onclick = () => aumentarCantidad(product.productId, product.talle);
+        divQuantity.appendChild(btnAdd);
+        let quantity = document.createElement('p');
+        quantity.innerHTML = product.quantity;
+        divQuantity.appendChild(quantity);
+        let btnSubstract = document.createElement('button');
+        btnSubstract.innerHTML = "-";
+        btnSubstract.onclick = () => disminuirCantidad(product.productId, product.talle);
+        divQuantity.appendChild(btnSubstract);
+        content.appendChild(divQuantity);
+        tbodyElement.appendChild(content);
+        let btnDelete = document.createElement('img');
+        btnDelete.src = "../../../assets/deleteIcon.png";
+        btnDelete.onclick = () => {
+            divAlert.classList.add("alertActivated");
+            divAlert.classList.remove("alertDeactivated");
+            pAlertTitle.innerHTML = "Eliminar Producto del carrito";
+            alertQuestion.innerHTML = "¿Estás seguro de que deseas eliminar el producto del carrito?";
+            frmAlert.submit.value = "Eliminar Producto";
+            frmAlert.setAttribute("dataProductId", product.productId);
+        }
+        content.appendChild(btnDelete);
+        totalPrice = totalPrice + product.price * product.quantity;
+    });
+    pTotalPrice.innerHTML += "$" + totalPrice;
+}
+function aumentarCantidad(id, talle) {
+    new CarritoDAO().aumentarCantidadCarrito(id, talle);
+    let cart = new CarritoDAO().obtenerCarrito();
+    showCart(cart);
+
+}
+function disminuirCantidad(id, talle) {
+    new CarritoDAO().disminuirCantidadCarrito(id, talle);
+    let cart = new CarritoDAO().obtenerCarrito();
+    showCart(cart);
 }

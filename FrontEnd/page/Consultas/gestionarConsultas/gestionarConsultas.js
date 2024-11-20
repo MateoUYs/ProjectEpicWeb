@@ -233,3 +233,8 @@ async function publicarInquiry(inquiry){
     let query = await new InquiryDAO().sumbitInquiry(inquiryId);
     console.log(query.status);
 }
+
+async function logOut() {
+    await new SessionDAO().logOut();
+    window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
+}
