@@ -16,7 +16,12 @@ export default class CarritoDAO {
 
     eliminarProductoCarrito(idProducto , talle) {
         let carrito = this.obtenerCarrito();
-        let nuevoCarrito = carrito.filter(producto => producto.productId != idProducto && producto.talle != talle);
+        console.log(carrito);     
+        let nuevoCarrito = carrito.filter(producto => !(producto.productId == idProducto && producto.size == talle));
+        console.log(nuevoCarrito);
+        console.log(idProducto);
+
+        console.log(talle);
         this.guardarCarrito(nuevoCarrito);
         
     }
@@ -43,7 +48,7 @@ export default class CarritoDAO {
     aumentarCantidadCarrito(idProducto,talle) {
         let carrito = this.obtenerCarrito();
         let nuevoCarrito = carrito.map(producto => {
-            if (producto.productId == idProducto && producto.talle == talle) {
+            if (producto.productId == idProducto && producto.size == talle) {
                 producto.quantity++;
             }
             return producto;
@@ -54,7 +59,7 @@ export default class CarritoDAO {
     disminuirCantidadCarrito(idProducto , talle) {
         let carrito = this.obtenerCarrito();
         let nuevoCarrito = carrito.map(producto => {
-            if (producto.productId == idProducto && producto.talle == talle && producto.quantity > 1) {
+            if (producto.productId == idProducto && producto.size == talle && producto.quantity > 1) {
                 producto.quantity--;
             }
             return producto;
@@ -65,13 +70,14 @@ export default class CarritoDAO {
 
     agregarProductoCarrito(product) {
         let carrito = this.obtenerCarrito();
+        console.log(product)
         let productoExistente = carrito.find(producto => producto.productId == product.productId && producto.size == product.size);
         if (productoExistente == null) {
             carrito.push(product);
             this.guardarCarrito(carrito);
             
         }else{
-            this.eliminarProductoCarrito(product.productId,product.talle);
+            this.eliminarProductoCarrito(product.productId,product.size);
             productoExistente.quantity += product.quantity;
             let carritoSinExistente = this.obtenerCarrito();
             carritoSinExistente.push(productoExistente);
@@ -106,7 +112,12 @@ export default class CarritoDAO {
             body: formData
         }
        let response = await fetch(url, config);
+
        let data = await response.json();
+       if(data.status){
+        localStorage.setItem("carrito", JSON.stringify([]));
+
+       }
        return data;
     }
 }

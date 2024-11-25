@@ -47,3 +47,13 @@ form button:hover {
 .direccion {
     display: none;
 }
+
+.message{
+    display: none;
+    font-size: 2rem;
+    font-style: oblique;
+  }
+  
+  .showMessage{
+    display: block;
+  }

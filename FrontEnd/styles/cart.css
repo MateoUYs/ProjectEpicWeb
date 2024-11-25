@@ -17,14 +17,14 @@
   display: flex;
   flex-direction: column;
   width: 99%;
-  height: 90%;
+  height: 70%;
   overflow-y: auto;
 }
 
 .ProductList>div {
   display: flex;
   width: 95%;
-  height: 3rem;
+  height: 5rem;
   border: 1px solid black;
   border-radius: 0.5rem;
   justify-content: space-between;
@@ -34,6 +34,7 @@
 .ProductList>div>p {
   margin: 0;
   padding-top: 0.5rem;
+  font-size: 1.5rem;
 }
 
 .ProductList>div>img {
@@ -86,30 +87,31 @@
 }
 
 
-.divQuantity p {
+.divQuantity>p {
   margin: 0;
   width: 50%;
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   color: #333;
 }
 
 .details {
   display: flex;
   justify-content: space-between;
-  height: 10%;
+  height: 30%;
 }
 
 .price {
   margin: 0;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.2rem;
+  font-size: 2rem;
   color: #333;
 }
 
 .confirmBtn {
   margin-bottom: 10px;
   width: 40%;
+  height: 5rem;
   border: white 1px solid;
   border-radius: 5px;
   background-color: #000000;
