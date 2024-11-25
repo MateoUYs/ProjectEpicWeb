@@ -6,6 +6,16 @@ body {
     padding: 0;
 }
 
+.message{
+    display: none;
+    font-size: 2rem;
+    font-style: oblique;
+  }
+  
+  .showMessage{
+    display: block;
+  }
+
 .consultaContainer {
     max-width: 500px;
     margin: 50px auto;

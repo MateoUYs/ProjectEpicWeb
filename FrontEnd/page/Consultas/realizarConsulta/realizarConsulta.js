@@ -1,5 +1,6 @@
 import InquiryDAO from "../../../dao/InquiryDAO.js";
 import sessionDAO from '../../../dao/sessionDAO.js'
+import CarritoDAO from '../../../dao/carritoDao.js'
 
 let inquirySelected = null;
 let allInquiry = [];
@@ -7,7 +8,7 @@ let answeredInquirys = [];
 let filter = null;
 
 
-window.onload = async() =>{
+window.onload = async () => {
     let queryResponse = await new InquiryDAO().getPublicInquirys();
     allInquiry = queryResponse.data;
     let inquiryQuery = await new InquiryDAO().getAnsweredInquirys();
@@ -23,7 +24,7 @@ window.onload = async() =>{
         logInBtn.classList.remove("userUnlogged");
         userBtn.classList.add("userLogged");
         logOutBtn.classList.add("userLogged");
-        
+
     } else {
         registerBtn.classList.add("userUnlogged");
         logInBtn.classList.add("userUnlogged");
@@ -56,9 +57,9 @@ function showInquiry(inquirys) {
         div.appendChild(btn2);
         btn2.className = "btnTd";
         btn2.onclick = () => {
-            inquirySelected= inquiry;
-           loadMenssage();
-           showModal(true);
+            inquirySelected = inquiry;
+            loadMenssage();
+            showModal(true);
         }
 
         div.id = "actionsTd";
@@ -85,9 +86,9 @@ function showAnsweredInquirys(inquirys) {
         div.appendChild(btn2);
         btn2.className = "btnTd";
         btn2.onclick = () => {
-            inquirySelected= inquiry;
-           loadMenssage();
-           showModal(true);
+            inquirySelected = inquiry;
+            loadMenssage();
+            showModal(true);
         }
 
         div.id = "actionsTd";
@@ -96,49 +97,49 @@ function showAnsweredInquirys(inquirys) {
     });
 }
 
-function loadMenssage(){
+function loadMenssage() {
     let title = document.querySelector("#tituloContainer");
     let message = document.querySelector("#contenidoMensajeContainer");
     message.innerHTML = "";
     title.innerHTML = inquirySelected.title;
-    inquirySelected.message.forEach((msj)=>{
+    inquirySelected.message.forEach((msj) => {
         message.innerHTML += `<p>Pregunta usuario:</p><p>${msj.content}</p>`;
     });
 }
 
 
-function addEventModal(){
+function addEventModal() {
     let modal = document.querySelector("#modal");
     modal.onclick = (e) => {
         if (e.target === modal) {
-            showModal(false); 
+            showModal(false);
         }
     }
 }
 
-function showModal(status){
-    if(status){
+function showModal(status) {
+    if (status) {
         modal.classList.add("show");
-    }else{
+    } else {
         modal.classList.remove("show");
     }
 }
 
-function addFilterEvent(){
+function addFilterEvent() {
     let searchInput = document.querySelector("#searchInput");
 
-    searchInput.onkeyup = () =>{
+    searchInput.onkeyup = () => {
         filter = searchInput.value;
         searchInquirys(filter);
     }
 }
 
-function searchInquirys(filter){
-    let filteredInquirys = allProducts.filter(inquiry => (inquiry.title+"").includes(filter));
+function searchInquirys(filter) {
+    let filteredInquirys = allProducts.filter(inquiry => (inquiry.title + "").includes(filter));
     showInquiry(filteredInquirys);
-}   
+}
 
-function addEvent(){
+function addEvent() {
     let btnCart = document.querySelector("#showCart");
     let cart = document.querySelector("#cartModal");
     let btnComprar = document.querySelector("#confirmarCompra");
@@ -159,7 +160,7 @@ function addEvent(){
     let formSumbit = document.querySelector("#consultaForm");
     let offerBtn = document.querySelector("#offerBtn");
 
-    offerBtn.onclick = () =>{
+    offerBtn.onclick = () => {
         window.location.href = "../../Ofertas/verOferta/verOferta.html";
     }
 
@@ -182,53 +183,53 @@ function addEvent(){
         }
     }
 
-    viewProductsBtn.onclick = () =>{
+    viewProductsBtn.onclick = () => {
         window.location.href = "../../Productos/verProducto/verProducto.html";
     }
 
-    btnComprar.onclick = async() => {
+    btnComprar.onclick = async () => {
         let query = await new sessionDAO().getSession();
-        
-        if(query.status){
+
+        if (query.status) {
             window.location.href = "../../Carrito/confirmarCompra/confirmarCompra.html";
-        }else{
+        } else {
             window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
         }
     }
 
-    contactBtn.onclick = async() =>{
+    contactBtn.onclick = async () => {
         let query = await new sessionDAO().getSession();
-        
-        if(query.status){
+
+        if (query.status) {
             window.location.href = "../../Consultas/realizarConsulta/realizarConsulta.html";
-        }else{
+        } else {
             window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
         }
     }
 
-    registerBtn.onclick = () =>{
+    registerBtn.onclick = () => {
         window.location.href = "../../Usuarios/registrarse/registrarse.html";
     }
 
-    logInBtn.onclick = () =>{
+    logInBtn.onclick = () => {
         window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
     }
 
-    userBtn.onclick = () =>{
-        if(userModal.classList.contains("modalDisable")){
+    userBtn.onclick = () => {
+        if (userModal.classList.contains("modalDisable")) {
             userModal.classList.add("modalEnable");
             userModal.classList.remove("modalDisable");
-        }else{
+        } else {
             userModal.classList.remove("modalEnable");
             userModal.classList.add("modalDisable");
         }
     }
 
-    homeBtn.onclick = () =>{
+    homeBtn.onclick = () => {
         window.location.href = "../../Usuarios/IndexUsuario/indexUsuario.html";
     }
 
-    logOutBtn.onclick = () =>{
+    logOutBtn.onclick = () => {
         divAlert.classList.add("alertActivated");
         divAlert.classList.remove("alertDeactivated");
         body.classList.add("modalOpen");
@@ -257,10 +258,84 @@ function addEvent(){
     }
 }
 
-async function addInquiry(title, message){
+async function addInquiry(title, message) {
     let respuesta = await new InquiryDAO().addInquiry(title, message);
-    console.log(respuesta);
-    console.log(respuesta.message);
+    if (respuesta.status) {
+        message.innerHTML = "";
+        message.classList.add("showMessage");
+        message.innerHTML += "Consulta Realizada!"
+        setTimeout(async () => {
+            message.innerHTML = "";
+            message.classList.remove("showMessage");
+        }, 700);
+    }
 
 }
 
+async function logOut() {
+    await new sessionDAO().logOut();
+    window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
+}
+
+function showCart(cartProduct) {
+    let tbodyElement = document.querySelector("#ProductList");
+    let divAlert = document.querySelector("#alertDiv");
+    let pAlertTitle = document.querySelector("#alertTitle");
+    let alertQuestion = document.querySelector("#question");
+    let frmAlert = divAlert.querySelector("form");
+    let pTotalPrice = document.querySelector("#totalPrice");
+    let totalPrice = 0;
+    pTotalPrice.innerHTML = "Precio Total:  ";
+    tbodyElement.innerHTML = "";
+    cartProduct.forEach(product => {
+        let content = document.createElement('div');
+        console.log(product.extension);
+        content.innerHTML += `
+        <img src="../../../../BackEnd/imgs/${product.productId}.${product.extension}" class="imgProductCart">
+        <p>${product.name}</p>
+        <p>Talle: ${product.size}</p>
+        <p>Precio: ${product.price}</p>
+        `;
+        let divQuantity = document.createElement('div');
+        divQuantity.className = "divQuantity";
+        let btnAdd = document.createElement('button');
+        btnAdd.innerHTML = "+";
+        btnAdd.onclick = () => aumentarCantidad(product.productId, product.talle);
+        divQuantity.appendChild(btnAdd);
+        let quantity = document.createElement('p');
+        quantity.innerHTML = product.quantity;
+        divQuantity.appendChild(quantity);
+        let btnSubstract = document.createElement('button');
+        btnSubstract.innerHTML = "-";
+        btnSubstract.onclick = () => disminuirCantidad(product.productId, product.talle);
+        divQuantity.appendChild(btnSubstract);
+        content.appendChild(divQuantity);
+        tbodyElement.appendChild(content);
+        let btnDelete = document.createElement('img');
+        btnDelete.src = "../../../assets/deleteIcon.png";
+        btnDelete.onclick = () => {
+            divAlert.classList.add("alertActivated");
+            divAlert.classList.remove("alertDeactivated");
+            pAlertTitle.innerHTML = "Eliminar Producto del carrito";
+            alertQuestion.innerHTML = "¿Estás seguro de que deseas eliminar el producto del carrito?";
+            frmAlert.submit.value = "Eliminar Producto";
+            frmAlert.setAttribute("dataProductId", product.productId);
+        }
+        content.appendChild(btnDelete);
+        totalPrice = totalPrice + product.price * product.quantity;
+    });
+    pTotalPrice.innerHTML += "$" + totalPrice;
+}
+
+function aumentarCantidad(id, talle) {
+    new CarritoDAO().aumentarCantidadCarrito(id, talle);
+    let cart = new CarritoDAO().obtenerCarrito();
+    showCart(cart);
+
+}
+
+function disminuirCantidad(id, talle) {
+    new CarritoDAO().disminuirCantidadCarrito(id, talle);
+    let cart = new CarritoDAO().obtenerCarrito();
+    showCart(cart);
+}

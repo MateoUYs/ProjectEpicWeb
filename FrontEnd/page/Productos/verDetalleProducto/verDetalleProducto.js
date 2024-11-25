@@ -1,4 +1,4 @@
-import CarritoDAO from "../../../dao/carritoDAO.js";
+import CarritoDAO from "../../../dao/carritoDao.js";
 import ProductDAO from "../../../dao/productDao.js";
 import sessionDAO from '../../../dao/sessionDAO.js';
 
@@ -22,7 +22,7 @@ window.onload = async () => {
         logInBtn.classList.remove("userUnlogged");
         userBtn.classList.add("userLogged");
         logOutBtn.classList.add("userLogged");
-        
+
     } else {
         registerBtn.classList.add("userUnlogged");
         logInBtn.classList.add("userUnlogged");
@@ -55,13 +55,29 @@ async function addEvents() {
     let homeBtn = document.querySelector("#homeBtn");
     let contactBtn = document.querySelector("#inquiryBtn");
     let offerBtn = document.querySelector("#offerBtn");
+    let manageUser = document.querySelector("#manageUser");
+    let viewSales = document.querySelector("#viewSales");
+    let productsBtn = document.querySelector("#productsBtn");
 
-    offerBtn.onclick = () =>{
+    productsBtn.onclick = () =>{
+        window.location.href = "../../Productos/verProducto/verProducto.html";
+    }
+
+    manageUser.onclick = () =>{
+        window.location.href = "../../Usuarios/gestionarUsuario/gestionarUsuario.html";
+    }
+
+    viewSales.onclick = () =>{
+        window.location.href = "../../Ventas/verVenta/verVenta.html";
+    }
+
+    offerBtn.onclick = () => {
         window.location.href = "../../Ofertas/verOferta/verOferta.html";
     }
 
 
     btnAddProductCart.onclick = () => {
+        let message = document.querySelector("#confirmMessage");
         let quantity = document.querySelector("#inputCantidad").value;
         let talle = document.querySelector("#talle").value;
         let productCart = {
@@ -75,6 +91,13 @@ async function addEvents() {
         }
         new CarritoDAO().agregarProductoCarrito(productCart);
         showCart(new CarritoDAO().obtenerCarrito());
+        message.innerHTML = "";
+        message.classList.add("showMessage");
+           message.innerHTML += "Producto Agregado al Carrito!" 
+        setTimeout(async () => {
+            message.innerHTML = "";
+            message.classList.remove("showMessage");
+        }, 700);
     }
 
 
@@ -89,45 +112,45 @@ async function addEvents() {
     }
 
 
-    btnComprar.onclick = async() => {
+    btnComprar.onclick = async () => {
         let query = await new sessionDAO().getSession();
-        
-        if(query.status){
+
+        if (query.status) {
             window.location.href = "../../Carrito/confirmarCompra/confirmarCompra.html";
-        }else{
+        } else {
             window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
         }
     }
 
-    contactBtn.onclick = async() =>{
+    contactBtn.onclick = async () => {
         let query = await new sessionDAO().getSession();
-        
-        if(query.status){
+
+        if (query.status) {
             window.location.href = "../../Consultas/realizarConsulta/realizarConsulta.html";
-        }else{
+        } else {
             window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
         }
     }
 
-    registerBtn.onclick = () =>{
+    registerBtn.onclick = () => {
         window.location.href = "../../Usuarios/registrarse/registrarse.html";
     }
 
-    logInBtn.onclick = () =>{
+    logInBtn.onclick = () => {
         window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
     }
 
     userBtn.onclick = () => {
-        if(userModal.classList.contains("modalDisable")){
+        if (userModal.classList.contains("modalDisable")) {
             userModal.classList.add("modalEnable");
             userModal.classList.remove("modalDisable");
-        }else{
+        } else {
             userModal.classList.remove("modalEnable");
             userModal.classList.add("modalDisable");
         }
     }
 
-    logOutBtn.onclick = () =>{
+    logOutBtn.onclick = () => {
         divAlert.classList.add("alertActivated");
         divAlert.classList.remove("alertDeactivated");
         body.classList.add("modalOpen");
@@ -147,17 +170,33 @@ async function addEvents() {
 
     frmAlert.onsubmit = (e) => {
         e.preventDefault();
+
         if (frmAlert.submit.value == "Cerrar Sesión") {
             setTimeout(async () => {
                 confirmationAlert.innerHTML = "";
                 logOut();
-            }, 3000);
+            }, 500);
+        } else if (frmAlert.submit.value == "Eliminar Producto") {
+            let idProducto = frmAlert.getAttribute("dataProductId");
+            let talle = frmAlert.getAttribute("dataProductTalle");
+            removeProductCar(idProducto, talle);
+            setTimeout(async () => {
+                divAlert.classList.add("alertDeactivated");
+                divAlert.classList.remove("alertActivated");
+                confirmationAlert.innerHTML = "";
+            }, 500);
         }
     }
 
-    homeBtn.onclick = () =>{
+    homeBtn.onclick = () => {
         window.location.href = "../../Usuarios/IndexUsuario/indexUsuario.html";
     }
+}
+
+function removeProductCar(idProducto, talle) {
+    let carritoDAO = new CarritoDAO().eliminarProductoCarrito(idProducto, talle);
+    let cartProduct = new CarritoDAO().obtenerCarrito();
+    showCart(cartProduct);
 }
 
 function showCart(cartProduct) {
@@ -183,14 +222,14 @@ function showCart(cartProduct) {
         divQuantity.className = "divQuantity";
         let btnAdd = document.createElement('button');
         btnAdd.innerHTML = "+";
-        btnAdd.onclick = () => aumentarCantidad(product.productId, product.talle);
+        btnAdd.onclick = () => aumentarCantidad(product.productId, product.size);
         divQuantity.appendChild(btnAdd);
         let quantity = document.createElement('p');
         quantity.innerHTML = product.quantity;
         divQuantity.appendChild(quantity);
         let btnSubstract = document.createElement('button');
         btnSubstract.innerHTML = "-";
-        btnSubstract.onclick = () => disminuirCantidad(product.productId, product.talle);
+        btnSubstract.onclick = () => disminuirCantidad(product.productId, product.size);
         divQuantity.appendChild(btnSubstract);
         content.appendChild(divQuantity);
         tbodyElement.appendChild(content);
@@ -203,6 +242,9 @@ function showCart(cartProduct) {
             alertQuestion.innerHTML = "¿Estás seguro de que deseas eliminar el producto del carrito?";
             frmAlert.submit.value = "Eliminar Producto";
             frmAlert.setAttribute("dataProductId", product.productId);
+            frmAlert.setAttribute("dataProductTalle", product.size);
+
+
         }
         content.appendChild(btnDelete);
         totalPrice = totalPrice + product.price * product.quantity;

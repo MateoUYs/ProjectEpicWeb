@@ -1,4 +1,4 @@
-import CarritoDAO from "../../../dao/carritoDAO.js";
+import CarritoDAO from '../../../dao/carritoDao.js';
 import sessionDAO from '../../../dao/sessionDAO.js'
 
 window.onload = async() =>{
@@ -160,13 +160,21 @@ function addEvent(){
         let metodoPago = confirmarCompraElement.metodoPago.value;
         let direccion = confirmarCompraElement.direccion.value;
         confirmarCompra(metodoEnvio,metodoPago,direccion);
-
-        
     }
 
 }
 
 async function confirmarCompra(metodoEnvio,metodoPago,direccion){
     let respuesta = await new CarritoDAO().confirmarCompra(direccion,metodoEnvio,metodoPago);
-    console.log(respuesta.message);
+    let message = document.querySelector("#confirmMessage");
+    if(respuesta.status){
+        message.innerHTML = "";
+        message.classList.add("showMessage");
+           message.innerHTML += "Coompra realizada con éxito!" 
+        setTimeout(async () => {
+            message.innerHTML = "";
+            message.classList.remove("showMessage");
+            window.location.href = "../../Ventas/verVenta/verVenta.html";
+        }, 700);
+    }
 }

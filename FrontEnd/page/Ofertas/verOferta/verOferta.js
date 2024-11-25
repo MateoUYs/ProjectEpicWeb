@@ -210,4 +210,7 @@ function searchProducts() {
     showProduct(filteredProducts);
 }
 
-
+async function logOut() {
+    await new SessionDAO().logOut();
+    window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
+}

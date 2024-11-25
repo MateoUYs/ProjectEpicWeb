@@ -175,4 +175,7 @@ function searchProducts(){
     showProduct(filteredProducts);
 }
 
-
+async function logOut() {
+    await new sessionDAO().logOut();
+    window.location.href = "../../Usuarios/indexUsuario/indexUsuario.html";
+}

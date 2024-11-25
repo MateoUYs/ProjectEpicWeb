@@ -306,3 +306,8 @@ function searchSales(){
     let filteredSales = allSales.filter(sale => (sale.saleId + sale.paymentMethod + sale.userName +"").includes(filter));
     showSales(filteredSales);
 }
+
+async function logOut() {
+    await new SessionDAO().logOut();
+    window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
+}
