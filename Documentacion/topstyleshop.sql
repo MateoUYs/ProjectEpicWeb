@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-11-2024 a las 23:50:21
+-- Tiempo de generación: 26-11-2024 a las 16:29:23
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -35,6 +35,22 @@ CREATE TABLE `inquiry` (
   `userCi` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `inquiry`
+--
+
+INSERT INTO `inquiry` (`inquiryId`, `title`, `isPublic`, `isAnswered`, `userCi`) VALUES
+(1, 'Consulta sobre descuentos', 1, 0, '12345678'),
+(2, 'Problema con la cuenta', 1, 1, '23456789'),
+(3, 'Sugerencia para nuevos productos', 1, 1, '34567890'),
+(4, 'Consulta sobre tiempos de entrega', 1, 0, '45678901'),
+(5, 'Opinión sobre el sitio web', 1, 1, '55558115'),
+(6, 'Problema con la contraseña', 0, 1, '56789012'),
+(7, 'Consulta sobre políticas de devolución', 0, 0, '67890123'),
+(8, 'Solicitud de cambio de dirección', 0, 1, '78901234'),
+(9, 'Consulta sobre método de pago', 0, 0, '89012345'),
+(10, 'Revisión de pedido', 0, 1, '90123456');
+
 -- --------------------------------------------------------
 
 --
@@ -47,6 +63,28 @@ CREATE TABLE `message` (
   `inquiryId` int(11) DEFAULT NULL,
   `userCI` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `message`
+--
+
+INSERT INTO `message` (`messageId`, `content`, `inquiryId`, `userCI`) VALUES
+(1, '¿Qué descuentos están disponibles actualmente?', 1, '12345678'),
+(2, 'Tengo problemas al iniciar sesión, ¿qué puedo hacer?', 2, '23456789'),
+(3, 'Por favor intenta restablecer tu contraseña desde la sección de recuperación.', 2, '1'),
+(4, '¿Pueden agregar más productos para verano?', 3, '34567890'),
+(5, 'Gracias por tu sugerencia. La compartiremos con el equipo.', 3, '1'),
+(6, '¿Cuánto tiempo tardan en entregar un pedido?', 4, '45678901'),
+(7, 'Me gustaría darles mi opinión sobre el diseño del sitio.', 5, '55558115'),
+(8, 'Gracias por tus comentarios. Los tomaremos en cuenta.', 5, '1'),
+(9, 'No puedo cambiar mi contraseña, ¿pueden ayudarme?', 6, '56789012'),
+(10, 'Claro, por favor verifica que cumplas los requisitos de seguridad.', 6, '1'),
+(11, '¿Cuál es su política de devoluciones?', 7, '67890123'),
+(12, 'Quiero cambiar mi dirección de envío.', 8, '78901234'),
+(13, 'Por favor envíanos un correo con la nueva dirección.', 8, '1'),
+(14, '¿Qué métodos de pago aceptan?', 9, '89012345'),
+(15, 'Quiero revisar mi pedido, no he recibido actualizaciones.', 10, '90123456'),
+(16, 'Por favor envíanos el número de pedido para revisarlo.', 10, '1');
 
 -- --------------------------------------------------------
 
@@ -62,6 +100,17 @@ CREATE TABLE `offer` (
   `startDate` datetime DEFAULT NULL,
   `discount` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `offer`
+--
+
+INSERT INTO `offer` (`offerId`, `title`, `description`, `endDate`, `startDate`, `discount`) VALUES
+(1, 'Oferta de Invierno', 'Descuento del 20% en productos seleccionados', '2024-11-16 00:00:00', '2024-11-01 00:00:00', 20),
+(2, 'Ofertas de Verano', '30% de descuento en productos de temporada', '2024-01-31 00:00:00', '2023-12-01 00:00:00', 30),
+(3, 'Descuento Black Friday', '50% de descuento en todas las categorías', '2024-11-30 00:00:00', '2024-11-25 00:00:00', 50),
+(4, 'Oferta de Primavera', '15% de descuento en toda la tienda', '2024-09-30 00:00:00', '2024-09-01 00:00:00', 15),
+(5, 'Oferta de Fin de Año', 'Descuento del 40% en productos seleccionados', '2024-12-31 00:00:00', '2024-12-01 00:00:00', 40);
 
 -- --------------------------------------------------------
 
@@ -84,7 +133,7 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`productId`, `price`, `stock`, `description`, `extension`, `name`, `color`) VALUES
-(1, 1200, 50, 'Remera Oversize Black Washed - Spider', 'png', 'Remera Washed - Spider', '#000000'),
+(1, 1200, 48, 'Remera Oversize Black Washed - Spider', 'png', 'Remera Washed - Spider', '#000000'),
 (2, 100, 20, 'Camisa casual', 'jpg', 'Camisa Azul', '#000000'),
 (3, 150, 15, 'Pantalón de vestir', 'jpg', 'Pantalón Negro', 'black'),
 (4, 75, 30, 'Camiseta deportiva', 'jpg', 'Camiseta Roja', 'red'),
@@ -92,7 +141,7 @@ INSERT INTO `product` (`productId`, `price`, `stock`, `description`, `extension`
 (6, 80, 40, 'Sombrero de lana', 'jpg', 'Sombrero Gris', 'gray'),
 (7, 90, 35, 'Bufanda de algodón', 'jpg', 'Bufanda Blanca', 'white'),
 (8, 110, 10, 'Zapatos de cuero', 'jpg', 'Zapatos Marrones', 'brown'),
-(9, 200, 5, 'Abrigo de invierno', 'jpg', 'Abrigo Negro', 'black'),
+(9, 200, 3, 'Abrigo de invierno', 'jpg', 'Abrigo Negro', 'black'),
 (10, 60, 50, 'Guantes térmicos', 'jpg', 'Guantes Grises', 'gray'),
 (11, 130, 18, 'Gafas de sol', 'jpg', 'Gafas Negras', 'black'),
 (12, 55, 28, 'Cinturón de cuero', 'jpg', 'Cinturón Marrón', 'brown'),
@@ -115,6 +164,36 @@ CREATE TABLE `productoffer` (
   `productId` int(11) NOT NULL,
   `offerId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `productoffer`
+--
+
+INSERT INTO `productoffer` (`productId`, `offerId`) VALUES
+(1, 2),
+(2, 2),
+(3, 2),
+(4, 2),
+(5, 2),
+(6, 1),
+(6, 3),
+(7, 3),
+(8, 3),
+(9, 1),
+(9, 3),
+(10, 3),
+(11, 4),
+(12, 4),
+(13, 4),
+(14, 4),
+(15, 4),
+(16, 1),
+(16, 5),
+(17, 1),
+(17, 5),
+(18, 5),
+(19, 5),
+(20, 5);
 
 -- --------------------------------------------------------
 
@@ -279,7 +358,8 @@ INSERT INTO `saleproduct` (`saleProductId`, `productId`, `saleId`, `quantity`, `
 (55, 17, 7, 2, 140, 'M', 0),
 (56, 18, 8, 3, 315, 'L', 0),
 (57, 19, 9, 1, 175, 'XXL', 0),
-(58, 20, 10, 2, 100, 'M', 0);
+(58, 20, 10, 2, 100, 'M', 0),
+(65, 9, 26, 2, 400, 'L', 0);
 
 -- --------------------------------------------------------
 
@@ -318,24 +398,8 @@ INSERT INTO `sales` (`saleId`, `isPaid`, `paymentMethod`, `shippingMethod`, `shi
 (12, 1, 'Efectivo', 'Envio', '3333 Camino Verde', 'Entregado', 'TRK623456', '89012345', '2024-10-31 00:00:00'),
 (13, 0, 'Tarjeta', 'Envio', '4444 Avenida Azul', 'En espera de despachar el envío', 'TRK123456', '90123456', '2024-10-31 00:00:00'),
 (14, 1, 'Tarjeta', 'Envio', '4444 Avenida Azul', 'En espera de despachar el envío', 'TRK723457', '90123456', '2024-11-01 00:00:00'),
-(15, 1, 'Efectivo', 'Envio', '5555 Calle Rojo', 'Entregado', 'TRK823456', '12345678', '2024-11-02 00:00:00');
-
--- --------------------------------------------------------
-
---
--- Estructura Stand-in para la vista `savedproducts`
--- (Véase abajo para la vista actual)
---
-CREATE TABLE `savedproducts` (
-`productId` int(11)
-,`price` int(11)
-,`stock` int(11)
-,`description` varchar(255)
-,`extension` varchar(255)
-,`name` varchar(255)
-,`color` varchar(255)
-,`timesFavorited` bigint(21)
-);
+(15, 1, 'Efectivo', 'Envio', '5555 Calle Rojo', 'Entregado', 'TRK823456', '12345678', '2024-11-02 00:00:00'),
+(26, 0, 'efectivo', 'Envio', 'Jose Pedro Varela', 'En Espera de despachar el envío', NULL, '55558115', '2024-11-17 19:06:01');
 
 -- --------------------------------------------------------
 
@@ -357,46 +421,6 @@ INSERT INTO `size` (`type`) VALUES
 ('S'),
 ('XL'),
 ('XXL');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `userfavoriteproduct`
---
-
-CREATE TABLE `userfavoriteproduct` (
-  `userCi` varchar(255) NOT NULL,
-  `productId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `userfavoriteproduct`
---
-
-INSERT INTO `userfavoriteproduct` (`userCi`, `productId`) VALUES
-('34567890', 1),
-('55558115', 1),
-('78901234', 2),
-('89012345', 2),
-('78901234', 4),
-('89012345', 4),
-('12345678', 7),
-('12345678', 9),
-('23456789', 9),
-('34567890', 9),
-('23456789', 10),
-('45678901', 10),
-('56789012', 10),
-('23456789', 12),
-('89012345', 12),
-('45678901', 13),
-('34567890', 14),
-('12345678', 16),
-('90123456', 16),
-('67890123', 17),
-('45678901', 18),
-('90123456', 19),
-('34567890', 20);
 
 -- --------------------------------------------------------
 
@@ -425,7 +449,7 @@ INSERT INTO `users` (`userCi`, `email`, `isAdmin`, `isVerified`, `userName`, `pa
 ('23456789', 'martin.perez@example.com', 0, 1, 'martinperez', '$2y$10$UvwgPb5QUfR2p9ZiSbLcK.oqemGIt45JF0ZQbTP2RtfJE2nOu3gwy', '0981234567', '67242637a4f97'),
 ('34567890', 'sofia.gomez@example.com', 0, 1, 'sofiagomez', '$2y$10$C/yAsB2//IClJMak40uDt.V7/4agHhBvOqG6plSM3GPRCkjALNd9a', '0982345678', '672426840008e'),
 ('45678901', 'juan.fernandez@example.com', 0, 1, 'juanfernandez', '$2y$10$XgPq3eiPnMqv8ZgpKzOnWeQGU2eNbRBkG/WCZnVWbn9J3fFmeSRHS', '0983456789', '672426a711b88'),
-('55558115', 'bas.gdmc@gmail.com', 0, 1, 'Lautaro', '$2y$10$6NhtHZZkV18mI9I2.hEmVeXuwW.a37hhY7YmwJTIcjqtxQbfErmTi', '097385962', '66dd3cfe0c04a'),
+('55558115', 'bas.gdmc@gmail.com', 0, 1, 'Lautaro', '$2y$10$aa078sPMs.znN/5.1Fu0z.mA8uz8s8KrqaN86rTgsB9N1rUCiJAIS', '097385962', '673a2990e354b'),
 ('56789012', 'carla.rodriguez@example.com', 0, 1, 'carlarodriguez', '$2y$10$s54PFmbNanF6JxmVq6dyze36PMDm5uvioSBJhRaZu5yJKpREM/ctC', '0984567890', '672426d70e20f'),
 ('67890123', 'luis.martinez@example.com', 0, 1, 'luismartinez', '$2y$10$p3mBTeNoI6FWNHpn8Ze5buAmdAIXOIomq8X7lGW6y.Lig60KyyM4O', '0985678901', '672426f76e46b'),
 ('78901234', 'maria.lopez@example.com', 0, 1, 'marialopez', '$2y$10$0WzodsQY/2HCbVeK1m33C.ZdCj.iI7bS8m3TzrRDiX4sQDzu/kkui', '0986789012', '672428c91a5f5'),
@@ -440,15 +464,6 @@ INSERT INTO `users` (`userCi`, `email`, `isAdmin`, `isVerified`, `userName`, `pa
 DROP TABLE IF EXISTS `productsalesquantity`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `productsalesquantity`  AS SELECT count(`sp`.`productId`) AS `saleQuantity`, `p`.`productId` AS `productId`, `p`.`price` AS `price`, `p`.`stock` AS `stock`, `p`.`description` AS `description`, `p`.`extension` AS `extension`, `p`.`name` AS `name`, `p`.`color` AS `color` FROM (`saleproduct` `sp` join `product` `p` on(`p`.`productId` = `sp`.`productId`)) GROUP BY `p`.`productId` ORDER BY count(`sp`.`productId`) DESC ;
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `savedproducts`
---
-DROP TABLE IF EXISTS `savedproducts`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `savedproducts`  AS SELECT `p`.`productId` AS `productId`, `p`.`price` AS `price`, `p`.`stock` AS `stock`, `p`.`description` AS `description`, `p`.`extension` AS `extension`, `p`.`name` AS `name`, `p`.`color` AS `color`, count(`ufp`.`productId`) AS `timesFavorited` FROM (`userfavoriteproduct` `ufp` join `product` `p` on(`p`.`productId` = `ufp`.`productId`)) GROUP BY `p`.`productId` ORDER BY count(`ufp`.`productId`) DESC ;
 
 --
 -- Índices para tablas volcadas
@@ -517,13 +532,6 @@ ALTER TABLE `size`
   ADD PRIMARY KEY (`type`);
 
 --
--- Indices de la tabla `userfavoriteproduct`
---
-ALTER TABLE `userfavoriteproduct`
-  ADD PRIMARY KEY (`productId`,`userCi`),
-  ADD KEY `ciUsuario` (`userCi`);
-
---
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
@@ -538,37 +546,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `inquiry`
 --
 ALTER TABLE `inquiry`
-  MODIFY `inquiryId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `inquiryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `message`
 --
 ALTER TABLE `message`
-  MODIFY `messageId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `messageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `offer`
 --
 ALTER TABLE `offer`
-  MODIFY `offerId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `offerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `product`
 --
 ALTER TABLE `product`
-  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `saleproduct`
 --
 ALTER TABLE `saleproduct`
-  MODIFY `saleProductId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `saleProductId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT de la tabla `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `saleId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `saleId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Restricciones para tablas volcadas
@@ -613,13 +621,6 @@ ALTER TABLE `saleproduct`
 --
 ALTER TABLE `sales`
   ADD CONSTRAINT `sales_ibfk_1` FOREIGN KEY (`userCi`) REFERENCES `users` (`userCi`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `userfavoriteproduct`
---
-ALTER TABLE `userfavoriteproduct`
-  ADD CONSTRAINT `userfavoriteproduct_ibfk_1` FOREIGN KEY (`userCi`) REFERENCES `users` (`userCi`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `userfavoriteproduct_ibfk_2` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
