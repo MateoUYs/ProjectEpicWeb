@@ -6,7 +6,6 @@ window.onload = async () => {
     let query = await new SessionDAO().getSession();
     let queryStats = await new statsDAO().getBestSellings();
     let stats = queryStats.data;
-    let type = "sale";
     if (query.status) {
         if (query.data.isAdmin == 0) {
             window.location.href = "../../Usuarios/IndexUsuario/indexUsuario.html";
@@ -21,7 +20,7 @@ window.onload = async () => {
     } else {
         showInquirysList(newInquirys);
     }
-    showSats(stats, type)
+    showSats(stats)
     addEvents();
 }
 
@@ -80,7 +79,7 @@ function showInquirysList(newInquirys) {
     notify.classList.add("notify");
 }
 
-async function showSats(stats, type) {
+async function showSats(stats) {
     console.log(stats);
     let theadElement = document.querySelector("#columnData");
     let tbodyElement = document.querySelector("#productData");
@@ -88,31 +87,21 @@ async function showSats(stats, type) {
     let trHead = document.createElement("tr");
     theadElement.innerHTML = "";
     tbodyElement.innerHTML = "";
-    if (type == "sale") {
-        trHead.innerHTML += `
+
+    trHead.innerHTML += `
          <th>Nombre Producto</th>
          <th>Cantidad de veces Vendido</th>
     `;
-    } else if (type == "favorite") {
-        trHead.innerHTML += `
-        <th>Nombre Producto</th>
-        <th>Cantidad de veces Guardado</th>
-   `;
-    }
+
     stats.forEach((product) => {
 
         let trBody = document.createElement("tr");
-        if (type == "sale") {
-            trBody.innerHTML += `
+
+        trBody.innerHTML += `
              <td>${product.name}</td>
              <td>${product.saleQuantity}</td>
         `;
-        } else if (type == "favorite") {
-            trBody.innerHTML += `
-            <td>${product.name}</td>
-            <td>${product.timesFavorited}</td>
-       `;
-        }
+
 
         theadElement.appendChild(trHead);
         tbodyElement.appendChild(trBody);
@@ -193,16 +182,10 @@ function addEvents() {
     selectView.onchange = async () => {
         if (selectView.value == "bestSales") {
             let queryStats = await new statsDAO().getBestSellings();
-            let type = "sale";
-            showSats(queryStats.data, type);
+            showSats(queryStats.data);
         } else if (selectView.value == "lessSales") {
             let queryStats = await new statsDAO().getLeastSold();
-            let type = "sale";
-            showSats(queryStats.data, type);
-        } else if (selectView.value == "bestFavorites") {
-            let queryStats = await new statsDAO().getMostSaved();
-            let type = "favorite";
-            showSats(queryStats.data, type);
+            showSats(queryStats.data);
         }
     }
 }

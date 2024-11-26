@@ -87,16 +87,16 @@ function addEvents() {
     let alertCancel = document.querySelector("#btnCancelAlert");
     let body = document.querySelector("body");
     let homeBtn = document.querySelector("#homeBtn");
-    let cancelarBtn = document.querySelector("#cancelBtn");
-    let divFrm = document.querySelector("#saleFrm");
-    let frmSale = divFrm.querySelector("form");
+    let viewProductsBtn = document.querySelector("#productsBtn");
+    let userModal = document.querySelector("#userModal");
     let contactBtn = document.querySelector("#inquiryBtn");
+    let manageUser = document.querySelector("#manageUser");
+    let viewSales = document.querySelector("#viewSales");
     let offerBtn = document.querySelector("#offerBtn");
 
     offerBtn.onclick = () =>{
         window.location.href = "../../Ofertas/verOferta/verOferta.html";
     }
-
 
     btnCart.onclick = () => {
         if (cart.classList.contains("modalEnable")) {
@@ -108,23 +108,34 @@ function addEvents() {
         }
     }
 
+    manageUser.onclick = () => {
+        window.location.href = "../../Usuarios/gestionarUsuario/gestionarUsuario.html";
+    }
 
-    btnComprar.onclick = async() => {
+    viewSales.onclick = () => {
+        window.location.href = "../../Ventas/verVenta/verVenta.html";
+    }
+
+    viewProductsBtn.onclick = () => {
+        window.location.href = "../../Productos/verProducto/verProducto.html";
+    }
+
+    btnComprar.onclick = async () => {
         let query = await new sessionDAO().getSession();
-        
-        if(query.status){
+
+        if (query.status) {
             window.location.href = "../../Carrito/confirmarCompra/confirmarCompra.html";
-        }else{
+        } else {
             window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
         }
     }
 
-    contactBtn.onclick = async() =>{
+    contactBtn.onclick = async () => {
         let query = await new sessionDAO().getSession();
-        
-        if(query.status){
+
+        if (query.status) {
             window.location.href = "../../Consultas/realizarConsulta/realizarConsulta.html";
-        }else{
+        } else {
             window.location.href = "../../Usuarios/iniciarSesion/iniciarSesion.html";
         }
     }
@@ -138,10 +149,10 @@ function addEvents() {
     }
 
     userBtn.onclick = () => {
-        if(userModal.classList.contains("modalDisable")){
+        if (userModal.classList.contains("modalDisable")) {
             userModal.classList.add("modalEnable");
             userModal.classList.remove("modalDisable");
-        }else{
+        } else {
             userModal.classList.remove("modalEnable");
             userModal.classList.add("modalDisable");
         }
@@ -177,14 +188,6 @@ function addEvents() {
                 logOut();
             }, 3000);
         }
-    }
-
-    cancelarBtn.onclick = () => {
-        divFrm.classList.add("frmDeactivated");
-        divFrm.classList.remove("frmActivated");
-        body.classList.remove("modalOpen");
-        frmSale.reset();
-        message.innerHTML = "";
     }
 }
 

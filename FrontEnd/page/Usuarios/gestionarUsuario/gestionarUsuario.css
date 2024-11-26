@@ -4,10 +4,16 @@ main {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100rem;
     margin: 0;
+    margin-left: 20rem;
     flex-direction: column;
     text-align: center;
     box-sizing: border-box;
+}
+
+form{
+    width: 100%;
 }
 
 .bar {
@@ -18,6 +24,7 @@ main {
 .container {
     display: flex;
     justify-content: center;
+    width: 100%;
     align-items: center;
     min-height: 20vh;
     background-color: white;
@@ -115,12 +122,20 @@ main {
     flex-direction: row;
     justify-content: space-evenly;
     gap: 10px;
-    width: 1700px;
+}
+
+.inputs > p{
+    font-size: 1.5rem;
 }
 
 #password {
     position: relative;
-    left: 255px;
+    left: 8.8rem;
+}
+
+#email{
+    position: relative;
+    left: 3rem;
 }
 
 #modifyAlert {

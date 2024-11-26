@@ -26,14 +26,4 @@ class statsDAO
         $query = new query(true, "Productos menos vendidos obtenidos con exito", $leastSold);
         return $query;
     }
-
-    function getMostSaved(){
-        $connection = connection();
-        $sql = "SELECT * FROM savedproducts LIMIT 10";
-        $queryResponse = $connection->query($sql);
-        $mostSaved = $queryResponse->fetch_all(MYSQLI_ASSOC);
-
-        $query = new query(true, "Productos mas guardados como favoritos obtenidos con exito", $mostSaved);
-        return $query;
-    }
 }

@@ -298,7 +298,7 @@ async function updateSale(saleId, isPaid, shippingAddress, saleStatus, paymentMe
             message.classList.add("error");
             message.classList.remove("confirmation");
         }
-        message.innerHTML = `Error al modificar el producto ${query.mensaje}`;
+        message.innerHTML = `Error al modificar el producto ${query.message}`;
     }
 }
 

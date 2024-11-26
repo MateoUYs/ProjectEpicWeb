@@ -3,6 +3,7 @@
     border-collapse: collapse;
     margin-top: 20px;
     margin-bottom: 5%;
+    font-size: 1rem;
   }
 
   table th, table td {
@@ -64,9 +65,5 @@
     height: 40px;
   }
 
-  /* @media screen and (max-width: 600px) {
-    table{
-      width: 80%;
-    }
-  } */
+
     

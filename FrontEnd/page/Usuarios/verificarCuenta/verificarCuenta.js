@@ -27,6 +27,7 @@ function addEvent() {
 async function verifyUser(code) {
     let query = await new SessionDAO().getSession();
     let verifyQuery = await new UserDAO().verifyUser(query.data.email, code);
+    console.log(verifyQuery);
     if (verifyQuery.status) {
         window.location.href = "../IndexUsuario/indexUsuario.html";
     } else {

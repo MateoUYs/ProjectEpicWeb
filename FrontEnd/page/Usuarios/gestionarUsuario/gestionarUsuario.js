@@ -4,6 +4,8 @@ import CarritoDAO from "../../../dao/carritoDao.js";
 
 window.onload = async() => {
     let query = await new sessionDAO().getSession();
+    let queryCart = await new CarritoDAO().obtenerCarrito();
+    let cartProduct = queryCart;
     let registerBtn = document.querySelector("#registerBtn");
     let logInBtn = document.querySelector("#logInBtn");
     let userBtn = document.querySelector("#userBtn");
@@ -23,7 +25,7 @@ window.onload = async() => {
     }
     loadData();
     addEvents();
-    showCart();
+    showCart(cartProduct);
 }
 
 async function loadData() {
@@ -175,11 +177,16 @@ function addEvents() {
 
     btnDelete.onclick = async (e) => {
         e.preventDefault();
-        let query = await new SessionDAO().getSession();
+        let query = await new sessionDAO().getSession();
 
-        let ci = query.datos.ci;
+        let ci = query.data.userCi;
 
         deleteUser(ci);
+
+        setTimeout(async () => {
+            await new sessionDAO().logOut();
+            window.location.href = "../../Usuarios/IndexUsuario/indexUsuario.html";
+        }, 700);
     }
 }
 

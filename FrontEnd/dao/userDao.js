@@ -69,8 +69,7 @@ export default class UserDAO{
             body: formData
         }
         let queryResponse = await fetch(url,config);
-        let query  = await queryResponse.text();
-        console.log(query);
+        let query  = await queryResponse.json();
         return query;
     }
 }

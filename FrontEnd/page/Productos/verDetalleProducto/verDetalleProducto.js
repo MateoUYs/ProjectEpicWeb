@@ -251,6 +251,7 @@ function showCart(cartProduct) {
     });
     pTotalPrice.innerHTML += "$" + totalPrice;
 }
+
 function aumentarCantidad(id, talle) {
     new CarritoDAO().aumentarCantidadCarrito(id, talle);
     let cart = new CarritoDAO().obtenerCarrito();

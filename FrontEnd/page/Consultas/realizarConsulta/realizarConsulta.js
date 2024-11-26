@@ -260,14 +260,16 @@ function addEvent() {
 
 async function addInquiry(title, message) {
     let respuesta = await new InquiryDAO().addInquiry(title, message);
+    let messageConfirm = document.querySelector("#confirmMessage");
+
     if (respuesta.status) {
-        message.innerHTML = "";
-        message.classList.add("showMessage");
-        message.innerHTML += "Consulta Realizada!"
+        messageConfirm.innerHTML = "";
+        messageConfirm.classList.add("showMessage");
+        messageConfirm.innerHTML += "Consulta Realizada!"
         setTimeout(async () => {
-            message.innerHTML = "";
-            message.classList.remove("showMessage");
-        }, 700);
+            messageConfirm.innerHTML = "";
+            messageConfirm.classList.remove("showMessage");
+        }, 1000);
     }
 
 }

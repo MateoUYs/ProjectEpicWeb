@@ -13,9 +13,6 @@ switch ($funcion) {
     case 'getLeastSold':
         getLeastSold();
         break;
-    case 'getMostSaved':
-        getMostSaved();
-        break;
     default:
         echo json_encode(['error' => 'Función no reconocida']);
         break;
@@ -30,9 +27,3 @@ function getLeastSold(){
     $query = (new statsDAO())->getLeastSold();
     echo json_encode($query);
 }
-
-function getMostSaved(){
-    $query = (new statsDAO())->getMostSaved();
-    echo json_encode($query);
-}
-

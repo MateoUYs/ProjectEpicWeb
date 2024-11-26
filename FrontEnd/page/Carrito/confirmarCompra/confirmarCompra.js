@@ -170,7 +170,7 @@ async function confirmarCompra(metodoEnvio,metodoPago,direccion){
     if(respuesta.status){
         message.innerHTML = "";
         message.classList.add("showMessage");
-           message.innerHTML += "Coompra realizada con éxito!" 
+           message.innerHTML += "Compra realizada con éxito!" 
         setTimeout(async () => {
             message.innerHTML = "";
             message.classList.remove("showMessage");
